@@ -1085,10 +1085,51 @@
         </article>
 
         <!-- W58 Mountain temp -->
-        <article class="card items-center justify-center !bg-transparent" data-c="mountain" data-s="3x4" aria-label="Temperature on the mountain">
-          <div class="relative grid aspect-square w-full max-w-full place-items-end justify-items-center overflow-hidden rounded-full" style="background:linear-gradient(#f4f4f5,#d4d4d8);box-shadow:0 0 0 1px var(--sep)">
-            <svg class="absolute inset-0 h-full w-full" viewBox="0 0 100 100" aria-hidden="true" stroke-linejoin="round" stroke-linecap="round"><path d="M-6 78 Q-6 74 -3 70 L22 36 Q25 32 28 36 L38 50 L54 18 Q57 12 60 18 L74 42 L80 36 Q83 32 86 36 L106 70 Q106 74 106 78 Z" fill="#6b7280" stroke="#6b7280" stroke-width="4"/><path d="M54 18 Q57 12 60 18 L64 25 L58 23 L55 28 L50 24 Z" fill="#f4f4f5" stroke="#f4f4f5" stroke-width="3"/><path d="M-6 100 L-6 84 C28 74 60 92 106 80 L106 100Z" fill="rgba(255,255,255,.85)"/></svg>
-            <p class="relative mb-[3%] text-bignum" style="color:#18181b">−20°C</p></div>
+        <article class="card ink relative justify-between gap-0 overflow-hidden p-0" style="background:linear-gradient(165deg,var(--ink-start),var(--ink-end) 82%)" data-c="mountain" data-s="3x4" aria-label="Alpine weather at Zermatt Peak, minus 20 degrees Celsius">
+          <div class="relative z-[1] flex items-start justify-between gap-2 card-pad pb-0">
+            <div class="min-w-0">
+              <p class="text-footnote font-semibold uppercase tracking-[.12em] leading-tight" style="color:rgba(255,255,255,.72)">Zermatt Peak</p>
+              <p class="mt-0.5 text-subhead font-semibold text-white leading-tight">3,883 m · Snowfall</p>
+            </div>
+            <span class="grid h-11 w-11 shrink-0 place-items-center rounded-2xl bg-white/10 backdrop-blur-sm" aria-hidden="true">
+              <svg viewBox="0 0 24 24" class="h-6 w-6 overflow-visible">
+                <path class="anim-cloud" d="M17.5 14.5H7a4 4 0 0 1-.4-8 5.2 5.2 0 0 1 10 1.4A3.5 3.5 0 0 1 17.5 14.5Z" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                <circle class="anim-flake f1" cx="8" cy="16.5" r="1.1" fill="var(--hl)" />
+                <circle class="anim-flake f2" cx="12" cy="17.5" r="1.2" fill="#ffffff" />
+                <circle class="anim-flake f3" cx="16" cy="16.5" r="1.1" fill="var(--hl)" />
+              </svg>
+            </span>
+          </div>
+          <div class="alpine-scene relative flex flex-1 items-end overflow-hidden" aria-hidden="true">
+            <svg viewBox="0 0 240 110" preserveAspectRatio="xMidYMax slice" class="h-full w-full">
+              <defs>
+                <radialGradient id="alpine-glow" cx="56%" cy="28%" r="54%">
+                  <stop offset="0%" stop-color="var(--hl)" stop-opacity=".24" />
+                  <stop offset="100%" stop-color="var(--hl)" stop-opacity="0" />
+                </radialGradient>
+              </defs>
+              <rect width="240" height="110" fill="url(#alpine-glow)" />
+              <circle class="anim-flake f1" cx="38" cy="24" r="2.2" fill="#ffffff" />
+              <circle class="anim-flake f4" cx="84" cy="16" r="1.8" fill="var(--hl)" />
+              <circle class="anim-flake f2" cx="154" cy="20" r="2.1" fill="#ffffff" />
+              <circle class="anim-flake f5" cx="196" cy="30" r="1.7" fill="var(--hl)" />
+              <circle class="anim-flake f3" cx="218" cy="18" r="2" fill="#ffffff" />
+              <path d="M-8 110 L42 52 Q46 47 50 52 L76 80 L108 42 Q112 37 116 42 L158 84 L190 50 Q194 45 198 50 L248 110 Z" fill="rgba(255,255,255,.12)" />
+              <path d="M-8 110 L24 72 Q28 67 32 72 L62 96 L122 18 Q126 13 130 18 L184 82 L206 60 Q210 56 214 60 L248 110 Z" fill="rgba(255,255,255,.22)" />
+              <path d="M122 18 Q126 13 130 18 L143 34 L133 29 L126 37 L119 30 L110 34 Z" fill="rgba(255,255,255,.92)" />
+              <path d="M-8 112 L-8 98 C56 88 128 102 248 90 L248 112 Z" fill="rgba(255,255,255,.14)" />
+            </svg>
+          </div>
+          <div class="relative z-[1] flex items-end justify-between gap-2 border-t border-white/15 bg-black/25 backdrop-blur-sm card-pad">
+            <div>
+              <p class="text-bignum tnum font-bold leading-none text-white">−20°C</p>
+              <p class="mt-1 text-footnote leading-tight" style="color:rgba(255,255,255,.76)">Feels −27°C</p>
+            </div>
+            <div class="text-right text-footnote tnum leading-snug">
+              <p style="color:rgba(255,255,255,.76)">Wind <b class="font-semibold" style="color:var(--hl)">34 km/h</b></p>
+              <p style="color:rgba(255,255,255,.76)">Snow <b class="font-semibold" style="color:var(--hl)">18 cm</b></p>
+            </div>
+          </div>
         </article>
 
         <!-- W59 Notification Inbox & Activity Feed -->

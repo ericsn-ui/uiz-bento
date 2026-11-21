@@ -254,7 +254,7 @@
   .tone { background:var(--t); color:var(--f); }
   .tone .sec { color:color-mix(in srgb,var(--f) 76%,transparent); }
   .tone .tile { background:color-mix(in srgb,var(--f) 10%,transparent); }
-  .tone .pill { background:color-mix(in srgb,var(--f) 15%,transparent); color:var(--f); }
+  .tone .pill:not(.accent) { background:color-mix(in srgb,var(--f) 15%,transparent); color:var(--f); }
   .tone .btn-secondary { background:color-mix(in srgb,var(--f) 15%,transparent); color:var(--f); }
   .tone .btn-primary { background:var(--hl); color:var(--t); }
   .tone .meter { background:color-mix(in srgb,var(--f) 18%,transparent); } .tone .meter > i { background:var(--hl); }
@@ -360,7 +360,7 @@
   .widgets > .card.tone:not(.t-lime):not(.t-green):not(.t-grad-s):not(.t-pink) :is(.tile,.soft) { background:var(--tile); }
   .widgets > .card.tone[class*="t-"]:not(.t-lime):not(.t-green):not(.t-grad-s):not(.t-pink) .sec { color:var(--secondary); }
   .widgets > .card.tone:not(.t-lime):not(.t-green):not(.t-grad-s):not(.t-pink):not([data-c="event"]):not([data-c="stock1"]) .btn-secondary,
-  .widgets > .card.tone:not(.t-lime):not(.t-green):not(.t-grad-s):not(.t-pink):not([data-c="event"]):not([data-c="stock1"]) .pill { background:var(--tile); color:var(--label); }
+  .widgets > .card.tone:not(.t-lime):not(.t-green):not(.t-grad-s):not(.t-pink):not([data-c="event"]):not([data-c="stock1"]) .pill:not(.accent) { background:var(--tile); color:var(--label); }
   /* every corner rounded */
   .widgets [class*="rounded-md"], .widgets [class*="rounded-lg"], .widgets [class*="rounded-sm"], .widgets [class*="rounded-none"] { border-radius:.875rem !important; }
   .widgets svg rect:not([rx]) { rx:3px; }
@@ -376,8 +376,40 @@
   .card:focus-within, .widgets > .card.tone:not(.t-lime):focus-within { box-shadow:0 12px 30px -16px rgba(0,0,0,.32), inset 0 0 0 1px color-mix(in srgb,var(--accent) 34%,var(--sep)); }
   .card::after { content:""; position:absolute; inset:0; border-radius:inherit; pointer-events:none; z-index:2; opacity:var(--glow-o,0); background:radial-gradient(320px circle at var(--mx,50%) var(--my,50%), color-mix(in srgb,var(--accent) 11%,transparent), transparent 68%); transition:opacity .28s ease-out; }
   .card.tone::after, .card.ink::after { background:radial-gradient(320px circle at var(--mx,50%) var(--my,50%), rgba(255,255,255,.09), transparent 68%); }
-  [data-c="mountain"]::after { display:none; }
   @media (hover: none), (prefers-reduced-motion: reduce) { .card::after { display:none; } }
+  /* ---------- Free Animated SVG Icons (flight & alpine weather) ---------- */
+  @media (prefers-reduced-motion: no-preference) {
+    .anim-pulse-dot { animation:uiz-pulse-dot 2.2s ease-in-out infinite; }
+    .anim-plane { transform-box:fill-box; transform-origin:50% 50%; animation:uiz-plane-cruise 3.2s ease-in-out infinite; }
+    .anim-flight-arc { animation:uiz-flight-dash 2.6s linear infinite; }
+    .anim-cloud { transform-box:fill-box; transform-origin:50% 50%; animation:uiz-cloud-sway 4.2s ease-in-out infinite; }
+    .anim-flake { animation:uiz-snow-fall 3s linear infinite; }
+    .anim-flake.f1 { animation-duration:2.8s; animation-delay:0s; }
+    .anim-flake.f2 { animation-duration:3.4s; animation-delay:-1.1s; }
+    .anim-flake.f3 { animation-duration:2.6s; animation-delay:-1.8s; }
+    .anim-flake.f4 { animation-duration:3.7s; animation-delay:-.6s; }
+    .anim-flake.f5 { animation-duration:3.1s; animation-delay:-2.3s; }
+  }
+  @keyframes uiz-pulse-dot {
+    0%, 100% { transform:scale(1); box-shadow:0 0 0 0 color-mix(in srgb,currentColor 45%,transparent); }
+    50% { transform:scale(1.18); box-shadow:0 0 0 4px transparent; }
+  }
+  @keyframes uiz-plane-cruise {
+    0%, 100% { transform:translateY(0) rotate(0deg); }
+    50% { transform:translateY(-2.5px) rotate(-3.5deg); }
+  }
+  @keyframes uiz-flight-dash {
+    to { stroke-dashoffset:-24; }
+  }
+  @keyframes uiz-cloud-sway {
+    0%, 100% { transform:translate(0, 0); }
+    50% { transform:translate(1.2px, -1.2px); }
+  }
+  @keyframes uiz-snow-fall {
+    0% { transform:translate(0, -3px); opacity:0; }
+    20%, 75% { opacity:1; }
+    100% { transform:translate(-3px, 14px); opacity:0; }
+  }
   #loop { transform-origin:50% 0; }
   .seat { width:.875rem; height:.875rem; border-radius:50%; background:color-mix(in srgb,var(--f) 22%,transparent); }
   .seat.on { background:var(--hl); }
@@ -540,6 +572,10 @@
   html[data-density="compact"] [data-c="aipromo"] .pill { padding:0 .4rem; font-size:.75rem; line-height:1.1rem; }
   html[data-density="compact"] [data-c="aipromo"] .torus-wrap { width:3.5rem; height:3.5rem; }
   html[data-density="compact"] [data-c="aipromo"] .torus { width:3.5rem; height:3.5rem; border-width:.45rem; }
+  html[data-density="compact"] [data-c="flight"] .text-title1 { font-size:1.5rem; line-height:1.75rem; }
+  html[data-density="compact"] [data-c="mountain"] .text-bignum { font-size:2rem; line-height:2.125rem; }
+  .alpine-scene { min-height:6.5rem; }
+  html[data-density="compact"] .alpine-scene { min-height:4.75rem; }
 
   /* ---------- Notification Inbox Tabs ---------- */
   .inb-tabs { display:flex; align-items:center; gap:.375rem; overflow-x:auto; scrollbar-width:none; padding-bottom:.5rem; border-bottom:1px solid var(--sep); }
