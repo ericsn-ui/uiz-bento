@@ -1,0 +1,12 @@
+{
+  "name": "uizbento",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "build": "npm run build:css",
+    "build:css": "tailwindcss -c tailwind.config.js -i src/tailwind.css -o styles.css --minify"
+  },
+  "devDependencies": {
+    "tailwindcss": "3.4.16"
+  }
+}

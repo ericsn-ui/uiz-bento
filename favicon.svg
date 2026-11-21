@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <style>
+    .bg { fill: #14210a; }
+    .tile-dim { fill: #243b11; }
+    .tile-bright { fill: #a3e635; }
+    .tile-soft { fill: #65a30d; }
+    @media (prefers-color-scheme: light) {
+      .bg { fill: #f2f2f7; }
+      .tile-dim { fill: #dce8d5; }
+      .tile-bright { fill: #456b0b; }
+      .tile-soft { fill: #65a30d; }
+    }
+  </style>
+  <rect class="bg" width="64" height="64" rx="16" />
+  <rect class="tile-bright" x="10" y="10" width="24" height="24" rx="7" />
+  <rect class="tile-dim" x="38" y="10" width="16" height="10" rx="5" />
+  <rect class="tile-soft" x="38" y="24" width="16" height="10" rx="5" />
+  <rect class="tile-dim" x="10" y="38" width="18" height="16" rx="6" />
+  <rect class="tile-bright" x="32" y="38" width="22" height="16" rx="6" />
+</svg>
