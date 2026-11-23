@@ -928,69 +928,61 @@
     50% { transform:translate3d(2%, -2%, 0) scale(1.05); }
   }
   html[data-material="glass"] body::before {
-    content:""; position:fixed; inset:-14%; z-index:-1; pointer-events:none;
-    background:
-      radial-gradient(48vw 48vw at 14% 16%, color-mix(in srgb, var(--accent) 26%, transparent), transparent 68%),
-      radial-gradient(44vw 44vw at 86% 22%, color-mix(in srgb, var(--chart) 22%, transparent), transparent 66%),
-      radial-gradient(50vw 50vw at 74% 84%, color-mix(in srgb, var(--hl) 20%, transparent), transparent 68%),
-      radial-gradient(42vw 42vw at 22% 82%, color-mix(in srgb, var(--c3) 18%, transparent), transparent 70%);
-    filter:blur(42px) saturate(1.35);
-    animation:uiz-glass-ambient 18s ease-in-out infinite;
+    content:""; position:fixed; inset:-6%; z-index:-1; pointer-events:none;
+    background:url("./glass-bg.svg") center / cover no-repeat;
+    animation:uiz-glass-ambient 20s ease-in-out infinite;
   }
   html[data-material="glass"][data-scheme="dark"] body::before {
-    background:
-      radial-gradient(48vw 48vw at 14% 16%, color-mix(in srgb, var(--accent) 30%, transparent), transparent 68%),
-      radial-gradient(44vw 44vw at 86% 22%, color-mix(in srgb, var(--chart) 26%, transparent), transparent 66%),
-      radial-gradient(50vw 50vw at 74% 84%, color-mix(in srgb, var(--hl) 22%, transparent), transparent 68%),
-      radial-gradient(42vw 42vw at 22% 82%, color-mix(in srgb, var(--ink-start) 55%, transparent), transparent 70%);
+    filter:brightness(.82) saturate(1.15);
   }
   @media (prefers-color-scheme: dark) {
     html[data-material="glass"]:not([data-scheme="light"]) body::before {
-      background:
-        radial-gradient(48vw 48vw at 14% 16%, color-mix(in srgb, var(--accent) 30%, transparent), transparent 68%),
-        radial-gradient(44vw 44vw at 86% 22%, color-mix(in srgb, var(--chart) 26%, transparent), transparent 66%),
-        radial-gradient(50vw 50vw at 74% 84%, color-mix(in srgb, var(--hl) 22%, transparent), transparent 68%),
-        radial-gradient(42vw 42vw at 22% 82%, color-mix(in srgb, var(--ink-start) 55%, transparent), transparent 70%);
+      filter:brightness(.82) saturate(1.15);
     }
   }
   @media (prefers-reduced-motion: reduce) {
     html[data-material="glass"] body::before { animation:none !important; }
   }
 
-  /* Single-layer blur on .card (no nested blur on inner .tile/.soft for 60fps scroll) */
+  /* Single-layer blur on .card (white frosted Liquid Glass, no nested blur on inner .tile/.soft for 60fps scroll) */
   html[data-material="glass"] .card,
   html[data-material="glass"] .widgets > .card.tone:not(.t-lime),
   html[data-material="glass"] .seo-bento .t-violet {
-    background:linear-gradient(145deg, rgba(255,255,255,.72), rgba(255,255,255,.46)) !important;
-    -webkit-backdrop-filter:blur(18px) saturate(180%);
-    backdrop-filter:blur(18px) saturate(180%);
-    border:1px solid rgba(255,255,255,.72);
+    background:linear-gradient(145deg, rgba(255,255,255,.52), rgba(255,255,255,.26)) !important;
+    -webkit-backdrop-filter:blur(22px) saturate(185%);
+    backdrop-filter:blur(22px) saturate(185%);
+    border:1px solid rgba(255,255,255,.68);
     box-shadow:
       inset 0 1px 0 rgba(255,255,255,.92),
-      inset 0 -1px 0 rgba(15,23,42,.05),
-      0 12px 32px -12px rgba(15,23,42,.14);
+      inset 0 -1px 0 rgba(255,255,255,.22),
+      0 14px 36px -12px rgba(15,23,42,.24);
   }
   html[data-material="glass"][data-scheme="dark"] .card,
   html[data-material="glass"][data-scheme="dark"] .widgets > .card.tone:not(.t-lime),
   html[data-material="glass"][data-scheme="dark"] .seo-bento .t-violet {
-    background:linear-gradient(145deg, rgba(38,38,44,.66), rgba(18,18,22,.46)) !important;
-    border-color:rgba(255,255,255,.16);
+    background:linear-gradient(145deg, rgba(255,255,255,.18), rgba(255,255,255,.07)) !important;
+    border-color:rgba(255,255,255,.28);
     box-shadow:
-      inset 0 1px 0 rgba(255,255,255,.24),
-      inset 0 -1px 0 rgba(0,0,0,.32),
-      0 16px 38px -14px rgba(0,0,0,.55);
+      inset 0 1px 0 rgba(255,255,255,.38),
+      inset 0 -1px 0 rgba(255,255,255,.08),
+      0 18px 42px -14px rgba(0,0,0,.55);
   }
   @media (prefers-color-scheme: dark) {
     html[data-material="glass"]:not([data-scheme="light"]) .card,
     html[data-material="glass"]:not([data-scheme="light"]) .widgets > .card.tone:not(.t-lime),
     html[data-material="glass"]:not([data-scheme="light"]) .seo-bento .t-violet {
-      background:linear-gradient(145deg, rgba(38,38,44,.66), rgba(18,18,22,.46)) !important;
-      border-color:rgba(255,255,255,.16);
+      background:linear-gradient(145deg, rgba(255,255,255,.18), rgba(255,255,255,.07)) !important;
+      border-color:rgba(255,255,255,.28);
       box-shadow:
-        inset 0 1px 0 rgba(255,255,255,.24),
-        inset 0 -1px 0 rgba(0,0,0,.32),
-        0 16px 38px -14px rgba(0,0,0,.55);
+        inset 0 1px 0 rgba(255,255,255,.38),
+        inset 0 -1px 0 rgba(255,255,255,.08),
+        0 18px 42px -14px rgba(0,0,0,.55);
     }
+  }
+  html[data-material="glass"] .card:not(.ink):not(.tone) .sec,
+  html[data-material="glass"] .widgets > .card.tone:not(.t-lime):not(.t-green):not(.t-grad-s):not(.t-pink) .sec,
+  html[data-material="glass"] .seo-bento .t-violet .sec {
+    color:color-mix(in srgb, var(--label) 72%, transparent);
   }
 
   /* Tinted & Ink Liquid Glass Cards */

@@ -3,7 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "scripts": {
-    "build": "npm run build:css && mkdir -p public && cp index.html styles.css favicon.svg og-image.png robots.txt sitemap.xml public/",
+    "build": "npm run build:css && mkdir -p public && cp index.html styles.css favicon.svg og-image.png glass-bg.svg robots.txt sitemap.xml public/",
     "build:css": "tailwindcss -c tailwind.config.js -i src/tailwind.css -o styles.css --minify"
   },
   "devDependencies": {
