@@ -2431,6 +2431,13 @@
         <button class="font-btn" type="button" data-set-font="swiss" aria-pressed="false"><span><b class="block text-subhead" style="font-family:'Syne',sans-serif">Swiss Avant</b><span class="sec text-footnote">Syne + Manrope</span></span><span class="sec text-callout" style="font-family:'Syne',sans-serif">Aa</span></button>
       </div>
     </div>
+
+    <div class="border-t border-sep pt-3">
+      <button id="studio-export-css" class="btn btn-primary w-full !rounded-2xl" type="button" title="Copy current theme CSS variables to clipboard">
+        <svg class="ic sm" aria-hidden="true"><use href="#i-copy"/></svg>
+        <span>Export Theme CSS</span>
+      </button>
+    </div>
   </div>
 
 <!-- ============================================================
@@ -2541,6 +2548,47 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   };
   upgradeSelects(primary);
+
+  const injectCardCopyButtons = container => {
+    $$('.card', container).forEach(card => {
+      if (card.querySelector(':scope > .card-copy-btn')) return;
+      const label = card.getAttribute('aria-label') || 'bento';
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'card-copy-btn';
+      btn.setAttribute('aria-label', `Copy ${label} card HTML`);
+      btn.title = 'Copy card HTML';
+      btn.innerHTML = '<svg class="ic sm" aria-hidden="true"><use href="#i-copy"/></svg><span>Copy</span>';
+      card.appendChild(btn);
+    });
+  };
+  injectCardCopyButtons(primary);
+
+  loop.addEventListener('click', async e => {
+    const btn = e.target.closest('.card-copy-btn');
+    if (!btn) return;
+    e.stopPropagation();
+    const card = btn.closest('.card');
+    if (!card) return;
+    const clean = card.cloneNode(true);
+    clean.querySelectorAll('.card-copy-btn').forEach(el => el.remove());
+    clean.style.removeProperty('transform');
+    clean.style.removeProperty('--mx');
+    clean.style.removeProperty('--my');
+    if (!clean.getAttribute('style')?.trim()) clean.removeAttribute('style');
+    const html = clean.outerHTML;
+    try { await navigator.clipboard.writeText(html); } catch {}
+    const label = card.getAttribute('aria-label') || 'card';
+    btn.classList.add('is-copied');
+    btn.innerHTML = '<svg class="ic sm" aria-hidden="true"><use href="#i-check"/></svg><span>Copied</span>';
+    const dockStatusEl = $('#dock-status');
+    if (dockStatusEl) dockStatusEl.textContent = `Copied ${label} card HTML`;
+    clearTimeout(btn._copyTimer);
+    btn._copyTimer = setTimeout(() => {
+      btn.classList.remove('is-copied');
+      btn.innerHTML = '<svg class="ic sm" aria-hidden="true"><use href="#i-copy"/></svg><span>Copy</span>';
+    }, 1800);
+  });
 
   /* ---------- 1. Build the endless grid: [clone][primary][clone] ---------- */
   let cloneSeq = 0;
@@ -3329,6 +3377,31 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   if (resetStudioBtn) {
     resetStudioBtn.addEventListener('click', () => applyStudio({ accent: 'lime', scheme: 'auto', font: 'system', density: 'comfortable', loopPaused: false }, 'Studio preferences reset to default'));
+  }
+  const exportCssBtn = $('#studio-export-css');
+  if (exportCssBtn) {
+    exportCssBtn.addEventListener('click', async () => {
+      const cs = getComputedStyle(root);
+      const vars = [
+        '--accent', '--accent-text', '--accent-soft', '--on-accent',
+        '--surface', '--tile', '--fill', '--sep',
+        '--label', '--secondary', '--card-pad', '--card-gap',
+        '--font-display', '--font-body'
+      ];
+      const lines = vars
+        .map(v => [v, cs.getPropertyValue(v).trim()])
+        .filter(([, val]) => val)
+        .map(([v, val]) => `  ${v}: ${val};`);
+      const resolvedScheme = studioState.scheme === 'auto' ? (schemeMql.matches ? 'dark' : 'light') : studioState.scheme;
+      const cssBlock = `/* UIzBENTO Theme: ${THEME_LABELS[studioState.accent] || studioState.accent} · ${resolvedScheme} · ${FONT_LABELS[studioState.font] || studioState.font} (${studioState.density}) */\n:root {\n${lines.join('\n')}\n}`;
+      try { await navigator.clipboard.writeText(cssBlock); } catch {}
+      exportCssBtn.innerHTML = '<svg class="ic sm" aria-hidden="true"><use href="#i-check"/></svg><span>Copied Theme CSS!</span>';
+      if (dockStatus) dockStatus.textContent = 'Copied current theme CSS variables to clipboard';
+      clearTimeout(exportCssBtn._copyTimer);
+      exportCssBtn._copyTimer = setTimeout(() => {
+        exportCssBtn.innerHTML = '<svg class="ic sm" aria-hidden="true"><use href="#i-copy"/></svg><span>Export Theme CSS</span>';
+      }, 1800);
+    });
   }
   if (quickSchemeBtn) {
     quickSchemeBtn.addEventListener('click', () => {
