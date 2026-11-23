@@ -2310,6 +2310,99 @@
           <button class="btn btn-primary w-full !rounded-2xl" type="button" data-action="sheet" data-sheet="Pro Workspace Trial" title="Start your 14-day Pro Workspace free trial"><svg class="ic sm" aria-hidden="true"><use href="#i-bolt"/></svg>Start Pro Trial</button>
         </article>
 
+        <!-- SC-37 WCAG Contrast Checker -->
+        <article class="card sc-4 justify-between gap-3" data-sc="contrast" aria-label="WCAG Contrast Checker">
+          <div class="flex items-center justify-between gap-2">
+            <div><h2 class="text-headline">Contrast Checker</h2><p class="sec text-footnote">WCAG relative luminance</p></div>
+            <span class="hd-ic" aria-hidden="true"><svg class="ic sm"><use href="#i-palette"/></svg></span>
+          </div>
+          <div class="flex items-center justify-between gap-2">
+            <p class="text-title1 font-bold tnum"><span data-sc-bind="ctr-ratio">11.13:1</span></p>
+            <div class="flex items-center gap-1.5">
+              <span class="pill font-semibold" data-sc-bind="ctr-aa" style="background:var(--lime-bg);color:var(--lime-fg)">AA Pass</span>
+              <span class="pill font-semibold" data-sc-bind="ctr-aaa" style="background:var(--lime-bg);color:var(--lime-fg)">AAA Pass</span>
+            </div>
+          </div>
+          <div class="flex items-center gap-2">
+            <label class="soft flex-1 flex items-center gap-2 !p-2 cursor-pointer" title="Pick foreground text color">
+              <input class="h-8 w-8 shrink-0 cursor-pointer rounded-xl border border-sep bg-transparent p-0" type="color" value="#14210a" data-sc-input="ctr-fg" aria-label="Foreground color" />
+              <span class="min-w-0"><span class="block text-footnote sec">FG</span><span class="block font-mono text-footnote font-semibold" data-sc-bind="ctr-fg-hex">#14210a</span></span>
+            </label>
+            <button class="btn btn-outline btn-icon !h-9 !w-9 !min-h-0 shrink-0" type="button" data-sc-act="ctr-swap" aria-label="Swap foreground and background colors" title="Swap foreground and background colors"><svg class="ic sm" aria-hidden="true"><use href="#i-swap"/></svg></button>
+            <label class="soft flex-1 flex items-center gap-2 !p-2 cursor-pointer" title="Pick background surface color">
+              <input class="h-8 w-8 shrink-0 cursor-pointer rounded-xl border border-sep bg-transparent p-0" type="color" value="#a3e635" data-sc-input="ctr-bg" aria-label="Background color" />
+              <span class="min-w-0"><span class="block text-footnote sec">BG</span><span class="block font-mono text-footnote font-semibold" data-sc-bind="ctr-bg-hex">#a3e635</span></span>
+            </label>
+          </div>
+          <div class="flex flex-wrap items-center gap-1.5" role="group" aria-label="Quick color presets">
+            <button class="btn btn-secondary tog !min-h-[2rem] flex-1 px-2 text-footnote" type="button" aria-pressed="false" data-sc-act="ctr-preset" data-preset="brand" title="Test current theme accent pair">Brand</button>
+            <button class="btn btn-secondary tog !min-h-[2rem] flex-1 px-2 text-footnote" type="button" aria-pressed="false" data-sc-act="ctr-preset" data-preset="dark" title="Test dark surface pair">Dark</button>
+            <button class="btn btn-secondary tog !min-h-[2rem] flex-1 px-2 text-footnote" type="button" aria-pressed="false" data-sc-act="ctr-preset" data-preset="muted" title="Test muted secondary pair">Muted</button>
+          </div>
+          <div class="rounded-2xl border border-sep px-3 py-2.5 transition" data-sc-bind="ctr-preview" style="background:#a3e635;color:#14210a">
+            <p class="font-semibold text-subhead">Accessible UI Preview</p>
+            <p class="text-footnote opacity-90">The quick brown fox jumps over lazy UI.</p>
+          </div>
+        </article>
+
+        <!-- SC-38 Typography Scale Playground -->
+        <article class="card sc-4 justify-between gap-3" data-sc="typescale" aria-label="Typography Scale Playground">
+          <div class="flex items-center justify-between gap-2">
+            <div><h2 class="text-headline">Type Scale</h2><p class="sec text-footnote" data-sc-bind="ts-ratio-lbl">Major 3rd · 1.25</p></div>
+            <div class="flex items-center gap-1 rounded-full bg-fill p-1" role="group" aria-label="Base font size stepper">
+              <button class="btn btn-secondary btn-icon !h-9 !w-9 !min-h-0" type="button" data-sc-act="ts-step" data-dir="-1" aria-label="Decrease base size" title="Decrease base size">−</button>
+              <span class="px-2 font-mono text-footnote font-semibold tnum" data-sc-bind="ts-base">16px</span>
+              <button class="btn btn-secondary btn-icon !h-9 !w-9 !min-h-0" type="button" data-sc-act="ts-step" data-dir="1" aria-label="Increase base size" title="Increase base size">+</button>
+            </div>
+          </div>
+          <div class="flex gap-1 rounded-2xl bg-fill p-1" role="group" aria-label="Modular scale ratio">
+            <button class="btn tog !min-h-[2.25rem] flex-1 flex-col gap-0 !px-1 text-footnote leading-tight" type="button" aria-pressed="false" data-sc-act="ts-ratio" data-ratio="1.2" title="Minor 3rd (1.20)"><span class="tnum font-bold">1.20</span><span class="text-[0.6875rem] opacity-70">Minor 3rd</span></button>
+            <button class="btn tog !min-h-[2.25rem] flex-1 flex-col gap-0 !px-1 text-footnote leading-tight" type="button" aria-pressed="true" data-sc-act="ts-ratio" data-ratio="1.25" title="Major 3rd (1.25)"><span class="tnum font-bold">1.25</span><span class="text-[0.6875rem] opacity-70">Major 3rd</span></button>
+            <button class="btn tog !min-h-[2.25rem] flex-1 flex-col gap-0 !px-1 text-footnote leading-tight" type="button" aria-pressed="false" data-sc-act="ts-ratio" data-ratio="1.333" title="Perfect 4th (1.333)"><span class="tnum font-bold">1.333</span><span class="text-[0.6875rem] opacity-70">Perfect 4th</span></button>
+          </div>
+          <div class="soft grid gap-2">
+            <div class="flex items-baseline justify-between gap-2">
+              <span class="truncate font-bold leading-tight" data-sc-bind="ts-h1" style="font-family:var(--font-display);font-size:25px">Display Heading</span>
+              <span class="shrink-0 font-mono text-footnote sec tnum" data-sc-bind="ts-h1-px">H1 · 25px</span>
+            </div>
+            <div class="flex items-baseline justify-between gap-2 border-t border-sep pt-2">
+              <span class="truncate font-semibold leading-tight" data-sc-bind="ts-h2" style="font-family:var(--font-display);font-size:20px">Section Subhead</span>
+              <span class="shrink-0 font-mono text-footnote sec tnum" data-sc-bind="ts-h2-px">H2 · 20px</span>
+            </div>
+            <div class="flex items-baseline justify-between gap-2 border-t border-sep pt-2">
+              <span class="truncate" data-sc-bind="ts-body" style="font-family:var(--font-body);font-size:16px">Body interface copy</span>
+              <span class="shrink-0 font-mono text-footnote sec tnum" data-sc-bind="ts-body-px">Body · 16px</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- SC-39 Radius & Elevation Previewer -->
+        <article class="card sc-4 justify-between gap-3" data-sc="radii" aria-label="Radius and Elevation Previewer">
+          <div class="flex items-center justify-between gap-2">
+            <div><h2 class="text-headline">Radius &amp; Elevation</h2><p class="sec text-footnote" data-sc-bind="rad-token">16px · Soft</p></div>
+            <span class="hd-ic" aria-hidden="true"><svg class="ic sm"><use href="#i-spark"/></svg></span>
+          </div>
+          <div class="grid gap-1.5">
+            <div class="flex gap-1 rounded-full bg-fill p-1" role="group" aria-label="Border radius presets">
+              <button class="btn tog !min-h-[2.125rem] flex-1 px-2 text-footnote" type="button" aria-pressed="false" data-sc-act="rad-r" data-r="6px" title="Sharp 6px radius">Sharp 6px</button>
+              <button class="btn tog !min-h-[2.125rem] flex-1 px-2 text-footnote" type="button" aria-pressed="true" data-sc-act="rad-r" data-r="16px" title="Soft 16px radius">Soft 16px</button>
+              <button class="btn tog !min-h-[2.125rem] flex-1 px-2 text-footnote" type="button" aria-pressed="false" data-sc-act="rad-r" data-r="28px" title="Pill 28px radius">Pill 28px</button>
+            </div>
+            <div class="flex gap-1 rounded-full bg-fill p-1" role="group" aria-label="Elevation presets">
+              <button class="btn tog !min-h-[2.125rem] flex-1 px-2 text-footnote" type="button" aria-pressed="false" data-sc-act="rad-e" data-e="flat" title="Flat border surface">Flat</button>
+              <button class="btn tog !min-h-[2.125rem] flex-1 px-2 text-footnote" type="button" aria-pressed="true" data-sc-act="rad-e" data-e="soft" title="Soft ambient shadow">Soft</button>
+              <button class="btn tog !min-h-[2.125rem] flex-1 px-2 text-footnote" type="button" aria-pressed="false" data-sc-act="rad-e" data-e="glass" title="Frosted glass elevation">Glass</button>
+            </div>
+          </div>
+          <div class="soft flex items-center justify-center p-4" style="background:linear-gradient(135deg, color-mix(in srgb, var(--accent) 18%, var(--tile)), var(--tile))">
+            <div class="w-full px-3 py-2.5 flex items-center justify-between gap-2 transition" data-sc-bind="rad-preview" style="border-radius:16px;box-shadow:0 12px 28px -8px rgba(0,0,0,.22);border:1px solid transparent;background:var(--surface)">
+              <span class="flex items-center gap-2 min-w-0"><i class="h-3 w-3 rounded-full shrink-0" style="background:var(--accent)" aria-hidden="true"></i><span class="font-semibold text-subhead truncate">Surface Token</span></span>
+              <span class="font-mono text-footnote sec shrink-0" data-sc-bind="rad-css-short">16px</span>
+            </div>
+          </div>
+          <button class="btn btn-primary w-full !rounded-2xl" type="button" data-sc-act="rad-copy" title="Copy border-radius and box-shadow CSS"><svg class="ic sm" aria-hidden="true"><use href="#i-copy"/></svg><span data-sc-bind="rad-copy-lbl">Copy CSS</span></button>
+        </article>
+
       </div>
       </div>
     </div>
@@ -3106,8 +3199,93 @@ document.addEventListener('DOMContentLoaded', () => {
       renderScSw();
     }
   }
-  const SC = { swRunning: true, swSec: 12 * 3600 + 56 * 60 + 4, pay: 'hourly', swapFlip: false, swapAmt: 0, btcFollow: false, bill: 'mo' };
+  const SC = {
+    swRunning: true, swSec: 12 * 3600 + 56 * 60 + 4, pay: 'hourly', swapFlip: false, swapAmt: 0, btcFollow: false, bill: 'mo',
+    ctrFg: '#14210a', ctrBg: '#a3e635', ctrPreset: '',
+    tsRatio: 1.25, tsBase: 16,
+    radR: '16px', radE: 'soft', radCopyTimer: 0
+  };
   const sct = (k, v) => $$(`[data-sc-bind="${k}"]`, loop).forEach(el => { if (el.textContent !== v) el.textContent = v; });
+  const toHexColor = (val, fallback) => {
+    const s = (val || '').trim();
+    if (/^#[0-9a-f]{6}$/i.test(s)) return s.toLowerCase();
+    if (/^#[0-9a-f]{3}$/i.test(s)) return ('#' + s.slice(1).split('').map(c => c + c).join('')).toLowerCase();
+    const m = s.match(/rgba?\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)/i);
+    if (m) return '#' + [m[1], m[2], m[3]].map(n => Math.max(0, Math.min(255, +n)).toString(16).padStart(2, '0')).join('');
+    return fallback;
+  };
+  const relLum = hex => {
+    const h = toHexColor(hex, '#000000').slice(1);
+    const [r, g, b] = [0, 2, 4].map(i => {
+      const c = parseInt(h.slice(i, i + 2), 16) / 255;
+      return c <= 0.03928 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4;
+    });
+    return 0.2126 * r + 0.7152 * g + 0.0722 * b;
+  };
+  const renderScContrast = () => {
+    const l1 = relLum(SC.ctrFg), l2 = relLum(SC.ctrBg);
+    const ratio = (Math.max(l1, l2) + 0.05) / (Math.min(l1, l2) + 0.05);
+    const aa = ratio >= 4.5, aaa = ratio >= 7.0;
+    sct('ctr-ratio', `${ratio.toFixed(2)}:1`);
+    sct('ctr-fg-hex', SC.ctrFg);
+    sct('ctr-bg-hex', SC.ctrBg);
+    $$('[data-sc-bind="ctr-aa"]', loop).forEach(el => {
+      el.textContent = aa ? 'AA Pass' : 'AA Fail';
+      el.style.background = aa ? 'var(--lime-bg)' : '#fca5a5';
+      el.style.color = aa ? 'var(--lime-fg)' : '#450a0a';
+    });
+    $$('[data-sc-bind="ctr-aaa"]', loop).forEach(el => {
+      el.textContent = aaa ? 'AAA Pass' : 'AAA Fail';
+      el.style.background = aaa ? 'var(--lime-bg)' : '#fca5a5';
+      el.style.color = aaa ? 'var(--lime-fg)' : '#450a0a';
+    });
+    $$('[data-sc-bind="ctr-preview"]', loop).forEach(el => {
+      el.style.color = SC.ctrFg;
+      el.style.background = SC.ctrBg;
+    });
+    $$('[data-sc-input="ctr-fg"]', loop).forEach(i => { if (i.value !== SC.ctrFg) i.value = SC.ctrFg; });
+    $$('[data-sc-input="ctr-bg"]', loop).forEach(i => { if (i.value !== SC.ctrBg) i.value = SC.ctrBg; });
+    $$('[data-sc-act="ctr-preset"]', loop).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.preset === SC.ctrPreset)));
+  };
+  const TS_NAMES = { '1.2': 'Minor 3rd', '1.25': 'Major 3rd', '1.333': 'Perfect 4th' };
+  const renderScTypeScale = () => {
+    const base = SC.tsBase, r = SC.tsRatio;
+    const h2 = Math.round(base * r), h1 = Math.round(base * r * r);
+    const ratioStr = String(r);
+    sct('ts-ratio-lbl', `${TS_NAMES[ratioStr] || 'Scale'} · ${r === 1.2 ? '1.20' : ratioStr}`);
+    sct('ts-base', `${base}px`);
+    sct('ts-h1-px', `H1 · ${h1}px`);
+    sct('ts-h2-px', `H2 · ${h2}px`);
+    sct('ts-body-px', `Body · ${base}px`);
+    $$('[data-sc-bind="ts-h1"]', loop).forEach(el => { el.style.fontSize = `${h1}px`; });
+    $$('[data-sc-bind="ts-h2"]', loop).forEach(el => { el.style.fontSize = `${h2}px`; });
+    $$('[data-sc-bind="ts-body"]', loop).forEach(el => { el.style.fontSize = `${base}px`; });
+    $$('[data-sc-act="ts-ratio"]', loop).forEach(b => b.setAttribute('aria-pressed', String(Number(b.dataset.ratio) === r)));
+    $$('[data-sc-act="ts-step"]', loop).forEach(b => {
+      const dir = Number(b.dataset.dir);
+      b.setAttribute('aria-disabled', String((dir < 0 && base <= 12) || (dir > 0 && base >= 20)));
+    });
+  };
+  const RAD_ELEV = {
+    flat: { label: 'Flat', shadow: 'none', border: '1px solid var(--sep)', bg: 'var(--surface)', blur: '' },
+    soft: { label: 'Soft', shadow: '0 12px 28px -8px rgba(0, 0, 0, 0.22)', border: '1px solid transparent', bg: 'var(--surface)', blur: '' },
+    glass: { label: 'Glass', shadow: '0 16px 36px -12px rgba(0, 0, 0, 0.28)', border: '1px solid rgba(255, 255, 255, 0.24)', bg: 'color-mix(in srgb, var(--surface) 72%, transparent)', blur: 'blur(12px)' }
+  };
+  const renderScRadii = () => {
+    const elev = RAD_ELEV[SC.radE] || RAD_ELEV.soft;
+    sct('rad-token', `${SC.radR} · ${elev.label}`);
+    sct('rad-css-short', SC.radR);
+    $$('[data-sc-bind="rad-preview"]', loop).forEach(el => {
+      el.style.borderRadius = SC.radR;
+      el.style.boxShadow = elev.shadow;
+      el.style.border = elev.border;
+      el.style.background = elev.bg;
+      el.style.backdropFilter = elev.blur;
+      el.style.webkitBackdropFilter = elev.blur;
+    });
+    $$('[data-sc-act="rad-r"]', loop).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.r === SC.radR)));
+    $$('[data-sc-act="rad-e"]', loop).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.e === SC.radE)));
+  };
   const renderScTokens = () => {
     const cs = getComputedStyle(root);
     const THEME_N = { lime: 'Olive', blue: 'Cobalt', indigo: 'Indigo', ember: 'Ember', rose: 'Rose', mono: 'Mono' };
@@ -3149,7 +3327,7 @@ document.addEventListener('DOMContentLoaded', () => {
     sct('swap-out-usd', `$${(SC.swapAmt * usdRate).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`);
     $$('[data-sc-input="swap-amt"]', loop).forEach(i => { if (document.activeElement !== i) i.value = SC.swapAmt ? String(SC.swapAmt) : '0.00'; });
   };
-  renderScSw(); renderScSwap(); renderScPlan(); renderScTokens();
+  renderScSw(); renderScSwap(); renderScPlan(); renderScTokens(); renderScContrast(); renderScTypeScale(); renderScRadii();
   $$('button[aria-label]:not([title])', loop).forEach(b => { b.title = b.getAttribute('aria-label'); });
   loop.addEventListener('click', e => {
     const el = e.target.closest('[data-sc-act]'); if (!el) return;
@@ -3158,6 +3336,33 @@ document.addEventListener('DOMContentLoaded', () => {
     else if (a === 'sw-toggle') { SC.swRunning = !SC.swRunning; renderScSw(); }
     else if (a === 'swap-flip') { SC.swapFlip = !SC.swapFlip; renderScSwap(); }
     else if (a === 'plan-bill') { SC.bill = el.dataset.bill; renderScPlan(); }
+    else if (a === 'ctr-swap') { const tmp = SC.ctrFg; SC.ctrFg = SC.ctrBg; SC.ctrBg = tmp; SC.ctrPreset = ''; renderScContrast(); }
+    else if (a === 'ctr-preset') {
+      const p = el.dataset.preset;
+      SC.ctrPreset = p;
+      if (p === 'brand') {
+        const cs = getComputedStyle(root);
+        SC.ctrFg = toHexColor(cs.getPropertyValue('--on-accent'), '#ffffff');
+        SC.ctrBg = toHexColor(cs.getPropertyValue('--accent'), '#456b0b');
+      } else if (p === 'dark') {
+        SC.ctrFg = '#ffffff'; SC.ctrBg = '#1c1c1e';
+      } else if (p === 'muted') {
+        SC.ctrFg = '#5c5c63'; SC.ctrBg = '#f2f2f7';
+      }
+      renderScContrast();
+    }
+    else if (a === 'ts-ratio') { SC.tsRatio = Number(el.dataset.ratio) || 1.25; renderScTypeScale(); }
+    else if (a === 'ts-step') { SC.tsBase = Math.min(20, Math.max(12, SC.tsBase + (Number(el.dataset.dir) || 0))); renderScTypeScale(); }
+    else if (a === 'rad-r') { SC.radR = el.dataset.r || '16px'; renderScRadii(); }
+    else if (a === 'rad-e') { SC.radE = el.dataset.e || 'soft'; renderScRadii(); }
+    else if (a === 'rad-copy') {
+      const elev = RAD_ELEV[SC.radE] || RAD_ELEV.soft;
+      const cssOut = `border-radius: ${SC.radR};\nbox-shadow: ${elev.shadow};`;
+      try { navigator.clipboard.writeText(cssOut); } catch {}
+      sct('rad-copy-lbl', 'Copied CSS');
+      clearTimeout(SC.radCopyTimer);
+      SC.radCopyTimer = setTimeout(() => sct('rad-copy-lbl', 'Copy CSS'), 1800);
+    }
     else if (a === 'copy-tokens') {
       const cs = getComputedStyle(root);
       const cssVars = `:root {\n  --accent: ${cs.getPropertyValue('--accent').trim()};\n  --surface: ${cs.getPropertyValue('--surface').trim()};\n  --card-pad: ${cs.getPropertyValue('--card-pad').trim()};\n  --font-display: ${cs.getPropertyValue('--font-display').trim()};\n}`;
@@ -3206,16 +3411,22 @@ document.addEventListener('DOMContentLoaded', () => {
       $$('[data-sc="run-week"]', loop).forEach(card => $$('[data-sc-act="run-day"]', card).forEach((b, i) => b.setAttribute('aria-pressed', String(i === activeIdx))));
     }
   });
+  const syncCtrInput = t => {
+    if (t.matches('[data-sc-input="ctr-fg"]')) { SC.ctrFg = toHexColor(t.value, SC.ctrFg); SC.ctrPreset = ''; renderScContrast(); return true; }
+    if (t.matches('[data-sc-input="ctr-bg"]')) { SC.ctrBg = toHexColor(t.value, SC.ctrBg); SC.ctrPreset = ''; renderScContrast(); return true; }
+    return false;
+  };
   loop.addEventListener('input', e => {
     const t = e.target;
     if (t.matches('[data-sc-input="swap-amt"]')) { SC.swapAmt = Math.max(0, parseFloat(t.value) || 0); renderScSwap(); }
+    else syncCtrInput(t);
   });
   loop.addEventListener('change', e => {
     const t = e.target;
     if (t.matches('input.sc-radio')) {
       SC.pay = t.value;
       $$(`input.sc-radio[value="${SC.pay}"]`, loop).forEach(r => { r.checked = true; });
-    }
+    } else syncCtrInput(t);
   });
   loop.addEventListener('submit', e => {
     if (!e.target.matches('[data-sc-act="search-form"]')) return;
