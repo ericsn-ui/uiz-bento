@@ -92,8 +92,9 @@
     .card { outline: 1px solid var(--label); }
   }
 
-  html { -webkit-text-size-adjust:100%; text-size-adjust:100%; scrollbar-width:none; accent-color:var(--accent); }
-  html::-webkit-scrollbar { display:none; }
+  html { -webkit-text-size-adjust:100%; text-size-adjust:100%; accent-color:var(--accent); }
+  html, body, .studio-popover, #cmd-list, .dd-menu { scrollbar-width:none; -ms-overflow-style:none; }
+  html::-webkit-scrollbar, body::-webkit-scrollbar, .studio-popover::-webkit-scrollbar, #cmd-list::-webkit-scrollbar, .dd-menu::-webkit-scrollbar { display:none; width:0; height:0; }
   body { margin:0; background:var(--bg); color:var(--label); font-family:var(--font-body); font-size:1.0625rem; line-height:1.5rem; -webkit-font-smoothing:antialiased; caret-color:var(--accent-text); accent-color:var(--accent);
          padding: max(var(--gap), env(safe-area-inset-top)) max(var(--gap), env(safe-area-inset-right)) calc(5.5rem + env(safe-area-inset-bottom)) max(var(--gap), env(safe-area-inset-left)); }
   h1,h2,h3,.text-display,.text-bignum,.text-title1,.text-title2 { font-family:var(--font-display); }
@@ -145,7 +146,7 @@
 
   /* ---------- Cards (:where keeps specificity at 0 so Tailwind utilities like flex-row always win) ---------- */
   :where(.card) { display:flex; flex-direction:column; gap:var(--card-gap); }
-  .card { position:relative; min-width:0; padding:var(--card-pad); border-radius:1.75rem; background:var(--surface); overflow:hidden; transition:box-shadow .24s ease-out, border-color .24s ease-out; }
+  .card { position:relative; min-width:0; padding:var(--card-pad); border-radius:1.75rem; background:var(--surface); overflow:hidden; contain:layout style; transition:box-shadow .24s ease-out, border-color .24s ease-out; }
   @media (prefers-reduced-motion: no-preference) { html:not(.motion) .card { transition:transform .24s ease-out, box-shadow .24s ease-out, border-color .24s ease-out; } }
   .card.ink { background:var(--ink); color:#fff; }
   html[data-scheme="dark"] .card.ink { box-shadow: inset 0 0 0 .5px rgba(255,255,255,.14); }

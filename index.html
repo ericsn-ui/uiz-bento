@@ -39,8 +39,13 @@
      ============================================================ -->
 <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
 <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+<link rel="dns-prefetch" href="https://api.github.com" />
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
 <link rel="preconnect" href="https://images.unsplash.com" crossorigin />
-<link rel="stylesheet" href="./styles.css?v=15" />
+<link rel="preconnect" href="https://images.pexels.com" crossorigin />
+<link rel="preload" as="style" href="./styles.css?v=16" />
+<link rel="preload" as="image" href="./glass-bg.svg" fetchpriority="high" />
+<link rel="stylesheet" href="./styles.css?v=16" />
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
@@ -3532,6 +3537,7 @@ document.addEventListener('DOMContentLoaded', () => {
     $$('[id]', c).forEach(el => { if (!el.closest('defs')) el.removeAttribute('id'); });
     $$('input[type="radio"][name]', c).forEach(r => { r.name = `${r.name}-c${suf}`; });
     $$('button,a,input,select,textarea,[tabindex]', c).forEach(el => el.setAttribute('tabindex', '-1'));
+    $$('img', c).forEach(img => { img.loading = 'lazy'; img.decoding = 'async'; img.removeAttribute('fetchpriority'); });
     return c;
   };
   const before = makeClone(), after = makeClone();
@@ -3650,8 +3656,10 @@ document.addEventListener('DOMContentLoaded', () => {
   };
   const initScroll = () => {
     if (before.hidden) { P = 0; scheduleScrollRefresh(); return; }
-    const old = P; P = measure();
-    if (!P) return;
+    const old = P, nextP = measure();
+    if (!nextP) return;
+    if (old && Math.abs(nextP - old) < 1) return;
+    P = nextP;
     if (!old) { lastWrapAt = performance.now(); window.scrollTo(0, P); scheduleScrollRefresh(); return; }
     const off = ((window.scrollY - old) % old + old) % old;       // keep the same spot when layout changes
     lastWrapAt = performance.now();
@@ -3680,7 +3688,11 @@ document.addEventListener('DOMContentLoaded', () => {
     ticking = true;
     requestAnimationFrame(() => { wrap(); ticking = false; });
   }, { passive: true });
-  new ResizeObserver(initScroll).observe(primary);
+  let resizeRaf = 0;
+  new ResizeObserver(() => {
+    if (resizeRaf) return;
+    resizeRaf = requestAnimationFrame(() => { resizeRaf = 0; initScroll(); });
+  }).observe(primary);
   applyLoopMode(root.dataset.loop === 'paused', true);
 
   /* ---------- 2. Shared state, rendered into every copy ---------- */
@@ -4011,6 +4023,7 @@ document.addEventListener('DOMContentLoaded', () => {
     renderFc();
   }
   function tickW() {
+    if (document.hidden) return;
     const d = new Date(), h = d.getHours() % 12, m = d.getMinutes(), s = d.getSeconds();
     $$('[data-clock]', loop).forEach(c => {
       const set = (sel, deg) => { const el = $(sel, c); if (el) el.style.transform = `rotate(${deg}deg)`; };
@@ -5375,15 +5388,15 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
     tl.fromTo(card,
-      { autoAlpha: 0, y: 28, scale: .968 },
-      { autoAlpha: 1, y: 0, scale: 1, duration: .65, ease: 'power3.out' },
+      { autoAlpha: 0, y: 20, scale: .975 },
+      { autoAlpha: 1, y: 0, scale: 1, duration: .46, ease: 'power3.out' },
       0
     );
     if (kids.length) {
       tl.fromTo(kids,
-        { opacity: 0, y: 12 },
-        { opacity: 1, y: 0, duration: .45, ease: 'power3.out', stagger: .035 },
-        '-=0.48'
+        { opacity: 0, y: 10 },
+        { opacity: 1, y: 0, duration: .34, ease: 'power3.out', stagger: .024 },
+        '-=0.34'
       );
     }
     return tl;
