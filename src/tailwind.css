@@ -540,6 +540,7 @@
   .studio-dock :is(button, a.dock-star):active { scale:.96; }
   .studio-dock button[aria-expanded="true"],
   .studio-dock button[aria-pressed="true"] { background:var(--accent); color:var(--on-accent); }
+  html:not([data-material="glass"]) #quick-glass-bg { display:none !important; }
   .studio-dock :is(button, a.dock-star):focus-visible { outline:2px solid var(--accent-text); outline-offset:2px; }
   .dock-dot { width:.75rem; height:.75rem; border-radius:50%; background:var(--accent); box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.5); flex:none; }
   .studio-dock button[aria-expanded="true"] .dock-dot { background:var(--on-accent); box-shadow:none; }
