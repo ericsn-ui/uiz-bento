@@ -40,7 +40,7 @@
 <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
 <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
 <link rel="preconnect" href="https://images.unsplash.com" crossorigin />
-<link rel="stylesheet" href="./styles.css?v=6" />
+<link rel="stylesheet" href="./styles.css?v=7" />
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
@@ -2558,7 +2558,7 @@ document.addEventListener('DOMContentLoaded', () => {
       btn.className = 'card-copy-btn';
       btn.setAttribute('aria-label', `Copy ${label} card HTML`);
       btn.title = 'Copy card HTML';
-      btn.innerHTML = '<svg class="ic sm" aria-hidden="true"><use href="#i-copy"/></svg><span>Copy</span>';
+      btn.innerHTML = '<svg class="ic sm" aria-hidden="true"><use href="#i-copy"/></svg>';
       card.appendChild(btn);
     });
   };
@@ -2586,7 +2586,7 @@ document.addEventListener('DOMContentLoaded', () => {
     clearTimeout(btn._copyTimer);
     btn._copyTimer = setTimeout(() => {
       btn.classList.remove('is-copied');
-      btn.innerHTML = '<svg class="ic sm" aria-hidden="true"><use href="#i-copy"/></svg><span>Copy</span>';
+      btn.innerHTML = '<svg class="ic sm" aria-hidden="true"><use href="#i-copy"/></svg>';
     }, 1800);
   });
 
