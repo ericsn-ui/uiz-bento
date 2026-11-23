@@ -2635,7 +2635,7 @@
                 <span class="sec font-semibold">Context Window Usage</span>
                 <span class="font-mono sec tnum" data-sc-bind="ai-ctx-lbl">9,000 / 1M · 0.9%</span>
               </div>
-              <div class="meter" style="height:.5rem"><i data-sc-bind="ai-ctx-bar" style="width:2%"></i></div>
+              <div class="meter" aria-hidden="true" style="height:.5rem"><i data-sc-bind="ai-ctx-bar" style="width:2%"></i></div>
             </div>
           </div>
         </article>
@@ -3599,11 +3599,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     $$('[data-sc-bind="uptime-bars"]', loop).forEach(wrap => {
       if (!wrap.children.length) {
+        const isClone = !!wrap.closest('[aria-hidden="true"]');
         UPTIME_DAYS.forEach(([dp, dm], idx) => {
           const d = idx + 1;
           const b = document.createElement('button');
           b.type = 'button';
           b.className = 'sc-bar-btn';
+          if (isClone) b.tabIndex = -1;
           b.dataset.scAct = 'uptime-day';
           b.dataset.day = String(d);
           const lbl = `Day ${d} · ${dp.toFixed(dp === 100 ? 1 : 2)}% uptime · ${dm}ms avg`;
@@ -3684,19 +3686,17 @@ document.addEventListener('DOMContentLoaded', () => {
       el.style.width = `${Math.min(100, Math.max(2, pct)).toFixed(1)}%`;
     });
     $$('[data-sc-act="ai-model"]', loop).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.model === SC.aiModel)));
-    $$('[data-sc-input="ai-in"]', loop).forEach(inp => {
-      if (Number(inp.value) !== SC.aiIn) inp.value = String(SC.aiIn);
-      inp.style.setProperty('--attr-min', inp.min || '500');
-      inp.style.setProperty('--attr-max', inp.max || '32000');
-      inp.style.setProperty('--control-value', String(SC.aiIn));
-      inp.setAttribute('aria-valuetext', `${SC.aiIn.toLocaleString('en-US')} input tokens`);
-    });
-    $$('[data-sc-input="ai-out"]', loop).forEach(inp => {
-      if (Number(inp.value) !== SC.aiOut) inp.value = String(SC.aiOut);
-      inp.style.setProperty('--attr-min', inp.min || '200');
-      inp.style.setProperty('--attr-max', inp.max || '8000');
-      inp.style.setProperty('--control-value', String(SC.aiOut));
-      inp.setAttribute('aria-valuetext', `${SC.aiOut.toLocaleString('en-US')} output tokens`);
+    [
+      ['ai-in', SC.aiIn, '500', '32000', 'input tokens'],
+      ['ai-out', SC.aiOut, '200', '8000', 'output tokens']
+    ].forEach(([key, val, defMin, defMax, unit]) => {
+      $$(`[data-sc-input="${key}"]`, loop).forEach(inp => {
+        if (Number(inp.value) !== val) inp.value = String(val);
+        inp.style.setProperty('--attr-min', inp.min || defMin);
+        inp.style.setProperty('--attr-max', inp.max || defMax);
+        inp.style.setProperty('--control-value', String(val));
+        inp.setAttribute('aria-valuetext', `${val.toLocaleString('en-US')} ${unit}`);
+      });
     });
   };
   const writeClip = text => navigator.clipboard?.writeText(text)?.catch?.(() => {});
