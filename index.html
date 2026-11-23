@@ -3117,6 +3117,7 @@
         <span>Theme &amp; Fonts</span>
       </button>
       <button id="quick-material" class="hidden sm:inline-flex text-footnote" type="button" aria-pressed="true" title="Switch to Classic surface" aria-label="Toggle Liquid Glass material">Glass</button>
+      <button id="quick-glass-bg" class="hidden sm:inline-flex text-footnote" type="button" title="Switch Glass background (Abstract, Mt. Rainier, Scenic I, Scenic II)" aria-label="Glass background: Abstract">BG: Abstract</button>
       <button id="quick-fw" class="hidden sm:inline-flex font-mono text-footnote" type="button" title="Switch copy framework (HTML, React TSX, Vue, Svelte)" aria-label="Copy framework: HTML">HTML</button>
     </div>
     <span role="separator" aria-orientation="vertical"></span>
@@ -4927,12 +4928,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* ---------- 5. Floating Theme & Font Studio Dock ---------- */
   const dock = $('#studio-dock'), studioTrigger = $('#studio-trigger'), themePopover = $('#theme-popover'),
-        quickSchemeBtn = $('#quick-scheme'), quickMaterialBtn = $('#quick-material'), quickFwBtn = $('#quick-fw'), replayBtn = $('#replay-cinematic'), dockStatus = $('#dock-status'),
+        quickSchemeBtn = $('#quick-scheme'), quickMaterialBtn = $('#quick-material'), quickGlassBgBtn = $('#quick-glass-bg'), quickFwBtn = $('#quick-fw'), replayBtn = $('#replay-cinematic'), dockStatus = $('#dock-status'),
         resetStudioBtn = $('#studio-reset'), toggleLoopBtn = $('#toggle-loop'), openCmdBtn = $('#open-cmd');
   const schemeMql = matchMedia('(prefers-color-scheme: dark)');
   const THEME_LABELS = { lime: 'Olive', blue: 'Cobalt', indigo: 'Indigo', ember: 'Ember', rose: 'Rose', mono: 'Monochrome' };
   const FONT_LABELS = { system: 'Apple Native', editorial: 'Editorial Serif', geometric: 'Geometric Studio', humanist: 'Humanist Literary', swiss: 'Swiss Avant' };
   const FW_LABELS = { html: 'HTML', react: 'TSX', vue: 'Vue', svelte: 'Svelte' };
+  const GB_LABELS = { abstract: 'Abstract', rainier: 'Rainier', pexels1: 'Scenic I', pexels2: 'Scenic II' };
   const studioState = {
     accent: root.dataset.accent || 'lime',
     scheme: root.dataset.scheme || 'auto',
@@ -4957,6 +4959,11 @@ document.addEventListener('DOMContentLoaded', () => {
       const isGlass = studioState.material === 'glass';
       quickMaterialBtn.setAttribute('aria-pressed', String(isGlass));
       quickMaterialBtn.title = isGlass ? 'Switch to Classic surface' : 'Switch to Liquid Glass surface';
+    }
+    if (quickGlassBgBtn) {
+      const gbLbl = GB_LABELS[studioState.glassBg] || 'Abstract';
+      quickGlassBgBtn.textContent = `BG: ${gbLbl}`;
+      quickGlassBgBtn.setAttribute('aria-label', `Glass background: ${gbLbl}`);
     }
     const fwLabel = FW_LABELS[studioState.fw] || 'HTML';
     if (quickFwBtn) {
@@ -5037,6 +5044,13 @@ document.addEventListener('DOMContentLoaded', () => {
     quickMaterialBtn.addEventListener('click', () => {
       const next = studioState.material === 'glass' ? 'classic' : 'glass';
       applyStudio({ material: next }, `Surface material set to ${next === 'glass' ? 'Liquid Glass' : 'Classic'}`);
+    });
+  }
+  if (quickGlassBgBtn) {
+    quickGlassBgBtn.addEventListener('click', () => {
+      const order = ['abstract', 'rainier', 'pexels1', 'pexels2'];
+      const next = order[(order.indexOf(studioState.glassBg) + 1) % order.length];
+      applyStudio({ material: 'glass', glassBg: next }, `Glass background set to ${GB_LABELS[next]}`);
     });
   }
   if (quickFwBtn) {
