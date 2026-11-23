@@ -7,20 +7,20 @@
 <meta name="theme-color" content="#f2f2f7" media="(prefers-color-scheme: light)" />
 <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)" />
 <title>Infinite Bento: Dashboard &amp; Widgets</title>
-<meta name="description" content="An infinite, full-viewport bento grid of 154 interactive dashboard cards, widgets, and SEO components." />
+<meta name="description" content="An infinite, full-viewport bento grid of 160 interactive dashboard cards, widgets, and SEO components." />
 <meta name="referrer" content="strict-origin-when-cross-origin" />
 <link rel="canonical" href="https://uizbento.vercel.app/" />
 <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://uizbento.vercel.app/" />
 <meta property="og:title" content="Infinite Bento: Dashboard &amp; Widgets" />
-<meta property="og:description" content="An infinite, full-viewport bento grid of 154 interactive dashboard cards, widgets, and SEO analytics components." />
+<meta property="og:description" content="An infinite, full-viewport bento grid of 160 interactive dashboard cards, widgets, and SEO analytics components." />
 <meta property="og:image" content="https://uizbento.vercel.app/og-image.png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Infinite Bento: Dashboard &amp; Widgets" />
-<meta name="twitter:description" content="An infinite, full-viewport bento grid of 154 interactive dashboard cards, widgets, and SEO analytics components." />
+<meta name="twitter:description" content="An infinite, full-viewport bento grid of 160 interactive dashboard cards, widgets, and SEO analytics components." />
 <meta name="twitter:image" content="https://uizbento.vercel.app/og-image.png" />
 <script type="application/ld+json">
 {
@@ -30,7 +30,7 @@
   "applicationCategory": "DesignApplication",
   "operatingSystem": "Web",
   "url": "https://uizbento.vercel.app/",
-  "description": "154 interactive responsive bento dashboard cards, widgets, SEO analytics panels, and live Appearance Studio tokens."
+  "description": "160 interactive responsive bento dashboard cards, widgets, SEO analytics panels, and live Appearance Studio tokens."
 }
 </script>
 
@@ -40,7 +40,7 @@
 <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
 <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
 <link rel="preconnect" href="https://images.unsplash.com" crossorigin />
-<link rel="stylesheet" href="./styles.css?v=7" />
+<link rel="stylesheet" href="./styles.css?v=8" />
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
@@ -2303,7 +2303,7 @@
             <span class="sec text-subhead">/ mo per seat</span>
           </div>
           <ul class="grid gap-1.5 text-subhead">
-            <li class="flex items-center gap-2.5"><svg class="ic sm shrink-0" style="color:var(--accent-text)" aria-hidden="true"><use href="#i-check"/></svg><span>154 responsive dashboard &amp; widget cards</span></li>
+            <li class="flex items-center gap-2.5"><svg class="ic sm shrink-0" style="color:var(--accent-text)" aria-hidden="true"><use href="#i-check"/></svg><span>160 responsive dashboard &amp; widget cards</span></li>
             <li class="flex items-center gap-2.5"><svg class="ic sm shrink-0" style="color:var(--accent-text)" aria-hidden="true"><use href="#i-check"/></svg><span>Live Appearance Studio themes &amp; ⌘K jump</span></li>
             <li class="flex items-center gap-2.5"><svg class="ic sm shrink-0" style="color:var(--accent-text)" aria-hidden="true"><use href="#i-check"/></svg><span>Pre-compiled CSS &amp; static Vercel bundle</span></li>
           </ul>
@@ -2640,6 +2640,156 @@
           </div>
         </article>
 
+        <!-- SC-47 Live Voice / Audio Equalizer (Hover Wave Loop) -->
+        <article class="card sc-4 justify-between gap-3" data-sc="voice-wave" data-active="0" aria-label="Live Voice Equalizer">
+          <div class="flex items-center justify-between gap-2">
+            <div><h2 class="text-title2">Voice Equalizer</h2><p class="sec text-footnote">Hover for live wave loop</p></div>
+            <span class="pill accent font-mono text-footnote tnum" data-sc-bind="vw-db">-12.4 dB</span>
+          </div>
+          <div class="soft flex h-20 items-end gap-1.5 !p-3" aria-hidden="true">
+            <span class="sc-eq-bar" style="--eq-h:.38;--eq-d:.00s"></span>
+            <span class="sc-eq-bar" style="--eq-h:.72;--eq-d:.08s"></span>
+            <span class="sc-eq-bar" style="--eq-h:.54;--eq-d:.16s"></span>
+            <span class="sc-eq-bar" style="--eq-h:.92;--eq-d:.24s"></span>
+            <span class="sc-eq-bar" style="--eq-h:.64;--eq-d:.32s"></span>
+            <span class="sc-eq-bar" style="--eq-h:.84;--eq-d:.40s"></span>
+            <span class="sc-eq-bar" style="--eq-h:.48;--eq-d:.48s"></span>
+            <span class="sc-eq-bar" style="--eq-h:.96;--eq-d:.56s"></span>
+            <span class="sc-eq-bar" style="--eq-h:.68;--eq-d:.64s"></span>
+            <span class="sc-eq-bar" style="--eq-h:.42;--eq-d:.72s"></span>
+            <span class="sc-eq-bar" style="--eq-h:.78;--eq-d:.80s"></span>
+            <span class="sc-eq-bar" style="--eq-h:.52;--eq-d:.88s"></span>
+          </div>
+          <div class="flex flex-wrap items-center justify-between gap-2">
+            <div class="flex gap-1 rounded-full bg-fill p-1" role="group" aria-label="Audio preset">
+              <button class="btn tog !min-h-[2rem] px-2.5 text-footnote" type="button" aria-pressed="true" data-sc-act="vw-mode" data-vw="mic">Mic</button>
+              <button class="btn tog !min-h-[2rem] px-2.5 text-footnote" type="button" aria-pressed="false" data-sc-act="vw-mode" data-vw="studio">Studio</button>
+              <button class="btn tog !min-h-[2rem] px-2.5 text-footnote" type="button" aria-pressed="false" data-sc-act="vw-mode" data-vw="spatial">Spatial</button>
+            </div>
+            <button class="btn btn-primary !min-h-[2rem] px-3 text-footnote" type="button" aria-pressed="false" data-sc-act="vw-toggle" data-sc-bind="vw-btn">Play</button>
+          </div>
+        </article>
+
+        <!-- SC-48 CI/CD Deployment Pipeline (Hover Beam Loop) -->
+        <article class="card sc-4 justify-between gap-3" data-sc="deploy-pipe" aria-label="CI CD Deployment Pipeline">
+          <div class="flex items-center justify-between gap-2">
+            <div><h2 class="text-title2">Deploy Pipeline</h2><p class="sec text-footnote" data-sc-bind="pipe-sub">Edge · 4s · Ready</p></div>
+            <span class="pill font-semibold text-footnote" style="color:var(--accent-text)"><svg class="ic sm" aria-hidden="true"><use href="#i-bolt"/></svg>main</span>
+          </div>
+          <div class="soft grid gap-3 !p-3">
+            <div class="relative h-1.5 overflow-hidden rounded-full bg-fill" aria-hidden="true">
+              <div class="h-full rounded-full" style="width:100%;background:color-mix(in srgb, var(--accent) 28%, transparent)"></div>
+              <div class="sc-pipe-beam"></div>
+            </div>
+            <div class="grid grid-cols-4 gap-1.5" role="group" aria-label="Pipeline stages">
+              <button class="btn tog sc-pipe-dot !min-h-[2.125rem] px-1 text-footnote" type="button" aria-pressed="false" data-sc-act="pipe-stage" data-stage="build">Build</button>
+              <button class="btn tog sc-pipe-dot !min-h-[2.125rem] px-1 text-footnote" type="button" aria-pressed="false" data-sc-act="pipe-stage" data-stage="test">Test</button>
+              <button class="btn tog sc-pipe-dot !min-h-[2.125rem] px-1 text-footnote" type="button" aria-pressed="true" data-sc-act="pipe-stage" data-stage="edge">Edge</button>
+              <button class="btn tog sc-pipe-dot !min-h-[2.125rem] px-1 text-footnote" type="button" aria-pressed="false" data-sc-act="pipe-stage" data-stage="live">Live</button>
+            </div>
+          </div>
+          <div class="flex items-center justify-between gap-2">
+            <span class="sec font-mono text-footnote tnum" data-sc-bind="pipe-id">dep_9f4a2 · 34s</span>
+            <button class="btn btn-secondary !min-h-[2rem] px-3 text-footnote" type="button" data-sc-act="pipe-run"><svg class="ic sm" aria-hidden="true"><use href="#i-refresh"/></svg>Trigger</button>
+          </div>
+        </article>
+
+        <!-- SC-49 Security & Threat Radar (Hover Sweep Loop) -->
+        <article class="card sc-4 justify-between gap-3" data-sc="radar-scan" aria-label="Security Threat Radar">
+          <div class="flex items-center justify-between gap-2">
+            <div><h2 class="text-title2">Threat Radar</h2><p class="sec text-footnote" data-sc-bind="radar-sub">1,248 endpoints · 0 threats</p></div>
+            <span class="pill accent font-semibold text-footnote" data-sc-bind="radar-badge">Deep</span>
+          </div>
+          <div class="flex items-center justify-center py-1">
+            <div class="relative grid h-28 w-28 place-items-center rounded-full border border-sep bg-tile" aria-hidden="true">
+              <div class="h-18 w-18 rounded-full border border-sep" style="width:4.5rem;height:4.5rem"></div>
+              <div class="h-9 w-9 rounded-full border border-sep"></div>
+              <div class="sc-radar-sweep"></div>
+              <span class="sc-radar-blip" style="top:22%;left:62%;--blip-d:.1s"></span>
+              <span class="sc-radar-blip" style="top:64%;left:28%;--blip-d:.7s"></span>
+              <svg class="ic relative z-10" style="color:var(--accent-text)"><use href="#i-shield"/></svg>
+            </div>
+          </div>
+          <div class="flex gap-1 rounded-full bg-fill p-1" role="group" aria-label="Scan mode">
+            <button class="btn tog !min-h-[2rem] flex-1 px-2 text-footnote" type="button" aria-pressed="false" data-sc-act="radar-mode" data-rm="quick">Quick</button>
+            <button class="btn tog !min-h-[2rem] flex-1 px-2 text-footnote" type="button" aria-pressed="true" data-sc-act="radar-mode" data-rm="deep">Deep</button>
+            <button class="btn tog !min-h-[2rem] flex-1 px-2 text-footnote" type="button" aria-pressed="false" data-sc-act="radar-mode" data-rm="zero">Zero-Trust</button>
+          </div>
+        </article>
+
+        <!-- SC-50 Ecosystem Integration Orbit (Hover Orbit Loop) -->
+        <article class="card sc-4 justify-between gap-3" data-sc="magnetic-orbit" aria-label="Ecosystem Integration Orbit">
+          <div class="flex items-center justify-between gap-2">
+            <div><h2 class="text-title2">App Orbit</h2><p class="sec text-footnote" data-sc-bind="orb-sub">GitHub · Connected &amp; syncing</p></div>
+            <span class="pill font-semibold text-footnote">6 apps</span>
+          </div>
+          <div class="flex items-center justify-center py-1">
+            <div class="sc-orbit-ring">
+              <div class="sc-orbit-track">
+                <button class="sc-orbit-node" style="top:-1rem;left:calc(50% - 1rem)" type="button" aria-pressed="true" data-sc-act="orb-pick" data-app="GitHub" aria-label="GitHub integration">GH</button>
+                <button class="sc-orbit-node" style="top:1.2rem;right:-.9rem" type="button" aria-pressed="false" data-sc-act="orb-pick" data-app="Figma" aria-label="Figma integration">FG</button>
+                <button class="sc-orbit-node" style="bottom:1.2rem;right:-.9rem" type="button" aria-pressed="false" data-sc-act="orb-pick" data-app="Vercel" aria-label="Vercel integration">VC</button>
+                <button class="sc-orbit-node" style="bottom:-1rem;left:calc(50% - 1rem)" type="button" aria-pressed="false" data-sc-act="orb-pick" data-app="Linear" aria-label="Linear integration">LN</button>
+                <button class="sc-orbit-node" style="bottom:1.2rem;left:-.9rem" type="button" aria-pressed="false" data-sc-act="orb-pick" data-app="Slack" aria-label="Slack integration">SL</button>
+                <button class="sc-orbit-node" style="top:1.2rem;left:-.9rem" type="button" aria-pressed="false" data-sc-act="orb-pick" data-app="Stripe" aria-label="Stripe integration">ST</button>
+              </div>
+              <div class="grid h-11 w-11 place-items-center rounded-full bg-tile border border-sep">
+                <svg class="ic sm" style="color:var(--accent-text)" aria-hidden="true"><use href="#i-link"/></svg>
+              </div>
+            </div>
+          </div>
+          <p class="sec text-center text-footnote">Hover to spin · Click any node to inspect</p>
+        </article>
+
+        <!-- SC-51 Real-Time Edge Latency Ticker (Hover Marquee Loop) -->
+        <article class="card sc-4 justify-between gap-3" data-sc="live-ticker" aria-label="Real-Time Edge Latency Ticker">
+          <div class="flex items-center justify-between gap-2">
+            <div><h2 class="text-title2">Edge Regions</h2><p class="sec text-footnote" data-sc-bind="edge-sub">SIN · 11ms · Fastest node</p></div>
+            <span class="pill accent font-mono text-footnote tnum" data-sc-bind="edge-ms">11ms</span>
+          </div>
+          <div class="overflow-hidden rounded-2xl bg-tile py-3 px-2">
+            <div class="sc-marquee-track">
+              <button class="btn tog !min-h-[2.125rem] px-3 font-mono text-footnote tnum" type="button" aria-pressed="true" data-sc-act="edge-pick" data-edge="SIN · 11ms">SIN 11ms</button>
+              <button class="btn tog !min-h-[2.125rem] px-3 font-mono text-footnote tnum" type="button" aria-pressed="false" data-sc-act="edge-pick" data-edge="SFO · 14ms">SFO 14ms</button>
+              <button class="btn tog !min-h-[2.125rem] px-3 font-mono text-footnote tnum" type="button" aria-pressed="false" data-sc-act="edge-pick" data-edge="NRT · 19ms">NRT 19ms</button>
+              <button class="btn tog !min-h-[2.125rem] px-3 font-mono text-footnote tnum" type="button" aria-pressed="false" data-sc-act="edge-pick" data-edge="LHR · 22ms">LHR 22ms</button>
+              <button class="btn tog !min-h-[2.125rem] px-3 font-mono text-footnote tnum" type="button" aria-pressed="false" data-sc-act="edge-pick" data-edge="FRA · 24ms">FRA 24ms</button>
+              <button class="btn tog !min-h-[2.125rem] px-3 font-mono text-footnote tnum" type="button" aria-pressed="true" data-sc-act="edge-pick" data-edge="SIN · 11ms" aria-hidden="true" tabindex="-1">SIN 11ms</button>
+              <button class="btn tog !min-h-[2.125rem] px-3 font-mono text-footnote tnum" type="button" aria-pressed="false" data-sc-act="edge-pick" data-edge="SFO · 14ms" aria-hidden="true" tabindex="-1">SFO 14ms</button>
+              <button class="btn tog !min-h-[2.125rem] px-3 font-mono text-footnote tnum" type="button" aria-pressed="false" data-sc-act="edge-pick" data-edge="NRT · 19ms" aria-hidden="true" tabindex="-1">NRT 19ms</button>
+            </div>
+          </div>
+          <div class="flex items-center justify-between gap-2">
+            <span class="sec text-footnote">Hover to stream regions</span>
+            <button class="btn btn-secondary !min-h-[2rem] px-3 text-footnote" type="button" data-sc-act="edge-ping">Ping All</button>
+          </div>
+        </article>
+
+        <!-- SC-52 AI Streaming & Shimmer Loader (Hover Shimmer Loop) -->
+        <article class="card sc-4 justify-between gap-3" data-sc="skeleton-shimmer" aria-label="AI Streaming Shimmer Loader">
+          <div class="flex items-center justify-between gap-2">
+            <div><h2 class="text-title2">Shimmer States</h2><p class="sec text-footnote" data-sc-bind="shim-sub">Hover for diagonal shimmer</p></div>
+            <span class="pill font-semibold text-footnote" data-sc-bind="shim-mode">AI Stream</span>
+          </div>
+          <div class="soft grid gap-2.5 !p-3" aria-hidden="true">
+            <div class="flex items-center gap-2.5">
+              <div class="sc-shimmer-bar h-8 w-8 rounded-full shrink-0"></div>
+              <div class="grid flex-1 gap-1.5">
+                <div class="sc-shimmer-bar h-2.5 w-2/3"></div>
+                <div class="sc-shimmer-bar h-2 w-1/2"></div>
+              </div>
+            </div>
+            <div class="sc-shimmer-bar h-2.5 w-full"></div>
+            <div class="sc-shimmer-bar h-2.5 w-5/6"></div>
+            <div class="sc-shimmer-bar h-2.5 w-3/4"></div>
+          </div>
+          <div class="flex gap-1 rounded-full bg-fill p-1" role="group" aria-label="Shimmer preset">
+            <button class="btn tog !min-h-[2rem] flex-1 px-2 text-footnote" type="button" aria-pressed="true" data-sc-act="shim-mode" data-sm="AI Stream">AI Stream</button>
+            <button class="btn tog !min-h-[2rem] flex-1 px-2 text-footnote" type="button" aria-pressed="false" data-sc-act="shim-mode" data-sm="Skeleton">Skeleton</button>
+            <button class="btn tog !min-h-[2rem] flex-1 px-2 text-footnote" type="button" aria-pressed="false" data-sc-act="shim-mode" data-sm="Card">Card</button>
+          </div>
+        </article>
+
       </div>
       </div>
     </div>
@@ -2663,7 +2813,7 @@
     <h2 id="cmd-title" class="sr-only">Command palette</h2>
     <div class="flex items-center gap-3 border-b border-sep px-4 py-3">
       <svg class="ic sec" aria-hidden="true"><use href="#i-search"/></svg>
-      <input id="cmd-input" class="w-full bg-transparent text-body text-label placeholder:text-secondary focus:outline-none" type="search" autofocus placeholder="Search 154 bento cards or run an action…" aria-label="Search cards and actions" />
+      <input id="cmd-input" class="w-full bg-transparent text-body text-label placeholder:text-secondary focus:outline-none" type="search" autofocus placeholder="Search 160 bento cards or run an action…" aria-label="Search cards and actions" />
       <kbd class="cmd-kbd hidden sm:inline-flex">Esc</kbd>
       <button id="closeCmd" class="btn btn-secondary btn-icon !min-h-[2.25rem] !w-9" type="button" aria-label="Close command palette"><svg class="ic" style="width:1.125rem;height:1.125rem" aria-hidden="true"><use href="#i-plus" style="transform:rotate(45deg);transform-origin:center"/></svg></button>
     </div>
@@ -3452,7 +3602,13 @@ document.addEventListener('DOMContentLoaded', () => {
     uptimeDay: 24,
     prMerged: false,
     ff: { autofill: true, cache: true, checkout: false },
-    aiModel: 'gemini', aiIn: 8000, aiOut: 1000
+    aiModel: 'gemini', aiIn: 8000, aiOut: 1000,
+    vwMode: 'mic', vwPlaying: false,
+    pipeStage: 'edge', pipeRun: 42,
+    radarMode: 'deep',
+    orbApp: 'GitHub',
+    edgePicked: 'SIN · 11ms',
+    shimMode: 'AI Stream'
   };
   const sct = (k, v) => $$(`[data-sc-bind="${k}"]`, loop).forEach(el => { if (el.textContent !== v) el.textContent = v; });
   const toHexColor = (val, fallback) => {
@@ -3751,6 +3907,38 @@ document.addEventListener('DOMContentLoaded', () => {
     $$('[data-sc-input="swap-amt"]', loop).forEach(i => { if (document.activeElement !== i) i.value = SC.swapAmt ? String(SC.swapAmt) : '0.00'; });
   };
   renderScSw(); renderScSwap(); renderScPlan(); renderScTokens(); renderScContrast(); renderScTypeScale(); renderScRadii(); renderScCli(); renderScApiKey(); renderScOtp(); renderScUptime(); renderScPr(); renderScFf(); renderScAiEst();
+  const renderScHoverLoops = () => {
+    const vwDb = { mic: '-12.4 dB', studio: '-6.0 dB', spatial: '-9.2 dB' };
+    sct('vw-db', vwDb[SC.vwMode] || '-12.4 dB');
+    $$('[data-sc="voice-wave"]', loop).forEach(c => c.setAttribute('data-active', SC.vwPlaying ? '1' : '0'));
+    $$('[data-sc-act="vw-mode"]', loop).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.vw === SC.vwMode)));
+    $$('[data-sc-act="vw-toggle"]', loop).forEach(b => {
+      b.setAttribute('aria-pressed', String(SC.vwPlaying));
+      b.textContent = SC.vwPlaying ? 'Pause' : 'Play';
+    });
+
+    const pipeInfo = { build: 'Build · 12s · Cached', test: 'Test · 18s · 48/48 pass', edge: 'Edge · 4s · Ready', live: 'Live · 100% traffic' };
+    sct('pipe-sub', pipeInfo[SC.pipeStage] || 'Edge · 4s · Ready');
+    sct('pipe-id', `dep_9f4a${SC.pipeRun} · 34s`);
+    $$('[data-sc-act="pipe-stage"]', loop).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.stage === SC.pipeStage)));
+
+    const radarInfo = { quick: ['Quick', '412 endpoints · 0 threats'], deep: ['Deep', '1,248 endpoints · 0 threats'], zero: ['Zero-Trust', '1,248 endpoints · mTLS locked'] };
+    const [rBadge, rSub] = radarInfo[SC.radarMode] || radarInfo.deep;
+    sct('radar-badge', rBadge); sct('radar-sub', rSub);
+    $$('[data-sc-act="radar-mode"]', loop).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.rm === SC.radarMode)));
+
+    sct('orb-sub', `${SC.orbApp} · Connected & syncing`);
+    $$('[data-sc-act="orb-pick"]', loop).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.app === SC.orbApp)));
+
+    const [eCode, eMs] = SC.edgePicked.split(' · ');
+    sct('edge-sub', `${eCode} · ${eMs} · Active node`);
+    sct('edge-ms', eMs || '11ms');
+    $$('[data-sc-act="edge-pick"]', loop).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.edge === SC.edgePicked)));
+
+    sct('shim-mode', SC.shimMode);
+    $$('[data-sc-act="shim-mode"]', loop).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.sm === SC.shimMode)));
+  };
+  renderScHoverLoops();
   $$('button[aria-label]:not([title])', loop).forEach(b => { b.title = b.getAttribute('aria-label'); });
   loop.addEventListener('click', e => {
     const el = e.target.closest('[data-sc-act]'); if (!el) return;
@@ -3845,6 +4033,24 @@ document.addEventListener('DOMContentLoaded', () => {
       SC.aiModel = el.dataset.model || 'gemini';
       renderScAiEst();
     }
+    else if (a === 'vw-mode') { SC.vwMode = el.dataset.vw || 'mic'; renderScHoverLoops(); }
+    else if (a === 'vw-toggle') { SC.vwPlaying = !SC.vwPlaying; renderScHoverLoops(); }
+    else if (a === 'pipe-stage') { SC.pipeStage = el.dataset.stage || 'edge'; renderScHoverLoops(); }
+    else if (a === 'pipe-run') {
+      const stages = ['build', 'test', 'edge', 'live'];
+      SC.pipeStage = stages[(stages.indexOf(SC.pipeStage) + 1) % stages.length];
+      SC.pipeRun++;
+      renderScHoverLoops();
+    }
+    else if (a === 'radar-mode') { SC.radarMode = el.dataset.rm || 'deep'; renderScHoverLoops(); }
+    else if (a === 'orb-pick') { SC.orbApp = el.dataset.app || 'GitHub'; renderScHoverLoops(); }
+    else if (a === 'edge-pick') { SC.edgePicked = el.dataset.edge || 'SIN · 11ms'; renderScHoverLoops(); }
+    else if (a === 'edge-ping') {
+      const nodes = ['SIN · 11ms', 'SFO · 14ms', 'NRT · 19ms', 'LHR · 22ms', 'FRA · 24ms'];
+      SC.edgePicked = nodes[(nodes.indexOf(SC.edgePicked) + 1) % nodes.length];
+      renderScHoverLoops();
+    }
+    else if (a === 'shim-mode') { SC.shimMode = el.dataset.sm || 'AI Stream'; renderScHoverLoops(); }
     else if (a === 'copy-tokens') {
       const cs = getComputedStyle(root);
       const cssVars = `:root {\n  --accent: ${cs.getPropertyValue('--accent').trim()};\n  --surface: ${cs.getPropertyValue('--surface').trim()};\n  --card-pad: ${cs.getPropertyValue('--card-pad').trim()};\n  --font-display: ${cs.getPropertyValue('--font-display').trim()};\n}`;

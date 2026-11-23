@@ -2,7 +2,7 @@
 
 # Infinite Bento (`UIzBENTO`)
 
-**154 interactive, responsive Bento UI cards with live theme customization, `⌘K` command palette, one-click card/CSS export, and GSAP choreography.**
+**160 interactive, responsive Bento UI cards with live theme customization, `⌘K` command palette, one-click card/CSS export, and GSAP choreography.**
 
 [![Live Demo](https://img.shields.io/badge/Live_Demo-uizbento.vercel.app-65a30d?style=for-the-badge&logo=vercel&logoColor=white)](https://uizbento.vercel.app/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.4-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
@@ -24,7 +24,7 @@ Most UI showcases are static screenshots. `UIzBENTO` is a **zero-runtime, copy-r
 
 | Capability | What It Does |
 | :--- | :--- |
-| **154 Interactive Cards** | Every card is responsive, keyboard-accessible, and interactive out of the box. |
+| **160 Interactive Cards** | Every card is responsive, keyboard-accessible, and interactive out of the box. |
 | **One-Click Copy Card HTML** | Hover or focus any card and click **Copy** to grab its clean HTML + Tailwind markup. |
 | **Appearance Studio (`Theme & Fonts`)** | Switch between 6 color presets (`Olive`, `Cobalt`, `Indigo`, `Ember`, `Rose`, `Mono`), `Light / Dark / Auto`, 5 font pairings, and `Comfortable / Compact` density — persisted in `localStorage`. |
 | **Export Theme CSS** | Copy the active `:root` CSS variables directly from the Appearance Studio dock into your own stylesheet. |
