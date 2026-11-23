@@ -10,7 +10,7 @@
 [![License](https://img.shields.io/github/license/ericsn-ui/uiz-bento?style=for-the-badge)](./LICENSE)
 [![GitHub Stars](https://img.shields.io/github/stars/ericsn-ui/uiz-bento?style=for-the-badge)](https://github.com/ericsn-ui/uiz-bento/stargazers)
 
-**[Explore the Live Showcase →](https://uizbento.vercel.app/)**
+**[Explore the Live Showcase →](https://uiz-bento.vercel.app/)**
 
 ![Infinite Bento Preview](./og-image.png)
 
