@@ -40,7 +40,7 @@
 <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
 <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
 <link rel="preconnect" href="https://images.unsplash.com" crossorigin />
-<link rel="stylesheet" href="./styles.css?v=14" />
+<link rel="stylesheet" href="./styles.css?v=15" />
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
@@ -92,15 +92,15 @@
       const validS = new Set(['auto', 'light', 'dark']);
       const validF = new Set(['system', 'editorial', 'geometric', 'humanist', 'swiss']);
       const validFw = new Set(['html', 'react', 'vue', 'svelte']);
-      const a = validA.has(qTheme) ? qTheme : localStorage.getItem('uiz-accent');
+      const m = q.get('material') === 'glass' || q.get('material') === 'classic' ? q.get('material') : (localStorage.getItem('uiz-material') || 'glass');
+      const validGb = new Set(['abstract', 'rainier', 'pexels1', 'pexels2']);
+      const gb = validGb.has(q.get('glassBg')) ? q.get('glassBg') : localStorage.getItem('uiz-glass-bg');
+      const a = validA.has(qTheme) ? qTheme : (localStorage.getItem('uiz-accent') || (m !== 'classic' ? 'mono' : 'lime'));
       const s = validS.has(q.get('scheme')) ? q.get('scheme') : localStorage.getItem('uiz-scheme');
       const f = validF.has(q.get('font')) ? q.get('font') : localStorage.getItem('uiz-font');
       const d = q.get('density') === 'compact' || q.get('density') === 'comfortable' ? q.get('density') : localStorage.getItem('uiz-density');
       const l = q.get('loop') === 'paused' || q.get('loop') === 'running' ? q.get('loop') : localStorage.getItem('uiz-loop');
       const fw = validFw.has(q.get('fw')) ? q.get('fw') : localStorage.getItem('uiz-fw');
-      const m = q.get('material') === 'glass' || q.get('material') === 'classic' ? q.get('material') : (localStorage.getItem('uiz-material') || 'glass');
-      const validGb = new Set(['abstract', 'rainier', 'pexels1', 'pexels2']);
-      const gb = validGb.has(q.get('glassBg')) ? q.get('glassBg') : localStorage.getItem('uiz-glass-bg');
       if (a && a !== 'lime') r.dataset.accent = a;
       if (s && s !== 'auto') r.dataset.scheme = s;
       if (f && f !== 'system') { r.dataset.font = f; window.__loadUizFont(f); }
@@ -3116,7 +3116,7 @@
         <span class="dock-dot" aria-hidden="true"></span>
         <span>Theme &amp; Fonts</span>
       </button>
-      <button id="quick-material" class="hidden sm:inline-flex text-footnote" type="button" aria-pressed="true" title="Switch to Classic surface" aria-label="Toggle Liquid Glass material">Glass</button>
+      <button id="glass-trigger" class="hidden sm:inline-flex text-footnote" type="button" popovertarget="glass-popover" aria-expanded="false" aria-controls="glass-popover" aria-pressed="true" title="Open Glass settings (Light, Refraction, Depth, Dispersion, Frost, Splay)">Glass ▾</button>
       <button id="quick-glass-bg" class="hidden sm:inline-flex text-footnote" type="button" title="Switch Glass background (Abstract, Mt. Rainier, Scenic I, Scenic II)" aria-label="Glass background: Abstract">BG: Abstract</button>
       <button id="quick-fw" class="hidden sm:inline-flex font-mono text-footnote" type="button" title="Switch copy framework (HTML, React TSX, Vue, Svelte)" aria-label="Copy framework: HTML">HTML</button>
     </div>
@@ -3226,6 +3226,61 @@
         <svg class="ic sm" aria-hidden="true"><use href="#i-link"/></svg>
         <span>Share URL</span>
       </button>
+    </div>
+  </div>
+
+  <div id="glass-popover" popover="auto" class="studio-popover" aria-label="Liquid Glass controls">
+    <div class="flex items-center justify-between gap-2 border-b border-sep pb-3">
+      <div class="flex items-center gap-2">
+        <span class="grid h-7 w-7 place-items-center rounded-full bg-tile border border-sep" aria-hidden="true">
+          <svg class="ic sm" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="1.8" fill="none"/><path d="M9 8.5a4.5 4.5 0 0 1 5.5 0" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        </span>
+        <div>
+          <h2 class="text-headline">Glass</h2>
+          <p class="sec text-footnote">Live white / mono optics</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-2">
+        <button id="glass-active-switch" class="switch" type="button" role="switch" aria-checked="true" aria-label="Toggle Liquid Glass"></button>
+        <button id="glass-reset" class="btn btn-secondary !min-h-[2rem] px-2.5 text-footnote" type="button">Reset</button>
+      </div>
+    </div>
+
+    <div class="flex items-center gap-3 border-b border-sep pb-3">
+      <div class="glass-light-preview" aria-hidden="true">
+        <div class="glass-light-corner"></div>
+        <div class="glass-light-beam"></div>
+      </div>
+      <div class="grid flex-1 gap-2">
+        <div class="flex items-center gap-2">
+          <span class="sec text-footnote w-11 shrink-0">Angle</span>
+          <input class="brand-slider flex-1" type="range" min="-180" max="180" step="1" value="-45" style="--attr-min:-180;--attr-max:180;--control-value:-45" data-glass-ctl="angle" aria-label="Glass light angle" />
+          <span class="glass-val w-12 shrink-0" data-glass-val="angle">-45°</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="sec text-footnote w-11 shrink-0">Light</span>
+          <input class="brand-slider flex-1" type="range" min="0" max="100" step="1" value="80" style="--attr-min:0;--attr-max:100;--control-value:80" data-glass-ctl="light" aria-label="Glass light intensity" />
+          <span class="glass-val w-12 shrink-0" data-glass-val="light">80%</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid gap-2.5">
+      <div class="glass-row"><span class="sec text-footnote">Refraction</span><input class="brand-slider" type="range" min="0" max="100" step="1" value="80" style="--attr-min:0;--attr-max:100;--control-value:80" data-glass-ctl="refract" aria-label="Glass refraction" /><span class="glass-val" data-glass-val="refract">80</span></div>
+      <div class="glass-row"><span class="sec text-footnote">Depth</span><input class="brand-slider" type="range" min="0" max="100" step="1" value="20" style="--attr-min:0;--attr-max:100;--control-value:20" data-glass-ctl="depth" aria-label="Glass depth" /><span class="glass-val" data-glass-val="depth">20</span></div>
+      <div class="glass-row"><span class="sec text-footnote">Dispersion</span><input class="brand-slider" type="range" min="0" max="100" step="1" value="50" style="--attr-min:0;--attr-max:100;--control-value:50" data-glass-ctl="disp" aria-label="Glass dispersion" /><span class="glass-val" data-glass-val="disp">50</span></div>
+      <div class="glass-row"><span class="sec text-footnote">Frost</span><input class="brand-slider" type="range" min="0" max="30" step="1" value="4" style="--attr-min:0;--attr-max:30;--control-value:4" data-glass-ctl="frost" aria-label="Glass frost" /><span class="glass-val" data-glass-val="frost">4</span></div>
+      <div class="glass-row"><span class="sec text-footnote">Splay</span><input class="brand-slider" type="range" min="0" max="100" step="1" value="0" style="--attr-min:0;--attr-max:100;--control-value:0" data-glass-ctl="splay" aria-label="Glass splay" /><span class="glass-val" data-glass-val="splay">0</span></div>
+    </div>
+
+    <div class="grid gap-2 border-t border-sep pt-3">
+      <p class="sec text-footnote font-semibold uppercase tracking-wide">Backdrop</p>
+      <div class="grid grid-cols-2 gap-2" role="group" aria-label="Glass backdrop image">
+        <button class="swatch-btn" type="button" data-set-glass-bg="abstract" aria-pressed="true"><span class="h-4 w-4 rounded-md shrink-0 border border-sep bg-cover bg-center" style="background-image:url('./glass-bg.svg')"></span>Abstract</button>
+        <button class="swatch-btn" type="button" data-set-glass-bg="rainier" aria-pressed="false"><span class="h-4 w-4 rounded-md shrink-0 border border-sep bg-cover bg-center" style="background-image:url('https://images.unsplash.com/photo-1794942367964-36710f065129?auto=format&fit=crop&w=120&q=70')"></span>Mt. Rainier</button>
+        <button class="swatch-btn" type="button" data-set-glass-bg="pexels1" aria-pressed="false"><span class="h-4 w-4 rounded-md shrink-0 border border-sep bg-cover bg-center" style="background-image:url('https://images.pexels.com/photos/16777744/pexels-photo-16777744.jpeg?auto=compress&cs=tinysrgb&w=120')"></span>Scenic I</button>
+        <button class="swatch-btn" type="button" data-set-glass-bg="pexels2" aria-pressed="false"><span class="h-4 w-4 rounded-md shrink-0 border border-sep bg-cover bg-center" style="background-image:url('https://images.pexels.com/photos/38440476/pexels-photo-38440476.jpeg?auto=compress&cs=tinysrgb&w=120')"></span>Scenic II</button>
+      </div>
     </div>
   </div>
 
@@ -4928,7 +4983,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* ---------- 5. Floating Theme & Font Studio Dock ---------- */
   const dock = $('#studio-dock'), studioTrigger = $('#studio-trigger'), themePopover = $('#theme-popover'),
-        quickSchemeBtn = $('#quick-scheme'), quickMaterialBtn = $('#quick-material'), quickGlassBgBtn = $('#quick-glass-bg'), quickFwBtn = $('#quick-fw'), replayBtn = $('#replay-cinematic'), dockStatus = $('#dock-status'),
+        glassTrigger = $('#glass-trigger'), glassPopover = $('#glass-popover'), glassActiveSwitch = $('#glass-active-switch'), glassResetBtn = $('#glass-reset'),
+        quickSchemeBtn = $('#quick-scheme'), quickGlassBgBtn = $('#quick-glass-bg'), quickFwBtn = $('#quick-fw'), replayBtn = $('#replay-cinematic'), dockStatus = $('#dock-status'),
         resetStudioBtn = $('#studio-reset'), toggleLoopBtn = $('#toggle-loop'), openCmdBtn = $('#open-cmd');
   const schemeMql = matchMedia('(prefers-color-scheme: dark)');
   const THEME_LABELS = { lime: 'Olive', blue: 'Cobalt', indigo: 'Indigo', ember: 'Ember', rose: 'Rose', mono: 'Monochrome' };
@@ -4953,13 +5009,11 @@ document.addEventListener('DOMContentLoaded', () => {
     $$('[data-set-density]', themePopover).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.setDensity === studioState.density)));
     $$('[data-set-fw]', themePopover).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.setFw === studioState.fw)));
     $$('[data-set-material]', themePopover).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.setMaterial === studioState.material)));
-    $$('[data-set-glass-bg]', themePopover).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.setGlassBg === studioState.glassBg)));
+    $$('[data-set-glass-bg]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.setGlassBg === studioState.glassBg)));
     if (toggleLoopBtn) toggleLoopBtn.setAttribute('aria-checked', String(studioState.loopPaused));
-    if (quickMaterialBtn) {
-      const isGlass = studioState.material === 'glass';
-      quickMaterialBtn.setAttribute('aria-pressed', String(isGlass));
-      quickMaterialBtn.title = isGlass ? 'Switch to Classic surface' : 'Switch to Liquid Glass surface';
-    }
+    const isGlass = studioState.material === 'glass';
+    if (glassTrigger) glassTrigger.setAttribute('aria-pressed', String(isGlass));
+    if (glassActiveSwitch) glassActiveSwitch.setAttribute('aria-checked', String(isGlass));
     if (quickGlassBgBtn) {
       const gbLbl = GB_LABELS[studioState.glassBg] || 'Abstract';
       quickGlassBgBtn.textContent = `BG: ${gbLbl}`;
@@ -5029,7 +5083,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const sb = e.target.closest('[data-set-scheme]');
       if (sb) { const v = sb.dataset.setScheme; applyStudio({ scheme: v }, `Appearance set to ${v}`); return; }
       const mb = e.target.closest('[data-set-material]');
-      if (mb) { const v = mb.dataset.setMaterial; applyStudio({ material: v }, `Surface material set to ${v === 'glass' ? 'Liquid Glass' : 'Classic'}`); return; }
+      if (mb) { const v = mb.dataset.setMaterial; applyStudio(v === 'glass' ? { material: v, accent: 'mono' } : { material: v }, `Surface material set to ${v === 'glass' ? 'Liquid Glass (Mono)' : 'Classic'}`); return; }
       const gb = e.target.closest('[data-set-glass-bg]');
       if (gb) { const v = gb.dataset.setGlassBg; applyStudio({ material: 'glass', glassBg: v }, `Glass background set to ${v}`); return; }
       const fb = e.target.closest('[data-set-font]');
@@ -5040,11 +5094,65 @@ document.addEventListener('DOMContentLoaded', () => {
       if (fwb) { const v = fwb.dataset.setFw; applyStudio({ fw: v }, `Copy framework set to ${FW_LABELS[v] || v}`); }
     });
   }
-  if (quickMaterialBtn) {
-    quickMaterialBtn.addEventListener('click', () => {
-      const next = studioState.material === 'glass' ? 'classic' : 'glass';
-      applyStudio({ material: next }, `Surface material set to ${next === 'glass' ? 'Liquid Glass' : 'Classic'}`);
+  if (glassPopover) {
+    const GLASS_DEF = { angle: -45, light: 80, refract: 80, depth: 20, disp: 50, frost: 4, splay: 0 };
+    let glassCfg = { ...GLASS_DEF };
+    try {
+      const saved = JSON.parse(localStorage.getItem('uiz-glass-cfg') || 'null');
+      if (saved && typeof saved === 'object') glassCfg = { ...GLASS_DEF, ...saved };
+    } catch {}
+    const applyGlassCfg = (save = true) => {
+      root.style.setProperty('--glass-angle', `${glassCfg.angle}deg`);
+      root.style.setProperty('--glass-light', (glassCfg.light / 100).toFixed(2));
+      root.style.setProperty('--glass-refract', (1 + (glassCfg.refract / 100) * 1.2).toFixed(2));
+      root.style.setProperty('--glass-depth', String(glassCfg.depth));
+      root.style.setProperty('--glass-disp', (glassCfg.disp / 100).toFixed(2));
+      root.style.setProperty('--glass-blur', `${(6 + glassCfg.frost * 1.5).toFixed(1)}px`);
+      root.style.setProperty('--glass-splay', `${(glassCfg.splay * 0.28).toFixed(1)}px`);
+      const fmt = { angle: `${glassCfg.angle}°`, light: `${glassCfg.light}%` };
+      Object.keys(GLASS_DEF).forEach(k => {
+        const inp = $(`[data-glass-ctl="${k}"]`, glassPopover);
+        const valEl = $(`[data-glass-val="${k}"]`, glassPopover);
+        if (inp) {
+          inp.value = String(glassCfg[k]);
+          inp.style.setProperty('--control-value', String(glassCfg[k]));
+        }
+        if (valEl) valEl.textContent = fmt[k] || String(glassCfg[k]);
+      });
+      if (save) { try { localStorage.setItem('uiz-glass-cfg', JSON.stringify(glassCfg)); } catch {} }
+    };
+    applyGlassCfg(false);
+    glassPopover.addEventListener('toggle', e => {
+      if (glassTrigger) glassTrigger.setAttribute('aria-expanded', String(e.newState === 'open'));
     });
+    glassPopover.addEventListener('input', e => {
+      const t = e.target.closest('[data-glass-ctl]');
+      if (!t) return;
+      const k = t.dataset.glassCtl;
+      if (k in GLASS_DEF) {
+        glassCfg[k] = Number(t.value);
+        if (studioState.material !== 'glass') applyStudio({ material: 'glass' });
+        applyGlassCfg(true);
+      }
+    });
+    glassPopover.addEventListener('click', e => {
+      const gb = e.target.closest('[data-set-glass-bg]');
+      if (gb) { const v = gb.dataset.setGlassBg; applyStudio({ material: 'glass', glassBg: v }, `Glass background set to ${GB_LABELS[v] || v}`); }
+    });
+    if (glassActiveSwitch) {
+      glassActiveSwitch.addEventListener('click', () => {
+        const next = studioState.material === 'glass' ? 'classic' : 'glass';
+        const patch = next === 'glass' ? { material: 'glass', accent: 'mono' } : { material: 'classic' };
+        applyStudio(patch, `Surface material set to ${next === 'glass' ? 'Liquid Glass (Mono)' : 'Classic'}`);
+      });
+    }
+    if (glassResetBtn) {
+      glassResetBtn.addEventListener('click', () => {
+        glassCfg = { ...GLASS_DEF };
+        applyGlassCfg(true);
+        applyStudio({ material: 'glass', accent: 'mono', glassBg: 'abstract' }, 'Glass optics reset to White / Mono default');
+      });
+    }
   }
   if (quickGlassBgBtn) {
     quickGlassBgBtn.addEventListener('click', () => {
@@ -5067,7 +5175,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
   if (resetStudioBtn) {
-    resetStudioBtn.addEventListener('click', () => applyStudio({ accent: 'lime', scheme: 'auto', font: 'system', density: 'comfortable', loopPaused: false, fw: 'html', material: 'glass', glassBg: 'abstract' }, 'Studio preferences reset to default'));
+    resetStudioBtn.addEventListener('click', () => applyStudio({ accent: 'mono', scheme: 'auto', font: 'system', density: 'comfortable', loopPaused: false, fw: 'html', material: 'glass', glassBg: 'abstract' }, 'Studio preferences reset to White / Mono Liquid Glass'));
   }
   const exportCssBtn = $('#studio-export-css');
   if (exportCssBtn) {
