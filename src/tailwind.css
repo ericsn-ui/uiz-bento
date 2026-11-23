@@ -927,152 +927,265 @@
     0%, 100% { transform:translate3d(0, 0, 0) scale(1); }
     50% { transform:translate3d(2%, -2%, 0) scale(1.05); }
   }
+  html[data-material="glass"] {
+    --surface:rgba(255,255,255,.52);
+    --tile:rgba(255,255,255,.36);
+    --fill:rgba(255,255,255,.30);
+    --sep:rgba(255,255,255,.52);
+    --dd-bg:rgba(255,255,255,.88);
+    --dd-border:rgba(255,255,255,.65);
+    --seg-selected:rgba(255,255,255,.92);
+    --ink-tile:rgba(255,255,255,.28);
+    --lime-bg:rgba(255,255,255,.36);
+    --lime-fg:#18181b;
+    --sage-bg:rgba(255,255,255,.36);
+    --sage-fg:#18181b;
+  }
+  html[data-material="glass"][data-scheme="dark"] {
+    --surface:rgba(255,255,255,.16);
+    --tile:rgba(255,255,255,.11);
+    --fill:rgba(255,255,255,.16);
+    --sep:rgba(255,255,255,.24);
+    --dd-bg:rgba(28,32,44,.84);
+    --dd-border:rgba(255,255,255,.22);
+    --seg-selected:rgba(255,255,255,.26);
+    --ink-tile:rgba(255,255,255,.14);
+    --lime-bg:rgba(255,255,255,.16);
+    --lime-fg:#ffffff;
+    --sage-bg:rgba(255,255,255,.16);
+    --sage-fg:#ffffff;
+    --secondary:rgba(255,255,255,.78);
+  }
+  @media (prefers-color-scheme: dark) {
+    html[data-material="glass"]:not([data-scheme="light"]) {
+      --surface:rgba(255,255,255,.16);
+      --tile:rgba(255,255,255,.11);
+      --fill:rgba(255,255,255,.16);
+      --sep:rgba(255,255,255,.24);
+      --dd-bg:rgba(28,32,44,.84);
+      --dd-border:rgba(255,255,255,.22);
+      --seg-selected:rgba(255,255,255,.26);
+      --ink-tile:rgba(255,255,255,.14);
+      --lime-bg:rgba(255,255,255,.16);
+      --lime-fg:#ffffff;
+      --sage-bg:rgba(255,255,255,.16);
+      --sage-fg:#ffffff;
+      --secondary:rgba(255,255,255,.78);
+    }
+  }
   html[data-material="glass"] body::before {
     content:""; position:fixed; inset:-6%; z-index:-1; pointer-events:none;
     background:url("./glass-bg.svg") center / cover no-repeat;
     animation:uiz-glass-ambient 20s ease-in-out infinite;
   }
   html[data-material="glass"][data-scheme="dark"] body::before {
-    filter:brightness(.82) saturate(1.15);
+    filter:brightness(.86) saturate(1.15);
   }
   @media (prefers-color-scheme: dark) {
     html[data-material="glass"]:not([data-scheme="light"]) body::before {
-      filter:brightness(.82) saturate(1.15);
+      filter:brightness(.86) saturate(1.15);
     }
   }
   @media (prefers-reduced-motion: reduce) {
     html[data-material="glass"] body::before { animation:none !important; }
   }
 
-  /* Single-layer blur on .card (white frosted Liquid Glass, no nested blur on inner .tile/.soft for 60fps scroll) */
+  /* Unified White Frosted Liquid Glass across ALL 174 cards (single-layer blur, no nested blur) */
   html[data-material="glass"] .card,
-  html[data-material="glass"] .widgets > .card.tone:not(.t-lime),
-  html[data-material="glass"] .seo-bento .t-violet {
-    background:linear-gradient(145deg, rgba(255,255,255,.52), rgba(255,255,255,.26)) !important;
-    -webkit-backdrop-filter:blur(22px) saturate(185%);
-    backdrop-filter:blur(22px) saturate(185%);
-    border:1px solid rgba(255,255,255,.68);
-    box-shadow:
-      inset 0 1px 0 rgba(255,255,255,.92),
-      inset 0 -1px 0 rgba(255,255,255,.22),
-      0 14px 36px -12px rgba(15,23,42,.24);
-  }
-  html[data-material="glass"][data-scheme="dark"] .card,
-  html[data-material="glass"][data-scheme="dark"] .widgets > .card.tone:not(.t-lime),
-  html[data-material="glass"][data-scheme="dark"] .seo-bento .t-violet {
-    background:linear-gradient(145deg, rgba(255,255,255,.18), rgba(255,255,255,.07)) !important;
-    border-color:rgba(255,255,255,.28);
-    box-shadow:
-      inset 0 1px 0 rgba(255,255,255,.38),
-      inset 0 -1px 0 rgba(255,255,255,.08),
-      0 18px 42px -14px rgba(0,0,0,.55);
-  }
-  @media (prefers-color-scheme: dark) {
-    html[data-material="glass"]:not([data-scheme="light"]) .card,
-    html[data-material="glass"]:not([data-scheme="light"]) .widgets > .card.tone:not(.t-lime),
-    html[data-material="glass"]:not([data-scheme="light"]) .seo-bento .t-violet {
-      background:linear-gradient(145deg, rgba(255,255,255,.18), rgba(255,255,255,.07)) !important;
-      border-color:rgba(255,255,255,.28);
-      box-shadow:
-        inset 0 1px 0 rgba(255,255,255,.38),
-        inset 0 -1px 0 rgba(255,255,255,.08),
-        0 18px 42px -14px rgba(0,0,0,.55);
-    }
-  }
-  html[data-material="glass"] .card:not(.ink):not(.tone) .sec,
-  html[data-material="glass"] .widgets > .card.tone:not(.t-lime):not(.t-green):not(.t-grad-s):not(.t-pink) .sec,
-  html[data-material="glass"] .seo-bento .t-violet .sec {
-    color:color-mix(in srgb, var(--label) 72%, transparent);
-  }
-
-  /* Tinted & Ink Liquid Glass Cards */
   html[data-material="glass"] .card.ink,
-  html[data-material="glass"] .widgets > .card.tone.t-green,
-  html[data-material="glass"] .widgets > .card.tone.t-grad-s,
-  html[data-material="glass"] .widgets > .card.tone.t-pink,
-  html[data-material="glass"] .widgets > .card[data-c="event"],
-  html[data-material="glass"] .widgets > .card[data-c="stock1"],
+  html[data-material="glass"] .card.hero,
+  html[data-material="glass"] .card.tone,
+  html[data-material="glass"] .widgets > .card.tone,
+  html[data-material="glass"] .seo-bento .card.tone,
+  html[data-material="glass"] .seo-bento .t-violet,
   html[data-material="glass"] .seo-bento .t-purple,
   html[data-material="glass"] .seo-bento .t-sky,
-  html[data-material="glass"] .seo-bento .t-green {
-    background:linear-gradient(150deg, color-mix(in srgb, var(--ink-start) 72%, transparent), color-mix(in srgb, var(--ink-end) 54%, transparent)) !important;
-    border-color:rgba(255,255,255,.22) !important;
-    box-shadow:
-      inset 0 1px 0 rgba(255,255,255,.28),
-      inset 0 -1px 0 rgba(0,0,0,.3),
-      0 16px 38px -14px rgba(0,0,0,.48) !important;
-  }
-  html[data-material="glass"] .card.t-lime,
+  html[data-material="glass"] .seo-bento .t-green,
   html[data-material="glass"] .seo-bento .t-lime,
   html[data-material="glass"] .seo-bento .t-sage,
   html[data-material="glass"] .seo-bento .t-peach,
   html[data-material="glass"] .seo-bento .t-teal {
-    background:linear-gradient(145deg, color-mix(in srgb, var(--t, var(--lime-bg)) 76%, transparent), color-mix(in srgb, var(--t, var(--lime-bg)) 54%, transparent)) !important;
-    border-color:rgba(255,255,255,.52) !important;
+    --t:transparent !important;
+    --f:var(--label) !important;
+    --hl:var(--accent-text) !important;
+    --ac:var(--accent) !important;
+    --on-ac:var(--on-accent) !important;
+    --ch:var(--chart) !important;
+    color:var(--label) !important;
+    background:linear-gradient(145deg, rgba(255,255,255,.58), rgba(255,255,255,.30)) !important;
+    -webkit-backdrop-filter:blur(22px) saturate(185%);
+    backdrop-filter:blur(22px) saturate(185%);
+    border:1px solid rgba(255,255,255,.70) !important;
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,.94),
+      inset 0 -1px 0 rgba(255,255,255,.22),
+      0 14px 36px -12px rgba(15,23,42,.24) !important;
   }
-
-  /* Inner surfaces: translucent tint without nested blur */
-  html[data-material="glass"] .card:not(.ink) :is(.tile, .soft) {
-    background:color-mix(in srgb, var(--tile) 56%, rgba(255,255,255,.28));
-    border:1px solid color-mix(in srgb, var(--sep) 55%, rgba(255,255,255,.35));
-  }
-  html[data-material="glass"][data-scheme="dark"] .card:not(.ink) :is(.tile, .soft) {
-    background:rgba(255,255,255,.07);
-    border-color:rgba(255,255,255,.1);
+  html[data-material="glass"][data-scheme="dark"] .card,
+  html[data-material="glass"][data-scheme="dark"] .card.ink,
+  html[data-material="glass"][data-scheme="dark"] .card.hero,
+  html[data-material="glass"][data-scheme="dark"] .card.tone,
+  html[data-material="glass"][data-scheme="dark"] .widgets > .card.tone,
+  html[data-material="glass"][data-scheme="dark"] .seo-bento .card.tone,
+  html[data-material="glass"][data-scheme="dark"] .seo-bento .t-violet,
+  html[data-material="glass"][data-scheme="dark"] .seo-bento .t-purple,
+  html[data-material="glass"][data-scheme="dark"] .seo-bento .t-sky,
+  html[data-material="glass"][data-scheme="dark"] .seo-bento .t-green,
+  html[data-material="glass"][data-scheme="dark"] .seo-bento .t-lime,
+  html[data-material="glass"][data-scheme="dark"] .seo-bento .t-sage,
+  html[data-material="glass"][data-scheme="dark"] .seo-bento .t-peach,
+  html[data-material="glass"][data-scheme="dark"] .seo-bento .t-teal {
+    background:linear-gradient(145deg, rgba(255,255,255,.22), rgba(255,255,255,.09)) !important;
+    border-color:rgba(255,255,255,.30) !important;
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,.42),
+      inset 0 -1px 0 rgba(255,255,255,.08),
+      0 18px 42px -14px rgba(0,0,0,.52) !important;
   }
   @media (prefers-color-scheme: dark) {
-    html[data-material="glass"]:not([data-scheme="light"]) .card:not(.ink) :is(.tile, .soft) {
-      background:rgba(255,255,255,.07);
-      border-color:rgba(255,255,255,.1);
+    html[data-material="glass"]:not([data-scheme="light"]) .card,
+    html[data-material="glass"]:not([data-scheme="light"]) .card.ink,
+    html[data-material="glass"]:not([data-scheme="light"]) .card.hero,
+    html[data-material="glass"]:not([data-scheme="light"]) .card.tone,
+    html[data-material="glass"]:not([data-scheme="light"]) .widgets > .card.tone,
+    html[data-material="glass"]:not([data-scheme="light"]) .seo-bento .card.tone,
+    html[data-material="glass"]:not([data-scheme="light"]) .seo-bento .t-violet,
+    html[data-material="glass"]:not([data-scheme="light"]) .seo-bento .t-purple,
+    html[data-material="glass"]:not([data-scheme="light"]) .seo-bento .t-sky,
+    html[data-material="glass"]:not([data-scheme="light"]) .seo-bento .t-green,
+    html[data-material="glass"]:not([data-scheme="light"]) .seo-bento .t-lime,
+    html[data-material="glass"]:not([data-scheme="light"]) .seo-bento .t-sage,
+    html[data-material="glass"]:not([data-scheme="light"]) .seo-bento .t-peach,
+    html[data-material="glass"]:not([data-scheme="light"]) .seo-bento .t-teal {
+      background:linear-gradient(145deg, rgba(255,255,255,.22), rgba(255,255,255,.09)) !important;
+      border-color:rgba(255,255,255,.30) !important;
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.42),
+        inset 0 -1px 0 rgba(255,255,255,.08),
+        0 18px 42px -14px rgba(0,0,0,.52) !important;
     }
   }
-  html[data-material="glass"] .card.ink :is(.tile, .soft) {
-    background:rgba(255,255,255,.11);
-    border:1px solid rgba(255,255,255,.14);
+
+  /* Photo-backed cards keep crisp white foreground over their photograph */
+  html[data-material="glass"] .card:is([data-c="poster"], [data-c="event"], [data-c="mountain"], [data-c="wx3"], [data-sc="schedule"], [data-sc="run-map"]) {
+    --f:#ffffff !important;
+    color:#ffffff !important;
+  }
+
+  /* Inner elements & text contrast in White Liquid Glass (no solid dark #2c2c2e or opaque white boxes) */
+  html[data-material="glass"] .card :is(.sec, .hd-t, .hd-r, .tone .sec) {
+    color:color-mix(in srgb, var(--label) 74%, transparent) !important;
+  }
+  html[data-material="glass"] .card:is([data-c="poster"], [data-c="event"], [data-c="mountain"], [data-c="wx3"], [data-sc="schedule"], [data-sc="run-map"]) :is(.sec, .hd-t, .hd-r) {
+    color:rgba(255,255,255,.84) !important;
+  }
+  html[data-material="glass"] .ink .hd-r b { color:var(--label); }
+  html[data-material="glass"] .ink .hd-ic { background:var(--fill); color:var(--accent-text); }
+  html[data-material="glass"] .ink .pill:not(.accent),
+  html[data-material="glass"] .tone .pill:not(.accent),
+  html[data-material="glass"] .ink .btn-secondary,
+  html[data-material="glass"] .tone .btn-secondary {
+    background:var(--fill) !important;
+    color:var(--label) !important;
+    border:1px solid color-mix(in srgb, var(--sep) 65%, transparent);
+  }
+  html[data-material="glass"] .tone .btn-primary,
+  html[data-material="glass"] .tone .btn[aria-pressed="true"].tog {
+    background:var(--accent) !important;
+    color:var(--on-accent) !important;
+  }
+  html[data-material="glass"] .ink .linkbtn,
+  html[data-material="glass"] .tone .linkbtn { color:var(--accent-text); }
+  html[data-material="glass"] .ink .meter,
+  html[data-material="glass"] .tone .meter { background:var(--fill); }
+  html[data-material="glass"] .ink .meter > i,
+  html[data-material="glass"] .tone .meter > i { background:var(--accent); }
+  html[data-material="glass"] .ink .bubble { background:var(--tile); color:var(--label); border:1px solid var(--sep); box-shadow:none; }
+
+  /* Flatten nested .bg-surface / .tone panels inside cards so no dark seams appear */
+  html[data-material="glass"] .card .bg-surface { background:transparent !important; }
+  html[data-material="glass"] .card .tone.t-lime { background:transparent !important; color:var(--label) !important; --t:transparent; --f:var(--label); }
+  html[data-material="glass"] .seo-bento .caldot.pub { background:var(--accent) !important; color:var(--on-accent) !important; }
+  html[data-material="glass"] .seo-bento .caldot.sched { box-shadow:inset 0 0 0 2px var(--accent) !important; }
+  html[data-material="glass"] .seo-bento .caldot.today { outline:2px solid var(--accent-text) !important; }
+  html[data-material="glass"] .seo-bento .caldot.none { background:var(--fill) !important; }
+  html[data-material="glass"] .seo-bento .caldot.gap { background:repeating-linear-gradient(45deg, color-mix(in srgb, var(--label) 26%, transparent) 0 2px, transparent 2px 5px) !important; }
+  html[data-material="glass"] .seo-bento .chip-tile { background:var(--tile) !important; color:var(--label) !important; border:1px solid var(--sep); }
+  html[data-material="glass"] .seo-bento .chip-tile .sec { color:var(--secondary) !important; }
+
+  /* Inner tiles, soft boxes, dropzone, switchtiles & form controls: frosted translucent glass */
+  html[data-material="glass"] .card :is(.tile, .soft, .dash, .row-list, .switchtile) {
+    background:var(--tile) !important;
+    color:var(--label) !important;
+    border:1px solid color-mix(in srgb, var(--sep) 72%, transparent);
+  }
+  html[data-material="glass"] .card .dash { border-style:dashed; border-width:2px; border-color:var(--accent); }
+  html[data-material="glass"] .card .switchtile[aria-checked="true"] {
+    background:color-mix(in srgb, var(--accent) 22%, var(--tile)) !important;
+    border-color:color-mix(in srgb, var(--accent) 55%, var(--sep));
+  }
+  html[data-material="glass"] .card .bg-tile { background:var(--tile) !important; }
+  html[data-material="glass"] .card .sc-radio-row:has(input:checked),
+  html[data-material="glass"] .card .sc-radio-row:hover { background:var(--tile) !important; }
+  html[data-material="glass"] .card input[type="checkbox"].sc-chk:not(:checked) { background:var(--tile) !important; border-color:var(--sep) !important; }
+  html[data-material="glass"] .card .note { background:rgba(255,255,255,.78); color:#18181b; }
+  html[data-material="glass"] .card .card-copy-btn {
+    background:rgba(255,255,255,.42);
+    border-color:rgba(255,255,255,.55);
+    color:var(--label);
+  }
+  html[data-material="glass"][data-scheme="dark"] .card .card-copy-btn {
+    background:rgba(255,255,255,.16);
+    border-color:rgba(255,255,255,.28);
+    color:#ffffff;
+  }
+  @media (prefers-color-scheme: dark) {
+    html[data-material="glass"]:not([data-scheme="light"]) .card .card-copy-btn {
+      background:rgba(255,255,255,.16);
+      border-color:rgba(255,255,255,.28);
+      color:#ffffff;
+    }
   }
 
   /* Specular interactive pointer glint & hover lift */
   html[data-material="glass"] .card::after {
-    background:radial-gradient(340px circle at var(--mx,50%) var(--my,50%), rgba(255,255,255,.28), transparent 62%);
-  }
-  html[data-material="glass"][data-scheme="dark"] .card::after {
-    background:radial-gradient(340px circle at var(--mx,50%) var(--my,50%), rgba(255,255,255,.16), transparent 62%);
+    background:radial-gradient(340px circle at var(--mx,50%) var(--my,50%), rgba(255,255,255,.30), transparent 62%);
   }
   @media (hover: hover) {
     html[data-material="glass"] .card:hover {
-      border-color:color-mix(in srgb, var(--accent) 48%, rgba(255,255,255,.65)) !important;
+      border-color:color-mix(in srgb, var(--accent) 48%, rgba(255,255,255,.78)) !important;
       box-shadow:
         inset 0 1px 0 rgba(255,255,255,.95),
         0 20px 44px -16px rgba(0,0,0,.28),
-        0 0 0 1px color-mix(in srgb, var(--accent) 24%, transparent) !important;
+        0 0 0 1px color-mix(in srgb, var(--accent) 26%, transparent) !important;
     }
     html[data-material="glass"][data-scheme="dark"] .card:hover {
-      border-color:color-mix(in srgb, var(--accent) 52%, rgba(255,255,255,.28)) !important;
+      border-color:color-mix(in srgb, var(--accent) 52%, rgba(255,255,255,.42)) !important;
       box-shadow:
-        inset 0 1px 0 rgba(255,255,255,.32),
-        0 22px 48px -16px rgba(0,0,0,.68),
-        0 0 0 1px color-mix(in srgb, var(--accent) 28%, transparent) !important;
+        inset 0 1px 0 rgba(255,255,255,.48),
+        0 22px 48px -16px rgba(0,0,0,.62),
+        0 0 0 1px color-mix(in srgb, var(--accent) 30%, transparent) !important;
     }
   }
 
-  /* Dock, Popover & Dialogs in Liquid Glass */
+  /* Dock, Popover & Dialogs in White Liquid Glass */
   html[data-material="glass"] :is(.studio-dock, .studio-popover, .cmd-dialog, .sheet) {
-    background:color-mix(in srgb, var(--surface) 58%, transparent);
+    background:rgba(255,255,255,.56);
     -webkit-backdrop-filter:blur(24px) saturate(200%);
     backdrop-filter:blur(24px) saturate(200%);
-    border-color:rgba(255,255,255,.42);
-    box-shadow:inset 0 1px 0 rgba(255,255,255,.65), 0 22px 54px -18px rgba(0,0,0,.38);
+    border-color:rgba(255,255,255,.62);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.85), 0 22px 54px -18px rgba(0,0,0,.35);
   }
   html[data-material="glass"][data-scheme="dark"] :is(.studio-dock, .studio-popover, .cmd-dialog, .sheet) {
-    background:rgba(28,28,34,.58);
-    border-color:rgba(255,255,255,.18);
-    box-shadow:inset 0 1px 0 rgba(255,255,255,.24), 0 24px 60px -18px rgba(0,0,0,.68);
+    background:rgba(255,255,255,.16);
+    border-color:rgba(255,255,255,.28);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.35), 0 24px 60px -18px rgba(0,0,0,.62);
   }
   @media (prefers-color-scheme: dark) {
     html[data-material="glass"]:not([data-scheme="light"]) :is(.studio-dock, .studio-popover, .cmd-dialog, .sheet) {
-      background:rgba(28,28,34,.58);
-      border-color:rgba(255,255,255,.18);
-      box-shadow:inset 0 1px 0 rgba(255,255,255,.24), 0 24px 60px -18px rgba(0,0,0,.68);
+      background:rgba(255,255,255,.16);
+      border-color:rgba(255,255,255,.28);
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.35), 0 24px 60px -18px rgba(0,0,0,.62);
     }
   }
 
