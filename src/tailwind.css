@@ -800,8 +800,76 @@
   [data-sc="skeleton-shimmer"]:hover .sc-shimmer-bar::after,
   [data-sc="skeleton-shimmer"]:focus-within .sc-shimmer-bar::after { animation:sc-shimmer-loop 1.35s ease-in-out infinite; }
 
+  /* Hover Interactive Animation Loops (SC-53..SC-60) */
+  @keyframes sc-spin-slow { to { transform:rotate(360deg); } }
+  .sc-sync-arc { transform-origin:center; }
+  [data-sc="sync-ring"]:hover .sc-sync-arc,
+  [data-sc="sync-ring"]:focus-within .sc-sync-arc { animation:sc-spin-slow 3.2s linear infinite; }
+
+  @keyframes sc-logs-scroll {
+    0% { transform:translateY(0); }
+    100% { transform:translateY(-50%); }
+  }
+  .sc-logs-track { display:grid; gap:.375rem; }
+  [data-sc="live-logs"]:hover .sc-logs-track,
+  [data-sc="live-logs"]:focus-within .sc-logs-track { animation:sc-logs-scroll 7s linear infinite; }
+  [data-sc="live-logs"][data-paused="1"] .sc-logs-track { animation-play-state:paused; }
+
+  @keyframes sc-ripple-out {
+    0% { transform:scale(.72); opacity:.75; }
+    100% { transform:scale(1.45); opacity:0; }
+  }
+  .sc-bio-ring { position:absolute; inset:0; border-radius:50%; border:1.5px solid var(--accent); opacity:0; }
+  [data-sc="biometric-lock"]:hover .sc-bio-ring,
+  [data-sc="biometric-lock"]:focus-within .sc-bio-ring { animation:sc-ripple-out 1.8s cubic-bezier(.16,1,.3,1) var(--r-d, 0s) infinite; }
+
+  @keyframes sc-mesh-drift {
+    0%, 100% { transform:translate3d(0,0,0) scale(1); }
+    50% { transform:translate3d(14%,-10%,0) scale(1.16); }
+  }
+  .sc-mesh-orb { position:absolute; border-radius:50%; filter:blur(18px); opacity:.78; transition:transform .4s ease; }
+  [data-sc="gradient-mesh"]:hover .sc-mesh-orb,
+  [data-sc="gradient-mesh"]:focus-within .sc-mesh-orb { animation:sc-mesh-drift 4.2s ease-in-out var(--m-d, 0s) infinite; }
+
+  @keyframes sc-dot-wave {
+    0%, 60%, 100% { transform:translateY(0); opacity:.45; }
+    30% { transform:translateY(-5px); opacity:1; }
+  }
+  .sc-ai-dot { width:.45rem; height:.45rem; border-radius:50%; background:var(--accent); }
+  [data-sc="typing-ai"]:hover .sc-ai-dot,
+  [data-sc="typing-ai"]:focus-within .sc-ai-dot { animation:sc-dot-wave 1.1s ease-in-out var(--d-d, 0s) infinite; }
+
+  @keyframes sc-playhead-loop {
+    0% { left:6%; }
+    100% { left:94%; }
+  }
+  .sc-playhead { position:absolute; top:0; bottom:0; left:28%; width:2px; background:var(--accent); box-shadow:0 0 10px var(--accent); pointer-events:none; }
+  [data-sc="waveform-timeline"]:hover .sc-playhead,
+  [data-sc="waveform-timeline"]:focus-within .sc-playhead { animation:sc-playhead-loop 3.4s linear infinite; }
+
+  @keyframes sc-bell-swing {
+    0%, 100% { transform:rotate(0deg); }
+    20% { transform:rotate(14deg); }
+    40% { transform:rotate(-12deg); }
+    60% { transform:rotate(8deg); }
+    80% { transform:rotate(-5deg); }
+  }
+  .sc-bell-ic { transform-origin:50% 15%; }
+  [data-sc="notification-stack"]:hover .sc-bell-ic,
+  [data-sc="notification-stack"]:focus-within .sc-bell-ic { animation:sc-bell-swing 1.4s ease-in-out infinite; }
+
+  @keyframes sc-key-sheen {
+    0%, 100% { border-color:var(--sep); box-shadow:none; }
+    50% { border-color:var(--accent); box-shadow:0 0 14px color-mix(in srgb, var(--accent) 28%, transparent); }
+  }
+  .sc-keycap { display:inline-flex; align-items:center; gap:.5rem; padding:.5rem .875rem; border-radius:.875rem; border:1px solid var(--sep); background:var(--tile); font-size:.8125rem; font-weight:600; cursor:pointer; transition:transform .15s ease, border-color .18s ease, background-color .18s ease; }
+  .sc-keycap[aria-pressed="true"] { background:var(--accent); color:var(--on-accent); border-color:transparent; }
+  [data-sc="command-strip"]:hover .sc-keycap,
+  [data-sc="command-strip"]:focus-within .sc-keycap { animation:sc-key-sheen 2.2s ease-in-out var(--k-d, 0s) infinite; }
+
   @media (prefers-reduced-motion: reduce) {
-    .sc-eq-bar, .sc-pipe-beam, .sc-pipe-dot, .sc-radar-sweep, .sc-radar-blip, .sc-orbit-track, .sc-orbit-node, .sc-marquee-track, .sc-shimmer-bar::after { animation:none !important; }
+    .sc-eq-bar, .sc-pipe-beam, .sc-pipe-dot, .sc-radar-sweep, .sc-radar-blip, .sc-orbit-track, .sc-orbit-node, .sc-marquee-track, .sc-shimmer-bar::after,
+    .sc-sync-arc, .sc-logs-track, .sc-bio-ring, .sc-mesh-orb, .sc-ai-dot, .sc-playhead, .sc-bell-ic, .sc-keycap { animation:none !important; }
   }
 
 @tailwind utilities;
