@@ -2493,6 +2493,153 @@
           </div>
         </article>
 
+        <!-- SC-43 System Uptime & 30-Day Strip -->
+        <article class="card sc-6 justify-between gap-3" data-sc="uptime" aria-label="System Uptime and 30-Day Strip">
+          <div class="flex flex-wrap items-center justify-between gap-2">
+            <div><h2 class="text-headline">System Uptime</h2><p class="sec text-footnote">API · Edge · Auth · Webhooks</p></div>
+            <span class="pill font-semibold" style="background:var(--lime-bg);color:var(--lime-fg)"><svg class="ic sm" aria-hidden="true"><use href="#i-check"/></svg>All Systems Operational</span>
+          </div>
+          <div class="flex items-baseline justify-between gap-2">
+            <div class="flex items-baseline gap-2">
+              <p class="text-title1 tnum font-bold">99.98%</p>
+              <span class="sec text-footnote">30-day uptime</span>
+            </div>
+            <span class="pill font-mono text-footnote tnum" data-sc-bind="uptime-latency-pill">38ms avg</span>
+          </div>
+          <div class="soft grid gap-2" style="padding:.75rem">
+            <div class="flex items-end" style="height:3.25rem;gap:3px" role="group" aria-label="30-day daily uptime strip" data-sc-bind="uptime-bars"></div>
+            <div class="flex items-center justify-between text-footnote sec">
+              <span>30 days ago</span>
+              <span>Today</span>
+            </div>
+          </div>
+          <div class="flex items-center justify-between gap-2 text-footnote">
+            <span class="font-medium min-w-0 truncate tnum" data-sc-bind="uptime-detail" aria-live="polite">Day 24 · 100.0% uptime · 38ms avg</span>
+            <span class="pill shrink-0 font-semibold" data-sc-bind="uptime-day-pill" style="background:var(--lime-bg);color:var(--lime-fg)">Operational</span>
+          </div>
+        </article>
+
+        <!-- SC-44 PR Review & CI Checks -->
+        <article class="card sc-6 justify-between gap-3" data-sc="pr-review" aria-label="PR Review and CI Checks">
+          <div class="flex items-start justify-between gap-2">
+            <div class="min-w-0 flex-1">
+              <div class="flex flex-wrap items-center gap-2">
+                <span class="pill font-semibold" data-sc-bind="pr-state" style="background:var(--lime-bg);color:var(--lime-fg)">Open</span>
+                <span class="sec font-mono text-footnote truncate">main ← feat/bento-export</span>
+              </div>
+              <h2 class="text-headline truncate" style="margin-top:.375rem">#418 · feat: bento copy &amp; theme export</h2>
+            </div>
+            <span class="hd-ic" aria-hidden="true"><svg class="ic sm"><use href="#i-code"/></svg></span>
+          </div>
+          <div class="soft grid gap-2.5" style="padding:.75rem">
+            <div class="flex items-center justify-between gap-2 text-footnote">
+              <span class="sec font-mono tnum">+142 −18 · 3 files</span>
+              <span class="font-semibold">3/3 checks passed</span>
+            </div>
+            <div class="flex flex-wrap items-center gap-2" aria-label="CI checks">
+              <span class="pill font-semibold" style="background:var(--lime-bg);color:var(--lime-fg)"><svg class="ic sm" aria-hidden="true"><use href="#i-check"/></svg>Build</span>
+              <span class="pill font-semibold" style="background:var(--lime-bg);color:var(--lime-fg)"><svg class="ic sm" aria-hidden="true"><use href="#i-check"/></svg>Lint</span>
+              <span class="pill font-semibold" style="background:var(--lime-bg);color:var(--lime-fg)"><svg class="ic sm" aria-hidden="true"><use href="#i-check"/></svg>Tests</span>
+            </div>
+          </div>
+          <div class="flex flex-wrap items-center justify-between gap-2">
+            <span class="sec text-footnote min-w-0 truncate" data-sc-bind="pr-merge-note" aria-live="polite">2 approvals · Ready to merge</span>
+            <button class="btn btn-primary !min-h-[2.5rem] px-4 text-footnote shrink-0" type="button" aria-pressed="false" data-sc-act="pr-merge" title="Approve and merge PR #418">
+              <svg class="ic sm" aria-hidden="true"><use href="#i-check"/></svg>
+              <span data-sc-bind="pr-merge-lbl">Approve &amp; Merge</span>
+            </button>
+          </div>
+        </article>
+
+        <!-- SC-45 Feature Flag & Rollout Switcher -->
+        <article class="card sc-4 justify-between gap-3" data-sc="feature-flags" aria-label="Feature Flag and Rollout Switcher">
+          <div class="flex items-center justify-between gap-2">
+            <div><h2 class="text-headline">Feature Flags</h2><p class="sec text-footnote">Production · Rollouts</p></div>
+            <span class="pill font-semibold tnum" data-sc-bind="ff-count" aria-live="polite" style="background:var(--lime-bg);color:var(--lime-fg)">2/3 active</span>
+          </div>
+          <ul class="row-list">
+            <li class="flex items-center justify-between gap-3" style="padding:.625rem .875rem">
+              <div class="min-w-0">
+                <p class="text-subhead font-semibold truncate">AI Autofill · 100%</p>
+                <p class="sec text-footnote truncate">General availability</p>
+              </div>
+              <button class="switch" type="button" role="switch" aria-checked="true" data-sc-act="ff-toggle" data-flag="autofill" aria-label="AI Autofill 100% rollout"></button>
+            </li>
+            <li class="flex items-center justify-between gap-3" style="padding:.625rem .875rem">
+              <div class="min-w-0">
+                <p class="text-subhead font-semibold truncate">Edge Cache · 50%</p>
+                <p class="sec text-footnote truncate">Canary traffic split</p>
+              </div>
+              <button class="switch" type="button" role="switch" aria-checked="true" data-sc-act="ff-toggle" data-flag="cache" aria-label="Edge Cache 50% rollout"></button>
+            </li>
+            <li class="flex items-center justify-between gap-3" style="padding:.625rem .875rem">
+              <div class="min-w-0">
+                <p class="text-subhead font-semibold truncate">New Checkout · Beta</p>
+                <p class="sec text-footnote truncate">Opt-in workspace beta</p>
+              </div>
+              <button class="switch" type="button" role="switch" aria-checked="false" data-sc-act="ff-toggle" data-flag="checkout" aria-label="New Checkout Beta rollout"></button>
+            </li>
+          </ul>
+          <div class="flex items-center justify-between gap-2 text-footnote sec">
+            <span class="truncate" data-sc-bind="ff-status" aria-live="polite">2 of 3 rollouts enabled</span>
+            <button class="linkbtn inline shrink-0 text-footnote" type="button" data-sc-act="ff-all" data-sc-bind="ff-all-lbl" title="Enable all feature flags">Enable all</button>
+          </div>
+        </article>
+
+        <!-- SC-46 AI Model Token, Cost & Latency Estimator -->
+        <article class="card sc-8 justify-between gap-3" data-sc="ai-estimator" aria-label="AI Model Token, Cost and Latency Estimator">
+          <div class="flex items-center justify-between gap-2">
+            <div><h2 class="text-headline">AI Cost &amp; Latency Estimator</h2><p class="sec text-footnote" data-sc-bind="ai-model-sub">Gemini 2.5 Flash · 1M context window</p></div>
+            <span class="hd-ic" aria-hidden="true"><svg class="ic sm"><use href="#i-spark"/></svg></span>
+          </div>
+          <div class="flex flex-wrap gap-1 rounded-2xl bg-fill p-1" role="group" aria-label="AI model selector">
+            <button class="btn tog !min-h-[2.25rem] flex-1 px-3 text-footnote" type="button" aria-pressed="true" data-sc-act="ai-model" data-model="gemini" title="Select Gemini 2.5 Flash">Gemini 2.5 Flash</button>
+            <button class="btn tog !min-h-[2.25rem] flex-1 px-3 text-footnote" type="button" aria-pressed="false" data-sc-act="ai-model" data-model="gpt4o" title="Select GPT-4o">GPT-4o</button>
+            <button class="btn tog !min-h-[2.25rem] flex-1 px-3 text-footnote" type="button" aria-pressed="false" data-sc-act="ai-model" data-model="claude" title="Select Claude 3.5 Sonnet">Claude 3.5 Sonnet</button>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div>
+              <div class="flex items-baseline justify-between gap-2">
+                <span class="sec text-footnote font-semibold">Input Tokens</span>
+                <output class="font-mono text-subhead font-semibold tnum" data-sc-bind="ai-in-out">8,000</output>
+              </div>
+              <input type="range" class="brand-slider" min="500" max="32000" step="500" value="8000" data-sc-input="ai-in" aria-label="Input tokens" aria-valuetext="8,000 input tokens" style="--attr-min:500;--attr-max:32000;--control-value:8000" />
+              <div class="flex items-center justify-between text-footnote sec font-mono tnum" style="margin-top:-.375rem"><span>500</span><span>32,000</span></div>
+            </div>
+            <div>
+              <div class="flex items-baseline justify-between gap-2">
+                <span class="sec text-footnote font-semibold">Output Tokens</span>
+                <output class="font-mono text-subhead font-semibold tnum" data-sc-bind="ai-out-out">1,000</output>
+              </div>
+              <input type="range" class="brand-slider" min="200" max="8000" step="100" value="1000" data-sc-input="ai-out" aria-label="Output tokens" aria-valuetext="1,000 output tokens" style="--attr-min:200;--attr-max:8000;--control-value:1000" />
+              <div class="flex items-center justify-between text-footnote sec font-mono tnum" style="margin-top:-.375rem"><span>200</span><span>8,000</span></div>
+            </div>
+          </div>
+          <div class="soft grid gap-2.5" style="padding:.875rem">
+            <div class="grid grid-cols-3 gap-2">
+              <div>
+                <p class="sec text-footnote">Est. Cost</p>
+                <p class="text-title2 font-bold tnum" data-sc-bind="ai-cost">$0.0042</p>
+              </div>
+              <div>
+                <p class="sec text-footnote">Est. Latency</p>
+                <p class="text-title2 font-bold tnum" data-sc-bind="ai-latency">420ms</p>
+              </div>
+              <div>
+                <p class="sec text-footnote">Total Tokens</p>
+                <p class="text-title2 font-bold tnum" data-sc-bind="ai-total">9,000</p>
+              </div>
+            </div>
+            <div class="grid gap-1.5 border-t border-sep pt-2">
+              <div class="flex items-center justify-between gap-2 text-footnote">
+                <span class="sec font-semibold">Context Window Usage</span>
+                <span class="font-mono sec tnum" data-sc-bind="ai-ctx-lbl">9,000 / 1M · 0.9%</span>
+              </div>
+              <div class="meter" style="height:.5rem"><i data-sc-bind="ai-ctx-bar" style="width:2%"></i></div>
+            </div>
+          </div>
+        </article>
+
       </div>
       </div>
     </div>
@@ -3301,7 +3448,11 @@ document.addEventListener('DOMContentLoaded', () => {
     radR: '16px', radE: 'soft', radCopyTimer: 0,
     cliPm: 'npm', cliCopyTimer: 0,
     keySecret: 'sk_live_9f2b8c4e1d7a4a9f', keySuffix: '4a9f', keyRevealed: false, keyRotated: 'Last rotated: 2d ago', keyCopyTimer: 0,
-    otp: ['', '', '', '', '', ''], otpResendLeft: 0, otpResent: false
+    otp: ['', '', '', '', '', ''], otpResendLeft: 0, otpResent: false,
+    uptimeDay: 24,
+    prMerged: false,
+    ff: { autofill: true, cache: true, checkout: false },
+    aiModel: 'gemini', aiIn: 8000, aiOut: 1000
   };
   const sct = (k, v) => $$(`[data-sc-bind="${k}"]`, loop).forEach(el => { if (el.textContent !== v) el.textContent = v; });
   const toHexColor = (val, fallback) => {
@@ -3427,6 +3578,127 @@ document.addEventListener('DOMContentLoaded', () => {
     sct('otp-resend-lbl', SC.otpResendLeft > 0 ? `Sent · ${SC.otpResendLeft}s` : 'Resend code');
     $$('[data-sc-act="otp-resend"]', loop).forEach(b => b.setAttribute('aria-disabled', String(SC.otpResendLeft > 0)));
   };
+  const UPTIME_DAYS = [
+    [100.0, 36], [100.0, 39], [100.0, 35], [100.0, 41], [100.0, 38],
+    [100.0, 34], [100.0, 40], [100.0, 37], [100.0, 42], [100.0, 39],
+    [99.62, 78], [100.0, 43], [100.0, 38], [100.0, 36], [100.0, 35],
+    [100.0, 39], [100.0, 41], [100.0, 37], [99.78, 64], [100.0, 42],
+    [100.0, 39], [100.0, 37], [100.0, 35], [100.0, 38], [100.0, 40],
+    [100.0, 36], [100.0, 38], [100.0, 35], [100.0, 37], [100.0, 36]
+  ];
+  const renderScUptime = () => {
+    const day = Math.min(30, Math.max(1, SC.uptimeDay || 24));
+    const [pct, ms] = UPTIME_DAYS[day - 1];
+    const degraded = pct < 100;
+    sct('uptime-detail', `Day ${day} · ${pct.toFixed(pct === 100 ? 1 : 2)}% uptime · ${ms}ms avg`);
+    sct('uptime-latency-pill', `${ms}ms avg`);
+    $$('[data-sc-bind="uptime-day-pill"]', loop).forEach(el => {
+      el.textContent = degraded ? 'Degraded' : 'Operational';
+      el.style.background = degraded ? '#fef3c7' : 'var(--lime-bg)';
+      el.style.color = degraded ? '#78350f' : 'var(--lime-fg)';
+    });
+    $$('[data-sc-bind="uptime-bars"]', loop).forEach(wrap => {
+      if (!wrap.children.length) {
+        UPTIME_DAYS.forEach(([dp, dm], idx) => {
+          const d = idx + 1;
+          const b = document.createElement('button');
+          b.type = 'button';
+          b.className = 'sc-bar-btn';
+          b.dataset.scAct = 'uptime-day';
+          b.dataset.day = String(d);
+          const lbl = `Day ${d} · ${dp.toFixed(dp === 100 ? 1 : 2)}% uptime · ${dm}ms avg`;
+          b.setAttribute('aria-label', lbl);
+          b.title = lbl;
+          const col = document.createElement('span');
+          col.className = 'sc-bar-col';
+          col.style.height = (dp < 100 ? (dp < 99.7 ? 70 : 80) : Math.min(100, 88 + ((d * 3) % 12))) + '%';
+          col.style.background = dp < 100 ? '#f59e0b' : 'var(--accent)';
+          b.appendChild(col);
+          wrap.appendChild(b);
+        });
+      }
+      $$('[data-sc-act="uptime-day"]', wrap).forEach((b, idx) => {
+        const active = idx + 1 === day;
+        b.setAttribute('aria-pressed', String(active));
+        const col = b.firstElementChild;
+        if (col) {
+          col.style.opacity = active ? '1' : '.58';
+          col.style.boxShadow = active ? '0 0 0 1.5px var(--surface), 0 0 0 3px var(--accent)' : '';
+        }
+      });
+    });
+  };
+  const renderScPr = () => {
+    const m = SC.prMerged;
+    $$('[data-sc-bind="pr-state"]', loop).forEach(el => {
+      el.textContent = m ? 'Merged ✓' : 'Open';
+      el.style.background = m ? 'var(--accent)' : 'var(--lime-bg)';
+      el.style.color = m ? 'var(--on-accent)' : 'var(--lime-fg)';
+    });
+    sct('pr-merge-lbl', m ? 'Merged ✓' : 'Approve & Merge');
+    sct('pr-merge-note', m ? 'Merged into main · Click to reset' : '2 approvals · Ready to merge');
+    $$('[data-sc-act="pr-merge"]', loop).forEach(b => {
+      b.setAttribute('aria-pressed', String(m));
+      b.title = m ? 'Reset PR #418 to open' : 'Approve and merge PR #418';
+      b.style.background = m ? 'var(--lime-bg)' : '';
+      b.style.color = m ? 'var(--lime-fg)' : '';
+    });
+  };
+  const renderScFf = () => {
+    const keys = Object.keys(SC.ff);
+    const active = keys.filter(k => SC.ff[k]).length;
+    const allOn = active === keys.length;
+    $$('[data-sc-bind="ff-count"]', loop).forEach(el => {
+      el.textContent = `${active}/${keys.length} active`;
+      el.style.background = active > 0 ? 'var(--lime-bg)' : 'var(--fill)';
+      el.style.color = active > 0 ? 'var(--lime-fg)' : 'var(--secondary)';
+    });
+    sct('ff-status', active === 0 ? 'All rollouts paused' : allOn ? 'All 3 rollouts enabled' : `${active} of ${keys.length} rollouts enabled`);
+    sct('ff-all-lbl', allOn ? 'Reset' : 'Enable all');
+    $$('[data-sc-act="ff-all"]', loop).forEach(b => {
+      b.title = allOn ? 'Reset feature flags to defaults' : 'Enable all feature flags';
+    });
+    $$('[data-sc-act="ff-toggle"]', loop).forEach(b => {
+      b.setAttribute('aria-checked', String(!!SC.ff[b.dataset.flag]));
+    });
+  };
+  const AI_MODELS = {
+    gemini: { name: 'Gemini 2.5 Flash', ctx: 1000000, ctxLbl: '1M', inPerM: 0.15, outPerM: 3.0, baseMs: 180, inMs: 0.005, outMs: 0.20 },
+    gpt4o:  { name: 'GPT-4o', ctx: 128000, ctxLbl: '128K', inPerM: 2.50, outPerM: 10.0, baseMs: 320, inMs: 0.008, outMs: 0.45 },
+    claude: { name: 'Claude 3.5 Sonnet', ctx: 200000, ctxLbl: '200K', inPerM: 3.00, outPerM: 15.0, baseMs: 380, inMs: 0.010, outMs: 0.52 }
+  };
+  const renderScAiEst = () => {
+    const mod = AI_MODELS[SC.aiModel] || AI_MODELS.gemini;
+    const total = SC.aiIn + SC.aiOut;
+    const cost = (SC.aiIn * mod.inPerM + SC.aiOut * mod.outPerM) / 1e6;
+    const latency = Math.round(mod.baseMs + SC.aiIn * mod.inMs + SC.aiOut * mod.outMs);
+    const pct = (total / mod.ctx) * 100;
+    sct('ai-model-sub', `${mod.name} · ${mod.ctxLbl} context window`);
+    sct('ai-in-out', SC.aiIn.toLocaleString('en-US'));
+    sct('ai-out-out', SC.aiOut.toLocaleString('en-US'));
+    sct('ai-cost', `$${cost.toFixed(4)}`);
+    sct('ai-latency', `${latency.toLocaleString('en-US')}ms`);
+    sct('ai-total', total.toLocaleString('en-US'));
+    sct('ai-ctx-lbl', `${total.toLocaleString('en-US')} / ${mod.ctxLbl} · ${pct < 1 ? pct.toFixed(1) : Math.round(pct)}%`);
+    $$('[data-sc-bind="ai-ctx-bar"]', loop).forEach(el => {
+      el.style.width = `${Math.min(100, Math.max(2, pct)).toFixed(1)}%`;
+    });
+    $$('[data-sc-act="ai-model"]', loop).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.model === SC.aiModel)));
+    $$('[data-sc-input="ai-in"]', loop).forEach(inp => {
+      if (Number(inp.value) !== SC.aiIn) inp.value = String(SC.aiIn);
+      inp.style.setProperty('--attr-min', inp.min || '500');
+      inp.style.setProperty('--attr-max', inp.max || '32000');
+      inp.style.setProperty('--control-value', String(SC.aiIn));
+      inp.setAttribute('aria-valuetext', `${SC.aiIn.toLocaleString('en-US')} input tokens`);
+    });
+    $$('[data-sc-input="ai-out"]', loop).forEach(inp => {
+      if (Number(inp.value) !== SC.aiOut) inp.value = String(SC.aiOut);
+      inp.style.setProperty('--attr-min', inp.min || '200');
+      inp.style.setProperty('--attr-max', inp.max || '8000');
+      inp.style.setProperty('--control-value', String(SC.aiOut));
+      inp.setAttribute('aria-valuetext', `${SC.aiOut.toLocaleString('en-US')} output tokens`);
+    });
+  };
   const writeClip = text => navigator.clipboard?.writeText(text)?.catch?.(() => {});
   const flashCopy = (lblKey, iconKey, timerKey, copiedText = 'Copied', resetText = 'Copy') => {
     sct(lblKey, copiedText);
@@ -3478,7 +3750,7 @@ document.addEventListener('DOMContentLoaded', () => {
     sct('swap-out-usd', `$${(SC.swapAmt * usdRate).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`);
     $$('[data-sc-input="swap-amt"]', loop).forEach(i => { if (document.activeElement !== i) i.value = SC.swapAmt ? String(SC.swapAmt) : '0.00'; });
   };
-  renderScSw(); renderScSwap(); renderScPlan(); renderScTokens(); renderScContrast(); renderScTypeScale(); renderScRadii(); renderScCli(); renderScApiKey(); renderScOtp();
+  renderScSw(); renderScSwap(); renderScPlan(); renderScTokens(); renderScContrast(); renderScTypeScale(); renderScRadii(); renderScCli(); renderScApiKey(); renderScOtp(); renderScUptime(); renderScPr(); renderScFf(); renderScAiEst();
   $$('button[aria-label]:not([title])', loop).forEach(b => { b.title = b.getAttribute('aria-label'); });
   loop.addEventListener('click', e => {
     const el = e.target.closest('[data-sc-act]'); if (!el) return;
@@ -3550,6 +3822,28 @@ document.addEventListener('DOMContentLoaded', () => {
     else if (a === 'otp-fill') {
       SC.otp = ['4', '8', '2', '9', '1', '0'];
       renderScOtp();
+    }
+    else if (a === 'uptime-day') {
+      SC.uptimeDay = Number(el.dataset.day) || 24;
+      renderScUptime();
+    }
+    else if (a === 'pr-merge') {
+      SC.prMerged = !SC.prMerged;
+      renderScPr();
+    }
+    else if (a === 'ff-toggle') {
+      const k = el.dataset.flag;
+      if (k && k in SC.ff) { SC.ff[k] = !SC.ff[k]; renderScFf(); }
+    }
+    else if (a === 'ff-all') {
+      const keys = Object.keys(SC.ff);
+      const allOn = keys.every(k => SC.ff[k]);
+      SC.ff = allOn ? { autofill: true, cache: true, checkout: false } : { autofill: true, cache: true, checkout: true };
+      renderScFf();
+    }
+    else if (a === 'ai-model') {
+      SC.aiModel = el.dataset.model || 'gemini';
+      renderScAiEst();
     }
     else if (a === 'copy-tokens') {
       const cs = getComputedStyle(root);
@@ -3637,7 +3931,15 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
     if (t.matches('[data-sc-input="swap-amt"]')) { SC.swapAmt = Math.max(0, parseFloat(t.value) || 0); renderScSwap(); }
+    else if (t.matches('[data-sc-input="ai-in"]')) { SC.aiIn = Math.min(32000, Math.max(500, Number(t.value) || 500)); renderScAiEst(); }
+    else if (t.matches('[data-sc-input="ai-out"]')) { SC.aiOut = Math.min(8000, Math.max(200, Number(t.value) || 200)); renderScAiEst(); }
     else syncCtrInput(t);
+  });
+  loop.addEventListener('pointerover', e => {
+    const bar = e.target.closest?.('[data-sc-act="uptime-day"]');
+    if (!bar) return;
+    const d = Number(bar.dataset.day);
+    if (d && d !== SC.uptimeDay) { SC.uptimeDay = d; renderScUptime(); }
   });
   loop.addEventListener('keydown', e => {
     const t = e.target;
@@ -3666,6 +3968,10 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   loop.addEventListener('focusin', e => {
     if (e.target.matches?.('[data-sc-otp]')) e.target.select();
+    else if (e.target.matches?.('[data-sc-act="uptime-day"]')) {
+      const d = Number(e.target.dataset.day);
+      if (d && d !== SC.uptimeDay) { SC.uptimeDay = d; renderScUptime(); }
+    }
   });
   loop.addEventListener('paste', e => {
     const t = e.target;
