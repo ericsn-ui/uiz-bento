@@ -928,6 +928,7 @@
     50% { transform:translate3d(2%, -2%, 0) scale(1.05); }
   }
   html[data-material="glass"] {
+    --glass-bg:url("./glass-bg.svg");
     --surface:rgba(255,255,255,.52);
     --tile:rgba(255,255,255,.36);
     --fill:rgba(255,255,255,.30);
@@ -973,9 +974,12 @@
       --secondary:rgba(255,255,255,.78);
     }
   }
+  html[data-material="glass"][data-glass-bg="rainier"] { --glass-bg:url("https://images.unsplash.com/photo-1794942367964-36710f065129?auto=format&fit=crop&w=1920&q=85"); }
+  html[data-material="glass"][data-glass-bg="pexels1"] { --glass-bg:url("https://images.pexels.com/photos/16777744/pexels-photo-16777744.jpeg?auto=compress&cs=tinysrgb&w=1920"); }
+  html[data-material="glass"][data-glass-bg="pexels2"] { --glass-bg:url("https://images.pexels.com/photos/38440476/pexels-photo-38440476.jpeg?auto=compress&cs=tinysrgb&w=1920"); }
   html[data-material="glass"] body::before {
-    content:""; position:fixed; inset:-6%; z-index:-1; pointer-events:none;
-    background:url("./glass-bg.svg") center / cover no-repeat;
+    content:""; position:fixed; inset:-4%; width:108vw; height:108dvh; z-index:-1; pointer-events:none;
+    background-image:var(--glass-bg); background-position:center; background-size:cover; background-repeat:no-repeat;
     animation:uiz-glass-ambient 20s ease-in-out infinite;
   }
   html[data-material="glass"][data-scheme="dark"] body::before {

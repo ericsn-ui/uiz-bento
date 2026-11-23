@@ -40,7 +40,7 @@
 <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
 <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
 <link rel="preconnect" href="https://images.unsplash.com" crossorigin />
-<link rel="stylesheet" href="./styles.css?v=13" />
+<link rel="stylesheet" href="./styles.css?v=14" />
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
@@ -99,6 +99,8 @@
       const l = q.get('loop') === 'paused' || q.get('loop') === 'running' ? q.get('loop') : localStorage.getItem('uiz-loop');
       const fw = validFw.has(q.get('fw')) ? q.get('fw') : localStorage.getItem('uiz-fw');
       const m = q.get('material') === 'glass' || q.get('material') === 'classic' ? q.get('material') : (localStorage.getItem('uiz-material') || 'glass');
+      const validGb = new Set(['abstract', 'rainier', 'pexels1', 'pexels2']);
+      const gb = validGb.has(q.get('glassBg')) ? q.get('glassBg') : localStorage.getItem('uiz-glass-bg');
       if (a && a !== 'lime') r.dataset.accent = a;
       if (s && s !== 'auto') r.dataset.scheme = s;
       if (f && f !== 'system') { r.dataset.font = f; window.__loadUizFont(f); }
@@ -106,6 +108,7 @@
       if (l === 'paused') r.dataset.loop = l;
       if (fw && fw !== 'html') r.dataset.fw = fw;
       if (m !== 'classic') r.dataset.material = 'glass';
+      if (gb && gb !== 'abstract') r.dataset.glassBg = gb;
     } catch {}
     document.addEventListener('visibilitychange', () => {
       if (document.visibilityState === 'hidden') r.dataset.tabHidden = '1';
@@ -3172,6 +3175,12 @@
         <button class="btn tog !min-h-[2.375rem] text-footnote" type="button" data-set-material="classic" aria-pressed="false">Classic</button>
         <button class="btn tog !min-h-[2.375rem] text-footnote" type="button" data-set-material="glass" aria-pressed="true">Liquid Glass</button>
       </div>
+      <div class="grid grid-cols-2 gap-2 pt-1" role="group" aria-label="Glass background image">
+        <button class="swatch-btn" type="button" data-set-glass-bg="abstract" aria-pressed="true"><span class="h-4 w-4 rounded-md shrink-0 border border-sep bg-cover bg-center" style="background-image:url('./glass-bg.svg')"></span>Abstract</button>
+        <button class="swatch-btn" type="button" data-set-glass-bg="rainier" aria-pressed="false"><span class="h-4 w-4 rounded-md shrink-0 border border-sep bg-cover bg-center" style="background-image:url('https://images.unsplash.com/photo-1794942367964-36710f065129?auto=format&fit=crop&w=120&q=70')"></span>Mt. Rainier</button>
+        <button class="swatch-btn" type="button" data-set-glass-bg="pexels1" aria-pressed="false"><span class="h-4 w-4 rounded-md shrink-0 border border-sep bg-cover bg-center" style="background-image:url('https://images.pexels.com/photos/16777744/pexels-photo-16777744.jpeg?auto=compress&cs=tinysrgb&w=120')"></span>Scenic I</button>
+        <button class="swatch-btn" type="button" data-set-glass-bg="pexels2" aria-pressed="false"><span class="h-4 w-4 rounded-md shrink-0 border border-sep bg-cover bg-center" style="background-image:url('https://images.pexels.com/photos/38440476/pexels-photo-38440476.jpeg?auto=compress&cs=tinysrgb&w=120')"></span>Scenic II</button>
+      </div>
     </div>
 
     <div class="grid gap-2">
@@ -4931,7 +4940,8 @@ document.addEventListener('DOMContentLoaded', () => {
     density: root.dataset.density || 'comfortable',
     loopPaused: root.dataset.loop === 'paused',
     fw: root.dataset.fw || 'html',
-    material: root.dataset.material === 'glass' ? 'glass' : 'classic'
+    material: root.dataset.material === 'glass' ? 'glass' : 'classic',
+    glassBg: root.dataset.glassBg || 'abstract'
   };
   const syncStudioUI = () => {
     const resolvedDark = studioState.scheme === 'dark' || (studioState.scheme === 'auto' && schemeMql.matches);
@@ -4941,6 +4951,7 @@ document.addEventListener('DOMContentLoaded', () => {
     $$('[data-set-density]', themePopover).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.setDensity === studioState.density)));
     $$('[data-set-fw]', themePopover).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.setFw === studioState.fw)));
     $$('[data-set-material]', themePopover).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.setMaterial === studioState.material)));
+    $$('[data-set-glass-bg]', themePopover).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.setGlassBg === studioState.glassBg)));
     if (toggleLoopBtn) toggleLoopBtn.setAttribute('aria-checked', String(studioState.loopPaused));
     if (quickMaterialBtn) {
       const isGlass = studioState.material === 'glass';
@@ -4970,6 +4981,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!studioState.loopPaused) delete root.dataset.loop; else root.dataset.loop = 'paused';
     if (studioState.fw === 'html') delete root.dataset.fw; else root.dataset.fw = studioState.fw;
     if (studioState.material === 'classic') delete root.dataset.material; else root.dataset.material = 'glass';
+    if (studioState.glassBg === 'abstract') delete root.dataset.glassBg; else root.dataset.glassBg = studioState.glassBg;
     try {
       localStorage.setItem('uiz-accent', studioState.accent);
       localStorage.setItem('uiz-scheme', studioState.scheme);
@@ -4978,6 +4990,7 @@ document.addEventListener('DOMContentLoaded', () => {
       localStorage.setItem('uiz-loop', studioState.loopPaused ? 'paused' : 'running');
       localStorage.setItem('uiz-fw', studioState.fw);
       localStorage.setItem('uiz-material', studioState.material);
+      localStorage.setItem('uiz-glass-bg', studioState.glassBg);
       const u = new URL(location.href);
       const revT = { lime: 'olive', blue: 'cobalt' };
       if (studioState.accent !== 'lime') u.searchParams.set('theme', revT[studioState.accent] || studioState.accent); else u.searchParams.delete('theme');
@@ -4987,6 +5000,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (studioState.loopPaused) u.searchParams.set('loop', 'paused'); else u.searchParams.delete('loop');
       if (studioState.fw !== 'html') u.searchParams.set('fw', studioState.fw); else u.searchParams.delete('fw');
       if (studioState.material === 'classic') u.searchParams.set('material', 'classic'); else u.searchParams.delete('material');
+      if (studioState.glassBg !== 'abstract') u.searchParams.set('glassBg', studioState.glassBg); else u.searchParams.delete('glassBg');
       history.replaceState(null, '', u);
     } catch {}
     if (prevLoop !== studioState.loopPaused) applyLoopMode(studioState.loopPaused, false);
@@ -5009,6 +5023,8 @@ document.addEventListener('DOMContentLoaded', () => {
       if (sb) { const v = sb.dataset.setScheme; applyStudio({ scheme: v }, `Appearance set to ${v}`); return; }
       const mb = e.target.closest('[data-set-material]');
       if (mb) { const v = mb.dataset.setMaterial; applyStudio({ material: v }, `Surface material set to ${v === 'glass' ? 'Liquid Glass' : 'Classic'}`); return; }
+      const gb = e.target.closest('[data-set-glass-bg]');
+      if (gb) { const v = gb.dataset.setGlassBg; applyStudio({ material: 'glass', glassBg: v }, `Glass background set to ${v}`); return; }
       const fb = e.target.closest('[data-set-font]');
       if (fb) { const v = fb.dataset.setFont; applyStudio({ font: v }, `Font combination set to ${FONT_LABELS[v] || v}`); return; }
       const db = e.target.closest('[data-set-density]');
@@ -5037,7 +5053,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
   if (resetStudioBtn) {
-    resetStudioBtn.addEventListener('click', () => applyStudio({ accent: 'lime', scheme: 'auto', font: 'system', density: 'comfortable', loopPaused: false, fw: 'html', material: 'glass' }, 'Studio preferences reset to default'));
+    resetStudioBtn.addEventListener('click', () => applyStudio({ accent: 'lime', scheme: 'auto', font: 'system', density: 'comfortable', loopPaused: false, fw: 'html', material: 'glass', glassBg: 'abstract' }, 'Studio preferences reset to default'));
   }
   const exportCssBtn = $('#studio-export-css');
   if (exportCssBtn) {
