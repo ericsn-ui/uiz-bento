@@ -40,7 +40,7 @@
 <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
 <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
 <link rel="preconnect" href="https://images.unsplash.com" crossorigin />
-<link rel="stylesheet" href="./styles.css?v=10" />
+<link rel="stylesheet" href="./styles.css?v=11" />
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
@@ -98,13 +98,19 @@
       const d = q.get('density') === 'compact' || q.get('density') === 'comfortable' ? q.get('density') : localStorage.getItem('uiz-density');
       const l = q.get('loop') === 'paused' || q.get('loop') === 'running' ? q.get('loop') : localStorage.getItem('uiz-loop');
       const fw = validFw.has(q.get('fw')) ? q.get('fw') : localStorage.getItem('uiz-fw');
+      const m = q.get('material') === 'glass' || q.get('material') === 'classic' ? q.get('material') : localStorage.getItem('uiz-material');
       if (a && a !== 'lime') r.dataset.accent = a;
       if (s && s !== 'auto') r.dataset.scheme = s;
       if (f && f !== 'system') { r.dataset.font = f; window.__loadUizFont(f); }
       if (d === 'compact') r.dataset.density = d;
       if (l === 'paused') r.dataset.loop = l;
       if (fw && fw !== 'html') r.dataset.fw = fw;
+      if (m === 'glass') r.dataset.material = 'glass';
     } catch {}
+    document.addEventListener('visibilitychange', () => {
+      if (document.visibilityState === 'hidden') r.dataset.tabHidden = '1';
+      else delete r.dataset.tabHidden;
+    });
   })();
 </script>
 
@@ -3107,6 +3113,7 @@
         <span class="dock-dot" aria-hidden="true"></span>
         <span>Theme &amp; Fonts</span>
       </button>
+      <button id="quick-material" class="hidden sm:inline-flex text-footnote" type="button" aria-pressed="false" title="Toggle Liquid Glass material" aria-label="Toggle Liquid Glass material">Glass</button>
       <button id="quick-fw" class="hidden sm:inline-flex font-mono text-footnote" type="button" title="Switch copy framework (HTML, React TSX, Vue, Svelte)" aria-label="Copy framework: HTML">HTML</button>
     </div>
     <span role="separator" aria-orientation="vertical"></span>
@@ -3156,6 +3163,14 @@
         <button class="btn tog !min-h-[2.375rem] text-footnote" type="button" data-set-scheme="auto" aria-pressed="true">Auto</button>
         <button class="btn tog !min-h-[2.375rem] text-footnote" type="button" data-set-scheme="light" aria-pressed="false">Light</button>
         <button class="btn tog !min-h-[2.375rem] text-footnote" type="button" data-set-scheme="dark" aria-pressed="false">Dark</button>
+      </div>
+    </div>
+
+    <div class="grid gap-2">
+      <p class="sec text-footnote font-semibold uppercase tracking-wide">Surface Material</p>
+      <div class="seg" role="group" aria-label="Surface material">
+        <button class="btn tog !min-h-[2.375rem] text-footnote" type="button" data-set-material="classic" aria-pressed="true">Classic</button>
+        <button class="btn tog !min-h-[2.375rem] text-footnote" type="button" data-set-material="glass" aria-pressed="false">Liquid Glass</button>
       </div>
     </div>
 
@@ -3419,7 +3434,11 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!clean.getAttribute('style')?.trim()) clean.removeAttribute('style');
     const fw = root.dataset.fw || 'html';
     const scKey = clean.dataset.sc || '';
-    const code = formatCardCode(clean, fw, HOVER_LOOP_CSS[scKey] || '');
+    const glassCss = root.dataset.material === 'glass'
+      ? '.card{background:linear-gradient(145deg,rgba(255,255,255,.72),rgba(255,255,255,.46));backdrop-filter:blur(18px) saturate(180%);-webkit-backdrop-filter:blur(18px) saturate(180%);border:1px solid rgba(255,255,255,.72);box-shadow:inset 0 1px 0 rgba(255,255,255,.92),0 12px 32px -12px rgba(15,23,42,.14)}'
+      : '';
+    const combinedCss = [glassCss, HOVER_LOOP_CSS[scKey] || ''].filter(Boolean).join('\n');
+    const code = formatCardCode(clean, fw, combinedCss);
     try { await navigator.clipboard.writeText(code); } catch {}
     const label = card.getAttribute('aria-label') || 'card';
     const fwBadge = { html: 'HTML', react: 'TSX', vue: 'Vue', svelte: 'Svelte' }[fw] || 'HTML';
@@ -4899,7 +4918,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* ---------- 5. Floating Theme & Font Studio Dock ---------- */
   const dock = $('#studio-dock'), studioTrigger = $('#studio-trigger'), themePopover = $('#theme-popover'),
-        quickSchemeBtn = $('#quick-scheme'), quickFwBtn = $('#quick-fw'), replayBtn = $('#replay-cinematic'), dockStatus = $('#dock-status'),
+        quickSchemeBtn = $('#quick-scheme'), quickMaterialBtn = $('#quick-material'), quickFwBtn = $('#quick-fw'), replayBtn = $('#replay-cinematic'), dockStatus = $('#dock-status'),
         resetStudioBtn = $('#studio-reset'), toggleLoopBtn = $('#toggle-loop'), openCmdBtn = $('#open-cmd');
   const schemeMql = matchMedia('(prefers-color-scheme: dark)');
   const THEME_LABELS = { lime: 'Olive', blue: 'Cobalt', indigo: 'Indigo', ember: 'Ember', rose: 'Rose', mono: 'Monochrome' };
@@ -4911,7 +4930,8 @@ document.addEventListener('DOMContentLoaded', () => {
     font: root.dataset.font || 'system',
     density: root.dataset.density || 'comfortable',
     loopPaused: root.dataset.loop === 'paused',
-    fw: root.dataset.fw || 'html'
+    fw: root.dataset.fw || 'html',
+    material: root.dataset.material === 'glass' ? 'glass' : 'classic'
   };
   const syncStudioUI = () => {
     const resolvedDark = studioState.scheme === 'dark' || (studioState.scheme === 'auto' && schemeMql.matches);
@@ -4920,7 +4940,13 @@ document.addEventListener('DOMContentLoaded', () => {
     $$('[data-set-font]', themePopover).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.setFont === studioState.font)));
     $$('[data-set-density]', themePopover).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.setDensity === studioState.density)));
     $$('[data-set-fw]', themePopover).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.setFw === studioState.fw)));
+    $$('[data-set-material]', themePopover).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.setMaterial === studioState.material)));
     if (toggleLoopBtn) toggleLoopBtn.setAttribute('aria-checked', String(studioState.loopPaused));
+    if (quickMaterialBtn) {
+      const isGlass = studioState.material === 'glass';
+      quickMaterialBtn.setAttribute('aria-pressed', String(isGlass));
+      quickMaterialBtn.title = isGlass ? 'Switch to Classic surface' : 'Switch to Liquid Glass surface';
+    }
     const fwLabel = FW_LABELS[studioState.fw] || 'HTML';
     if (quickFwBtn) {
       quickFwBtn.textContent = fwLabel;
@@ -4943,6 +4969,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (studioState.density === 'comfortable') delete root.dataset.density; else root.dataset.density = studioState.density;
     if (!studioState.loopPaused) delete root.dataset.loop; else root.dataset.loop = 'paused';
     if (studioState.fw === 'html') delete root.dataset.fw; else root.dataset.fw = studioState.fw;
+    if (studioState.material === 'classic') delete root.dataset.material; else root.dataset.material = 'glass';
     try {
       localStorage.setItem('uiz-accent', studioState.accent);
       localStorage.setItem('uiz-scheme', studioState.scheme);
@@ -4950,6 +4977,7 @@ document.addEventListener('DOMContentLoaded', () => {
       localStorage.setItem('uiz-density', studioState.density);
       localStorage.setItem('uiz-loop', studioState.loopPaused ? 'paused' : 'running');
       localStorage.setItem('uiz-fw', studioState.fw);
+      localStorage.setItem('uiz-material', studioState.material);
       const u = new URL(location.href);
       const revT = { lime: 'olive', blue: 'cobalt' };
       if (studioState.accent !== 'lime') u.searchParams.set('theme', revT[studioState.accent] || studioState.accent); else u.searchParams.delete('theme');
@@ -4958,6 +4986,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (studioState.density !== 'comfortable') u.searchParams.set('density', studioState.density); else u.searchParams.delete('density');
       if (studioState.loopPaused) u.searchParams.set('loop', 'paused'); else u.searchParams.delete('loop');
       if (studioState.fw !== 'html') u.searchParams.set('fw', studioState.fw); else u.searchParams.delete('fw');
+      if (studioState.material === 'glass') u.searchParams.set('material', 'glass'); else u.searchParams.delete('material');
       history.replaceState(null, '', u);
     } catch {}
     if (prevLoop !== studioState.loopPaused) applyLoopMode(studioState.loopPaused, false);
@@ -4978,12 +5007,20 @@ document.addEventListener('DOMContentLoaded', () => {
       if (ab) { const v = ab.dataset.setAccent; applyStudio({ accent: v }, `Color theme set to ${THEME_LABELS[v] || v}`); return; }
       const sb = e.target.closest('[data-set-scheme]');
       if (sb) { const v = sb.dataset.setScheme; applyStudio({ scheme: v }, `Appearance set to ${v}`); return; }
+      const mb = e.target.closest('[data-set-material]');
+      if (mb) { const v = mb.dataset.setMaterial; applyStudio({ material: v }, `Surface material set to ${v === 'glass' ? 'Liquid Glass' : 'Classic'}`); return; }
       const fb = e.target.closest('[data-set-font]');
       if (fb) { const v = fb.dataset.setFont; applyStudio({ font: v }, `Font combination set to ${FONT_LABELS[v] || v}`); return; }
       const db = e.target.closest('[data-set-density]');
       if (db) { const v = db.dataset.setDensity; applyStudio({ density: v }, `Density set to ${v}`); return; }
       const fwb = e.target.closest('[data-set-fw]');
       if (fwb) { const v = fwb.dataset.setFw; applyStudio({ fw: v }, `Copy framework set to ${FW_LABELS[v] || v}`); }
+    });
+  }
+  if (quickMaterialBtn) {
+    quickMaterialBtn.addEventListener('click', () => {
+      const next = studioState.material === 'glass' ? 'classic' : 'glass';
+      applyStudio({ material: next }, `Surface material set to ${next === 'glass' ? 'Liquid Glass' : 'Classic'}`);
     });
   }
   if (quickFwBtn) {
@@ -5000,7 +5037,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
   if (resetStudioBtn) {
-    resetStudioBtn.addEventListener('click', () => applyStudio({ accent: 'lime', scheme: 'auto', font: 'system', density: 'comfortable', loopPaused: false, fw: 'html' }, 'Studio preferences reset to default'));
+    resetStudioBtn.addEventListener('click', () => applyStudio({ accent: 'lime', scheme: 'auto', font: 'system', density: 'comfortable', loopPaused: false, fw: 'html', material: 'classic' }, 'Studio preferences reset to default'));
   }
   const exportCssBtn = $('#studio-export-css');
   if (exportCssBtn) {

@@ -537,7 +537,8 @@
   @media (hover: hover) { .studio-dock :is(button, a.dock-star):hover { background:var(--fill); } }
   @media (prefers-reduced-motion: no-preference) { .studio-dock :is(button, a.dock-star) { transition:background-color .15s ease, scale .12s ease, border-color .15s ease; } }
   .studio-dock :is(button, a.dock-star):active { scale:.96; }
-  .studio-dock button[aria-expanded="true"] { background:var(--accent); color:var(--on-accent); }
+  .studio-dock button[aria-expanded="true"],
+  .studio-dock button[aria-pressed="true"] { background:var(--accent); color:var(--on-accent); }
   .studio-dock :is(button, a.dock-star):focus-visible { outline:2px solid var(--accent-text); outline-offset:2px; }
   .dock-dot { width:.75rem; height:.75rem; border-radius:50%; background:var(--accent); box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.5); flex:none; }
   .studio-dock button[aria-expanded="true"] .dock-dot { background:var(--on-accent); box-shadow:none; }
@@ -917,6 +918,177 @@
     .sc-eq-bar, .sc-pipe-beam, .sc-pipe-dot, .sc-radar-sweep, .sc-radar-blip, .sc-orbit-track, .sc-orbit-node, .sc-marquee-track, .sc-shimmer-bar::after,
     .sc-sync-arc, .sc-logs-track, .sc-bio-ring, .sc-mesh-orb, .sc-ai-dot, .sc-playhead, .sc-bell-ic, .sc-keycap,
     .sc-split-handle, .sc-voice-halo, .sc-arc-flow, .sc-bundle-seg, .sc-kanban-item, .sc-retry-beam { animation:none !important; }
+  }
+
+  /* ============================================================
+     Liquid Glass Material Option (html[data-material="glass"])
+     ============================================================ */
+  @keyframes uiz-glass-ambient {
+    0%, 100% { transform:translate3d(0, 0, 0) scale(1); }
+    50% { transform:translate3d(2%, -2%, 0) scale(1.05); }
+  }
+  html[data-material="glass"] body::before {
+    content:""; position:fixed; inset:-14%; z-index:-1; pointer-events:none;
+    background:
+      radial-gradient(48vw 48vw at 14% 16%, color-mix(in srgb, var(--accent) 26%, transparent), transparent 68%),
+      radial-gradient(44vw 44vw at 86% 22%, color-mix(in srgb, var(--chart) 22%, transparent), transparent 66%),
+      radial-gradient(50vw 50vw at 74% 84%, color-mix(in srgb, var(--hl) 20%, transparent), transparent 68%),
+      radial-gradient(42vw 42vw at 22% 82%, color-mix(in srgb, var(--c3) 18%, transparent), transparent 70%);
+    filter:blur(42px) saturate(1.35);
+    animation:uiz-glass-ambient 18s ease-in-out infinite;
+  }
+  html[data-material="glass"][data-scheme="dark"] body::before {
+    background:
+      radial-gradient(48vw 48vw at 14% 16%, color-mix(in srgb, var(--accent) 30%, transparent), transparent 68%),
+      radial-gradient(44vw 44vw at 86% 22%, color-mix(in srgb, var(--chart) 26%, transparent), transparent 66%),
+      radial-gradient(50vw 50vw at 74% 84%, color-mix(in srgb, var(--hl) 22%, transparent), transparent 68%),
+      radial-gradient(42vw 42vw at 22% 82%, color-mix(in srgb, var(--ink-start) 55%, transparent), transparent 70%);
+  }
+  @media (prefers-color-scheme: dark) {
+    html[data-material="glass"]:not([data-scheme="light"]) body::before {
+      background:
+        radial-gradient(48vw 48vw at 14% 16%, color-mix(in srgb, var(--accent) 30%, transparent), transparent 68%),
+        radial-gradient(44vw 44vw at 86% 22%, color-mix(in srgb, var(--chart) 26%, transparent), transparent 66%),
+        radial-gradient(50vw 50vw at 74% 84%, color-mix(in srgb, var(--hl) 22%, transparent), transparent 68%),
+        radial-gradient(42vw 42vw at 22% 82%, color-mix(in srgb, var(--ink-start) 55%, transparent), transparent 70%);
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html[data-material="glass"] body::before { animation:none !important; }
+  }
+
+  /* Single-layer blur on .card (no nested blur on inner .tile/.soft for 60fps scroll) */
+  html[data-material="glass"] .card,
+  html[data-material="glass"] .widgets > .card.tone:not(.t-lime),
+  html[data-material="glass"] .seo-bento .t-violet {
+    background:linear-gradient(145deg, rgba(255,255,255,.72), rgba(255,255,255,.46)) !important;
+    -webkit-backdrop-filter:blur(18px) saturate(180%);
+    backdrop-filter:blur(18px) saturate(180%);
+    border:1px solid rgba(255,255,255,.72);
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,.92),
+      inset 0 -1px 0 rgba(15,23,42,.05),
+      0 12px 32px -12px rgba(15,23,42,.14);
+  }
+  html[data-material="glass"][data-scheme="dark"] .card,
+  html[data-material="glass"][data-scheme="dark"] .widgets > .card.tone:not(.t-lime),
+  html[data-material="glass"][data-scheme="dark"] .seo-bento .t-violet {
+    background:linear-gradient(145deg, rgba(38,38,44,.66), rgba(18,18,22,.46)) !important;
+    border-color:rgba(255,255,255,.16);
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,.24),
+      inset 0 -1px 0 rgba(0,0,0,.32),
+      0 16px 38px -14px rgba(0,0,0,.55);
+  }
+  @media (prefers-color-scheme: dark) {
+    html[data-material="glass"]:not([data-scheme="light"]) .card,
+    html[data-material="glass"]:not([data-scheme="light"]) .widgets > .card.tone:not(.t-lime),
+    html[data-material="glass"]:not([data-scheme="light"]) .seo-bento .t-violet {
+      background:linear-gradient(145deg, rgba(38,38,44,.66), rgba(18,18,22,.46)) !important;
+      border-color:rgba(255,255,255,.16);
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.24),
+        inset 0 -1px 0 rgba(0,0,0,.32),
+        0 16px 38px -14px rgba(0,0,0,.55);
+    }
+  }
+
+  /* Tinted & Ink Liquid Glass Cards */
+  html[data-material="glass"] .card.ink,
+  html[data-material="glass"] .widgets > .card.tone.t-green,
+  html[data-material="glass"] .widgets > .card.tone.t-grad-s,
+  html[data-material="glass"] .widgets > .card.tone.t-pink,
+  html[data-material="glass"] .widgets > .card[data-c="event"],
+  html[data-material="glass"] .widgets > .card[data-c="stock1"],
+  html[data-material="glass"] .seo-bento .t-purple,
+  html[data-material="glass"] .seo-bento .t-sky,
+  html[data-material="glass"] .seo-bento .t-green {
+    background:linear-gradient(150deg, color-mix(in srgb, var(--ink-start) 72%, transparent), color-mix(in srgb, var(--ink-end) 54%, transparent)) !important;
+    border-color:rgba(255,255,255,.22) !important;
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,.28),
+      inset 0 -1px 0 rgba(0,0,0,.3),
+      0 16px 38px -14px rgba(0,0,0,.48) !important;
+  }
+  html[data-material="glass"] .card.t-lime,
+  html[data-material="glass"] .seo-bento .t-lime,
+  html[data-material="glass"] .seo-bento .t-sage,
+  html[data-material="glass"] .seo-bento .t-peach,
+  html[data-material="glass"] .seo-bento .t-teal {
+    background:linear-gradient(145deg, color-mix(in srgb, var(--t, var(--lime-bg)) 76%, transparent), color-mix(in srgb, var(--t, var(--lime-bg)) 54%, transparent)) !important;
+    border-color:rgba(255,255,255,.52) !important;
+  }
+
+  /* Inner surfaces: translucent tint without nested blur */
+  html[data-material="glass"] .card:not(.ink) :is(.tile, .soft) {
+    background:color-mix(in srgb, var(--tile) 56%, rgba(255,255,255,.28));
+    border:1px solid color-mix(in srgb, var(--sep) 55%, rgba(255,255,255,.35));
+  }
+  html[data-material="glass"][data-scheme="dark"] .card:not(.ink) :is(.tile, .soft) {
+    background:rgba(255,255,255,.07);
+    border-color:rgba(255,255,255,.1);
+  }
+  @media (prefers-color-scheme: dark) {
+    html[data-material="glass"]:not([data-scheme="light"]) .card:not(.ink) :is(.tile, .soft) {
+      background:rgba(255,255,255,.07);
+      border-color:rgba(255,255,255,.1);
+    }
+  }
+  html[data-material="glass"] .card.ink :is(.tile, .soft) {
+    background:rgba(255,255,255,.11);
+    border:1px solid rgba(255,255,255,.14);
+  }
+
+  /* Specular interactive pointer glint & hover lift */
+  html[data-material="glass"] .card::after {
+    background:radial-gradient(340px circle at var(--mx,50%) var(--my,50%), rgba(255,255,255,.28), transparent 62%);
+  }
+  html[data-material="glass"][data-scheme="dark"] .card::after {
+    background:radial-gradient(340px circle at var(--mx,50%) var(--my,50%), rgba(255,255,255,.16), transparent 62%);
+  }
+  @media (hover: hover) {
+    html[data-material="glass"] .card:hover {
+      border-color:color-mix(in srgb, var(--accent) 48%, rgba(255,255,255,.65)) !important;
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.95),
+        0 20px 44px -16px rgba(0,0,0,.28),
+        0 0 0 1px color-mix(in srgb, var(--accent) 24%, transparent) !important;
+    }
+    html[data-material="glass"][data-scheme="dark"] .card:hover {
+      border-color:color-mix(in srgb, var(--accent) 52%, rgba(255,255,255,.28)) !important;
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.32),
+        0 22px 48px -16px rgba(0,0,0,.68),
+        0 0 0 1px color-mix(in srgb, var(--accent) 28%, transparent) !important;
+    }
+  }
+
+  /* Dock, Popover & Dialogs in Liquid Glass */
+  html[data-material="glass"] :is(.studio-dock, .studio-popover, .cmd-dialog, .sheet) {
+    background:color-mix(in srgb, var(--surface) 58%, transparent);
+    -webkit-backdrop-filter:blur(24px) saturate(200%);
+    backdrop-filter:blur(24px) saturate(200%);
+    border-color:rgba(255,255,255,.42);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.65), 0 22px 54px -18px rgba(0,0,0,.38);
+  }
+  html[data-material="glass"][data-scheme="dark"] :is(.studio-dock, .studio-popover, .cmd-dialog, .sheet) {
+    background:rgba(28,28,34,.58);
+    border-color:rgba(255,255,255,.18);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.24), 0 24px 60px -18px rgba(0,0,0,.68);
+  }
+  @media (prefers-color-scheme: dark) {
+    html[data-material="glass"]:not([data-scheme="light"]) :is(.studio-dock, .studio-popover, .cmd-dialog, .sheet) {
+      background:rgba(28,28,34,.58);
+      border-color:rgba(255,255,255,.18);
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.24), 0 24px 60px -18px rgba(0,0,0,.68);
+    }
+  }
+
+  /* Motion-Advanced Rule 2: Pause infinite animations when tab is hidden */
+  html[data-tab-hidden="1"] *,
+  html[data-tab-hidden="1"] *::before,
+  html[data-tab-hidden="1"] *::after {
+    animation-play-state:paused !important;
   }
 
 @tailwind utilities;

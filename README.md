@@ -26,7 +26,7 @@ Most UI showcases are static screenshots. `UIzBENTO` is a **zero-runtime, copy-r
 | :--- | :--- |
 | **174 Interactive Cards** | Every card is responsive, keyboard-accessible, and interactive out of the box, including hover-loop animations. |
 | **One-Click Multi-Framework Copy** | Switch between **HTML**, **React (TSX)**, **Vue**, and **Svelte** in the dock or studio — hover any card and click **Copy** to grab Tailwind-styled component code with its hover animation CSS preserved. |
-| **Appearance Studio (`Theme & Fonts`)** | Switch between 6 color presets (`Olive`, `Cobalt`, `Indigo`, `Ember`, `Rose`, `Mono`), `Light / Dark / Auto`, 5 font pairings, and `Comfortable / Compact` density — persisted in `localStorage`. |
+| **Appearance Studio (`Theme & Fonts`)** | Switch between 6 color presets (`Olive`, `Cobalt`, `Indigo`, `Ember`, `Rose`, `Mono`), `Light / Dark / Auto`, **Classic / Liquid Glass** surface materials, 5 font pairings, and `Comfortable / Compact` density — persisted in `localStorage`. |
 | **Shareable Theme URLs** | Syncs active theme state to URL query params (e.g. `?theme=cobalt&scheme=dark&font=syne`) with a one-click **Share URL** button. |
 | **Export Theme CSS** | Copy the active `:root` CSS variables directly from the Appearance Studio dock into your own stylesheet. |
 | **Live GitHub Star Dock** | Floating dock pill with a direct GitHub link and live repository star count. |
