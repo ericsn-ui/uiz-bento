@@ -2,7 +2,7 @@
 
 # Infinite Bento (`UIzBENTO`)
 
-**168 interactive, responsive Bento UI cards with live theme customization, `⌘K` command palette, one-click card/CSS export, and GSAP choreography.**
+**174 interactive, responsive Bento UI cards with live theme customization, shareable theme URLs, `⌘K` command palette, one-click card/CSS export, and GSAP choreography.**
 
 [![Live Demo](https://img.shields.io/badge/Live_Demo-uizbento.vercel.app-65a30d?style=for-the-badge&logo=vercel&logoColor=white)](https://uizbento.vercel.app/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.4-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
@@ -24,10 +24,12 @@ Most UI showcases are static screenshots. `UIzBENTO` is a **zero-runtime, copy-r
 
 | Capability | What It Does |
 | :--- | :--- |
-| **168 Interactive Cards** | Every card is responsive, keyboard-accessible, and interactive out of the box. |
-| **One-Click Copy Card HTML** | Hover or focus any card and click **Copy** to grab its clean HTML + Tailwind markup. |
+| **174 Interactive Cards** | Every card is responsive, keyboard-accessible, and interactive out of the box, including hover-loop animations. |
+| **One-Click Copy Card HTML** | Hover or focus any card and click the top-right **Copy** icon to grab its clean HTML + Tailwind markup. |
 | **Appearance Studio (`Theme & Fonts`)** | Switch between 6 color presets (`Olive`, `Cobalt`, `Indigo`, `Ember`, `Rose`, `Mono`), `Light / Dark / Auto`, 5 font pairings, and `Comfortable / Compact` density — persisted in `localStorage`. |
+| **Shareable Theme URLs** | Syncs active theme state to URL query params (e.g. `?theme=cobalt&scheme=dark&font=syne`) with a one-click **Share URL** button. |
 | **Export Theme CSS** | Copy the active `:root` CSS variables directly from the Appearance Studio dock into your own stylesheet. |
+| **Live GitHub Star Dock** | Floating dock pill with a direct GitHub link and live repository star count. |
 | **Command Palette (`Cmd/Ctrl + K`)** | Instant keyboard search, category filtering, jump-to-card highlighting, and quick studio actions. |
 | **GSAP + ScrollTrigger Motion** | Batched stagger entrances, scrubbed media parallax, pointer-tracked radial hover glow + 3D tilt, and `prefers-reduced-motion` support. |
 | **Infinite Vertical Loop** | Seamless endless scrolling with a toggle to pause into single-pass bounded scrolling. |
@@ -44,6 +46,7 @@ Organized across four modular sections (`Dashboard`, `Widgets`, `SEO Analytics`,
 | **Productivity & Widgets** | Calendars, focus/work timer, AI file organizer simulator, notification inbox, quick links, weather & media players |
 | **SEO & Growth Analytics** | Traffic overview, keyword rankings, conversion funnels, audience retention, shareable report cards |
 | **Showcase & Commerce** | Pricing toggles, live CSS token exporter, community invites, interactive forms, login & onboarding states |
+| **Designers, DevTools & AI** | WCAG contrast checker, typography scale, radius/elevation previewer, CLI snippet, API key manager, 2FA OTP, 30-day uptime, PR/CI checks, feature flags, AI token/cost estimator, and 14 hover-loop cards |
 
 ---
 

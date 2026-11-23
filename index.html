@@ -7,20 +7,20 @@
 <meta name="theme-color" content="#f2f2f7" media="(prefers-color-scheme: light)" />
 <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)" />
 <title>Infinite Bento: Dashboard &amp; Widgets</title>
-<meta name="description" content="An infinite, full-viewport bento grid of 168 interactive dashboard cards, widgets, and SEO components." />
+<meta name="description" content="An infinite, full-viewport bento grid of 174 interactive dashboard cards, widgets, and SEO components." />
 <meta name="referrer" content="strict-origin-when-cross-origin" />
 <link rel="canonical" href="https://uizbento.vercel.app/" />
 <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://uizbento.vercel.app/" />
 <meta property="og:title" content="Infinite Bento: Dashboard &amp; Widgets" />
-<meta property="og:description" content="An infinite, full-viewport bento grid of 168 interactive dashboard cards, widgets, and SEO analytics components." />
+<meta property="og:description" content="An infinite, full-viewport bento grid of 174 interactive dashboard cards, widgets, and SEO analytics components." />
 <meta property="og:image" content="https://uizbento.vercel.app/og-image.png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Infinite Bento: Dashboard &amp; Widgets" />
-<meta name="twitter:description" content="An infinite, full-viewport bento grid of 168 interactive dashboard cards, widgets, and SEO analytics components." />
+<meta name="twitter:description" content="An infinite, full-viewport bento grid of 174 interactive dashboard cards, widgets, and SEO analytics components." />
 <meta name="twitter:image" content="https://uizbento.vercel.app/og-image.png" />
 <script type="application/ld+json">
 {
@@ -30,7 +30,7 @@
   "applicationCategory": "DesignApplication",
   "operatingSystem": "Web",
   "url": "https://uizbento.vercel.app/",
-  "description": "168 interactive responsive bento dashboard cards, widgets, SEO analytics panels, and live Appearance Studio tokens."
+  "description": "174 interactive responsive bento dashboard cards, widgets, SEO analytics panels, and live Appearance Studio tokens."
 }
 </script>
 
@@ -40,7 +40,7 @@
 <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
 <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
 <link rel="preconnect" href="https://images.unsplash.com" crossorigin />
-<link rel="stylesheet" href="./styles.css?v=9" />
+<link rel="stylesheet" href="./styles.css?v=10" />
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
@@ -85,9 +85,18 @@
     };
     if (!matchMedia('(prefers-reduced-motion: reduce)').matches) r.classList.add('motion');
     try {
-      const a = localStorage.getItem('uiz-accent'), s = localStorage.getItem('uiz-scheme'), f = localStorage.getItem('uiz-font'),
-            d = localStorage.getItem('uiz-density'), l = localStorage.getItem('uiz-loop');
-      if (a) r.dataset.accent = a;
+      const q = new URLSearchParams(location.search);
+      const tMap = { olive: 'lime', cobalt: 'blue' };
+      const qTheme = tMap[q.get('theme')] || q.get('theme');
+      const validA = new Set(['lime', 'blue', 'indigo', 'ember', 'rose', 'mono']);
+      const validS = new Set(['auto', 'light', 'dark']);
+      const validF = new Set(['system', 'editorial', 'geometric', 'humanist', 'swiss']);
+      const a = validA.has(qTheme) ? qTheme : localStorage.getItem('uiz-accent');
+      const s = validS.has(q.get('scheme')) ? q.get('scheme') : localStorage.getItem('uiz-scheme');
+      const f = validF.has(q.get('font')) ? q.get('font') : localStorage.getItem('uiz-font');
+      const d = q.get('density') === 'compact' || q.get('density') === 'comfortable' ? q.get('density') : localStorage.getItem('uiz-density');
+      const l = q.get('loop') === 'paused' || q.get('loop') === 'running' ? q.get('loop') : localStorage.getItem('uiz-loop');
+      if (a && a !== 'lime') r.dataset.accent = a;
       if (s && s !== 'auto') r.dataset.scheme = s;
       if (f && f !== 'system') { r.dataset.font = f; window.__loadUizFont(f); }
       if (d === 'compact') r.dataset.density = d;
@@ -2303,7 +2312,7 @@
             <span class="sec text-subhead">/ mo per seat</span>
           </div>
           <ul class="grid gap-1.5 text-subhead">
-            <li class="flex items-center gap-2.5"><svg class="ic sm shrink-0" style="color:var(--accent-text)" aria-hidden="true"><use href="#i-check"/></svg><span>168 responsive dashboard &amp; widget cards</span></li>
+            <li class="flex items-center gap-2.5"><svg class="ic sm shrink-0" style="color:var(--accent-text)" aria-hidden="true"><use href="#i-check"/></svg><span>174 responsive dashboard &amp; widget cards</span></li>
             <li class="flex items-center gap-2.5"><svg class="ic sm shrink-0" style="color:var(--accent-text)" aria-hidden="true"><use href="#i-check"/></svg><span>Live Appearance Studio themes &amp; ⌘K jump</span></li>
             <li class="flex items-center gap-2.5"><svg class="ic sm shrink-0" style="color:var(--accent-text)" aria-hidden="true"><use href="#i-check"/></svg><span>Pre-compiled CSS &amp; static Vercel bundle</span></li>
           </ul>
@@ -2933,6 +2942,112 @@
           </div>
         </article>
 
+        <!-- SC-61 Before / After UI Diff Slider (sc-6) -->
+        <article class="card sc-6 justify-between gap-3" data-sc="split-compare" aria-label="Before and After UI Diff Slider">
+          <div class="flex items-center justify-between gap-2">
+            <div><h2 class="text-title2">UI Diff Compare</h2><p class="sec text-footnote" data-sc-bind="split-sub">50% split · Hover to sweep</p></div>
+            <div class="flex gap-1 rounded-full bg-fill p-1" role="group" aria-label="Split position">
+              <button class="btn tog !min-h-[2rem] px-2.5 text-footnote tnum" type="button" aria-pressed="false" data-sc-act="split-pos" data-sp="25">25%</button>
+              <button class="btn tog !min-h-[2rem] px-2.5 text-footnote tnum" type="button" aria-pressed="true" data-sc-act="split-pos" data-sp="50">50%</button>
+              <button class="btn tog !min-h-[2rem] px-2.5 text-footnote tnum" type="button" aria-pressed="false" data-sc-act="split-pos" data-sp="75">75%</button>
+            </div>
+          </div>
+          <div class="relative h-24 overflow-hidden rounded-2xl border border-sep bg-tile" aria-hidden="true">
+            <div class="absolute inset-0 flex items-center justify-between px-4 text-footnote font-semibold">
+              <span class="rounded-lg border border-dashed border-sep px-2.5 py-1 sec">Wireframe</span>
+              <span class="rounded-lg px-2.5 py-1" style="background:var(--accent);color:var(--on-accent)">Styled UI</span>
+            </div>
+            <div class="sc-split-handle" data-sc-bind="split-bar" style="left:50%"></div>
+          </div>
+        </article>
+
+        <!-- SC-62 Live AI Voice Orb (sc-6) -->
+        <article class="card sc-6 justify-between gap-3" data-sc="voice-agent" aria-label="Live AI Voice Orb">
+          <div class="flex items-center justify-between gap-2">
+            <div><h2 class="text-title2">AI Voice Orb</h2><p class="sec text-footnote" data-sc-bind="vo-sub">Listening · Hover for acoustic halo</p></div>
+            <span class="pill accent font-semibold text-footnote" data-sc-bind="vo-pill">Listening</span>
+          </div>
+          <div class="flex items-center justify-between gap-4">
+            <div class="relative grid h-20 w-20 shrink-0 place-items-center">
+              <span class="sc-voice-halo" aria-hidden="true"></span>
+              <div class="relative z-10 grid h-12 w-12 place-items-center rounded-full" style="background:var(--accent);color:var(--on-accent)">
+                <svg class="ic" aria-hidden="true"><use href="#i-mic"/></svg>
+              </div>
+            </div>
+            <div class="flex flex-1 flex-wrap gap-1.5" role="group" aria-label="Voice agent state">
+              <button class="btn tog !min-h-[2rem] flex-1 px-2.5 text-footnote" type="button" aria-pressed="true" data-sc-act="vo-state" data-vs="Listening">Listening</button>
+              <button class="btn tog !min-h-[2rem] flex-1 px-2.5 text-footnote" type="button" aria-pressed="false" data-sc-act="vo-state" data-vs="Speaking">Speaking</button>
+              <button class="btn tog !min-h-[2rem] flex-1 px-2.5 text-footnote" type="button" aria-pressed="false" data-sc-act="vo-state" data-vs="Idle">Idle</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- SC-63 Live Sprint Lane (sc-4) -->
+        <article class="card sc-4 justify-between gap-3" data-sc="kanban-pulse" aria-label="Live Sprint Lane">
+          <div class="flex items-center justify-between gap-2">
+            <div><h2 class="text-title2">Sprint Lane</h2><p class="sec text-footnote" data-sc-bind="kb-lane-sub">2 in review · 4 shipped</p></div>
+            <span class="pill font-mono text-footnote tnum" data-sc-bind="kb-lane-pct">67%</span>
+          </div>
+          <div class="grid gap-1.5 text-footnote">
+            <div class="soft sc-kanban-item !py-2 !px-3 flex items-center justify-between" style="--kb-d:0s"><span class="font-semibold truncate">Shareable Theme URLs</span><span class="pill accent">Review</span></div>
+            <div class="soft sc-kanban-item !py-2 !px-3 flex items-center justify-between" style="--kb-d:.4s"><span class="font-semibold truncate">Live GitHub Star Dock</span><span class="pill">QA</span></div>
+          </div>
+          <button class="btn btn-primary w-full !min-h-[2.125rem] !rounded-2xl text-footnote" type="button" data-sc-act="kb-ship" data-sc-bind="kb-ship-btn">Ship Next Task</button>
+        </article>
+
+        <!-- SC-64 Global CDN Edge Map (sc-8) -->
+        <article class="card sc-8 justify-between gap-3" data-sc="traffic-globe" aria-label="Global CDN Edge Map">
+          <div class="flex flex-wrap items-center justify-between gap-2">
+            <div><h2 class="text-title2">Global CDN Routes</h2><p class="sec text-footnote" data-sc-bind="cdn-sub">Americas · 14.2k req/s · 12ms p95</p></div>
+            <div class="flex gap-1 rounded-full bg-fill p-1" role="group" aria-label="CDN region">
+              <button class="btn tog !min-h-[2rem] px-2.5 text-footnote" type="button" aria-pressed="true" data-sc-act="cdn-reg" data-reg="Americas">Americas</button>
+              <button class="btn tog !min-h-[2rem] px-2.5 text-footnote" type="button" aria-pressed="false" data-sc-act="cdn-reg" data-reg="Europe">Europe</button>
+              <button class="btn tog !min-h-[2rem] px-2.5 text-footnote" type="button" aria-pressed="false" data-sc-act="cdn-reg" data-reg="Asia-Pacific">APAC</button>
+            </div>
+          </div>
+          <div class="soft !p-3">
+            <svg class="h-20 w-full" viewBox="0 0 360 72" aria-hidden="true">
+              <circle cx="48" cy="36" r="5" fill="var(--accent)"/>
+              <circle cx="180" cy="22" r="5" fill="var(--accent)"/>
+              <circle cx="312" cy="40" r="5" fill="var(--accent)"/>
+              <path class="sc-arc-flow" d="M 48 36 Q 114 4 180 22" fill="none" stroke="var(--accent)" stroke-width="2.2" stroke-linecap="round"/>
+              <path class="sc-arc-flow" d="M 180 22 Q 246 8 312 40" fill="none" stroke="var(--accent)" stroke-width="2.2" stroke-linecap="round"/>
+              <text x="34" y="58" fill="var(--secondary)" font-size="11" font-weight="600">SFO</text>
+              <text x="168" y="58" fill="var(--secondary)" font-size="11" font-weight="600">FRA</text>
+              <text x="300" y="58" fill="var(--secondary)" font-size="11" font-weight="600">SIN</text>
+            </svg>
+          </div>
+        </article>
+
+        <!-- SC-65 Bundle Size Treemap (sc-5) -->
+        <article class="card sc-5 justify-between gap-3" data-sc="build-bundle" aria-label="Bundle Size Treemap">
+          <div class="flex items-center justify-between gap-2">
+            <div><h2 class="text-title2">Bundle Size</h2><p class="sec text-footnote" data-sc-bind="bnd-sub">Gzipped · Zero runtime</p></div>
+            <button class="btn tog !min-h-[2rem] px-3 font-mono text-footnote tnum" type="button" aria-pressed="true" data-sc-act="bnd-mode" data-sc-bind="bnd-pill">28.4 KB</button>
+          </div>
+          <div class="flex h-6 overflow-hidden rounded-full bg-fill p-0.5 gap-0.5" aria-hidden="true">
+            <div class="sc-bundle-seg h-full rounded-l-full" style="width:48%;background:var(--accent);--b-d:0s"></div>
+            <div class="sc-bundle-seg h-full" style="width:28%;background:color-mix(in srgb, var(--accent) 65%, var(--label));--b-d:.3s"></div>
+            <div class="sc-bundle-seg h-full rounded-r-full" style="width:24%;background:var(--secondary);--b-d:.6s"></div>
+          </div>
+          <div class="flex items-center justify-between text-footnote sec font-mono">
+            <span>HTML 48%</span><span>CSS 28%</span><span>JS 24%</span>
+          </div>
+        </article>
+
+        <!-- SC-66 Webhook Delivery & Retry Queue (sc-7) -->
+        <article class="card sc-7 justify-between gap-3" data-sc="webhook-retry" aria-label="Webhook Delivery and Retry Queue">
+          <div class="flex items-center justify-between gap-2">
+            <div><h2 class="text-title2">Webhook Queue</h2><p class="sec text-footnote" data-sc-bind="wh-sub">1 event queued for retry</p></div>
+            <button class="btn btn-secondary !min-h-[2rem] px-3 text-footnote" type="button" data-sc-act="wh-retry" data-sc-bind="wh-btn">Replay Failed</button>
+          </div>
+          <div class="soft relative overflow-hidden grid gap-1.5 !p-3 font-mono text-footnote">
+            <div class="sc-retry-beam" aria-hidden="true"></div>
+            <div class="flex items-center justify-between"><span class="font-semibold">evt_891 · invoice.paid</span><span class="pill accent">200 OK</span></div>
+            <div class="flex items-center justify-between"><span class="font-semibold">evt_892 · user.upgraded</span><span class="pill" data-sc-bind="wh-status">429 Retry</span></div>
+          </div>
+        </article>
+
       </div>
       </div>
     </div>
@@ -2956,7 +3071,7 @@
     <h2 id="cmd-title" class="sr-only">Command palette</h2>
     <div class="flex items-center gap-3 border-b border-sep px-4 py-3">
       <svg class="ic sec" aria-hidden="true"><use href="#i-search"/></svg>
-      <input id="cmd-input" class="w-full bg-transparent text-body text-label placeholder:text-secondary focus:outline-none" type="search" autofocus placeholder="Search 168 bento cards or run an action…" aria-label="Search cards and actions" />
+      <input id="cmd-input" class="w-full bg-transparent text-body text-label placeholder:text-secondary focus:outline-none" type="search" autofocus placeholder="Search 174 bento cards or run an action…" aria-label="Search cards and actions" />
       <kbd class="cmd-kbd hidden sm:inline-flex">Esc</kbd>
       <button id="closeCmd" class="btn btn-secondary btn-icon !min-h-[2.25rem] !w-9" type="button" aria-label="Close command palette"><svg class="ic" style="width:1.125rem;height:1.125rem" aria-hidden="true"><use href="#i-plus" style="transform:rotate(45deg);transform-origin:center"/></svg></button>
     </div>
@@ -2998,6 +3113,14 @@
       <button id="replay-cinematic" class="dock-ic" type="button" title="Replay cinematic animation" aria-label="Replay cinematic animation">
         <svg class="ic" aria-hidden="true"><use href="#i-refresh"/></svg>
       </button>
+    </div>
+    <span role="separator" aria-orientation="vertical"></span>
+    <div role="group" aria-label="GitHub repository">
+      <a id="dock-github-star" class="dock-star" href="https://github.com/ericsn-ui/uiz-bento" target="_blank" rel="noopener noreferrer" title="Star UIzBENTO on GitHub" aria-label="Star UIzBENTO on GitHub">
+        <svg class="ic sm solid" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.57.1.78-.25.78-.55v-1.95c-3.2.7-3.87-1.54-3.87-1.54-.52-1.33-1.28-1.68-1.28-1.68-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.68 0-1.25.45-2.28 1.19-3.08-.12-.29-.52-1.46.11-3.04 0 0 .97-.31 3.17 1.18a11.02 11.02 0 0 1 5.78 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.58.23 2.75.11 3.04.74.8 1.19 1.83 1.19 3.08 0 4.41-2.69 5.39-5.26 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.66.79.55A11.51 11.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/></svg>
+        <svg class="ic sm" style="color:var(--accent-text)" aria-hidden="true"><use href="#i-star"/></svg>
+        <span id="gh-star-count" class="tnum text-footnote">Star</span>
+      </a>
     </div>
   </div>
   <p id="dock-status" class="sr-only" role="status"></p>
@@ -3055,10 +3178,14 @@
       </div>
     </div>
 
-    <div class="border-t border-sep pt-3">
-      <button id="studio-export-css" class="btn btn-primary w-full !rounded-2xl" type="button" title="Copy current theme CSS variables to clipboard">
+    <div class="grid grid-cols-2 gap-2 border-t border-sep pt-3">
+      <button id="studio-export-css" class="btn btn-primary w-full !rounded-2xl text-footnote" type="button" title="Copy current theme CSS variables to clipboard">
         <svg class="ic sm" aria-hidden="true"><use href="#i-copy"/></svg>
-        <span>Export Theme CSS</span>
+        <span>Export CSS</span>
+      </button>
+      <button id="studio-copy-url" class="btn btn-secondary w-full !rounded-2xl text-footnote" type="button" title="Copy shareable link with current theme">
+        <svg class="ic sm" aria-hidden="true"><use href="#i-link"/></svg>
+        <span>Share URL</span>
       </button>
     </div>
   </div>
@@ -3759,7 +3886,13 @@ document.addEventListener('DOMContentLoaded', () => {
     aiDotStep: 0,
     tlSpeed: '1x', tlTrack: 'Video',
     alUnread: 3,
-    kbPicked: '⌘K · Open Command Palette'
+    kbPicked: '⌘K · Open Command Palette',
+    splitPos: '50',
+    voState: 'Listening',
+    kbShipped: 4,
+    cdnReg: 'Americas',
+    bndGzip: true,
+    whRetried: false
   };
   const sct = (k, v) => $$(`[data-sc-bind="${k}"]`, loop).forEach(el => { if (el.textContent !== v) el.textContent = v; });
   const toHexColor = (val, fallback) => {
@@ -4131,6 +4264,37 @@ document.addEventListener('DOMContentLoaded', () => {
     $$('[data-sc-act="kb-pick"]', loop).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.kb === SC.kbPicked)));
   };
   renderScBatch2();
+  const renderScBatch3 = () => {
+    sct('split-sub', `${SC.splitPos}% split · Hover to sweep`);
+    $$('[data-sc-bind="split-bar"]', loop).forEach(el => { el.style.left = `${SC.splitPos}%`; });
+    $$('[data-sc-act="split-pos"]', loop).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.sp === SC.splitPos)));
+
+    sct('vo-pill', SC.voState);
+    sct('vo-sub', `${SC.voState} · Hover for acoustic halo`);
+    $$('[data-sc-act="vo-state"]', loop).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.vs === SC.voState)));
+
+    const totalTasks = 6, pct = Math.round((SC.kbShipped / totalTasks) * 100);
+    sct('kb-lane-sub', `${totalTasks - SC.kbShipped} in review · ${SC.kbShipped} shipped`);
+    sct('kb-lane-pct', `${pct}%`);
+    sct('kb-ship-btn', SC.kbShipped >= totalTasks ? 'Reset Sprint' : 'Ship Next Task');
+
+    const CDN = {
+      Americas: 'Americas · 14.2k req/s · 12ms p95',
+      Europe: 'Europe · 11.8k req/s · 16ms p95',
+      'Asia-Pacific': 'Asia-Pacific · 16.4k req/s · 11ms p95'
+    };
+    sct('cdn-sub', CDN[SC.cdnReg] || CDN.Americas);
+    $$('[data-sc-act="cdn-reg"]', loop).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.reg === SC.cdnReg)));
+
+    sct('bnd-sub', SC.bndGzip ? 'Gzipped · Zero runtime' : 'Raw minified · Zero runtime');
+    sct('bnd-pill', SC.bndGzip ? '28.4 KB' : '82.0 KB');
+    $$('[data-sc-act="bnd-mode"]', loop).forEach(b => b.setAttribute('aria-pressed', String(SC.bndGzip)));
+
+    sct('wh-sub', SC.whRetried ? 'All events delivered' : '1 event queued for retry');
+    sct('wh-status', SC.whRetried ? '200 OK' : '429 Retry');
+    sct('wh-btn', SC.whRetried ? 'Simulate 429' : 'Replay Failed');
+  };
+  renderScBatch3();
   $$('button[aria-label]:not([title])', loop).forEach(b => { b.title = b.getAttribute('aria-label'); });
   loop.addEventListener('click', e => {
     const el = e.target.closest('[data-sc-act]'); if (!el) return;
@@ -4274,6 +4438,37 @@ document.addEventListener('DOMContentLoaded', () => {
     $$('[data-sc-act="kb-pick"]', loop).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.kb === SC.kbPicked)));
   };
   renderScBatch2();
+  const renderScBatch3 = () => {
+    sct('split-sub', `${SC.splitPos}% split · Hover to sweep`);
+    $$('[data-sc-bind="split-bar"]', loop).forEach(el => { el.style.left = `${SC.splitPos}%`; });
+    $$('[data-sc-act="split-pos"]', loop).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.sp === SC.splitPos)));
+
+    sct('vo-pill', SC.voState);
+    sct('vo-sub', `${SC.voState} · Hover for acoustic halo`);
+    $$('[data-sc-act="vo-state"]', loop).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.vs === SC.voState)));
+
+    const totalTasks = 6, pct = Math.round((SC.kbShipped / totalTasks) * 100);
+    sct('kb-lane-sub', `${totalTasks - SC.kbShipped} in review · ${SC.kbShipped} shipped`);
+    sct('kb-lane-pct', `${pct}%`);
+    sct('kb-ship-btn', SC.kbShipped >= totalTasks ? 'Reset Sprint' : 'Ship Next Task');
+
+    const CDN = {
+      Americas: 'Americas · 14.2k req/s · 12ms p95',
+      Europe: 'Europe · 11.8k req/s · 16ms p95',
+      'Asia-Pacific': 'Asia-Pacific · 16.4k req/s · 11ms p95'
+    };
+    sct('cdn-sub', CDN[SC.cdnReg] || CDN.Americas);
+    $$('[data-sc-act="cdn-reg"]', loop).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.reg === SC.cdnReg)));
+
+    sct('bnd-sub', SC.bndGzip ? 'Gzipped · Zero runtime' : 'Raw minified · Zero runtime');
+    sct('bnd-pill', SC.bndGzip ? '28.4 KB' : '82.0 KB');
+    $$('[data-sc-act="bnd-mode"]', loop).forEach(b => b.setAttribute('aria-pressed', String(SC.bndGzip)));
+
+    sct('wh-sub', SC.whRetried ? 'All events delivered' : '1 event queued for retry');
+    sct('wh-status', SC.whRetried ? '200 OK' : '429 Retry');
+    sct('wh-btn', SC.whRetried ? 'Simulate 429' : 'Replay Failed');
+  };
+  renderScBatch3();
     }
     else if (a === 'radar-mode') { SC.radarMode = el.dataset.rm || 'deep'; renderScHoverLoops(); }
     else if (a === 'orb-pick') { SC.orbApp = el.dataset.app || 'GitHub'; renderScHoverLoops(); }
@@ -4323,6 +4518,37 @@ document.addEventListener('DOMContentLoaded', () => {
     $$('[data-sc-act="kb-pick"]', loop).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.kb === SC.kbPicked)));
   };
   renderScBatch2();
+  const renderScBatch3 = () => {
+    sct('split-sub', `${SC.splitPos}% split · Hover to sweep`);
+    $$('[data-sc-bind="split-bar"]', loop).forEach(el => { el.style.left = `${SC.splitPos}%`; });
+    $$('[data-sc-act="split-pos"]', loop).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.sp === SC.splitPos)));
+
+    sct('vo-pill', SC.voState);
+    sct('vo-sub', `${SC.voState} · Hover for acoustic halo`);
+    $$('[data-sc-act="vo-state"]', loop).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.vs === SC.voState)));
+
+    const totalTasks = 6, pct = Math.round((SC.kbShipped / totalTasks) * 100);
+    sct('kb-lane-sub', `${totalTasks - SC.kbShipped} in review · ${SC.kbShipped} shipped`);
+    sct('kb-lane-pct', `${pct}%`);
+    sct('kb-ship-btn', SC.kbShipped >= totalTasks ? 'Reset Sprint' : 'Ship Next Task');
+
+    const CDN = {
+      Americas: 'Americas · 14.2k req/s · 12ms p95',
+      Europe: 'Europe · 11.8k req/s · 16ms p95',
+      'Asia-Pacific': 'Asia-Pacific · 16.4k req/s · 11ms p95'
+    };
+    sct('cdn-sub', CDN[SC.cdnReg] || CDN.Americas);
+    $$('[data-sc-act="cdn-reg"]', loop).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.reg === SC.cdnReg)));
+
+    sct('bnd-sub', SC.bndGzip ? 'Gzipped · Zero runtime' : 'Raw minified · Zero runtime');
+    sct('bnd-pill', SC.bndGzip ? '28.4 KB' : '82.0 KB');
+    $$('[data-sc-act="bnd-mode"]', loop).forEach(b => b.setAttribute('aria-pressed', String(SC.bndGzip)));
+
+    sct('wh-sub', SC.whRetried ? 'All events delivered' : '1 event queued for retry');
+    sct('wh-status', SC.whRetried ? '200 OK' : '429 Retry');
+    sct('wh-btn', SC.whRetried ? 'Simulate 429' : 'Replay Failed');
+  };
+  renderScBatch3();
     }
     else if (a === 'shim-mode') { SC.shimMode = el.dataset.sm || 'AI Stream'; renderScHoverLoops(); }
     else if (a === 'sync-now') { SC.syncPct = SC.syncPct >= 95 ? 71 : SC.syncPct + 8; renderScBatch2(); }
@@ -4342,6 +4568,12 @@ document.addEventListener('DOMContentLoaded', () => {
     else if (a === 'tl-track') { SC.tlTrack = el.dataset.tr || 'Video'; renderScBatch2(); }
     else if (a === 'al-clear') { SC.alUnread = SC.alUnread ? 0 : 3; renderScBatch2(); }
     else if (a === 'kb-pick') { SC.kbPicked = el.dataset.kb || '⌘K · Open Command Palette'; renderScBatch2(); }
+    else if (a === 'split-pos') { SC.splitPos = el.dataset.sp || '50'; renderScBatch3(); }
+    else if (a === 'vo-state') { SC.voState = el.dataset.vs || 'Listening'; renderScBatch3(); }
+    else if (a === 'kb-ship') { SC.kbShipped = SC.kbShipped >= 6 ? 4 : SC.kbShipped + 1; renderScBatch3(); }
+    else if (a === 'cdn-reg') { SC.cdnReg = el.dataset.reg || 'Americas'; renderScBatch3(); }
+    else if (a === 'bnd-mode') { SC.bndGzip = !SC.bndGzip; renderScBatch3(); }
+    else if (a === 'wh-retry') { SC.whRetried = !SC.whRetried; renderScBatch3(); }
     else if (a === 'copy-tokens') {
       const cs = getComputedStyle(root);
       const cssVars = `:root {\n  --accent: ${cs.getPropertyValue('--accent').trim()};\n  --surface: ${cs.getPropertyValue('--surface').trim()};\n  --card-pad: ${cs.getPropertyValue('--card-pad').trim()};\n  --font-display: ${cs.getPropertyValue('--font-display').trim()};\n}`;
@@ -4613,6 +4845,14 @@ document.addEventListener('DOMContentLoaded', () => {
       localStorage.setItem('uiz-font', studioState.font);
       localStorage.setItem('uiz-density', studioState.density);
       localStorage.setItem('uiz-loop', studioState.loopPaused ? 'paused' : 'running');
+      const u = new URL(location.href);
+      const revT = { lime: 'olive', blue: 'cobalt' };
+      if (studioState.accent !== 'lime') u.searchParams.set('theme', revT[studioState.accent] || studioState.accent); else u.searchParams.delete('theme');
+      if (studioState.scheme !== 'auto') u.searchParams.set('scheme', studioState.scheme); else u.searchParams.delete('scheme');
+      if (studioState.font !== 'system') u.searchParams.set('font', studioState.font); else u.searchParams.delete('font');
+      if (studioState.density !== 'comfortable') u.searchParams.set('density', studioState.density); else u.searchParams.delete('density');
+      if (studioState.loopPaused) u.searchParams.set('loop', 'paused'); else u.searchParams.delete('loop');
+      history.replaceState(null, '', u);
     } catch {}
     if (prevLoop !== studioState.loopPaused) applyLoopMode(studioState.loopPaused, false);
     else if (patch.density !== undefined || patch.font !== undefined) scheduleScrollRefresh();
@@ -4668,9 +4908,44 @@ document.addEventListener('DOMContentLoaded', () => {
       if (dockStatus) dockStatus.textContent = 'Copied current theme CSS variables to clipboard';
       clearTimeout(exportCssBtn._copyTimer);
       exportCssBtn._copyTimer = setTimeout(() => {
-        exportCssBtn.innerHTML = '<svg class="ic sm" aria-hidden="true"><use href="#i-copy"/></svg><span>Export Theme CSS</span>';
+        exportCssBtn.innerHTML = '<svg class="ic sm" aria-hidden="true"><use href="#i-copy"/></svg><span>Export CSS</span>';
       }, 1800);
     });
+  }
+  const copyUrlBtn = $('#studio-copy-url');
+  if (copyUrlBtn) {
+    copyUrlBtn.addEventListener('click', async () => {
+      try { await navigator.clipboard.writeText(location.href); } catch {}
+      copyUrlBtn.innerHTML = '<svg class="ic sm" aria-hidden="true"><use href="#i-check"/></svg><span>Link Copied!</span>';
+      if (dockStatus) dockStatus.textContent = 'Copied shareable theme link to clipboard';
+      clearTimeout(copyUrlBtn._copyTimer);
+      copyUrlBtn._copyTimer = setTimeout(() => {
+        copyUrlBtn.innerHTML = '<svg class="ic sm" aria-hidden="true"><use href="#i-link"/></svg><span>Share URL</span>';
+      }, 1800);
+    });
+  }
+  const ghStarCount = $('#gh-star-count');
+  if (ghStarCount) {
+    const fmtStars = n => n >= 1000 ? `${(n / 1000).toFixed(1).replace(/\.0$/, '')}k` : String(n);
+    try {
+      const cached = sessionStorage.getItem('uiz-gh-stars');
+      const cachedAt = Number(sessionStorage.getItem('uiz-gh-stars-ts') || 0);
+      if (cached !== null && Date.now() - cachedAt < 300000) {
+        ghStarCount.textContent = fmtStars(Number(cached));
+      } else {
+        fetch('https://api.github.com/repos/ericsn-ui/uiz-bento', { headers: { Accept: 'application/vnd.github+json' } })
+          .then(r => r.ok ? r.json() : null)
+          .then(d => {
+            if (d && typeof d.stargazers_count === 'number') {
+              ghStarCount.textContent = fmtStars(d.stargazers_count);
+              try {
+                sessionStorage.setItem('uiz-gh-stars', String(d.stargazers_count));
+                sessionStorage.setItem('uiz-gh-stars-ts', String(Date.now()));
+              } catch {}
+            }
+          }).catch(() => {});
+      }
+    } catch {}
   }
   if (quickSchemeBtn) {
     quickSchemeBtn.addEventListener('click', () => {

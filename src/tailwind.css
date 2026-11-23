@@ -530,15 +530,15 @@
     border:1px solid var(--sep); box-shadow:0 14px 36px -14px rgba(0,0,0,.45); }
   .studio-dock [role="group"] { display:flex; align-items:center; gap:.25rem; }
   .studio-dock [role="separator"] { width:1px; height:1.5rem; border-left:1px solid var(--sep); margin:0 .125rem; }
-  .studio-dock button { display:inline-flex; align-items:center; justify-content:center; gap:.5rem; min-inline-size:2.5rem; min-block-size:2.5rem; padding:0 .875rem;
-    border:1px solid transparent; border-radius:999px; background:transparent; color:var(--label); font:inherit; font-size:.875rem; font-weight:600; cursor:pointer; white-space:nowrap; }
+  .studio-dock :is(button, a.dock-star) { display:inline-flex; align-items:center; justify-content:center; gap:.45rem; min-inline-size:2.5rem; min-block-size:2.5rem; padding:0 .875rem;
+    border:1px solid transparent; border-radius:999px; background:transparent; color:var(--label); font:inherit; font-size:.875rem; font-weight:600; cursor:pointer; white-space:nowrap; text-decoration:none; }
   .studio-dock button.dock-ic { padding:0; width:2.5rem; }
-  @media (pointer: coarse) { .studio-dock button { min-inline-size:2.75rem; min-block-size:2.75rem; } .studio-dock button.dock-ic { width:2.75rem; } }
-  @media (hover: hover) { .studio-dock button:hover { background:var(--fill); } }
-  @media (prefers-reduced-motion: no-preference) { .studio-dock button { transition:background-color .15s ease, scale .12s ease, border-color .15s ease; } }
-  .studio-dock button:active { scale:.96; }
+  @media (pointer: coarse) { .studio-dock :is(button, a.dock-star) { min-inline-size:2.75rem; min-block-size:2.75rem; } .studio-dock button.dock-ic { width:2.75rem; } }
+  @media (hover: hover) { .studio-dock :is(button, a.dock-star):hover { background:var(--fill); } }
+  @media (prefers-reduced-motion: no-preference) { .studio-dock :is(button, a.dock-star) { transition:background-color .15s ease, scale .12s ease, border-color .15s ease; } }
+  .studio-dock :is(button, a.dock-star):active { scale:.96; }
   .studio-dock button[aria-expanded="true"] { background:var(--accent); color:var(--on-accent); }
-  .studio-dock button:focus-visible { outline:2px solid var(--accent-text); outline-offset:2px; }
+  .studio-dock :is(button, a.dock-star):focus-visible { outline:2px solid var(--accent-text); outline-offset:2px; }
   .dock-dot { width:.75rem; height:.75rem; border-radius:50%; background:var(--accent); box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.5); flex:none; }
   .studio-dock button[aria-expanded="true"] .dock-dot { background:var(--on-accent); box-shadow:none; }
   .studio-popover { width:min(23rem, calc(100vw - 1.5rem)); max-height:min(76dvh, 36rem); overflow-y:auto; padding:1.125rem; border-radius:1.5rem;
@@ -867,9 +867,56 @@
   [data-sc="command-strip"]:hover .sc-keycap,
   [data-sc="command-strip"]:focus-within .sc-keycap { animation:sc-key-sheen 2.2s ease-in-out var(--k-d, 0s) infinite; }
 
+  /* Hover Interactive Animation Loops (SC-61..SC-66) */
+  @keyframes sc-split-sweep {
+    0%, 100% { left:28%; }
+    50% { left:74%; }
+  }
+  .sc-split-handle { position:absolute; top:0; bottom:0; width:2px; background:var(--accent); box-shadow:0 0 10px var(--accent); transition:left .25s ease; }
+  [data-sc="split-compare"]:hover .sc-split-handle,
+  [data-sc="split-compare"]:focus-within .sc-split-handle { animation:sc-split-sweep 3s ease-in-out infinite; }
+
+  @keyframes sc-orb-breathe {
+    0%, 100% { transform:scale(.92); opacity:.65; }
+    50% { transform:scale(1.12); opacity:1; }
+  }
+  .sc-voice-halo { position:absolute; inset:0; border-radius:50%; background:radial-gradient(circle, color-mix(in srgb, var(--accent) 42%, transparent), transparent 70%); }
+  [data-sc="voice-agent"]:hover .sc-voice-halo,
+  [data-sc="voice-agent"]:focus-within .sc-voice-halo { animation:sc-orb-breathe 2s ease-in-out infinite; }
+
+  @keyframes sc-arc-dash {
+    to { stroke-dashoffset:-36; }
+  }
+  .sc-arc-flow { stroke-dasharray:6 6; }
+  [data-sc="traffic-globe"]:hover .sc-arc-flow,
+  [data-sc="traffic-globe"]:focus-within .sc-arc-flow { animation:sc-arc-dash 1.2s linear infinite; }
+
+  @keyframes sc-bar-sheen {
+    0%, 100% { filter:brightness(1); }
+    50% { filter:brightness(1.22); }
+  }
+  [data-sc="build-bundle"]:hover .sc-bundle-seg,
+  [data-sc="build-bundle"]:focus-within .sc-bundle-seg { animation:sc-bar-sheen 1.8s ease-in-out var(--b-d, 0s) infinite; }
+
+  @keyframes sc-kanban-float {
+    0%, 100% { transform:translateY(0); }
+    50% { transform:translateY(-2px); }
+  }
+  [data-sc="kanban-pulse"]:hover .sc-kanban-item,
+  [data-sc="kanban-pulse"]:focus-within .sc-kanban-item { animation:sc-kanban-float 1.8s ease-in-out var(--kb-d, 0s) infinite; }
+
+  @keyframes sc-retry-sweep {
+    0% { transform:translateX(-100%); }
+    100% { transform:translateX(220%); }
+  }
+  .sc-retry-beam { position:absolute; inset-block:0; left:0; width:40%; background:linear-gradient(90deg, transparent, color-mix(in srgb, var(--accent) 32%, transparent), transparent); opacity:0; }
+  [data-sc="webhook-retry"]:hover .sc-retry-beam,
+  [data-sc="webhook-retry"]:focus-within .sc-retry-beam { opacity:1; animation:sc-retry-sweep 1.8s ease-in-out infinite; }
+
   @media (prefers-reduced-motion: reduce) {
     .sc-eq-bar, .sc-pipe-beam, .sc-pipe-dot, .sc-radar-sweep, .sc-radar-blip, .sc-orbit-track, .sc-orbit-node, .sc-marquee-track, .sc-shimmer-bar::after,
-    .sc-sync-arc, .sc-logs-track, .sc-bio-ring, .sc-mesh-orb, .sc-ai-dot, .sc-playhead, .sc-bell-ic, .sc-keycap { animation:none !important; }
+    .sc-sync-arc, .sc-logs-track, .sc-bio-ring, .sc-mesh-orb, .sc-ai-dot, .sc-playhead, .sc-bell-ic, .sc-keycap,
+    .sc-split-handle, .sc-voice-halo, .sc-arc-flow, .sc-bundle-seg, .sc-kanban-item, .sc-retry-beam { animation:none !important; }
   }
 
 @tailwind utilities;
