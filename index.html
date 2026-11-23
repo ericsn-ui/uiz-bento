@@ -2403,6 +2403,96 @@
           <button class="btn btn-primary w-full !rounded-2xl" type="button" data-sc-act="rad-copy" title="Copy border-radius and box-shadow CSS"><svg class="ic sm" aria-hidden="true"><use href="#i-copy"/></svg><span data-sc-bind="rad-copy-lbl">Copy CSS</span></button>
         </article>
 
+        <!-- SC-40 Multi-Package CLI Snippet -->
+        <article class="card sc-4 justify-between gap-3" data-sc="cli-snippet" aria-label="Multi-Package CLI Snippet">
+          <div class="flex items-center justify-between gap-2">
+            <div><h2 class="text-headline">Install CLI</h2><p class="sec text-footnote" data-sc-bind="cli-sub">Zero-config starter · npm</p></div>
+            <span class="hd-ic" aria-hidden="true"><svg class="ic sm"><use href="#i-code"/></svg></span>
+          </div>
+          <div class="flex gap-1 rounded-full bg-fill p-1" role="group" aria-label="Package manager">
+            <button class="btn tog !min-h-[2.125rem] flex-1 px-2 text-footnote font-mono" type="button" aria-pressed="true" data-sc-act="cli-pm" data-pm="npm" title="Use npm">npm</button>
+            <button class="btn tog !min-h-[2.125rem] flex-1 px-2 text-footnote font-mono" type="button" aria-pressed="false" data-sc-act="cli-pm" data-pm="pnpm" title="Use pnpm">pnpm</button>
+            <button class="btn tog !min-h-[2.125rem] flex-1 px-2 text-footnote font-mono" type="button" aria-pressed="false" data-sc-act="cli-pm" data-pm="bun" title="Use bun">bun</button>
+            <button class="btn tog !min-h-[2.125rem] flex-1 px-2 text-footnote font-mono" type="button" aria-pressed="false" data-sc-act="cli-pm" data-pm="curl" title="Use curl">curl</button>
+          </div>
+          <div class="soft grid gap-2 font-mono text-footnote" style="padding:.75rem">
+            <div class="flex items-center justify-between gap-2 border-b border-sep" style="padding-bottom:.5rem">
+              <span class="sec" data-sc-bind="cli-tab">Terminal · npm</span>
+              <button class="btn btn-secondary !min-h-0 px-2 text-footnote" style="min-height:1.75rem" type="button" data-sc-act="cli-copy" title="Copy CLI command">
+                <svg class="ic sm" aria-hidden="true"><use href="#i-copy" data-sc-bind="cli-copy-icon"/></svg>
+                <span data-sc-bind="cli-copy-lbl">Copy</span>
+              </button>
+            </div>
+            <div class="grid gap-1 font-mono text-footnote" style="overflow-x:auto;line-height:1.45">
+              <div class="flex items-center gap-2 whitespace-nowrap"><span class="sec tnum" style="user-select:none;opacity:.6" aria-hidden="true">1</span><code data-sc-bind="cli-l1">npx uizbento@latest init</code></div>
+              <div class="flex items-center gap-2 whitespace-nowrap"><span class="sec tnum" style="user-select:none;opacity:.6" aria-hidden="true">2</span><code data-sc-bind="cli-l2">npm run dev</code></div>
+            </div>
+          </div>
+          <div class="flex items-center justify-between gap-2 text-footnote sec">
+            <span class="truncate" data-sc-bind="cli-hint">Node 18+ · npm registry</span>
+            <span class="pill shrink-0 font-semibold">v1.0.0</span>
+          </div>
+        </article>
+
+        <!-- SC-41 API Key & Secret Manager -->
+        <article class="card sc-4 justify-between gap-3" data-sc="api-key" aria-label="API Key and Secret Manager">
+          <div class="flex items-center justify-between gap-2">
+            <div><h2 class="text-headline">API Secret Key</h2><p class="sec text-footnote" data-sc-bind="key-rotated">Last rotated: 2d ago</p></div>
+            <span class="hd-ic" aria-hidden="true"><svg class="ic sm"><use href="#i-key"/></svg></span>
+          </div>
+          <div class="soft flex items-center justify-between gap-2" style="padding:.75rem">
+            <div class="min-w-0 flex-1">
+              <span class="block text-footnote sec">Production · Live</span>
+              <code class="block truncate font-mono text-subhead font-semibold tnum" data-sc-bind="key-token">sk_live_••••••••••••4a9f</code>
+            </div>
+            <span class="pill shrink-0 font-semibold" style="background:var(--lime-bg);color:var(--lime-fg)"><svg class="ic sm" aria-hidden="true"><use href="#i-shield"/></svg>Active</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button class="btn btn-secondary tog !min-h-[2.25rem] flex-1 px-2 text-footnote" type="button" aria-pressed="false" data-sc-act="key-toggle" title="Reveal or hide API key">
+              <svg class="ic sm" aria-hidden="true"><use href="#i-lock"/></svg>
+              <span data-sc-bind="key-vis-lbl">Reveal</span>
+            </button>
+            <button class="btn btn-secondary !min-h-[2.25rem] flex-1 px-2 text-footnote" type="button" data-sc-act="key-copy" title="Copy full API key">
+              <svg class="ic sm" aria-hidden="true"><use href="#i-copy" data-sc-bind="key-copy-icon"/></svg>
+              <span data-sc-bind="key-copy-lbl">Copy</span>
+            </button>
+          </div>
+          <button class="btn btn-primary w-full !rounded-2xl" type="button" data-sc-act="key-rotate" title="Rotate API secret key">
+            <svg class="ic sm" aria-hidden="true"><use href="#i-refresh"/></svg>
+            <span>Rotate Key</span>
+          </button>
+        </article>
+
+        <!-- SC-42 6-Digit OTP / 2FA Verification -->
+        <article class="card sc-4 justify-between gap-3" data-sc="otp-verify" aria-label="6-Digit OTP Verification">
+          <div class="flex items-center justify-between gap-2">
+            <div><h2 class="text-headline">Two-Factor Auth</h2><p class="sec text-footnote" data-sc-bind="otp-sub">Enter 6-digit verification code</p></div>
+            <span class="pill font-semibold" data-sc-bind="otp-badge" aria-live="polite">0/6 digits</span>
+          </div>
+          <div class="grid grid-cols-6 gap-1.5" role="group" aria-label="6-digit verification code">
+            <input class="field !min-h-[2.75rem] !px-0 text-center font-mono text-headline font-bold tnum" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="1" autocomplete="one-time-code" data-sc-otp="0" aria-label="Digit 1 of 6" />
+            <input class="field !min-h-[2.75rem] !px-0 text-center font-mono text-headline font-bold tnum" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="1" data-sc-otp="1" aria-label="Digit 2 of 6" />
+            <input class="field !min-h-[2.75rem] !px-0 text-center font-mono text-headline font-bold tnum" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="1" data-sc-otp="2" aria-label="Digit 3 of 6" />
+            <input class="field !min-h-[2.75rem] !px-0 text-center font-mono text-headline font-bold tnum" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="1" data-sc-otp="3" aria-label="Digit 4 of 6" />
+            <input class="field !min-h-[2.75rem] !px-0 text-center font-mono text-headline font-bold tnum" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="1" data-sc-otp="4" aria-label="Digit 5 of 6" />
+            <input class="field !min-h-[2.75rem] !px-0 text-center font-mono text-headline font-bold tnum" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="1" data-sc-otp="5" aria-label="Digit 6 of 6" />
+          </div>
+          <div class="soft flex items-center justify-between gap-2" style="padding:.625rem .75rem">
+            <span class="flex items-center gap-2 text-footnote sec min-w-0">
+              <svg class="ic sm shrink-0" aria-hidden="true"><use href="#i-shield"/></svg>
+              <span class="truncate" data-sc-bind="otp-status" aria-live="polite">Paste or type 6 digits</span>
+            </span>
+            <button class="linkbtn inline shrink-0 text-footnote" type="button" data-sc-act="otp-fill" title="Fill sample code 482910">Demo</button>
+          </div>
+          <div class="flex items-center gap-2">
+            <button class="btn btn-secondary !min-h-[2.25rem] flex-1 px-2 text-footnote" type="button" data-sc-act="otp-resend" title="Resend verification code">
+              <svg class="ic sm" aria-hidden="true"><use href="#i-refresh"/></svg>
+              <span data-sc-bind="otp-resend-lbl">Resend code</span>
+            </button>
+            <button class="btn btn-outline !min-h-[2.25rem] px-3 text-footnote" type="button" data-sc-act="otp-clear" title="Clear entered digits">Clear</button>
+          </div>
+        </article>
+
       </div>
       </div>
     </div>
@@ -3198,12 +3288,20 @@ document.addEventListener('DOMContentLoaded', () => {
       SC.swSec++;
       renderScSw();
     }
+    if (SC.otpResendLeft > 0) {
+      SC.otpResendLeft--;
+      if (SC.otpResendLeft === 0) SC.otpResent = false;
+      renderScOtp();
+    }
   }
   const SC = {
     swRunning: true, swSec: 12 * 3600 + 56 * 60 + 4, pay: 'hourly', swapFlip: false, swapAmt: 0, btcFollow: false, bill: 'mo',
     ctrFg: '#14210a', ctrBg: '#a3e635', ctrPreset: '',
     tsRatio: 1.25, tsBase: 16,
-    radR: '16px', radE: 'soft', radCopyTimer: 0
+    radR: '16px', radE: 'soft', radCopyTimer: 0,
+    cliPm: 'npm', cliCopyTimer: 0,
+    keySecret: 'sk_live_9f2b8c4e1d7a4a9f', keySuffix: '4a9f', keyRevealed: false, keyRotated: 'Last rotated: 2d ago', keyCopyTimer: 0,
+    otp: ['', '', '', '', '', ''], otpResendLeft: 0, otpResent: false
   };
   const sct = (k, v) => $$(`[data-sc-bind="${k}"]`, loop).forEach(el => { if (el.textContent !== v) el.textContent = v; });
   const toHexColor = (val, fallback) => {
@@ -3286,6 +3384,59 @@ document.addEventListener('DOMContentLoaded', () => {
     $$('[data-sc-act="rad-r"]', loop).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.r === SC.radR)));
     $$('[data-sc-act="rad-e"]', loop).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.e === SC.radE)));
   };
+  const CLI_CMDS = {
+    npm:  { l1: 'npx uizbento@latest init', l2: 'npm run dev', hint: 'Node 18+ · npm registry' },
+    pnpm: { l1: 'pnpm dlx uizbento@latest init', l2: 'pnpm dev', hint: 'Fast store · pnpm workspace' },
+    bun:  { l1: 'bunx uizbento@latest init', l2: 'bun dev', hint: 'Native runtime · Bun 1.1+' },
+    curl: { l1: 'curl -fsSL https://uizbento.vercel.app/init.sh | sh', l2: 'cd uizbento && open index.html', hint: 'Zero-dependency shell install' }
+  };
+  const renderScCli = () => {
+    const cmd = CLI_CMDS[SC.cliPm] || CLI_CMDS.npm;
+    sct('cli-sub', `Zero-config starter · ${SC.cliPm}`);
+    sct('cli-tab', SC.cliPm === 'curl' ? 'Terminal · sh' : `Terminal · ${SC.cliPm}`);
+    sct('cli-l1', cmd.l1);
+    sct('cli-l2', cmd.l2);
+    sct('cli-hint', cmd.hint);
+    $$('[data-sc-act="cli-pm"]', loop).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.pm === SC.cliPm)));
+  };
+  const renderScApiKey = () => {
+    const token = SC.keyRevealed ? SC.keySecret : `sk_live_••••••••••••${SC.keySuffix}`;
+    sct('key-token', token);
+    sct('key-rotated', SC.keyRotated);
+    sct('key-vis-lbl', SC.keyRevealed ? 'Hide' : 'Reveal');
+    $$('[data-sc-act="key-toggle"]', loop).forEach(b => b.setAttribute('aria-pressed', String(SC.keyRevealed)));
+  };
+  const renderScOtp = () => {
+    const count = SC.otp.filter(Boolean).length;
+    const verified = count === 6;
+    $$('[data-sc="otp-verify"]', loop).forEach(card => {
+      $$('[data-sc-otp]', card).forEach((inp, i) => {
+        const val = SC.otp[i] || '';
+        if (inp.value !== val) inp.value = val;
+        inp.style.boxShadow = verified ? 'inset 0 0 0 1.5px var(--accent)' : '';
+      });
+    });
+    $$('[data-sc-bind="otp-badge"]', loop).forEach(el => {
+      el.textContent = verified ? 'Verified ✓' : `${count}/6 digits`;
+      el.style.background = verified ? 'var(--lime-bg)' : '';
+      el.style.color = verified ? 'var(--lime-fg)' : '';
+    });
+    if (verified) sct('otp-status', 'Two-factor session verified');
+    else if (SC.otpResent) sct('otp-status', 'New code sent · check inbox');
+    else sct('otp-status', 'Paste or type 6 digits');
+    sct('otp-resend-lbl', SC.otpResendLeft > 0 ? `Sent · ${SC.otpResendLeft}s` : 'Resend code');
+    $$('[data-sc-act="otp-resend"]', loop).forEach(b => b.setAttribute('aria-disabled', String(SC.otpResendLeft > 0)));
+  };
+  const writeClip = text => navigator.clipboard?.writeText(text)?.catch?.(() => {});
+  const flashCopy = (lblKey, iconKey, timerKey, copiedText = 'Copied', resetText = 'Copy') => {
+    sct(lblKey, copiedText);
+    $$(`[data-sc-bind="${iconKey}"]`, loop).forEach(u => u.setAttribute('href', '#i-check'));
+    clearTimeout(SC[timerKey]);
+    SC[timerKey] = setTimeout(() => {
+      sct(lblKey, resetText);
+      $$(`[data-sc-bind="${iconKey}"]`, loop).forEach(u => u.setAttribute('href', '#i-copy'));
+    }, 1800);
+  };
   const renderScTokens = () => {
     const cs = getComputedStyle(root);
     const THEME_N = { lime: 'Olive', blue: 'Cobalt', indigo: 'Indigo', ember: 'Ember', rose: 'Rose', mono: 'Mono' };
@@ -3327,7 +3478,7 @@ document.addEventListener('DOMContentLoaded', () => {
     sct('swap-out-usd', `$${(SC.swapAmt * usdRate).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`);
     $$('[data-sc-input="swap-amt"]', loop).forEach(i => { if (document.activeElement !== i) i.value = SC.swapAmt ? String(SC.swapAmt) : '0.00'; });
   };
-  renderScSw(); renderScSwap(); renderScPlan(); renderScTokens(); renderScContrast(); renderScTypeScale(); renderScRadii();
+  renderScSw(); renderScSwap(); renderScPlan(); renderScTokens(); renderScContrast(); renderScTypeScale(); renderScRadii(); renderScCli(); renderScApiKey(); renderScOtp();
   $$('button[aria-label]:not([title])', loop).forEach(b => { b.title = b.getAttribute('aria-label'); });
   loop.addEventListener('click', e => {
     const el = e.target.closest('[data-sc-act]'); if (!el) return;
@@ -3358,10 +3509,47 @@ document.addEventListener('DOMContentLoaded', () => {
     else if (a === 'rad-copy') {
       const elev = RAD_ELEV[SC.radE] || RAD_ELEV.soft;
       const cssOut = `border-radius: ${SC.radR};\nbox-shadow: ${elev.shadow};`;
-      try { navigator.clipboard.writeText(cssOut); } catch {}
+      writeClip(cssOut);
       sct('rad-copy-lbl', 'Copied CSS');
       clearTimeout(SC.radCopyTimer);
       SC.radCopyTimer = setTimeout(() => sct('rad-copy-lbl', 'Copy CSS'), 1800);
+    }
+    else if (a === 'cli-pm') { SC.cliPm = el.dataset.pm || 'npm'; renderScCli(); }
+    else if (a === 'cli-copy') {
+      const cmd = CLI_CMDS[SC.cliPm] || CLI_CMDS.npm;
+      writeClip(`${cmd.l1}\n${cmd.l2}`);
+      flashCopy('cli-copy-lbl', 'cli-copy-icon', 'cliCopyTimer');
+    }
+    else if (a === 'key-toggle') { SC.keyRevealed = !SC.keyRevealed; renderScApiKey(); }
+    else if (a === 'key-copy') {
+      writeClip(SC.keySecret);
+      flashCopy('key-copy-lbl', 'key-copy-icon', 'keyCopyTimer');
+    }
+    else if (a === 'key-rotate') {
+      const hex = Array.from({ length: 16 }, () => Math.floor(Math.random() * 16).toString(16)).join('');
+      SC.keySecret = `sk_live_${hex}`;
+      SC.keySuffix = hex.slice(-4);
+      SC.keyRotated = 'Last rotated: Just now';
+      renderScApiKey();
+    }
+    else if (a === 'otp-resend') {
+      if (SC.otpResendLeft > 0) return;
+      SC.otp = ['', '', '', '', '', ''];
+      SC.otpResendLeft = 30;
+      SC.otpResent = true;
+      renderScOtp();
+      const first = $('[data-sc-otp="0"]', el.closest('[data-sc="otp-verify"]'));
+      if (first) first.focus();
+    }
+    else if (a === 'otp-clear') {
+      SC.otp = ['', '', '', '', '', ''];
+      renderScOtp();
+      const first = $('[data-sc-otp="0"]', el.closest('[data-sc="otp-verify"]'));
+      if (first) first.focus();
+    }
+    else if (a === 'otp-fill') {
+      SC.otp = ['4', '8', '2', '9', '1', '0'];
+      renderScOtp();
     }
     else if (a === 'copy-tokens') {
       const cs = getComputedStyle(root);
@@ -3416,10 +3604,77 @@ document.addEventListener('DOMContentLoaded', () => {
     if (t.matches('[data-sc-input="ctr-bg"]')) { SC.ctrBg = toHexColor(t.value, SC.ctrBg); SC.ctrPreset = ''; renderScContrast(); return true; }
     return false;
   };
+  const applyOtpDigits = (startIdx, digits, card) => {
+    const start = digits.length >= 6 ? 0 : startIdx;
+    for (let i = 0; i < digits.length && start + i < 6; i++) SC.otp[start + i] = digits[i];
+    renderScOtp();
+    if (!card) return;
+    const targetIdx = Math.min(5, start + digits.length);
+    const nxt = $(`[data-sc-otp="${targetIdx}"]`, card);
+    if (nxt) nxt.focus();
+  };
   loop.addEventListener('input', e => {
     const t = e.target;
+    if (t.matches('[data-sc-otp]')) {
+      const idx = Number(t.dataset.scOtp);
+      const digits = (t.value || '').replace(/\D/g, '');
+      const card = t.closest('[data-sc="otp-verify"]');
+      if (!digits) {
+        SC.otp[idx] = '';
+        t.value = '';
+        renderScOtp();
+      } else if (digits.length === 1) {
+        SC.otp[idx] = digits;
+        t.value = digits;
+        renderScOtp();
+        if (idx < 5 && card) {
+          const nxt = $(`[data-sc-otp="${idx + 1}"]`, card);
+          if (nxt) nxt.focus();
+        }
+      } else {
+        applyOtpDigits(idx, digits, card);
+      }
+      return;
+    }
     if (t.matches('[data-sc-input="swap-amt"]')) { SC.swapAmt = Math.max(0, parseFloat(t.value) || 0); renderScSwap(); }
     else syncCtrInput(t);
+  });
+  loop.addEventListener('keydown', e => {
+    const t = e.target;
+    if (!t.matches || !t.matches('[data-sc-otp]')) return;
+    const idx = Number(t.dataset.scOtp);
+    const card = t.closest('[data-sc="otp-verify"]');
+    if (e.key === 'Backspace') {
+      if (!t.value && idx > 0) {
+        e.preventDefault();
+        SC.otp[idx - 1] = '';
+        renderScOtp();
+        const prev = card && $(`[data-sc-otp="${idx - 1}"]`, card);
+        if (prev) prev.focus();
+      } else if (t.value) {
+        SC.otp[idx] = '';
+      }
+    } else if (e.key === 'ArrowLeft' && idx > 0) {
+      e.preventDefault();
+      const prev = card && $(`[data-sc-otp="${idx - 1}"]`, card);
+      if (prev) prev.focus();
+    } else if (e.key === 'ArrowRight' && idx < 5) {
+      e.preventDefault();
+      const nxt = card && $(`[data-sc-otp="${idx + 1}"]`, card);
+      if (nxt) nxt.focus();
+    }
+  });
+  loop.addEventListener('focusin', e => {
+    if (e.target.matches?.('[data-sc-otp]')) e.target.select();
+  });
+  loop.addEventListener('paste', e => {
+    const t = e.target;
+    if (!t.matches || !t.matches('[data-sc-otp]')) return;
+    const raw = (e.clipboardData || window.clipboardData)?.getData('text') || '';
+    const digits = raw.replace(/\D/g, '');
+    e.preventDefault();
+    if (!digits) return;
+    applyOtpDigits(Number(t.dataset.scOtp), digits, t.closest('[data-sc="otp-verify"]'));
   });
   loop.addEventListener('change', e => {
     const t = e.target;
