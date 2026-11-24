@@ -43,9 +43,9 @@
 <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
 <link rel="preconnect" href="https://images.unsplash.com" crossorigin />
 <link rel="preconnect" href="https://images.pexels.com" crossorigin />
-<link rel="preload" as="style" href="./styles.css?v=23" />
+<link rel="preload" as="style" href="./styles.css?v=24" />
 <link rel="preload" as="image" href="https://images.pexels.com/photos/21764845/pexels-photo-21764845.jpeg?auto=compress&cs=tinysrgb&w=1920" fetchpriority="high" />
-<link rel="stylesheet" href="./styles.css?v=23" />
+<link rel="stylesheet" href="./styles.css?v=24" />
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
@@ -114,6 +114,12 @@
       if (fw && fw !== 'html') r.dataset.fw = fw;
       if (m !== 'classic') r.dataset.material = 'glass';
       if (gb && validGb.has(gb) && gb !== 'p1') r.dataset.glassBg = gb;
+      const gc = JSON.parse(localStorage.getItem('uiz-glass-cfg') || 'null');
+      if (gc && typeof gc === 'object') {
+        if (typeof gc.radius === 'number') r.style.setProperty('--r-card', `${Math.min(44, Math.max(10, gc.radius))}px`);
+        if (typeof gc.floor === 'number') r.style.setProperty('--r-floor', `${Math.min(16, Math.max(8, gc.floor))}px`);
+        if (gc.squircle === false) r.dataset.cornerShape = 'round';
+      }
     } catch {}
     document.addEventListener('visibilitychange', () => {
       if (document.visibilityState === 'hidden') r.dataset.tabHidden = '1';
@@ -3884,6 +3890,24 @@
       <div class="glass-row"><span class="sec text-footnote">Splay</span><input class="brand-slider" type="range" min="0" max="100" step="1" value="0" style="--attr-min:0;--attr-max:100;--control-value:0" data-glass-ctl="splay" aria-label="Glass splay" /><span class="glass-val" data-glass-val="splay">0</span></div>
     </div>
 
+    <div class="grid gap-2.5 border-t border-sep pt-3">
+      <div class="flex items-center justify-between gap-2">
+        <div>
+          <p class="sec text-footnote font-semibold uppercase tracking-wide">Concentric Corners</p>
+          <p class="sec font-mono text-footnote tnum" data-glass-val="concentric">28px − 20px → 12px</p>
+        </div>
+        <button id="glass-squircle-btn" class="pill accent text-footnote font-semibold cursor-pointer" type="button" aria-pressed="true" title="Toggle continuous Apple Squircle corners vs Round">Squircle ✓</button>
+      </div>
+      <div class="seg" role="group" aria-label="Corner size scale">
+        <button class="btn tog !min-h-[2rem] text-footnote" type="button" data-glass-corner="14" aria-pressed="false">Small</button>
+        <button class="btn tog !min-h-[2rem] text-footnote" type="button" data-glass-corner="22" aria-pressed="false">Med</button>
+        <button class="btn tog !min-h-[2rem] text-footnote" type="button" data-glass-corner="28" aria-pressed="true">Large</button>
+        <button class="btn tog !min-h-[2rem] text-footnote" type="button" data-glass-corner="36" aria-pressed="false">Sheet</button>
+      </div>
+      <div class="glass-row"><span class="sec text-footnote">Radius</span><input class="brand-slider" type="range" min="10" max="44" step="1" value="28" style="--attr-min:10;--attr-max:44;--control-value:28" data-glass-ctl="radius" aria-label="Card outer corner radius" /><span class="glass-val" data-glass-val="radius">28px</span></div>
+      <div class="glass-row"><span class="sec text-footnote">Min Floor</span><input class="brand-slider" type="range" min="8" max="16" step="1" value="12" style="--attr-min:8;--attr-max:16;--control-value:12" data-glass-ctl="floor" aria-label="Minimum inner corner radius floor" /><span class="glass-val" data-glass-val="floor">12px</span></div>
+    </div>
+
     <div class="grid gap-2 border-t border-sep pt-3">
       <p class="sec text-footnote font-semibold uppercase tracking-wide">Backdrop</p>
       <div class="grid grid-cols-2 gap-2" role="group" aria-label="Glass backdrop image">
@@ -5822,6 +5846,7 @@ document.addEventListener('DOMContentLoaded', () => {
     else if (patch.density !== undefined || patch.font !== undefined) scheduleScrollRefresh();
     syncStudioUI();
     renderScTokens();
+    if (patch.density !== undefined) window.__uizRefreshCorners?.();
     if (announceText && dockStatus) dockStatus.textContent = announceText;
   };
   syncStudioUI();
@@ -5849,7 +5874,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
   if (glassPopover) {
-    const GLASS_DEF = { angle: -45, light: 80, refract: 80, depth: 20, disp: 50, frost: 4, splay: 0 };
+    const GLASS_DEF = { angle: -45, light: 80, refract: 80, depth: 20, disp: 50, frost: 4, splay: 0, radius: 28, floor: 12, squircle: true };
+    const GLASS_SLIDERS = ['angle', 'light', 'refract', 'depth', 'disp', 'frost', 'splay', 'radius', 'floor'];
+    const squircleBtn = $('#glass-squircle-btn', glassPopover);
     let glassCfg = { ...GLASS_DEF };
     try {
       const saved = JSON.parse(localStorage.getItem('uiz-glass-cfg') || 'null');
@@ -5863,8 +5890,11 @@ document.addEventListener('DOMContentLoaded', () => {
       root.style.setProperty('--glass-disp', (glassCfg.disp / 100).toFixed(2));
       root.style.setProperty('--glass-blur', `${(6 + glassCfg.frost * 1.5).toFixed(1)}px`);
       root.style.setProperty('--glass-splay', `${(glassCfg.splay * 0.28).toFixed(1)}px`);
-      const fmt = { angle: `${glassCfg.angle}°`, light: `${glassCfg.light}%` };
-      Object.keys(GLASS_DEF).forEach(k => {
+      root.style.setProperty('--r-card', `${glassCfg.radius}px`);
+      root.style.setProperty('--r-floor', `${glassCfg.floor}px`);
+      if (glassCfg.squircle) delete root.dataset.cornerShape; else root.dataset.cornerShape = 'round';
+      const fmt = { angle: `${glassCfg.angle}°`, light: `${glassCfg.light}%`, radius: `${glassCfg.radius}px`, floor: `${glassCfg.floor}px` };
+      GLASS_SLIDERS.forEach(k => {
         const inp = $(`[data-glass-ctl="${k}"]`, glassPopover);
         const valEl = $(`[data-glass-val="${k}"]`, glassPopover);
         if (inp) {
@@ -5873,8 +5903,24 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         if (valEl) valEl.textContent = fmt[k] || String(glassCfg[k]);
       });
+      if (squircleBtn) {
+        squircleBtn.setAttribute('aria-pressed', String(glassCfg.squircle));
+        squircleBtn.classList.toggle('accent', glassCfg.squircle);
+        squircleBtn.textContent = glassCfg.squircle ? 'Squircle ✓' : 'Round';
+      }
+      $$('[data-glass-corner]', glassPopover).forEach(b => {
+        b.setAttribute('aria-pressed', String(Number(b.dataset.glassCorner) === glassCfg.radius));
+      });
+      const conEl = $('[data-glass-val="concentric"]', glassPopover);
+      if (conEl) {
+        const dk = studioState.density === 'compact' ? 0.72 : 1;
+        const pad = Math.round(Math.min(24, Math.max(11, (4 + glassCfg.radius * 0.57) * dk)));
+        const inner = Math.round(Math.max(Math.min(glassCfg.floor, glassCfg.radius - 4), glassCfg.radius - pad));
+        conEl.textContent = `${glassCfg.radius}px − ${pad}px → ${inner}px`;
+      }
       if (save) { try { localStorage.setItem('uiz-glass-cfg', JSON.stringify(glassCfg)); } catch {} }
     };
+    window.__uizRefreshCorners = () => applyGlassCfg(false);
     applyGlassCfg(false);
     glassPopover.addEventListener('toggle', e => {
       if (glassTrigger) glassTrigger.setAttribute('aria-expanded', String(e.newState === 'open'));
@@ -5883,15 +5929,29 @@ document.addEventListener('DOMContentLoaded', () => {
       const t = e.target.closest('[data-glass-ctl]');
       if (!t) return;
       const k = t.dataset.glassCtl;
-      if (k in GLASS_DEF) {
+      if (GLASS_SLIDERS.includes(k)) {
         glassCfg[k] = Number(t.value);
-        if (studioState.material !== 'glass') applyStudio({ material: 'glass' });
+        if (studioState.material !== 'glass' && k !== 'radius' && k !== 'floor') applyStudio({ material: 'glass' });
         applyGlassCfg(true);
+        if (k === 'radius') scheduleScrollRefresh();
       }
     });
     glassPopover.addEventListener('click', e => {
       const gb = e.target.closest('[data-set-glass-bg]');
-      if (gb) { const v = gb.dataset.setGlassBg; applyStudio({ material: 'glass', glassBg: v }, `Glass background set to ${GB_LABELS[v] || v}`); }
+      if (gb) { const v = gb.dataset.setGlassBg; applyStudio({ material: 'glass', glassBg: v }, `Glass background set to ${GB_LABELS[v] || v}`); return; }
+      const cb = e.target.closest('[data-glass-corner]');
+      if (cb) {
+        glassCfg.radius = Number(cb.dataset.glassCorner) || 28;
+        applyGlassCfg(true);
+        scheduleScrollRefresh();
+        if (dockStatus) dockStatus.textContent = `Concentric card radius set to ${glassCfg.radius}px`;
+        return;
+      }
+      if (e.target.closest('#glass-squircle-btn')) {
+        glassCfg.squircle = !glassCfg.squircle;
+        applyGlassCfg(true);
+        if (dockStatus) dockStatus.textContent = `Corner curve set to ${glassCfg.squircle ? 'Apple Squircle' : 'Standard Round'}`;
+      }
     });
     if (glassActiveSwitch) {
       glassActiveSwitch.addEventListener('click', () => {
@@ -5938,7 +5998,8 @@ document.addEventListener('DOMContentLoaded', () => {
       const vars = [
         '--accent', '--accent-text', '--accent-soft', '--on-accent',
         '--surface', '--tile', '--fill', '--sep',
-        '--label', '--secondary', '--card-pad', '--card-gap',
+        '--label', '--secondary', '--card-pad', '--card-gap', '--inner-pad',
+        '--r-card', '--r-floor', '--r-inner', '--r-ctrl',
         '--font-display', '--font-body'
       ];
       const lines = vars
