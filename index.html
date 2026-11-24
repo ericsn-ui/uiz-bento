@@ -43,9 +43,9 @@
 <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
 <link rel="preconnect" href="https://images.unsplash.com" crossorigin />
 <link rel="preconnect" href="https://images.pexels.com" crossorigin />
-<link rel="preload" as="style" href="./styles.css?v=21" />
+<link rel="preload" as="style" href="./styles.css?v=22" />
 <link rel="preload" as="image" href="./glass-bg.svg" fetchpriority="high" />
-<link rel="stylesheet" href="./styles.css?v=21" />
+<link rel="stylesheet" href="./styles.css?v=22" />
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
@@ -3450,51 +3450,64 @@
       <div class="gta-bento" aria-label="GTA V UI and Game Store SEO Bento">
 
         <!-- SC-89 GTA V Storefront Featured Hero (2x Tall) -->
-        <article class="card hero justify-between relative overflow-hidden" data-card="gta-hero" data-sc="gta-hero" data-w="4" aria-label="GTA V Storefront Featured 2x">
+        <article class="card hero justify-between gap-4 relative overflow-hidden" data-card="gta-hero" data-sc="gta-hero" data-w="4" aria-label="GTA V Storefront Featured 2x">
           <div class="sc-gta-sweep" aria-hidden="true"></div>
           <div class="flex items-start justify-between gap-3">
-            <span class="text-display font-black leading-none tnum" data-sc-bind="gh-mult">2×</span>
-            <span class="pill accent font-semibold text-footnote tnum"><svg class="ic sm solid" aria-hidden="true"><use href="#i-star"/></svg>4.9</span>
+            <div>
+              <span class="text-display font-black leading-none tnum" data-sc-bind="gh-mult">2×</span>
+              <span class="block text-footnote sec font-mono mt-1">GTA$ &amp; RP Bonus</span>
+            </div>
+            <span class="pill accent font-semibold text-footnote tnum"><svg class="ic sm solid" aria-hidden="true"><use href="#i-star"/></svg>4.9 · #1 Rank</span>
           </div>
-          <div class="grid gap-2">
+          <div class="grid gap-2.5">
             <div class="flex gap-1 rounded-full bg-fill p-1 w-max" role="group" aria-label="GTA edition">
               <button class="btn tog !min-h-[1.875rem] px-2.5 text-footnote" type="button" aria-pressed="true" data-sc-act="gh-ed" data-ed="std">Standard</button>
               <button class="btn tog !min-h-[1.875rem] px-2.5 text-footnote" type="button" aria-pressed="false" data-sc-act="gh-ed" data-ed="prem">Premium</button>
               <button class="btn tog !min-h-[1.875rem] px-2.5 text-footnote" type="button" aria-pressed="false" data-sc-act="gh-ed" data-ed="mega">Shark Pack</button>
             </div>
             <h2 class="text-title1">GTA V: Los Santos</h2>
-            <p class="sec text-subhead" data-sc-bind="gh-sub">Double GTA$ &amp; RP Storefront SEO Spotlight · #1 Open-World Rank</p>
+            <p class="sec text-subhead leading-snug" data-sc-bind="gh-sub">Double GTA$ &amp; RP Storefront SEO Spotlight · Criminal Enterprise Ready</p>
+          </div>
+          <div class="grid grid-cols-3 gap-2 border-t border-sep pt-3 text-footnote">
+            <div><span class="sec block">Edition</span><b class="tnum">Enhanced</b></div>
+            <div><span class="sec block">Store Rank</span><b class="tnum">#1 Action</b></div>
+            <div><span class="sec block">Reviews</span><b class="tnum">97% Pos</b></div>
           </div>
         </article>
 
         <!-- SC-90 Game Store SEO Revenue & Organic Downloads -->
         <article class="card justify-between gap-4" data-card="gta-mrr" data-sc="gta-mrr" data-w="4" aria-label="Game Store SEO Revenue">
-          <div class="flex items-center justify-between gap-2">
-            <span class="sec text-footnote font-semibold">Game Store SEO Revenue</span>
-            <div class="flex gap-1 rounded-full bg-fill p-1" role="group" aria-label="Game storefront">
-              <button class="btn tog !min-h-[1.75rem] px-2 text-footnote" type="button" aria-pressed="true" data-sc-act="gm-store" data-st="steam">Steam</button>
-              <button class="btn tog !min-h-[1.75rem] px-2 text-footnote" type="button" aria-pressed="false" data-sc-act="gm-store" data-st="epic">Epic</button>
-              <button class="btn tog !min-h-[1.75rem] px-2 text-footnote" type="button" aria-pressed="false" data-sc-act="gm-store" data-st="rgl">Rockstar</button>
+          <div class="hd">
+            <span class="hd-ic" aria-hidden="true"><svg class="ic sm"><use href="#i-bag"/></svg></span>
+            <div>
+              <h2 class="text-subhead font-semibold leading-tight">Game Store SEO Revenue</h2>
+              <p class="sec text-footnote" data-sc-bind="gm-sub">Steam organic search sales +18% MoM</p>
             </div>
+            <span class="hd-r tnum" data-sc-bind="gm-avg">Avg +14.8%</span>
           </div>
-          <div>
-            <div class="flex items-baseline gap-2">
+          <div class="flex flex-wrap items-center justify-between gap-2">
+            <div class="flex items-baseline gap-2.5">
               <b class="text-bignum tnum" data-sc-bind="gm-rev">$87,410</b>
               <span class="pill accent font-mono text-footnote tnum" data-sc-bind="gm-ctr">↑ 14.8% CTR</span>
             </div>
-            <p class="sec text-footnote mt-1" data-sc-bind="gm-sub">Organic search sales increased 18% from last month</p>
+            <div class="flex gap-1 rounded-full bg-fill p-1" role="group" aria-label="Game storefront">
+              <button class="btn tog !min-h-[1.75rem] px-2.5 text-footnote" type="button" aria-pressed="true" data-sc-act="gm-store" data-st="steam">Steam</button>
+              <button class="btn tog !min-h-[1.75rem] px-2.5 text-footnote" type="button" aria-pressed="false" data-sc-act="gm-store" data-st="epic">Epic</button>
+              <button class="btn tog !min-h-[1.75rem] px-2.5 text-footnote" type="button" aria-pressed="false" data-sc-act="gm-store" data-st="rgl">Rockstar</button>
+            </div>
           </div>
-          <div class="grid gap-2">
-            <div class="flex items-center justify-between text-footnote"><span class="sec">DLC Target</span><b class="tnum" data-sc-bind="gm-prog">$2,450 / $4,000</b></div>
+          <div class="grid gap-1.5">
+            <div class="flex items-center justify-between text-footnote"><span class="sec">DLC Target Progress</span><b class="tnum" data-sc-bind="gm-prog">$2,450 of $4,000</b></div>
             <div class="relative h-2.5 overflow-hidden rounded-full bg-fill" aria-hidden="true">
               <div class="h-full rounded-full" style="width:62%;background:var(--accent)"></div>
               <div class="sc-gta-glint"></div>
             </div>
-            <div class="grid grid-cols-3 gap-2 pt-1 text-footnote">
-              <div><span class="sec block">Bundles</span><b class="tnum">$12,430</b></div>
-              <div><span class="sec block">Shark Cards</span><b class="tnum">$4,210</b></div>
-              <div><span class="sec block">Refunds</span><b class="tnum">1.8%</b></div>
-            </div>
+            <div class="flex justify-between font-mono text-footnote sec tnum" aria-hidden="true"><span>0</span><span>1,000</span><span>2,000</span><span>3,000</span><span>4,000</span></div>
+          </div>
+          <div class="grid grid-cols-3 gap-3 border-t border-sep pt-3 text-footnote">
+            <div><span class="sec block">Bundles</span><b class="text-subhead tnum">$12,430</b></div>
+            <div><span class="sec block">Shark Cards</span><b class="text-subhead tnum">$4,210</b></div>
+            <div><span class="sec block">Refund Rate</span><b class="text-subhead tnum">1.8%</b></div>
           </div>
         </article>
 
@@ -3502,56 +3515,80 @@
         <article class="card flex-row items-center gap-4" data-card="gta-wallet" data-sc="gta-wallet" data-w="4" aria-label="Maze Bank Game Wallet">
           <button class="sc-bank-badge grid h-14 w-14 shrink-0 place-items-center rounded-2xl bg-tile border border-sep font-bold text-footnote" type="button" data-sc-act="gw-toggle" data-sc-bind="gw-badge" style="color:var(--accent-text)">MAZE</button>
           <div class="min-w-0 flex-1">
-            <p class="sec text-footnote font-semibold" data-sc-bind="gw-status">Maze Bank · Quick Pay On</p>
-            <h2 class="text-subhead font-semibold leading-snug">Instant GTA$ &amp; DLC checkout across stores.</h2>
+            <div class="flex items-center justify-between gap-2">
+              <p class="sec text-footnote font-semibold" data-sc-bind="gw-status">Maze Bank · Quick Pay On</p>
+              <span class="pill accent text-footnote">0% Fee</span>
+            </div>
+            <h2 class="text-subhead font-semibold leading-snug mt-0.5">Instant Shark Card &amp; DLC checkout across stores.</h2>
           </div>
         </article>
 
         <!-- SC-92 GTA V Organic Search & Player Peak Curve -->
         <article class="card justify-between gap-3" data-card="gta-chart" data-sc="gta-chart" data-w="4" aria-label="GTA V Player Peak and Organic Search">
-          <div class="flex items-center justify-between gap-2">
-            <span class="sec text-footnote font-semibold">Concurrent Players &amp; SEO</span>
-            <div class="flex gap-1 rounded-full bg-fill p-1" role="group" aria-label="Chart range">
+          <div class="hd">
+            <span class="hd-ic" aria-hidden="true"><svg class="ic sm"><use href="#i-trend"/></svg></span>
+            <div>
+              <h2 class="text-subhead font-semibold leading-tight">Concurrent Players &amp; SEO</h2>
+              <p class="sec text-footnote">Los Santos Online + Storefront reach</p>
+            </div>
+            <div class="ml-auto flex gap-1 rounded-full bg-fill p-1" role="group" aria-label="Chart range">
               <button class="btn tog !min-h-[1.75rem] px-2 text-footnote" type="button" aria-pressed="true" data-sc-act="gc-range" data-rg="7d">7d</button>
               <button class="btn tog !min-h-[1.75rem] px-2 text-footnote" type="button" aria-pressed="false" data-sc-act="gc-range" data-rg="30d">30d</button>
             </div>
           </div>
-          <div>
-            <div class="flex items-baseline gap-2">
+          <div class="flex items-baseline justify-between gap-2">
+            <div class="flex items-baseline gap-2.5">
               <b class="text-title1 tnum" data-sc-bind="gc-val">315,400</b>
               <span class="pill accent font-mono text-footnote tnum" data-sc-bind="gc-up">↑ 12.4%</span>
             </div>
-            <p class="sec text-footnote">Peak Los Santos Online + Storefront traffic</p>
+            <span class="sec font-mono text-footnote tnum">Peak: 400K</span>
           </div>
-          <svg class="sc-curve-line h-20 w-full overflow-visible" viewBox="0 0 280 70" aria-hidden="true">
-            <path d="M 4 58 Q 70 46 135 34 T 274 14" fill="none" stroke="var(--accent)" stroke-width="3" stroke-linecap="round"/>
-            <circle cx="196" cy="24" r="5" fill="var(--accent)"/>
-          </svg>
+          <div class="relative">
+            <svg class="sc-curve-line h-24 w-full overflow-visible" viewBox="0 0 280 76" aria-hidden="true">
+              <line x1="0" y1="64" x2="280" y2="64" stroke="var(--sep)" stroke-dasharray="3 3"/>
+              <path d="M 4 60 Q 76 50 142 36 T 274 14" fill="none" stroke="var(--accent)" stroke-width="3" stroke-linecap="round"/>
+              <circle cx="196" cy="25" r="5" fill="var(--accent)"/>
+            </svg>
+            <div class="flex justify-between font-mono text-footnote sec mt-1" aria-hidden="true"><span>Nov 1</span><span>Nov 12</span><span>Nov 24</span></div>
+          </div>
         </article>
 
         <!-- SC-93 GTA Wanted Level & Heist Stealth (Small Split Left) -->
-        <article class="card ink justify-between gap-2" data-card="gta-wanted" data-sc="gta-wanted" data-w="2" aria-label="GTA Wanted Level and Stealth">
-          <div class="flex items-center justify-between gap-1">
-            <span class="sc-wanted-stars font-mono text-subhead tracking-wider" data-sc-bind="gwn-stars">★★★☆☆</span>
-            <button class="pill text-footnote" type="button" data-sc-act="gwn-step">+1★</button>
+        <article class="card ink justify-between gap-3" data-card="gta-wanted" data-sc="gta-wanted" data-w="2" aria-label="GTA Wanted Level and Stealth">
+          <div class="flex items-start justify-between gap-2">
+            <span class="grid h-8 w-8 place-items-center rounded-xl bg-tile border border-sep font-mono text-footnote font-bold" style="color:var(--accent-text)">LS</span>
+            <div class="text-right font-mono text-footnote">
+              <b class="block tnum">W26LS05</b>
+              <span class="sec">Up 2.8%</span>
+            </div>
           </div>
-          <div>
-            <p class="sec text-footnote">Heist Stealth</p>
+          <div class="grid gap-1.5">
+            <div class="flex items-center justify-between gap-1">
+              <span class="sc-wanted-stars font-mono text-subhead tracking-wider" data-sc-bind="gwn-stars">★★★☆☆</span>
+              <button class="pill text-footnote" type="button" data-sc-act="gwn-step">+1★</button>
+            </div>
+            <p class="sec text-footnote">Heist Stealth Rating</p>
             <b class="text-title2 tnum" data-sc-bind="gwn-pct">98%</b>
           </div>
         </article>
 
         <!-- SC-94 Game Key & DLC Activation (Small Split Right) -->
-        <article class="card items-center justify-center gap-2.5 text-center" data-card="gta-key" data-sc="gta-key" data-w="2" aria-label="Game Store Key Activation">
-          <span class="sec text-footnote font-semibold">DLC Key</span>
-          <code class="font-mono text-footnote truncate max-w-full" data-sc-bind="gk-code">GTAV-LS26</code>
-          <button class="btn btn-primary sc-key-btn w-full !min-h-[2.125rem] text-footnote" type="button" aria-pressed="false" data-sc-act="gk-redeem" data-sc-bind="gk-btn">Redeem</button>
+        <article class="card items-center justify-between gap-2.5 text-center" data-card="gta-key" data-sc="gta-key" data-w="2" aria-label="Game Store Key Activation">
+          <div class="grid gap-1 pt-1">
+            <span class="mx-auto grid h-9 w-9 place-items-center rounded-full bg-tile border border-sep" aria-hidden="true"><svg class="ic sm" style="color:var(--accent-text)"><use href="#i-key"/></svg></span>
+            <h2 class="text-subhead font-semibold">Key Activation</h2>
+            <p class="sec font-mono text-footnote" data-sc-bind="gk-code">GTAV-LS26</p>
+          </div>
+          <div class="w-full grid gap-1.5">
+            <button class="btn btn-primary sc-key-btn w-full !min-h-[2.25rem] text-footnote" type="button" aria-pressed="false" data-sc-act="gk-redeem" data-sc-bind="gk-btn">Redeem Key</button>
+            <span class="sec text-footnote" data-sc-bind="gk-sub">Steam / Rockstar Sync</span>
+          </div>
         </article>
 
         <!-- SC-95 Game Storefront SEO & Top Keywords Panel (Tall Right Column) -->
         <article class="card justify-between gap-4" data-card="gta-store" data-sc="gta-store" data-w="4" aria-label="Game Storefront SEO and Top Keywords">
           <div class="flex items-center justify-between gap-2">
-            <div><h2 class="text-title2">Game Store &amp; SEO</h2><p class="sec text-footnote" data-sc-bind="gs-sub">Top ranked GTA V store pages</p></div>
+            <div><h2 class="text-title2">Game Store &amp; SEO</h2><p class="sec text-footnote" data-sc-bind="gs-sub">All · Top ranked GTA V store pages</p></div>
             <button class="btn btn-secondary !min-h-[2rem] px-3 text-footnote" type="button" aria-pressed="false" data-sc-act="gs-wish" data-sc-bind="gs-wish">Wishlist</button>
           </div>
           <div class="flex gap-1 rounded-full bg-fill p-1" role="group" aria-label="Platform filter">
@@ -3559,23 +3596,34 @@
             <button class="btn tog !min-h-[2rem] flex-1 px-2 text-footnote" type="button" aria-pressed="false" data-sc-act="gs-plat" data-pl="PC">PC</button>
             <button class="btn tog !min-h-[2rem] flex-1 px-2 text-footnote" type="button" aria-pressed="false" data-sc-act="gs-plat" data-pl="Console">Console</button>
           </div>
-          <div class="grid gap-1.5 text-footnote">
-            <div class="soft !py-2 !px-3 flex items-center justify-between"><span class="font-semibold">gta v shark card</span><span class="pill accent font-mono tnum">#1 · $19.99</span></div>
-            <div class="soft !py-2 !px-3 flex items-center justify-between"><span class="font-semibold">criminal enterprise</span><span class="pill font-mono tnum">#2 · $29.99</span></div>
-            <div class="soft !py-2 !px-3 flex items-center justify-between"><span class="font-semibold">los santos tuners</span><span class="pill font-mono tnum">#3 · Free DLC</span></div>
-          </div>
-          <div class="soft grid gap-2 !p-3">
-            <div class="flex items-baseline justify-between">
-              <div><span class="sec text-footnote block">Store SEO Score</span><b class="text-title1 tnum" data-sc-bind="gs-score">97%</b></div>
-              <span class="pill accent font-mono text-footnote tnum">+814% Reach</span>
+          <div class="soft !p-3 grid gap-2 text-footnote">
+            <div class="grid grid-cols-12 sec font-semibold pb-1 border-b border-sep">
+              <span class="col-span-6">Keyword / Pack</span><span class="col-span-3 text-center">Rank</span><span class="col-span-3 text-right">Price</span>
             </div>
-            <div class="flex h-16 items-end gap-1.5" aria-hidden="true">
-              <span class="sc-store-bar" style="--sb-h:.45;--sb-d:0s"></span>
-              <span class="sc-store-bar" style="--sb-h:.72;--sb-d:.1s"></span>
-              <span class="sc-store-bar" style="--sb-h:.96;--sb-d:.2s"></span>
-              <span class="sc-store-bar" style="--sb-h:.68;--sb-d:.3s"></span>
-              <span class="sc-store-bar" style="--sb-h:.88;--sb-d:.4s"></span>
-              <span class="sc-store-bar" style="--sb-h:.62;--sb-d:.5s"></span>
+            <div class="grid grid-cols-12 items-center py-0.5"><span class="col-span-6 font-semibold truncate">GTA V Shark Card</span><span class="col-span-3 text-center font-mono" style="color:var(--accent-text)">#1</span><span class="col-span-3 text-right font-mono tnum">$19.99</span></div>
+            <div class="grid grid-cols-12 items-center py-0.5"><span class="col-span-6 font-semibold truncate">Criminal Enterprise</span><span class="col-span-3 text-center font-mono">#2</span><span class="col-span-3 text-right font-mono tnum">$29.99</span></div>
+            <div class="grid grid-cols-12 items-center py-0.5"><span class="col-span-6 font-semibold truncate">Los Santos Tuners</span><span class="col-span-3 text-center font-mono">#3</span><span class="col-span-3 text-right font-mono tnum">Free</span></div>
+          </div>
+          <div class="soft grid gap-3 !p-3">
+            <div class="flex items-center justify-between gap-3">
+              <div>
+                <span class="sec text-footnote block">Store SEO Score</span>
+                <div class="flex items-baseline gap-2"><b class="text-title1 tnum" data-sc-bind="gs-score">97%</b><span class="pill accent font-mono text-footnote tnum">↑ 4.02%</span></div>
+                <span class="sec text-footnote font-mono">Organic Reach +814% ↑</span>
+              </div>
+              <div class="flex h-16 w-28 items-end gap-1.5" aria-hidden="true">
+                <span class="sc-store-bar" style="--sb-h:.45;--sb-d:0s"></span>
+                <span class="sc-store-bar" style="--sb-h:.72;--sb-d:.1s"></span>
+                <span class="sc-store-bar" style="--sb-h:.96;--sb-d:.2s"></span>
+                <span class="sc-store-bar" style="--sb-h:.68;--sb-d:.3s"></span>
+                <span class="sc-store-bar" style="--sb-h:.88;--sb-d:.4s"></span>
+                <span class="sc-store-bar" style="--sb-h:.62;--sb-d:.5s"></span>
+              </div>
+            </div>
+            <div class="grid grid-cols-3 gap-2 border-t border-sep pt-2.5 text-footnote">
+              <div><span class="sec block">Peak Hour</span><b class="tnum">8:00 PM</b></div>
+              <div><span class="sec block">Quality</span><b>Excellent</b></div>
+              <div><span class="sec block">Bounce</span><b class="tnum">13%</b></div>
             </div>
           </div>
         </article>
@@ -5216,6 +5264,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
     const [rev, ctr, gsub, prog] = GM[SC.gmStore] || GM.steam;
     sct('gm-rev', rev); sct('gm-ctr', ctr); sct('gm-sub', gsub); sct('gm-prog', prog);
+    sct('gm-avg', `Avg ${ctr.replace('↑ ', '+').replace(' CTR', '')}`);
     $$('[data-sc-act="gm-store"]', loop).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.st === SC.gmStore)));
 
     sct('gw-status', SC.gwQuick ? 'Maze Bank · Quick Pay On' : 'Maze Bank · Standard Checkout');
@@ -5228,8 +5277,9 @@ document.addEventListener('DOMContentLoaded', () => {
     sct('gwn-stars', '★'.repeat(SC.gwnStars) + '☆'.repeat(5 - SC.gwnStars));
     sct('gwn-pct', `${100 - (SC.gwnStars - 1) * 8}%`);
 
-    sct('gk-btn', SC.gkDone ? 'Activated ✓' : 'Redeem');
+    sct('gk-btn', SC.gkDone ? 'Activated ✓' : 'Redeem Key');
     sct('gk-code', SC.gkDone ? 'UNLOCKED' : 'GTAV-LS26');
+    sct('gk-sub', SC.gkDone ? 'Synced to Account' : 'Steam / Rockstar Sync');
     $$('[data-sc-act="gk-redeem"]', loop).forEach(b => b.setAttribute('aria-pressed', String(SC.gkDone)));
 
     sct('gs-wish', SC.gsWish ? 'Wishlisted ✓' : 'Wishlist');
@@ -5577,6 +5627,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
     const [rev, ctr, gsub, prog] = GM[SC.gmStore] || GM.steam;
     sct('gm-rev', rev); sct('gm-ctr', ctr); sct('gm-sub', gsub); sct('gm-prog', prog);
+    sct('gm-avg', `Avg ${ctr.replace('↑ ', '+').replace(' CTR', '')}`);
     $$('[data-sc-act="gm-store"]', loop).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.st === SC.gmStore)));
 
     sct('gw-status', SC.gwQuick ? 'Maze Bank · Quick Pay On' : 'Maze Bank · Standard Checkout');
@@ -5589,8 +5640,9 @@ document.addEventListener('DOMContentLoaded', () => {
     sct('gwn-stars', '★'.repeat(SC.gwnStars) + '☆'.repeat(5 - SC.gwnStars));
     sct('gwn-pct', `${100 - (SC.gwnStars - 1) * 8}%`);
 
-    sct('gk-btn', SC.gkDone ? 'Activated ✓' : 'Redeem');
+    sct('gk-btn', SC.gkDone ? 'Activated ✓' : 'Redeem Key');
     sct('gk-code', SC.gkDone ? 'UNLOCKED' : 'GTAV-LS26');
+    sct('gk-sub', SC.gkDone ? 'Synced to Account' : 'Steam / Rockstar Sync');
     $$('[data-sc-act="gk-redeem"]', loop).forEach(b => b.setAttribute('aria-pressed', String(SC.gkDone)));
 
     sct('gs-wish', SC.gsWish ? 'Wishlisted ✓' : 'Wishlist');
@@ -5844,6 +5896,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
     const [rev, ctr, gsub, prog] = GM[SC.gmStore] || GM.steam;
     sct('gm-rev', rev); sct('gm-ctr', ctr); sct('gm-sub', gsub); sct('gm-prog', prog);
+    sct('gm-avg', `Avg ${ctr.replace('↑ ', '+').replace(' CTR', '')}`);
     $$('[data-sc-act="gm-store"]', loop).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.st === SC.gmStore)));
 
     sct('gw-status', SC.gwQuick ? 'Maze Bank · Quick Pay On' : 'Maze Bank · Standard Checkout');
@@ -5856,8 +5909,9 @@ document.addEventListener('DOMContentLoaded', () => {
     sct('gwn-stars', '★'.repeat(SC.gwnStars) + '☆'.repeat(5 - SC.gwnStars));
     sct('gwn-pct', `${100 - (SC.gwnStars - 1) * 8}%`);
 
-    sct('gk-btn', SC.gkDone ? 'Activated ✓' : 'Redeem');
+    sct('gk-btn', SC.gkDone ? 'Activated ✓' : 'Redeem Key');
     sct('gk-code', SC.gkDone ? 'UNLOCKED' : 'GTAV-LS26');
+    sct('gk-sub', SC.gkDone ? 'Synced to Account' : 'Steam / Rockstar Sync');
     $$('[data-sc-act="gk-redeem"]', loop).forEach(b => b.setAttribute('aria-pressed', String(SC.gkDone)));
 
     sct('gs-wish', SC.gsWish ? 'Wishlisted ✓' : 'Wishlist');
