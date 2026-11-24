@@ -27,8 +27,9 @@ Most UI showcases are static screenshots. `UIzBENTO` is a **zero-runtime, copy-r
 | **203 Interactive Cards** | Every card is responsive, keyboard-accessible, and interactive out of the box, including hover-loop animations. |
 | **One-Click Multi-Framework Copy** | Switch between **HTML**, **React (TSX)**, **Vue**, and **Svelte** in the dock or studio — hover any card and click **Copy** to grab Tailwind-styled component code with its hover animation CSS preserved. |
 | **Appearance Studio (`Theme & Fonts`)** | Switch between 6 color presets (`Olive`, `Cobalt`, `Indigo`, `Ember`, `Rose`, `Mono`), `Light / Dark / Auto`, **Classic / Liquid Glass** surface materials, 5 font pairings, and `Comfortable / Compact` density — persisted in `localStorage`. |
-| **Shareable Theme URLs** | Syncs active theme state to URL query params (e.g. `?theme=cobalt&scheme=dark&font=syne`) with a one-click **Share URL** button. |
-| **Export Theme CSS** | Copy the active `:root` CSS variables directly from the Appearance Studio dock into your own stylesheet. |
+| **Liquid Glass & Concentric Corners (`Glass ▾`)** | Live frosted optics (`Angle`, `Light`, `Refraction`, `Depth`, `Dispersion`, `Frost`, `Splay`), 6 full-bleed backdrops (`Vista I–V` + `Mt. Rainier`), **Apple Squircle** (`corner-shape: squircle` ↔ `Round`) toggle, size presets (`Small`, `Med`, `Large`, `Sheet`), and dynamic concentric corner math (`R_in = max(Floor, R_out − Pad)`) that auto-adjusts inner radii, card padding, and internal spacing across all 203 cards. |
+| **Shareable Theme URLs** | Syncs active theme & backdrop state to URL query params (e.g. `?theme=cobalt&scheme=dark&font=syne&glassBg=p3`) with a one-click **Share URL** button. |
+| **Export Theme CSS** | Copy active `:root` CSS variables—including colors, density, concentric corner tokens (`--r-card`, `--r-floor`, `--r-inner`, `--r-ctrl`), and padding—directly into your stylesheet. |
 | **Live GitHub Star Dock** | Floating dock pill with a direct GitHub link and live repository star count. |
 | **Command Palette (`Cmd/Ctrl + K`)** | Instant keyboard search, category filtering, jump-to-card highlighting, and quick studio actions. |
 | **GSAP + ScrollTrigger Motion** | Batched stagger entrances, scrubbed media parallax, pointer-tracked radial hover glow + 3D tilt, and `prefers-reduced-motion` support. |
@@ -49,7 +50,7 @@ Organized across four modular sections (`Dashboard`, `Widgets`, `SEO Analytics`,
 | **Designers, DevTools & AI** | WCAG contrast checker, typography scale, radius/elevation previewer, CLI snippet, API key manager, 2FA OTP, 30-day uptime, PR/CI checks, feature flags, AI token/cost estimator, and 26 hover-loop cards |
 | **Smart Home, Spatial, Commerce, Collab, Travel & DB** | Climate dial, 3D spatial layer inspector, live order delivery tracker, multiplayer canvas cursors, digital boarding pass, and SQL query & index profiler |
 | **macOS, Windows & Linux OS Utilities** | Activity Monitor CPU cores, Spotlight quick launcher, display True Tone hub, tiling window manager, AirDrop/local share radar, `htop` shell monitor, Wi-Fi 7 throughput, cross-OS clipboard history, sound output, firewall/privacy, power/fan curve, and keyboard/trackpad settings |
-| **Gaming UI & GTA V Game Store SEO** | Live FPS & GPU telemetry HUD (`sc-12`), DualSense battery & haptics, ranked match queue lobby, XP progression, and a 7-card asymmetric GTA V & Game Store SEO Bento band |
+| **Gaming UI & GTA V Game Store SEO** | Live FPS & GPU telemetry HUD (`sc-12`), DualSense battery & haptics, ranked match queue lobby, XP progression, and a compact 7-card 3-column **GTA V & Game Store SEO Bento** (2× Spotlight, SEO Revenue, Maze Bank Quick Pay, Concurrent Player Area Curve, Heist Stealth, Key Activation, and Keyword Ranking Panel) |
 
 ---
 
