@@ -4130,25 +4130,29 @@ document.addEventListener('DOMContentLoaded', () => {
       .replace(/<(area|base|br|col|embed|hr|img|input|link|meta|param|source|track|wbr|circle|ellipse|line|path|polygon|polyline|rect|use)([^>]*?)(?<!\/)>/gi, '<$1$2 />');
   };
 
+  const UIZ_BRAND_NOTICE = '© 2026 ZDS · UIZ (UIzBENTO) | MIT License | https://uizbento.vercel.app';
+  const UIZ_BRAND_HTML = `<!-- ${UIZ_BRAND_NOTICE} -->`;
+  const UIZ_BRAND_CSS = `/* ${UIZ_BRAND_NOTICE} */`;
+
   const formatCardCode = (cardEl, fw, hoverCss) => {
     const html = cardEl.outerHTML;
     if (fw === 'react') {
       const jsx = toReactJsx(html)
         .replace(/^<article\b/, '<article\n      data-hovered={hovered ? "1" : "0"}\n      onMouseEnter={() => setHovered(true)}\n      onMouseLeave={() => setHovered(false)}');
       const cssNote = hoverCss ? `\n\n/* Hover Interactive Animation CSS (globals.css) */\n/* ${hoverCss} */` : '';
-      return `import { useState } from 'react';\n\nexport function BentoCard() {\n  const [hovered, setHovered] = useState(false);\n  return (\n    ${jsx}\n  );\n}${cssNote}`;
+      return `${UIZ_BRAND_CSS}\nimport { useState } from 'react';\n\nexport function ZdsUizBentoCard() {\n  const [hovered, setHovered] = useState(false);\n  return (\n    ${jsx}\n  );\n}${cssNote}`;
     }
     if (fw === 'vue') {
       const tpl = html.replace(/^<article\b/, '<article :data-hovered="hovered ? 1 : 0" @mouseenter="hovered = true" @mouseleave="hovered = false"');
       const styleTag = hoverCss ? `\n\n<style scoped>\n${hoverCss}\n</style>` : '';
-      return `<script setup lang="ts">\nimport { ref } from 'vue';\nconst hovered = ref(false);\n<\/script>\n\n<template>\n  ${tpl}\n</template>${styleTag}`;
+      return `${UIZ_BRAND_HTML}\n<script setup lang="ts">\nimport { ref } from 'vue';\nconst hovered = ref(false);\n<\/script>\n\n<template>\n  ${tpl}\n</template>${styleTag}`;
     }
     if (fw === 'svelte') {
       const sv = html.replace(/^<article\b/, '<article data-hovered={hovered ? 1 : 0} on:mouseenter={() => (hovered = true)} on:mouseleave={() => (hovered = false)}');
       const styleTag = hoverCss ? `\n\n<style>\n${hoverCss}\n</style>` : '';
-      return `<script lang="ts">\n  let hovered = false;\n<\/script>\n\n${sv}${styleTag}`;
+      return `${UIZ_BRAND_HTML}\n<script lang="ts">\n  let hovered = false;\n<\/script>\n\n${sv}${styleTag}`;
     }
-    return hoverCss ? `${html}\n\n<style>\n${hoverCss}\n</style>` : html;
+    return hoverCss ? `${UIZ_BRAND_HTML}\n${html}\n\n<style>\n${hoverCss}\n</style>` : `${UIZ_BRAND_HTML}\n${html}`;
   };
 
   loop.addEventListener('click', async e => {
@@ -4163,6 +4167,7 @@ document.addEventListener('DOMContentLoaded', () => {
     clean.style.removeProperty('--mx');
     clean.style.removeProperty('--my');
     if (!clean.getAttribute('style')?.trim()) clean.removeAttribute('style');
+    clean.setAttribute('data-brand', 'ZDS-UIZ');
     const fw = root.dataset.fw || 'html';
     const scKey = clean.dataset.sc || '';
     const glassCss = root.dataset.material === 'glass'
@@ -5531,7 +5536,7 @@ document.addEventListener('DOMContentLoaded', () => {
     else if (a === 'gs-plat') { SC.gsPlat = el.dataset.pl || 'All'; renderScGta(); }
     else if (a === 'copy-tokens') {
       const cs = getComputedStyle(root);
-      const cssVars = `:root {\n  --accent: ${cs.getPropertyValue('--accent').trim()};\n  --surface: ${cs.getPropertyValue('--surface').trim()};\n  --card-pad: ${cs.getPropertyValue('--card-pad').trim()};\n  --font-display: ${cs.getPropertyValue('--font-display').trim()};\n}`;
+      const cssVars = `${UIZ_BRAND_CSS}\n:root {\n  --accent: ${cs.getPropertyValue('--accent').trim()};\n  --surface: ${cs.getPropertyValue('--surface').trim()};\n  --card-pad: ${cs.getPropertyValue('--card-pad').trim()};\n  --font-display: ${cs.getPropertyValue('--font-display').trim()};\n}`;
       try { navigator.clipboard.writeText(cssVars); } catch {}
       sct('tok-copy-lbl', 'Copied CSS Tokens');
       setTimeout(() => sct('tok-copy-lbl', 'Copy CSS Tokens'), 1800);
@@ -6007,7 +6012,7 @@ document.addEventListener('DOMContentLoaded', () => {
         .filter(([, val]) => val)
         .map(([v, val]) => `  ${v}: ${val};`);
       const resolvedScheme = studioState.scheme === 'auto' ? (schemeMql.matches ? 'dark' : 'light') : studioState.scheme;
-      const cssBlock = `/* UIzBENTO Theme: ${THEME_LABELS[studioState.accent] || studioState.accent} · ${resolvedScheme} · ${FONT_LABELS[studioState.font] || studioState.font} (${studioState.density}) */\n:root {\n${lines.join('\n')}\n}`;
+      const cssBlock = `${UIZ_BRAND_CSS}\n/* Theme: ${THEME_LABELS[studioState.accent] || studioState.accent} · ${resolvedScheme} · ${FONT_LABELS[studioState.font] || studioState.font} (${studioState.density}) */\n:root {\n${lines.join('\n')}\n}`;
       try { await navigator.clipboard.writeText(cssBlock); } catch {}
       exportCssBtn.innerHTML = '<svg class="ic sm" aria-hidden="true"><use href="#i-check"/></svg><span>Copied Theme CSS!</span>';
       if (dockStatus) dockStatus.textContent = 'Copied current theme CSS variables to clipboard';
