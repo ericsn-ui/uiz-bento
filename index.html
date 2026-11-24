@@ -7,20 +7,20 @@
 <meta name="theme-color" content="#f2f2f7" media="(prefers-color-scheme: light)" />
 <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)" />
 <title>Infinite Bento: Dashboard &amp; Widgets</title>
-<meta name="description" content="An infinite, full-viewport bento grid of 180 interactive dashboard cards, widgets, and SEO components." />
+<meta name="description" content="An infinite, full-viewport bento grid of 188 interactive dashboard cards, widgets, and SEO components." />
 <meta name="referrer" content="strict-origin-when-cross-origin" />
 <link rel="canonical" href="https://uizbento.vercel.app/" />
 <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://uizbento.vercel.app/" />
 <meta property="og:title" content="Infinite Bento: Dashboard &amp; Widgets" />
-<meta property="og:description" content="An infinite, full-viewport bento grid of 180 interactive dashboard cards, widgets, and SEO analytics components." />
+<meta property="og:description" content="An infinite, full-viewport bento grid of 188 interactive dashboard cards, widgets, and SEO analytics components." />
 <meta property="og:image" content="https://uizbento.vercel.app/og-image.png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Infinite Bento: Dashboard &amp; Widgets" />
-<meta name="twitter:description" content="An infinite, full-viewport bento grid of 180 interactive dashboard cards, widgets, and SEO analytics components." />
+<meta name="twitter:description" content="An infinite, full-viewport bento grid of 188 interactive dashboard cards, widgets, and SEO analytics components." />
 <meta name="twitter:image" content="https://uizbento.vercel.app/og-image.png" />
 <script type="application/ld+json">
 {
@@ -30,7 +30,7 @@
   "applicationCategory": "DesignApplication",
   "operatingSystem": "Web",
   "url": "https://uizbento.vercel.app/",
-  "description": "180 interactive responsive bento dashboard cards, widgets, SEO analytics panels, and live Appearance Studio tokens."
+  "description": "188 interactive responsive bento dashboard cards, widgets, SEO analytics panels, and live Appearance Studio tokens."
 }
 </script>
 
@@ -43,9 +43,9 @@
 <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
 <link rel="preconnect" href="https://images.unsplash.com" crossorigin />
 <link rel="preconnect" href="https://images.pexels.com" crossorigin />
-<link rel="preload" as="style" href="./styles.css?v=18" />
+<link rel="preload" as="style" href="./styles.css?v=19" />
 <link rel="preload" as="image" href="./glass-bg.svg" fetchpriority="high" />
-<link rel="stylesheet" href="./styles.css?v=18" />
+<link rel="stylesheet" href="./styles.css?v=19" />
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
@@ -2329,7 +2329,7 @@
             <span class="sec text-subhead">/ mo per seat</span>
           </div>
           <ul class="grid gap-1.5 text-subhead">
-            <li class="flex items-center gap-2.5"><svg class="ic sm shrink-0" style="color:var(--accent-text)" aria-hidden="true"><use href="#i-check"/></svg><span>180 responsive dashboard &amp; widget cards</span></li>
+            <li class="flex items-center gap-2.5"><svg class="ic sm shrink-0" style="color:var(--accent-text)" aria-hidden="true"><use href="#i-check"/></svg><span>188 responsive dashboard &amp; widget cards</span></li>
             <li class="flex items-center gap-2.5"><svg class="ic sm shrink-0" style="color:var(--accent-text)" aria-hidden="true"><use href="#i-check"/></svg><span>Live Appearance Studio themes &amp; ⌘K jump</span></li>
             <li class="flex items-center gap-2.5"><svg class="ic sm shrink-0" style="color:var(--accent-text)" aria-hidden="true"><use href="#i-check"/></svg><span>Pre-compiled CSS &amp; static Vercel bundle</span></li>
           </ul>
@@ -3169,6 +3169,149 @@
           </div>
         </article>
 
+        <!-- SC-73 macOS/Win/Linux Activity Monitor & CPU Cores (sc-8 Large #1) -->
+        <article class="card sc-8 justify-between gap-3" data-sc="cpu-cores" aria-label="OS Activity Monitor CPU Cores">
+          <div class="flex flex-wrap items-center justify-between gap-2">
+            <div><h2 class="text-title2">System Activity Monitor</h2><p class="sec font-mono text-footnote tnum" data-sc-bind="cpu-sub">macOS M4 Pro · 34% CPU · 48°C · 18.4 GB RAM</p></div>
+            <div class="flex gap-1 rounded-full bg-fill p-1" role="group" aria-label="OS kernel profile">
+              <button class="btn tog !min-h-[2rem] px-2.5 text-footnote" type="button" aria-pressed="true" data-sc-act="cpu-os" data-os="mac">macOS</button>
+              <button class="btn tog !min-h-[2rem] px-2.5 text-footnote" type="button" aria-pressed="false" data-sc-act="cpu-os" data-os="win">Windows</button>
+              <button class="btn tog !min-h-[2rem] px-2.5 text-footnote" type="button" aria-pressed="false" data-sc-act="cpu-os" data-os="linux">Linux</button>
+            </div>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 items-center">
+            <div class="soft sm:col-span-2 flex h-20 items-end gap-1.5 !p-3" aria-hidden="true">
+              <span class="sc-core-bar" style="--c-h:.52;--c-d:.00s"></span>
+              <span class="sc-core-bar" style="--c-h:.78;--c-d:.10s"></span>
+              <span class="sc-core-bar" style="--c-h:.44;--c-d:.20s"></span>
+              <span class="sc-core-bar" style="--c-h:.92;--c-d:.30s"></span>
+              <span class="sc-core-bar" style="--c-h:.66;--c-d:.40s"></span>
+              <span class="sc-core-bar" style="--c-h:.84;--c-d:.50s"></span>
+              <span class="sc-core-bar" style="--c-h:.38;--c-d:.60s"></span>
+              <span class="sc-core-bar" style="--c-h:.72;--c-d:.70s"></span>
+            </div>
+            <div class="soft grid gap-1 text-footnote">
+              <span class="sec">Memory Pressure</span>
+              <b class="text-title2 tnum" data-sc-bind="cpu-mem">38%</b>
+              <span class="sec font-mono" data-sc-bind="cpu-proc">142 tasks · Nominal</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- SC-74 macOS Spotlight / Quick Launcher (sc-4) -->
+        <article class="card sc-4 justify-between gap-3" data-sc="os-spotlight" aria-label="OS Spotlight Quick Launcher">
+          <div class="flex items-center justify-between gap-2">
+            <h2 class="text-title2">Quick Launcher</h2>
+            <span class="pill font-mono text-footnote">⌘ Space</span>
+          </div>
+          <div class="soft relative overflow-hidden flex items-center gap-2 !py-2.5 !px-3">
+            <div class="sc-spot-sweep" aria-hidden="true"></div>
+            <svg class="ic sm shrink-0" style="color:var(--accent-text)" aria-hidden="true"><use href="#i-search"/></svg>
+            <span class="font-semibold text-subhead truncate" data-sc-bind="spot-app">Terminal.app</span>
+          </div>
+          <div class="flex gap-1.5" role="group" aria-label="Pinned launcher apps">
+            <button class="btn tog !min-h-[2rem] flex-1 px-2 text-footnote" type="button" aria-pressed="true" data-sc-act="spot-pick" data-app="Terminal.app">Term</button>
+            <button class="btn tog !min-h-[2rem] flex-1 px-2 text-footnote" type="button" aria-pressed="false" data-sc-act="spot-pick" data-app="Finder / Files">Files</button>
+            <button class="btn tog !min-h-[2rem] flex-1 px-2 text-footnote" type="button" aria-pressed="false" data-sc-act="spot-pick" data-app="System Settings">Prefs</button>
+          </div>
+        </article>
+
+        <!-- SC-75 Display & Brightness Hub (sc-3) -->
+        <article class="card sc-3 items-center justify-between gap-3 text-center" data-sc="os-display" aria-label="OS Display and Brightness Hub">
+          <div class="w-full flex items-center justify-between gap-2">
+            <h2 class="text-headline">Display</h2>
+            <span class="pill accent font-mono text-footnote tnum" data-sc-bind="disp-pct">82%</span>
+          </div>
+          <div class="sc-disp-orb grid h-16 w-16 place-items-center rounded-full bg-tile border border-sep">
+            <svg class="ic" style="color:var(--accent-text)" aria-hidden="true"><use href="#i-sun"/></svg>
+          </div>
+          <button class="btn btn-secondary w-full !min-h-[2.125rem] !rounded-2xl text-footnote" type="button" data-sc-act="disp-mode" data-sc-bind="disp-btn">True Tone: On</button>
+        </article>
+
+        <!-- SC-76 Cross-OS Tiling Window Manager (sc-9 Large #2) -->
+        <article class="card sc-9 justify-between gap-3" data-sc="window-tiler" aria-label="OS Tiling Window Manager">
+          <div class="flex flex-wrap items-center justify-between gap-2">
+            <div><h2 class="text-title2">Window Tiler</h2><p class="sec text-footnote" data-sc-bind="wm-sub">Split 50/50 · macOS Stage / Win Snap / Hyprland</p></div>
+            <div class="flex gap-1 rounded-full bg-fill p-1" role="group" aria-label="Tiling layout">
+              <button class="btn tog !min-h-[2rem] px-2.5 text-footnote" type="button" aria-pressed="true" data-sc-act="wm-layout" data-lay="split">Split</button>
+              <button class="btn tog !min-h-[2rem] px-2.5 text-footnote" type="button" aria-pressed="false" data-sc-act="wm-layout" data-lay="grid">Grid 2×2</button>
+              <button class="btn tog !min-h-[2rem] px-2.5 text-footnote" type="button" aria-pressed="false" data-sc-act="wm-layout" data-lay="master">Master</button>
+              <button class="btn tog !min-h-[2rem] px-2.5 text-footnote" type="button" aria-pressed="false" data-sc-act="wm-layout" data-lay="focus">Focus</button>
+            </div>
+          </div>
+          <div class="soft grid grid-cols-12 gap-2 h-28 !p-3" aria-hidden="true">
+            <div class="sc-tile-pane col-span-6 p-2 flex flex-col justify-between" style="--p-d:0s" data-sc-bind="wm-p1"><span class="pill accent w-max text-footnote">Editor</span><span class="sec font-mono text-footnote">1280×1440</span></div>
+            <div class="sc-tile-pane col-span-6 p-2 flex flex-col justify-between" style="--p-d:.35s" data-sc-bind="wm-p2"><span class="pill w-max text-footnote">Preview</span><span class="sec font-mono text-footnote">1280×1440</span></div>
+          </div>
+        </article>
+
+        <!-- SC-77 AirDrop / Local Mesh Share Radar (sc-5) -->
+        <article class="card sc-5 justify-between gap-3" data-sc="airdrop-radar" aria-label="Local Share and AirDrop Radar">
+          <div class="flex items-center justify-between gap-2">
+            <div><h2 class="text-title2">Local Share</h2><p class="sec text-footnote" data-sc-bind="air-sub">Contacts Only · 2 nearby</p></div>
+            <button class="pill accent text-footnote" type="button" data-sc-act="air-vis" data-sc-bind="air-vis">Contacts</button>
+          </div>
+          <div class="flex items-center gap-4">
+            <div class="relative grid h-20 w-20 shrink-0 place-items-center rounded-full bg-tile border border-sep">
+              <span class="sc-air-ring" style="--a-d:0s"></span>
+              <span class="sc-air-ring" style="--a-d:.65s"></span>
+              <svg class="ic relative z-10" style="color:var(--accent-text)" aria-hidden="true"><use href="#i-share"/></svg>
+            </div>
+            <div class="grid flex-1 gap-1.5 text-footnote">
+              <button class="soft !py-1.5 !px-3 flex items-center justify-between" type="button" aria-pressed="true" data-sc-act="air-dev" data-dev="MacBook Pro"><span class="font-semibold">MacBook Pro</span><span class="sec">Ready</span></button>
+              <button class="soft !py-1.5 !px-3 flex items-center justify-between" type="button" aria-pressed="false" data-sc-act="air-dev" data-dev="Arch ThinkPad"><span class="font-semibold">Arch ThinkPad</span><span class="sec">Nearby</span></button>
+            </div>
+          </div>
+        </article>
+
+        <!-- SC-78 Linux / macOS Terminal & Process Top (sc-7) -->
+        <article class="card sc-7 justify-between gap-3" data-sc="linux-htop" aria-label="Linux and macOS Terminal Process Top">
+          <div class="flex flex-wrap items-center justify-between gap-2">
+            <div><h2 class="text-title2">Shell &amp; htop</h2><p class="sec font-mono text-footnote tnum" data-sc-bind="ht-sub">load avg: 0.84, 0.72, 0.61 · up 14d</p></div>
+            <div class="flex gap-1 rounded-full bg-fill p-1" role="group" aria-label="Shell target">
+              <button class="btn tog !min-h-[2rem] px-2.5 font-mono text-footnote" type="button" aria-pressed="true" data-sc-act="ht-sh" data-sh="zsh">zsh</button>
+              <button class="btn tog !min-h-[2rem] px-2.5 font-mono text-footnote" type="button" aria-pressed="false" data-sc-act="ht-sh" data-sh="bash">bash</button>
+              <button class="btn tog !min-h-[2rem] px-2.5 font-mono text-footnote" type="button" aria-pressed="false" data-sc-act="ht-sh" data-sh="pwsh">pwsh</button>
+            </div>
+          </div>
+          <div class="soft grid gap-1.5 !p-3 font-mono text-footnote">
+            <div><span style="color:var(--accent-text)" data-sc-bind="ht-prompt">ericsn@macbook ~ %</span> <span data-sc-bind="ht-cmd">htop --sort-key=PERCENT_CPU</span><span class="sc-term-cur" aria-hidden="true"></span></div>
+            <div class="sec flex items-center justify-between"><span>PID 4821 · node</span><span>PID 1094 · windowserver</span></div>
+          </div>
+        </article>
+
+        <!-- SC-79 Network & Wi-Fi Throughput Monitor (sc-6) -->
+        <article class="card sc-6 justify-between gap-3" data-sc="wifi-meter" aria-label="OS Network and Wi-Fi Throughput">
+          <div class="flex items-center justify-between gap-2">
+            <div><h2 class="text-title2">Network Link</h2><p class="sec font-mono text-footnote tnum" data-sc-bind="wf-sub">Wi-Fi 7 (6 GHz) · ↓ 1.84 Gbps · ↑ 920 Mbps</p></div>
+            <button class="btn tog !min-h-[2rem] px-3 text-footnote" type="button" aria-pressed="true" data-sc-act="wf-net" data-sc-bind="wf-btn">Wi-Fi 7</button>
+          </div>
+          <div class="soft flex items-center justify-between gap-4 !p-3">
+            <svg class="h-14 w-16 shrink-0" viewBox="0 0 64 52" fill="none" stroke="var(--accent)" stroke-width="3" stroke-linecap="round" aria-hidden="true">
+              <path class="sc-wf-arc" style="--w-d:0s" d="M8 20a34 34 0 0 1 48 0"/>
+              <path class="sc-wf-arc" style="--w-d:.2s" d="M16 29a22 22 0 0 1 32 0"/>
+              <path class="sc-wf-arc" style="--w-d:.4s" d="M24 38a11 11 0 0 1 16 0"/>
+              <circle cx="32" cy="45" r="3" fill="var(--accent)" stroke="none"/>
+            </svg>
+            <div class="grid flex-1 grid-cols-2 gap-2 text-footnote font-mono">
+              <div><span class="sec block">Ping</span><b class="text-subhead tnum" data-sc-bind="wf-ping">4 ms</b></div>
+              <div><span class="sec block">Packet Loss</span><b class="text-subhead tnum">0.0%</b></div>
+            </div>
+          </div>
+        </article>
+
+        <!-- SC-80 Cross-OS Clipboard & Snippet History (sc-6) -->
+        <article class="card sc-6 justify-between gap-3" data-sc="clip-history" aria-label="Cross-OS Clipboard History">
+          <div class="flex items-center justify-between gap-2">
+            <div><h2 class="text-title2">Clipboard History</h2><p class="sec text-footnote" data-sc-bind="cl-sub">Click any entry to copy &amp; pin</p></div>
+            <span class="pill font-mono text-footnote">⌘⇧V</span>
+          </div>
+          <div class="grid gap-1.5 text-footnote font-mono">
+            <button class="soft sc-clip-row !py-2 !px-3 flex items-center justify-between text-left" style="--cl-d:0s" type="button" data-sc-act="cl-copy" data-cl="ssh -i ~/.ssh/id_ed25519 prod@edge"><span class="truncate">ssh -i ~/.ssh/id_ed25519 prod@edge</span><span class="pill accent shrink-0" data-sc-bind="cl-b0">Copy</span></button>
+            <button class="soft sc-clip-row !py-2 !px-3 flex items-center justify-between text-left" style="--cl-d:.45s" type="button" data-sc-act="cl-copy" data-cl="docker compose up -d --build"><span class="truncate">docker compose up -d --build</span><span class="pill shrink-0" data-sc-bind="cl-b1">Copy</span></button>
+          </div>
+        </article>
+
       </div>
       </div>
     </div>
@@ -3192,7 +3335,7 @@
     <h2 id="cmd-title" class="sr-only">Command palette</h2>
     <div class="flex items-center gap-3 border-b border-sep px-4 py-3">
       <svg class="ic sec" aria-hidden="true"><use href="#i-search"/></svg>
-      <input id="cmd-input" class="w-full bg-transparent text-body text-label placeholder:text-secondary focus:outline-none" type="search" autofocus placeholder="Search 180 bento cards or run an action…" aria-label="Search cards and actions" />
+      <input id="cmd-input" class="w-full bg-transparent text-body text-label placeholder:text-secondary focus:outline-none" type="search" autofocus placeholder="Search 188 bento cards or run an action…" aria-label="Search cards and actions" />
       <kbd class="cmd-kbd hidden sm:inline-flex">Esc</kbd>
       <button id="closeCmd" class="btn btn-secondary btn-icon !min-h-[2.25rem] !w-9" type="button" aria-label="Close command palette"><svg class="ic" style="width:1.125rem;height:1.125rem" aria-hidden="true"><use href="#i-plus" style="transform:rotate(45deg);transform-origin:center"/></svg></button>
     </div>
@@ -3543,7 +3686,15 @@ document.addEventListener('DOMContentLoaded', () => {
     'order-tracker': '@keyframes sc-route-glide{0%{left:6%}100%{left:90%}}[data-sc="order-tracker"]:hover .sc-route-dot{animation:sc-route-glide 2.6s ease-in-out infinite alternate}',
     'live-cursors': '@keyframes sc-cursor-a{0%,100%{transform:translate(0,0)}50%{transform:translate(58px,16px)}}@keyframes sc-cursor-b{0%,100%{transform:translate(0,0)}50%{transform:translate(-48px,-14px)}}[data-sc="live-cursors"]:hover .sc-cur-a{animation:sc-cursor-a 2.8s ease-in-out infinite}[data-sc="live-cursors"]:hover .sc-cur-b{animation:sc-cursor-b 3.1s ease-in-out infinite}',
     'boarding-pass': '@keyframes sc-scan-line{0%,100%{top:10%}50%{top:86%}}[data-sc="boarding-pass"]:hover .sc-laser{opacity:1;animation:sc-scan-line 1.6s ease-in-out infinite}',
-    'sql-profiler': '@keyframes sc-sql-flow{0%{transform:translateX(-100%);opacity:0}20%,80%{opacity:1}100%{transform:translateX(260%);opacity:0}}[data-sc="sql-profiler"]:hover .sc-sql-pulse{animation:sc-sql-flow 1.5s cubic-bezier(.4,0,.2,1) infinite}'
+    'sql-profiler': '@keyframes sc-sql-flow{0%{transform:translateX(-100%);opacity:0}20%,80%{opacity:1}100%{transform:translateX(260%);opacity:0}}[data-sc="sql-profiler"]:hover .sc-sql-pulse{animation:sc-sql-flow 1.5s cubic-bezier(.4,0,.2,1) infinite}',
+    'cpu-cores': '@keyframes sc-core-pulse{0%,100%{transform:scaleY(.38);opacity:.68}50%{transform:scaleY(1);opacity:1}}[data-sc="cpu-cores"]:hover .sc-core-bar{animation:sc-core-pulse 1.1s ease-in-out var(--c-d,0s) infinite}',
+    'os-spotlight': '@keyframes sc-spot-sheen{0%{transform:translateX(-120%)}100%{transform:translateX(220%)}}[data-sc="os-spotlight"]:hover .sc-spot-sweep{animation:sc-spot-sheen 1.8s ease-in-out infinite}',
+    'os-display': '@keyframes sc-sun-glow{0%,100%{transform:scale(.94)}50%{transform:scale(1.06)}}[data-sc="os-display"]:hover .sc-disp-orb{animation:sc-sun-glow 2s ease-in-out infinite}',
+    'window-tiler': '@keyframes sc-pane-breathe{0%,100%{border-color:var(--sep);transform:scale(1)}50%{border-color:var(--accent);transform:scale(1.015)}}[data-sc="window-tiler"]:hover .sc-tile-pane{animation:sc-pane-breathe 2.1s ease-in-out var(--p-d,0s) infinite}',
+    'airdrop-radar': '@keyframes sc-air-wave{0%{transform:scale(.68);opacity:.8}100%{transform:scale(1.52);opacity:0}}[data-sc="airdrop-radar"]:hover .sc-air-ring{animation:sc-air-wave 1.9s cubic-bezier(.16,1,.3,1) var(--a-d,0s) infinite}',
+    'linux-htop': '@keyframes sc-term-blink{0%,49%{opacity:1}50%,100%{opacity:0}}[data-sc="linux-htop"]:hover .sc-term-cur{animation:sc-term-blink .9s steps(1) infinite}',
+    'wifi-meter': '@keyframes sc-wifi-arc{0%,100%{opacity:.3;transform:scale(.94)}50%{opacity:1;transform:scale(1.04)}}[data-sc="wifi-meter"]:hover .sc-wf-arc{animation:sc-wifi-arc 1.4s ease-in-out var(--w-d,0s) infinite}',
+    'clip-history': '@keyframes sc-clip-glide{0%,100%{border-color:var(--sep)}50%{border-color:var(--accent)}}[data-sc="clip-history"]:hover .sc-clip-row{animation:sc-clip-glide 2s ease-in-out var(--cl-d,0s) infinite}'
   };
 
   const toReactJsx = html => {
@@ -4199,7 +4350,15 @@ document.addEventListener('DOMContentLoaded', () => {
     ordStep: 2,
     curFollow: true,
     bpAlt: false,
-    sqlQ: 'users'
+    sqlQ: 'users',
+    cpuOs: 'mac',
+    spotApp: 'Terminal.app',
+    dispMode: 0,
+    wmLay: 'split',
+    airVis: 'Contacts', airDev: 'MacBook Pro',
+    htSh: 'zsh',
+    wfMode: 0,
+    clLast: ''
   };
   const sct = (k, v) => $$(`[data-sc-bind="${k}"]`, loop).forEach(el => { if (el.textContent !== v) el.textContent = v; });
   const toHexColor = (val, fallback) => {
@@ -4644,6 +4803,59 @@ document.addEventListener('DOMContentLoaded', () => {
     $$('[data-sc-act="sql-q"]', loop).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.q === SC.sqlQ)));
   };
   renderScBatch4();
+  const renderScBatch5 = () => {
+    const CPUS = {
+      mac: ['macOS M4 Pro · 34% CPU · 48°C · 18.4 GB RAM', '38%', '142 tasks · Nominal'],
+      win: ['Windows 11 24H2 · 41% CPU · 54°C · 14.2 GB RAM', '46%', '186 procs · Balanced'],
+      linux: ['Linux 6.11 Kernel · 19% CPU · 41°C · 6.8 GB RAM', '22%', '98 tasks · zram active']
+    };
+    const [cSub, cMem, cProc] = CPUS[SC.cpuOs] || CPUS.mac;
+    sct('cpu-sub', cSub); sct('cpu-mem', cMem); sct('cpu-proc', cProc);
+    $$('[data-sc-act="cpu-os"]', loop).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.os === SC.cpuOs)));
+
+    sct('spot-app', SC.spotApp);
+    $$('[data-sc-act="spot-pick"]', loop).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.app === SC.spotApp)));
+
+    const DISPS = [['82%', 'True Tone: On'], ['65%', 'Night Shift: Warm'], ['100%', 'HDR XDR: Peak']];
+    const [dPct, dBtn] = DISPS[SC.dispMode % DISPS.length];
+    sct('disp-pct', dPct); sct('disp-btn', dBtn);
+
+    const WMS = {
+      split: ['Split 50/50 · macOS Stage / Win Snap / Hyprland', 'col-span-6', 'col-span-6'],
+      grid: ['Grid 2×2 · Quad Workspace Tile', 'col-span-6', 'col-span-6'],
+      master: ['Master 67% + Stack 33% · i3 / yabai', 'col-span-8', 'col-span-4'],
+      focus: ['Focus 75% · Centered Zen Window', 'col-span-9', 'col-span-3']
+    };
+    const [wSub, wC1, wC2] = WMS[SC.wmLay] || WMS.split;
+    sct('wm-sub', wSub);
+    $$('[data-sc-act="wm-layout"]', loop).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.lay === SC.wmLay)));
+    $$('[data-sc-bind="wm-p1"]', loop).forEach(el => { el.className = `sc-tile-pane ${wC1} p-2 flex flex-col justify-between`; });
+    $$('[data-sc-bind="wm-p2"]', loop).forEach(el => { el.className = `sc-tile-pane ${wC2} p-2 flex flex-col justify-between`; });
+
+    sct('air-vis', SC.airVis);
+    sct('air-sub', `${SC.airVis} · ${SC.airDev} selected`);
+    $$('[data-sc-act="air-dev"]', loop).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.dev === SC.airDev)));
+
+    const HTS = {
+      zsh: ['ericsn@macbook ~ %', 'htop --sort-key=PERCENT_CPU'],
+      bash: ['ericsn@ubuntu:~$', 'btop --utf-force'],
+      pwsh: ['PS C:\\Users\\ericsn>', 'Get-Process | Sort CPU -Desc']
+    };
+    const [hP, hC] = HTS[SC.htSh] || HTS.zsh;
+    sct('ht-prompt', hP); sct('ht-cmd', hC);
+    $$('[data-sc-act="ht-sh"]', loop).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.sh === SC.htSh)));
+
+    const WFS = [
+      ['Wi-Fi 7 (6 GHz) · ↓ 1.84 Gbps · ↑ 920 Mbps', 'Wi-Fi 7', '4 ms'],
+      ['10GbE Thunderbolt · ↓ 9.40 Gbps · ↑ 8.95 Gbps', '10GbE', '1 ms'],
+      ['Tailscale Mesh VPN · ↓ 680 Mbps · ↑ 640 Mbps', 'Tailscale', '18 ms']
+    ];
+    const [wfSub, wfBtn, wfPing] = WFS[SC.wfMode % WFS.length];
+    sct('wf-sub', wfSub); sct('wf-btn', wfBtn); sct('wf-ping', wfPing);
+
+    sct('cl-sub', SC.clLast ? `Copied: ${SC.clLast.slice(0, 26)}…` : 'Click any entry to copy & pin');
+  };
+  renderScBatch5();
   $$('button[aria-label]:not([title])', loop).forEach(b => { b.title = b.getAttribute('aria-label'); });
   loop.addEventListener('click', e => {
     const el = e.target.closest('[data-sc-act]'); if (!el) return;
@@ -4860,6 +5072,59 @@ document.addEventListener('DOMContentLoaded', () => {
     $$('[data-sc-act="sql-q"]', loop).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.q === SC.sqlQ)));
   };
   renderScBatch4();
+  const renderScBatch5 = () => {
+    const CPUS = {
+      mac: ['macOS M4 Pro · 34% CPU · 48°C · 18.4 GB RAM', '38%', '142 tasks · Nominal'],
+      win: ['Windows 11 24H2 · 41% CPU · 54°C · 14.2 GB RAM', '46%', '186 procs · Balanced'],
+      linux: ['Linux 6.11 Kernel · 19% CPU · 41°C · 6.8 GB RAM', '22%', '98 tasks · zram active']
+    };
+    const [cSub, cMem, cProc] = CPUS[SC.cpuOs] || CPUS.mac;
+    sct('cpu-sub', cSub); sct('cpu-mem', cMem); sct('cpu-proc', cProc);
+    $$('[data-sc-act="cpu-os"]', loop).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.os === SC.cpuOs)));
+
+    sct('spot-app', SC.spotApp);
+    $$('[data-sc-act="spot-pick"]', loop).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.app === SC.spotApp)));
+
+    const DISPS = [['82%', 'True Tone: On'], ['65%', 'Night Shift: Warm'], ['100%', 'HDR XDR: Peak']];
+    const [dPct, dBtn] = DISPS[SC.dispMode % DISPS.length];
+    sct('disp-pct', dPct); sct('disp-btn', dBtn);
+
+    const WMS = {
+      split: ['Split 50/50 · macOS Stage / Win Snap / Hyprland', 'col-span-6', 'col-span-6'],
+      grid: ['Grid 2×2 · Quad Workspace Tile', 'col-span-6', 'col-span-6'],
+      master: ['Master 67% + Stack 33% · i3 / yabai', 'col-span-8', 'col-span-4'],
+      focus: ['Focus 75% · Centered Zen Window', 'col-span-9', 'col-span-3']
+    };
+    const [wSub, wC1, wC2] = WMS[SC.wmLay] || WMS.split;
+    sct('wm-sub', wSub);
+    $$('[data-sc-act="wm-layout"]', loop).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.lay === SC.wmLay)));
+    $$('[data-sc-bind="wm-p1"]', loop).forEach(el => { el.className = `sc-tile-pane ${wC1} p-2 flex flex-col justify-between`; });
+    $$('[data-sc-bind="wm-p2"]', loop).forEach(el => { el.className = `sc-tile-pane ${wC2} p-2 flex flex-col justify-between`; });
+
+    sct('air-vis', SC.airVis);
+    sct('air-sub', `${SC.airVis} · ${SC.airDev} selected`);
+    $$('[data-sc-act="air-dev"]', loop).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.dev === SC.airDev)));
+
+    const HTS = {
+      zsh: ['ericsn@macbook ~ %', 'htop --sort-key=PERCENT_CPU'],
+      bash: ['ericsn@ubuntu:~$', 'btop --utf-force'],
+      pwsh: ['PS C:\\Users\\ericsn>', 'Get-Process | Sort CPU -Desc']
+    };
+    const [hP, hC] = HTS[SC.htSh] || HTS.zsh;
+    sct('ht-prompt', hP); sct('ht-cmd', hC);
+    $$('[data-sc-act="ht-sh"]', loop).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.sh === SC.htSh)));
+
+    const WFS = [
+      ['Wi-Fi 7 (6 GHz) · ↓ 1.84 Gbps · ↑ 920 Mbps', 'Wi-Fi 7', '4 ms'],
+      ['10GbE Thunderbolt · ↓ 9.40 Gbps · ↑ 8.95 Gbps', '10GbE', '1 ms'],
+      ['Tailscale Mesh VPN · ↓ 680 Mbps · ↑ 640 Mbps', 'Tailscale', '18 ms']
+    ];
+    const [wfSub, wfBtn, wfPing] = WFS[SC.wfMode % WFS.length];
+    sct('wf-sub', wfSub); sct('wf-btn', wfBtn); sct('wf-ping', wfPing);
+
+    sct('cl-sub', SC.clLast ? `Copied: ${SC.clLast.slice(0, 26)}…` : 'Click any entry to copy & pin');
+  };
+  renderScBatch5();
     }
     else if (a === 'radar-mode') { SC.radarMode = el.dataset.rm || 'deep'; renderScHoverLoops(); }
     else if (a === 'orb-pick') { SC.orbApp = el.dataset.app || 'GitHub'; renderScHoverLoops(); }
@@ -4982,6 +5247,59 @@ document.addEventListener('DOMContentLoaded', () => {
     $$('[data-sc-act="sql-q"]', loop).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.q === SC.sqlQ)));
   };
   renderScBatch4();
+  const renderScBatch5 = () => {
+    const CPUS = {
+      mac: ['macOS M4 Pro · 34% CPU · 48°C · 18.4 GB RAM', '38%', '142 tasks · Nominal'],
+      win: ['Windows 11 24H2 · 41% CPU · 54°C · 14.2 GB RAM', '46%', '186 procs · Balanced'],
+      linux: ['Linux 6.11 Kernel · 19% CPU · 41°C · 6.8 GB RAM', '22%', '98 tasks · zram active']
+    };
+    const [cSub, cMem, cProc] = CPUS[SC.cpuOs] || CPUS.mac;
+    sct('cpu-sub', cSub); sct('cpu-mem', cMem); sct('cpu-proc', cProc);
+    $$('[data-sc-act="cpu-os"]', loop).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.os === SC.cpuOs)));
+
+    sct('spot-app', SC.spotApp);
+    $$('[data-sc-act="spot-pick"]', loop).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.app === SC.spotApp)));
+
+    const DISPS = [['82%', 'True Tone: On'], ['65%', 'Night Shift: Warm'], ['100%', 'HDR XDR: Peak']];
+    const [dPct, dBtn] = DISPS[SC.dispMode % DISPS.length];
+    sct('disp-pct', dPct); sct('disp-btn', dBtn);
+
+    const WMS = {
+      split: ['Split 50/50 · macOS Stage / Win Snap / Hyprland', 'col-span-6', 'col-span-6'],
+      grid: ['Grid 2×2 · Quad Workspace Tile', 'col-span-6', 'col-span-6'],
+      master: ['Master 67% + Stack 33% · i3 / yabai', 'col-span-8', 'col-span-4'],
+      focus: ['Focus 75% · Centered Zen Window', 'col-span-9', 'col-span-3']
+    };
+    const [wSub, wC1, wC2] = WMS[SC.wmLay] || WMS.split;
+    sct('wm-sub', wSub);
+    $$('[data-sc-act="wm-layout"]', loop).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.lay === SC.wmLay)));
+    $$('[data-sc-bind="wm-p1"]', loop).forEach(el => { el.className = `sc-tile-pane ${wC1} p-2 flex flex-col justify-between`; });
+    $$('[data-sc-bind="wm-p2"]', loop).forEach(el => { el.className = `sc-tile-pane ${wC2} p-2 flex flex-col justify-between`; });
+
+    sct('air-vis', SC.airVis);
+    sct('air-sub', `${SC.airVis} · ${SC.airDev} selected`);
+    $$('[data-sc-act="air-dev"]', loop).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.dev === SC.airDev)));
+
+    const HTS = {
+      zsh: ['ericsn@macbook ~ %', 'htop --sort-key=PERCENT_CPU'],
+      bash: ['ericsn@ubuntu:~$', 'btop --utf-force'],
+      pwsh: ['PS C:\\Users\\ericsn>', 'Get-Process | Sort CPU -Desc']
+    };
+    const [hP, hC] = HTS[SC.htSh] || HTS.zsh;
+    sct('ht-prompt', hP); sct('ht-cmd', hC);
+    $$('[data-sc-act="ht-sh"]', loop).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.sh === SC.htSh)));
+
+    const WFS = [
+      ['Wi-Fi 7 (6 GHz) · ↓ 1.84 Gbps · ↑ 920 Mbps', 'Wi-Fi 7', '4 ms'],
+      ['10GbE Thunderbolt · ↓ 9.40 Gbps · ↑ 8.95 Gbps', '10GbE', '1 ms'],
+      ['Tailscale Mesh VPN · ↓ 680 Mbps · ↑ 640 Mbps', 'Tailscale', '18 ms']
+    ];
+    const [wfSub, wfBtn, wfPing] = WFS[SC.wfMode % WFS.length];
+    sct('wf-sub', wfSub); sct('wf-btn', wfBtn); sct('wf-ping', wfPing);
+
+    sct('cl-sub', SC.clLast ? `Copied: ${SC.clLast.slice(0, 26)}…` : 'Click any entry to copy & pin');
+  };
+  renderScBatch5();
     }
     else if (a === 'shim-mode') { SC.shimMode = el.dataset.sm || 'AI Stream'; renderScHoverLoops(); }
     else if (a === 'sync-now') { SC.syncPct = SC.syncPct >= 95 ? 71 : SC.syncPct + 8; renderScBatch2(); }
@@ -5015,6 +5333,15 @@ document.addEventListener('DOMContentLoaded', () => {
     else if (a === 'cur-follow') { SC.curFollow = !SC.curFollow; renderScBatch4(); }
     else if (a === 'bp-gate') { SC.bpAlt = !SC.bpAlt; renderScBatch4(); }
     else if (a === 'sql-q') { SC.sqlQ = el.dataset.q || 'users'; renderScBatch4(); }
+    else if (a === 'cpu-os') { SC.cpuOs = el.dataset.os || 'mac'; renderScBatch5(); }
+    else if (a === 'spot-pick') { SC.spotApp = el.dataset.app || 'Terminal.app'; renderScBatch5(); }
+    else if (a === 'disp-mode') { SC.dispMode = (SC.dispMode + 1) % 3; renderScBatch5(); }
+    else if (a === 'wm-layout') { SC.wmLay = el.dataset.lay || 'split'; renderScBatch5(); }
+    else if (a === 'air-vis') { const vs = ['Contacts', 'Everyone 10m', 'Off']; SC.airVis = vs[(vs.indexOf(SC.airVis) + 1) % vs.length]; renderScBatch5(); }
+    else if (a === 'air-dev') { SC.airDev = el.dataset.dev || 'MacBook Pro'; renderScBatch5(); }
+    else if (a === 'ht-sh') { SC.htSh = el.dataset.sh || 'zsh'; renderScBatch5(); }
+    else if (a === 'wf-net') { SC.wfMode = (SC.wfMode + 1) % 3; renderScBatch5(); }
+    else if (a === 'cl-copy') { const txt = el.dataset.cl || ''; writeClip(txt); SC.clLast = txt; renderScBatch5(); }
     else if (a === 'copy-tokens') {
       const cs = getComputedStyle(root);
       const cssVars = `:root {\n  --accent: ${cs.getPropertyValue('--accent').trim()};\n  --surface: ${cs.getPropertyValue('--surface').trim()};\n  --card-pad: ${cs.getPropertyValue('--card-pad').trim()};\n  --font-display: ${cs.getPropertyValue('--font-display').trim()};\n}`;
