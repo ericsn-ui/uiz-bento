@@ -3708,6 +3708,9 @@
       <button class="btn btn-secondary tog !min-h-[2rem] px-3 text-footnote" type="button" aria-pressed="false" data-cmd-cat="finance">Finance</button>
       <button class="btn btn-secondary tog !min-h-[2rem] px-3 text-footnote" type="button" aria-pressed="false" data-cmd-cat="media">Media</button>
       <button class="btn btn-secondary tog !min-h-[2rem] px-3 text-footnote" type="button" aria-pressed="false" data-cmd-cat="seo">SEO</button>
+      <button class="btn btn-secondary tog !min-h-[2rem] px-3 text-footnote" type="button" aria-pressed="false" data-cmd-cat="os">OS &amp; System</button>
+      <button class="btn btn-secondary tog !min-h-[2rem] px-3 text-footnote" type="button" aria-pressed="false" data-cmd-cat="gaming">Gaming</button>
+      <button class="btn btn-secondary tog !min-h-[2rem] px-3 text-footnote" type="button" aria-pressed="false" data-cmd-cat="ai">AI &amp; Dev</button>
       <button class="btn btn-secondary tog !min-h-[2rem] px-3 text-footnote" type="button" aria-pressed="false" data-cmd-cat="utilities">Utilities</button>
     </div>
     <ul id="cmd-list" class="grid flex-1 grid-cols-1 gap-1 overflow-x-hidden overflow-y-auto p-3" role="listbox" aria-label="Command results"></ul>
@@ -6398,40 +6401,78 @@ document.addEventListener('DOMContentLoaded', () => {
   const cmdDlg = $('#cmd-palette'), cmdInput = $('#cmd-input'), cmdList = $('#cmd-list'),
         cmdCount = $('#cmd-count'), closeCmdBtn = $('#closeCmd');
   let cmdCat = 'all', cmdSel = 0, cmdFiltered = [], cmdCloseGuardUntil = 0;
+  const CAT_LABELS = {
+    actions: 'Action',
+    finance: 'Finance',
+    media: 'Media',
+    seo: 'SEO',
+    os: 'OS & System',
+    gaming: 'Gaming',
+    ai: 'AI & Dev',
+    utilities: 'Utilities'
+  };
   const classifyCard = el => {
-    if (el.closest('.seo-bento')) return 'seo';
+    if (el.closest('.gta-bento')) return ['gaming', 'seo'];
+    if (el.closest('.seo-bento')) return ['seo'];
     const key = (el.dataset.card || el.dataset.c || el.dataset.sc || '').toLowerCase();
-    const txt = (el.getAttribute('aria-label') || '') + ' ' + key;
-    if (/revenue|mrr|net|earn|savings|invest|deposit|income|price|bid|eth|stock|auctions|forecast|swap|assets|btc|balance|spendings|monthly|mini-spark|paytype|confirm-tx|pricing/.test(txt)) return 'finance';
-    if (/music|album|poster|watched|showtimes|seats|photo|composer|quote|collection|sellers|meta|avatar/.test(txt)) return 'media';
-    return 'utilities';
+    const txt = `${el.getAttribute('aria-label') || ''} ${key}`.toLowerCase();
+    if (/^(gaming-fps|pad-battery|game-lobby|game-xp|gta-)/.test(key) || /\bgaming\b|\bgta\b|dualsense|match queue/.test(txt)) return ['gaming'];
+    if (/^(cpu-cores|os-|window-tiler|airdrop-radar|linux-htop|wifi-meter|clip-history)/.test(key) || /\bmacos\b|\blinux\b|\bwindows\b|cross-os|os spotlight|firewall|airdrop|htop/.test(txt)) return ['os'];
+    if (/ai-|aipromo|typing-ai|voice-agent|contrast|typescale|radii|cli-snippet|api-key|otp-verify|uptime|pr-review|feature-flags|deploy-pipe|radar-scan|magnetic-orbit|live-ticker|skeleton-shimmer|sync-ring|live-logs|biometric-lock|command-strip|split-compare|kanban-pulse|traffic-globe|build-bundle|webhook-retry|live-cursors|sql-profiler|tokens|3d-viewport/.test(key) || /\bai\b|\bapi\b|wcag|typography|radius|cli\b|ci\s*cd|sql|webhook|telemetry|bundle|passkey|feature flag/.test(txt)) return ['ai'];
+    if (/revenue|mrr|net|earn|savings|invest|deposit|income|price|bid|eth|stock|auctions|forecast|swap|assets|btc|balance|spendings|monthly|mini-spark|paytype|confirm-tx|pricing|order-tracker|wallet/.test(txt)) return ['finance'];
+    if (/music|album|poster|watched|showtimes|seats|photo|composer|quote|collection|sellers|meta|avatar|voice-wave|waveform-timeline|gradient-mesh/.test(txt)) return ['media'];
+    return ['utilities'];
   };
   const cardItems = $$('.card', primary).map((el, i) => {
     const h = $('h2, h3, .hd-t', el);
     const label = (h ? h.textContent : el.getAttribute('aria-label') || el.dataset.card || el.dataset.c || el.dataset.sc || `Card ${i + 1}`).replace(/\s+/g, ' ').trim();
-    const sec = el.closest('.bento') ? 'Dashboard' : el.closest('.seo-bento') ? 'SEO' : el.closest('.showcase-bento') ? 'Showcase' : 'Widgets';
-    const cat = classifyCard(el);
-    return { type: 'card', cat, title: label, sub: `${sec} · ${cat.charAt(0).toUpperCase() + cat.slice(1)}`, keys: `${label} ${el.getAttribute('aria-label') || ''} ${el.dataset.card || ''} ${el.dataset.c || ''} ${sec}`.toLowerCase(), el };
+    const sec = el.closest('.gta-bento') ? 'GTA V & SEO' : el.closest('.bento') ? 'Dashboard' : el.closest('.seo-bento') ? 'SEO' : el.closest('.showcase-bento') ? 'Showcase' : 'Widgets';
+    const cats = classifyCard(el);
+    const catStr = cats.map(c => CAT_LABELS[c] || c).join(' · ');
+    const hint = (el.textContent || '').replace(/\s+/g, ' ').trim().slice(0, 180);
+    return {
+      type: 'card',
+      cats,
+      cat: cats[0],
+      title: label,
+      sub: `${sec} · ${catStr}`,
+      keys: `${label} ${el.getAttribute('aria-label') || ''} ${el.dataset.card || ''} ${el.dataset.c || ''} ${el.dataset.sc || ''} ${sec} ${catStr} ${hint}`.toLowerCase(),
+      el
+    };
   });
+  if (cmdInput) cmdInput.placeholder = `Search ${cardItems.length} bento cards or run an action…`;
   const CMD_ACTIONS = [
-    { type: 'action', cat: 'actions', title: 'Open AI File Rules Simulator', sub: 'Action · Smart Workspace AI', run: () => openSheet('AI sorting rules', openCmdBtn) },
-    { type: 'action', cat: 'actions', title: 'Export Overview CSV', sub: 'Action · Download dataset', run: () => { const b = $('[data-action="export-csv"]', primary); if (b) b.click(); } },
-    { type: 'action', cat: 'actions', title: 'Toggle Light / Dark Mode', sub: 'Action · Switch color scheme', run: () => { if (quickSchemeBtn) quickSchemeBtn.click(); } },
-    { type: 'action', cat: 'actions', title: 'Toggle Compact / Comfortable Density', sub: 'Action · Switch card padding & gap', run: () => applyStudio({ density: studioState.density === 'compact' ? 'comfortable' : 'compact' }, 'Density toggled') },
-    { type: 'action', cat: 'actions', title: 'Pause / Resume Infinite Loop', sub: 'Action · Toggle single-pass scroll', run: () => applyStudio({ loopPaused: !studioState.loopPaused }, studioState.loopPaused ? 'Infinite loop resumed' : 'Infinite loop paused') },
-    { type: 'action', cat: 'actions', title: 'Replay Cinematic Entrance', sub: 'Action · Reset visible card reveals', run: () => resetCinematic() },
-    { type: 'action', cat: 'actions', title: 'Theme: Olive Lime (Default)', sub: 'Theme · Main color', run: () => applyStudio({ accent: 'lime' }, 'Color theme set to Olive') },
-    { type: 'action', cat: 'actions', title: 'Theme: Ocean Cobalt', sub: 'Theme · Main color', run: () => applyStudio({ accent: 'blue' }, 'Color theme set to Cobalt') },
-    { type: 'action', cat: 'actions', title: 'Theme: Royal Indigo', sub: 'Theme · Main color', run: () => applyStudio({ accent: 'indigo' }, 'Color theme set to Indigo') },
-    { type: 'action', cat: 'actions', title: 'Theme: Rose Velvet', sub: 'Theme · Main color', run: () => applyStudio({ accent: 'rose' }, 'Color theme set to Rose') },
-    { type: 'action', cat: 'actions', title: 'Font: Editorial Serif (Newsreader)', sub: 'Typography · Font pairing', run: () => applyStudio({ font: 'editorial' }, 'Font combination set to Editorial Serif') },
-    { type: 'action', cat: 'actions', title: 'Font: Swiss Avant (Syne + Manrope)', sub: 'Typography · Font pairing', run: () => applyStudio({ font: 'swiss' }, 'Font combination set to Swiss Avant') }
+    { type: 'action', cats: ['actions'], cat: 'actions', title: 'Jump to GTA V & Game Store SEO Bento', sub: 'Navigation · 7-Card Asymmetric Storefront Bento', run: () => {
+      const g = $('.gta-bento', primary);
+      if (!g) return;
+      g.querySelectorAll('.card').forEach(c => {
+        c.classList.add('revealed');
+        if (window.gsap) { gsap.killTweensOf(c); gsap.set(c, { clearProps: 'transform,opacity,visibility,willChange' }); gsap.set(c.children, { clearProps: 'transform,opacity' }); }
+      });
+      g.scrollIntoView({ behavior: motionMql.matches ? 'auto' : 'smooth', block: 'center' });
+    } },
+    { type: 'action', cats: ['actions'], cat: 'actions', title: 'Open Glass Optics & Concentric Corners', sub: 'Glass · Backdrop, Radius, Min Floor & Squircle', run: () => { try { glassPopover?.showPopover(); } catch {} } },
+    { type: 'action', cats: ['actions'], cat: 'actions', title: 'Toggle Liquid Glass / Classic Material', sub: 'Action · Switch card surface material', run: () => applyStudio(studioState.material === 'glass' ? { material: 'classic' } : { material: 'glass', accent: 'mono' }, 'Surface material toggled') },
+    { type: 'action', cats: ['actions'], cat: 'actions', title: 'Toggle Apple Squircle / Round Corners', sub: 'Glass · Continuous corner curve toggle', run: () => { $('#glass-squircle-btn')?.click(); } },
+    { type: 'action', cats: ['actions'], cat: 'actions', title: 'Open AI File Rules Simulator', sub: 'Action · Smart Workspace AI', run: () => openSheet('AI sorting rules', openCmdBtn) },
+    { type: 'action', cats: ['actions'], cat: 'actions', title: 'Export Overview CSV', sub: 'Action · Download dataset', run: () => { const b = $('[data-action="export-csv"]', primary); if (b) b.click(); } },
+    { type: 'action', cats: ['actions'], cat: 'actions', title: 'Toggle Light / Dark Mode', sub: 'Action · Switch color scheme', run: () => { if (quickSchemeBtn) quickSchemeBtn.click(); } },
+    { type: 'action', cats: ['actions'], cat: 'actions', title: 'Toggle Compact / Comfortable Density', sub: 'Action · Switch card padding & gap', run: () => applyStudio({ density: studioState.density === 'compact' ? 'comfortable' : 'compact' }, 'Density toggled') },
+    { type: 'action', cats: ['actions'], cat: 'actions', title: 'Pause / Resume Infinite Loop', sub: 'Action · Toggle single-pass scroll', run: () => applyStudio({ loopPaused: !studioState.loopPaused }, studioState.loopPaused ? 'Infinite loop resumed' : 'Infinite loop paused') },
+    { type: 'action', cats: ['actions'], cat: 'actions', title: 'Replay Cinematic Entrance', sub: 'Action · Reset visible card reveals', run: () => resetCinematic() },
+    { type: 'action', cats: ['actions'], cat: 'actions', title: 'Theme: Olive Lime (Default)', sub: 'Theme · Main color', run: () => applyStudio({ accent: 'lime' }, 'Color theme set to Olive') },
+    { type: 'action', cats: ['actions'], cat: 'actions', title: 'Theme: Ocean Cobalt', sub: 'Theme · Main color', run: () => applyStudio({ accent: 'blue' }, 'Color theme set to Cobalt') },
+    { type: 'action', cats: ['actions'], cat: 'actions', title: 'Theme: Royal Indigo', sub: 'Theme · Main color', run: () => applyStudio({ accent: 'indigo' }, 'Color theme set to Indigo') },
+    { type: 'action', cats: ['actions'], cat: 'actions', title: 'Theme: Rose Velvet', sub: 'Theme · Main color', run: () => applyStudio({ accent: 'rose' }, 'Color theme set to Rose') },
+    { type: 'action', cats: ['actions'], cat: 'actions', title: 'Font: Editorial Serif (Newsreader)', sub: 'Typography · Font pairing', run: () => applyStudio({ font: 'editorial' }, 'Font combination set to Editorial Serif') },
+    { type: 'action', cats: ['actions'], cat: 'actions', title: 'Font: Swiss Avant (Syne + Manrope)', sub: 'Typography · Font pairing', run: () => applyStudio({ font: 'swiss' }, 'Font combination set to Swiss Avant') }
   ].map(a => ({ ...a, keys: `${a.title} ${a.sub}`.toLowerCase() }));
   const CMD_ALL = [...CMD_ACTIONS, ...cardItems];
   const renderCmd = () => {
     if (!cmdList || !cmdInput) return;
     const q = cmdInput.value.trim().toLowerCase();
-    cmdFiltered = CMD_ALL.filter(item => (cmdCat === 'all' || item.cat === cmdCat) && (!q || item.keys.includes(q))).slice(0, 40);
+    const matches = CMD_ALL.filter(item => (cmdCat === 'all' || item.cats.includes(cmdCat)) && (!q || item.keys.includes(q)));
+    cmdFiltered = matches;
     if (cmdSel >= cmdFiltered.length) cmdSel = Math.max(0, cmdFiltered.length - 1);
     cmdList.innerHTML = cmdFiltered.length
       ? cmdFiltered.map((item, i) => `<li><button type="button" class="cmd-item" role="option" data-cmd-idx="${i}" aria-selected="${i === cmdSel}">
@@ -6439,7 +6480,11 @@ document.addEventListener('DOMContentLoaded', () => {
           <span class="pill shrink-0 text-footnote">${item.type === 'action' ? 'Action' : 'Jump'}</span>
         </button></li>`).join('')
       : '<li class="px-4 py-8 text-center text-subhead sec">No matching cards or actions found.</li>';
-    if (cmdCount) cmdCount.textContent = `${cmdFiltered.length} result${cmdFiltered.length === 1 ? '' : 's'}`;
+    if (cmdCount) {
+      cmdCount.textContent = cmdCat === 'all' && !q
+        ? `${matches.length} items (${cardItems.length} cards · ${CMD_ACTIONS.length} actions)`
+        : `${matches.length} result${matches.length === 1 ? '' : 's'} · ${cardItems.length} total cards`;
+    }
   };
   const runCmdItem = item => {
     if (!item || !cmdDlg) return;
@@ -6450,6 +6495,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const card = item.el;
     if (!card) return;
     if (!card.classList.contains('revealed')) { card.classList.add('revealed'); card.style.opacity = '1'; }
+    if (window.gsap) { gsap.killTweensOf(card); gsap.set(card, { clearProps: 'transform,opacity,visibility,willChange' }); gsap.set(card.children, { clearProps: 'transform,opacity' }); }
     card.scrollIntoView({ behavior: motionMql.matches ? 'auto' : 'smooth', block: 'center' });
     card.classList.add('cmd-highlight');
     if (!card.hasAttribute('tabindex')) card.setAttribute('tabindex', '-1');
@@ -6460,6 +6506,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const openCmd = () => {
     if (!cmdDlg || performance.now() < cmdCloseGuardUntil) return;
     if (themePopover && themePopover.matches(':popover-open, .\\:popover-open')) { try { themePopover.hidePopover(); } catch {} }
+    if (glassPopover && glassPopover.matches(':popover-open, .\\:popover-open')) { try { glassPopover.hidePopover(); } catch {} }
     cmdCat = 'all'; cmdSel = 0;
     $$('[data-cmd-cat]', cmdDlg).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.cmdCat === 'all')));
     if (cmdInput) cmdInput.value = '';
