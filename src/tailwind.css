@@ -1422,4 +1422,81 @@
     .sc-fps-bar, .sc-spk-ring, .sc-pad-ic, .sc-fw-beam, .sc-fan-ic, .sc-q-dot, .sc-in-row, .sc-xp-shine { animation:none !important; }
   }
 
+  /* ================= GTA V UI & GAME STORE SEO BENTO (SC-89..SC-95: 3-col Asymmetric Grid) ================= */
+  .gta-bento { display:grid; gap:var(--gap); grid-template-columns:repeat(2,minmax(0,1fr)); grid-auto-rows:auto; }
+  .gta-bento > [data-w] { grid-column:span 2; }
+  .gta-bento > [data-w="2"] { grid-column:span 1; }
+  @media (min-width:640px) and (max-width:1099.98px) {
+    .gta-bento { grid-template-columns:repeat(6,minmax(0,1fr)); }
+    .gta-bento > [data-w], .gta-bento > [data-w="2"] { grid-column:span 3; }
+    .gta-bento > [data-card="gta-store"] { grid-column:span 6; }
+  }
+  @media (min-width:1100px) {
+    .gta-bento { grid-template-columns:repeat(12,minmax(0,1fr)); grid-auto-rows:minmax(var(--u),auto); }
+    .gta-bento [data-card="gta-hero"]   { grid-area:1 / 1 / span 5 / span 4; }
+    .gta-bento [data-card="gta-mrr"]    { grid-area:6 / 1 / span 5 / span 4; }
+    .gta-bento [data-card="gta-wallet"] { grid-area:1 / 5 / span 2 / span 4; }
+    .gta-bento [data-card="gta-chart"]  { grid-area:3 / 5 / span 5 / span 4; }
+    .gta-bento [data-card="gta-wanted"] { grid-area:8 / 5 / span 3 / span 2; }
+    .gta-bento [data-card="gta-key"]    { grid-area:8 / 7 / span 3 / span 2; }
+    .gta-bento [data-card="gta-store"]  { grid-area:1 / 9 / span 10 / span 4; }
+  }
+
+  /* Hover Interactive Animation Loops (SC-89..SC-95) */
+  @keyframes sc-gta-sheen {
+    0% { transform:translateX(-120%) skewX(-18deg); }
+    100% { transform:translateX(240%) skewX(-18deg); }
+  }
+  .sc-gta-sweep { position:absolute; inset-block:0; left:0; width:38%; background:linear-gradient(90deg, transparent, rgba(255,255,255,.26), transparent); transform:translateX(-120%) skewX(-18deg); pointer-events:none; }
+  [data-sc="gta-hero"]:hover .sc-gta-sweep,
+  [data-sc="gta-hero"]:focus-within .sc-gta-sweep { animation:sc-gta-sheen 1.9s ease-in-out infinite; }
+
+  @keyframes sc-gta-meter {
+    0% { transform:translateX(-100%); }
+    100% { transform:translateX(240%); }
+  }
+  .sc-gta-glint { position:absolute; inset-block:0; left:0; width:36%; background:linear-gradient(90deg, transparent, rgba(255,255,255,.55), transparent); transform:translateX(-100%); }
+  [data-sc="gta-mrr"]:hover .sc-gta-glint,
+  [data-sc="gta-mrr"]:focus-within .sc-gta-glint { animation:sc-gta-meter 1.6s ease-in-out infinite; }
+
+  @keyframes sc-bank-pulse {
+    0%, 100% { transform:scale(1); }
+    50% { transform:scale(1.08); }
+  }
+  [data-sc="gta-wallet"]:hover .sc-bank-badge,
+  [data-sc="gta-wallet"]:focus-within .sc-bank-badge { animation:sc-bank-pulse 1.4s ease-in-out infinite; }
+
+  @keyframes sc-curve-glow {
+    0%, 100% { filter:drop-shadow(0 0 2px var(--accent)); opacity:.85; }
+    50% { filter:drop-shadow(0 0 10px var(--accent)); opacity:1; }
+  }
+  [data-sc="gta-chart"]:hover .sc-curve-line,
+  [data-sc="gta-chart"]:focus-within .sc-curve-line { animation:sc-curve-glow 1.6s ease-in-out infinite; }
+
+  @keyframes sc-wanted-flash {
+    0%, 100% { color:var(--accent-text); text-shadow:0 0 0 transparent; }
+    50% { color:#ef4444; text-shadow:0 0 12px rgba(239,68,68,.55); }
+  }
+  [data-sc="gta-wanted"]:hover .sc-wanted-stars,
+  [data-sc="gta-wanted"]:focus-within .sc-wanted-stars { animation:sc-wanted-flash 1.1s ease-in-out infinite; }
+
+  @keyframes sc-key-glow {
+    0%, 100% { box-shadow:0 0 0 0 color-mix(in srgb, var(--accent) 35%, transparent); }
+    70%, 100% { box-shadow:0 0 0 10px transparent; }
+  }
+  [data-sc="gta-key"]:hover .sc-key-btn,
+  [data-sc="gta-key"]:focus-within .sc-key-btn { animation:sc-key-glow 1.5s ease-out infinite; }
+
+  @keyframes sc-store-bars {
+    0%, 100% { transform:scaleY(.65); opacity:.8; }
+    50% { transform:scaleY(1); opacity:1; }
+  }
+  .sc-store-bar { flex:1; height:100%; border-radius:999px; background:var(--accent); transform-origin:bottom; transform:scaleY(var(--sb-h, .75)); }
+  [data-sc="gta-store"]:hover .sc-store-bar,
+  [data-sc="gta-store"]:focus-within .sc-store-bar { animation:sc-store-bars 1.2s ease-in-out var(--sb-d, 0s) infinite; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .sc-gta-sweep, .sc-gta-glint, .sc-bank-badge, .sc-curve-line, .sc-wanted-stars, .sc-key-btn, .sc-store-bar { animation:none !important; }
+  }
+
 @tailwind utilities;
