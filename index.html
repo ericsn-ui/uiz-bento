@@ -7,20 +7,20 @@
 <meta name="theme-color" content="#f2f2f7" media="(prefers-color-scheme: light)" />
 <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)" />
 <title>Infinite Bento: Dashboard &amp; Widgets</title>
-<meta name="description" content="An infinite, full-viewport bento grid of 174 interactive dashboard cards, widgets, and SEO components." />
+<meta name="description" content="An infinite, full-viewport bento grid of 180 interactive dashboard cards, widgets, and SEO components." />
 <meta name="referrer" content="strict-origin-when-cross-origin" />
 <link rel="canonical" href="https://uizbento.vercel.app/" />
 <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://uizbento.vercel.app/" />
 <meta property="og:title" content="Infinite Bento: Dashboard &amp; Widgets" />
-<meta property="og:description" content="An infinite, full-viewport bento grid of 174 interactive dashboard cards, widgets, and SEO analytics components." />
+<meta property="og:description" content="An infinite, full-viewport bento grid of 180 interactive dashboard cards, widgets, and SEO analytics components." />
 <meta property="og:image" content="https://uizbento.vercel.app/og-image.png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Infinite Bento: Dashboard &amp; Widgets" />
-<meta name="twitter:description" content="An infinite, full-viewport bento grid of 174 interactive dashboard cards, widgets, and SEO analytics components." />
+<meta name="twitter:description" content="An infinite, full-viewport bento grid of 180 interactive dashboard cards, widgets, and SEO analytics components." />
 <meta name="twitter:image" content="https://uizbento.vercel.app/og-image.png" />
 <script type="application/ld+json">
 {
@@ -30,7 +30,7 @@
   "applicationCategory": "DesignApplication",
   "operatingSystem": "Web",
   "url": "https://uizbento.vercel.app/",
-  "description": "174 interactive responsive bento dashboard cards, widgets, SEO analytics panels, and live Appearance Studio tokens."
+  "description": "180 interactive responsive bento dashboard cards, widgets, SEO analytics panels, and live Appearance Studio tokens."
 }
 </script>
 
@@ -43,9 +43,9 @@
 <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
 <link rel="preconnect" href="https://images.unsplash.com" crossorigin />
 <link rel="preconnect" href="https://images.pexels.com" crossorigin />
-<link rel="preload" as="style" href="./styles.css?v=17" />
+<link rel="preload" as="style" href="./styles.css?v=18" />
 <link rel="preload" as="image" href="./glass-bg.svg" fetchpriority="high" />
-<link rel="stylesheet" href="./styles.css?v=17" />
+<link rel="stylesheet" href="./styles.css?v=18" />
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
@@ -2329,7 +2329,7 @@
             <span class="sec text-subhead">/ mo per seat</span>
           </div>
           <ul class="grid gap-1.5 text-subhead">
-            <li class="flex items-center gap-2.5"><svg class="ic sm shrink-0" style="color:var(--accent-text)" aria-hidden="true"><use href="#i-check"/></svg><span>174 responsive dashboard &amp; widget cards</span></li>
+            <li class="flex items-center gap-2.5"><svg class="ic sm shrink-0" style="color:var(--accent-text)" aria-hidden="true"><use href="#i-check"/></svg><span>180 responsive dashboard &amp; widget cards</span></li>
             <li class="flex items-center gap-2.5"><svg class="ic sm shrink-0" style="color:var(--accent-text)" aria-hidden="true"><use href="#i-check"/></svg><span>Live Appearance Studio themes &amp; ⌘K jump</span></li>
             <li class="flex items-center gap-2.5"><svg class="ic sm shrink-0" style="color:var(--accent-text)" aria-hidden="true"><use href="#i-check"/></svg><span>Pre-compiled CSS &amp; static Vercel bundle</span></li>
           </ul>
@@ -3065,6 +3065,110 @@
           </div>
         </article>
 
+        <!-- SC-67 Smart Home & IoT: Climate Dial (sc-3) -->
+        <article class="card sc-3 items-center justify-between gap-3 text-center" data-sc="thermostat-dial" aria-label="Smart Home Climate Dial">
+          <div class="w-full flex items-center justify-between gap-2">
+            <h2 class="text-headline">Climate</h2>
+            <button class="pill accent text-footnote" type="button" data-sc-act="th-mode" data-sc-bind="th-mode">Eco</button>
+          </div>
+          <div class="relative grid h-24 w-24 place-items-center rounded-full bg-tile">
+            <span class="sc-dial-ring" aria-hidden="true"></span>
+            <span class="text-title1 font-bold tnum relative z-10" data-sc-bind="th-temp">22°C</span>
+          </div>
+          <div class="flex w-full items-center justify-between gap-2">
+            <button class="btn btn-secondary !min-h-[2rem] flex-1 text-subhead" type="button" data-sc-act="th-step" data-dir="-1" aria-label="Decrease temperature">-</button>
+            <button class="btn btn-secondary !min-h-[2rem] flex-1 text-subhead" type="button" data-sc-act="th-step" data-dir="1" aria-label="Increase temperature">+</button>
+          </div>
+        </article>
+
+        <!-- SC-68 Spatial / 3D & Design Canvas: 3D Layer Inspector (sc-9) -->
+        <article class="card sc-9 justify-between gap-3" data-sc="3d-viewport" aria-label="3D Spatial Layer Inspector">
+          <div class="flex flex-wrap items-center justify-between gap-2">
+            <div><h2 class="text-title2">3D Spatial Scene</h2><p class="sec text-footnote" data-sc-bind="sp-sub">Iso Camera · 3 layers active · Hover to orbit</p></div>
+            <div class="flex gap-1 rounded-full bg-fill p-1" role="group" aria-label="Camera angle">
+              <button class="btn tog !min-h-[2rem] px-2.5 text-footnote" type="button" aria-pressed="true" data-sc-act="sp-cam" data-cam="Iso">Iso</button>
+              <button class="btn tog !min-h-[2rem] px-2.5 text-footnote" type="button" aria-pressed="false" data-sc-act="sp-cam" data-cam="Front">Front</button>
+              <button class="btn tog !min-h-[2rem] px-2.5 text-footnote" type="button" aria-pressed="false" data-sc-act="sp-cam" data-cam="Top">Top</button>
+            </div>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 items-center">
+            <div class="soft flex h-28 items-center justify-center overflow-hidden" aria-hidden="true">
+              <div class="sc-3d-stage relative grid h-16 w-24 place-items-center rounded-2xl border border-sep" style="background:color-mix(in srgb, var(--accent) 20%, transparent);box-shadow:0 12px 24px rgba(0,0,0,.18)">
+                <svg class="ic" style="color:var(--accent-text)"><use href="#i-cube"/></svg>
+              </div>
+            </div>
+            <div class="grid gap-1.5 text-footnote">
+              <button class="soft !py-1.5 !px-3 flex items-center justify-between" type="button" aria-pressed="true" data-sc-act="sp-layer" data-ly="mesh"><span class="font-semibold">Glass Mesh</span><span class="pill accent" data-sc-bind="sp-ly-mesh">On</span></button>
+              <button class="soft !py-1.5 !px-3 flex items-center justify-between" type="button" aria-pressed="true" data-sc-act="sp-layer" data-ly="rim"><span class="font-semibold">Specular Rim</span><span class="pill accent" data-sc-bind="sp-ly-rim">On</span></button>
+              <button class="soft !py-1.5 !px-3 flex items-center justify-between" type="button" aria-pressed="true" data-sc-act="sp-layer" data-ly="fog"><span class="font-semibold">Ambient Fog</span><span class="pill accent" data-sc-bind="sp-ly-fog">On</span></button>
+            </div>
+          </div>
+        </article>
+
+        <!-- SC-69 E-Commerce & Checkout: Live Delivery Tracker (sc-7) -->
+        <article class="card sc-7 justify-between gap-3" data-sc="order-tracker" aria-label="E-Commerce Live Delivery Tracker">
+          <div class="flex items-center justify-between gap-2">
+            <div><h2 class="text-title2">Order #8492</h2><p class="sec text-footnote" data-sc-bind="ord-sub">Out for delivery · ETA 14 mins</p></div>
+            <button class="btn btn-primary !min-h-[2rem] px-3 text-footnote" type="button" data-sc-act="ord-next">Advance Stop</button>
+          </div>
+          <div class="soft grid gap-3 !p-3">
+            <div class="relative h-2 rounded-full bg-fill" aria-hidden="true">
+              <div class="h-full rounded-full" data-sc-bind="ord-bar" style="width:66%;background:color-mix(in srgb, var(--accent) 45%, transparent)"></div>
+              <span class="sc-route-dot"></span>
+            </div>
+            <div class="grid grid-cols-4 gap-1 text-center text-footnote font-semibold">
+              <span data-sc-bind="ord-s0">Packed</span>
+              <span data-sc-bind="ord-s1">Transit</span>
+              <span style="color:var(--accent-text)" data-sc-bind="ord-s2">Out</span>
+              <span class="sec" data-sc-bind="ord-s3">Arrived</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- SC-70 Collaborative Docs / Canvas: Live Multiplayer Cursors (sc-5) -->
+        <article class="card sc-5 justify-between gap-3" data-sc="live-cursors" aria-label="Live Multiplayer Cursors">
+          <div class="flex items-center justify-between gap-2">
+            <div><h2 class="text-title2">Live Canvas</h2><p class="sec text-footnote" data-sc-bind="cur-sub">3 collaborators editing</p></div>
+            <button class="btn tog !min-h-[2rem] px-3 text-footnote" type="button" aria-pressed="true" data-sc-act="cur-follow" data-sc-bind="cur-btn">Following</button>
+          </div>
+          <div class="soft relative h-24 overflow-hidden" aria-hidden="true">
+            <span class="sc-cursor-tag sc-cur-a" style="top:16%;left:14%;background:#0284c7">Maya</span>
+            <span class="sc-cursor-tag sc-cur-b" style="bottom:18%;right:16%;background:#db2777">Ken</span>
+          </div>
+        </article>
+
+        <!-- SC-71 Travel & Transit: Digital Boarding Pass (sc-4) -->
+        <article class="card sc-4 justify-between gap-3" data-sc="boarding-pass" aria-label="Digital Boarding Pass">
+          <div class="flex items-center justify-between gap-2">
+            <div><h2 class="text-title2 font-mono">SFO → NRT</h2><p class="sec text-footnote" data-sc-bind="bp-sub">Gate B12 · Seat 14A</p></div>
+            <button class="pill accent text-footnote" type="button" data-sc-act="bp-gate" data-sc-bind="bp-pill">On Time</button>
+          </div>
+          <div class="soft relative h-20 overflow-hidden grid grid-cols-12 items-center gap-1 !p-3" aria-hidden="true">
+            <span class="h-full rounded bg-label opacity-80"></span><span class="h-3/4 rounded bg-label opacity-50"></span><span class="h-full rounded bg-label opacity-90"></span><span class="h-2/3 rounded bg-label opacity-40"></span>
+            <span class="h-full rounded bg-label opacity-80"></span><span class="h-3/4 rounded bg-label opacity-70"></span><span class="h-full rounded bg-label opacity-60"></span><span class="h-2/3 rounded bg-label opacity-90"></span>
+            <span class="h-full rounded bg-label opacity-50"></span><span class="h-3/4 rounded bg-label opacity-80"></span><span class="h-full rounded bg-label opacity-70"></span><span class="h-2/3 rounded bg-label opacity-60"></span>
+            <div class="sc-laser"></div>
+          </div>
+        </article>
+
+        <!-- SC-72 Database & Query Lab: SQL Query & Index Profiler (sc-8) -->
+        <article class="card sc-8 justify-between gap-3" data-sc="sql-profiler" aria-label="SQL Query and Index Profiler">
+          <div class="flex flex-wrap items-center justify-between gap-2">
+            <div><h2 class="text-title2">SQL Query Lab</h2><p class="sec font-mono text-footnote tnum" data-sc-bind="sql-sub">1.4ms · B-Tree Index Scan · 128 rows</p></div>
+            <div class="flex gap-1 rounded-full bg-fill p-1" role="group" aria-label="Query preset">
+              <button class="btn tog !min-h-[2rem] px-2.5 font-mono text-footnote" type="button" aria-pressed="true" data-sc-act="sql-q" data-q="users">users</button>
+              <button class="btn tog !min-h-[2rem] px-2.5 font-mono text-footnote" type="button" aria-pressed="false" data-sc-act="sql-q" data-q="orders">orders</button>
+              <button class="btn tog !min-h-[2rem] px-2.5 font-mono text-footnote" type="button" aria-pressed="false" data-sc-act="sql-q" data-q="metrics">metrics</button>
+            </div>
+          </div>
+          <div class="soft grid gap-2.5 !p-3">
+            <code class="text-footnote truncate" data-sc-bind="sql-code">SELECT id, email, plan FROM users WHERE active = true LIMIT 50;</code>
+            <div class="relative h-1.5 overflow-hidden rounded-full bg-fill" aria-hidden="true">
+              <div class="sc-sql-pulse"></div>
+            </div>
+          </div>
+        </article>
+
       </div>
       </div>
     </div>
@@ -3088,7 +3192,7 @@
     <h2 id="cmd-title" class="sr-only">Command palette</h2>
     <div class="flex items-center gap-3 border-b border-sep px-4 py-3">
       <svg class="ic sec" aria-hidden="true"><use href="#i-search"/></svg>
-      <input id="cmd-input" class="w-full bg-transparent text-body text-label placeholder:text-secondary focus:outline-none" type="search" autofocus placeholder="Search 174 bento cards or run an action…" aria-label="Search cards and actions" />
+      <input id="cmd-input" class="w-full bg-transparent text-body text-label placeholder:text-secondary focus:outline-none" type="search" autofocus placeholder="Search 180 bento cards or run an action…" aria-label="Search cards and actions" />
       <kbd class="cmd-kbd hidden sm:inline-flex">Esc</kbd>
       <button id="closeCmd" class="btn btn-secondary btn-icon !min-h-[2.25rem] !w-9" type="button" aria-label="Close command palette"><svg class="ic" style="width:1.125rem;height:1.125rem" aria-hidden="true"><use href="#i-plus" style="transform:rotate(45deg);transform-origin:center"/></svg></button>
     </div>
@@ -3119,11 +3223,11 @@
     <div role="group" aria-label="Appearance studio">
       <button id="studio-trigger" type="button" popovertarget="theme-popover" aria-expanded="false" aria-controls="theme-popover" title="Theme &amp; Fonts">
         <span class="dock-dot" aria-hidden="true"></span>
-        <span>Theme &amp; Fonts</span>
+        <span>Theme<span class="hidden md:inline"> &amp; Fonts</span></span>
       </button>
-      <button id="glass-trigger" class="hidden sm:inline-flex text-footnote" type="button" popovertarget="glass-popover" aria-expanded="false" aria-controls="glass-popover" aria-pressed="true" title="Open Glass settings (Light, Refraction, Depth, Dispersion, Frost, Splay)">Glass ▾</button>
-      <button id="quick-glass-bg" class="hidden sm:inline-flex text-footnote" type="button" title="Switch Glass background (Abstract, Mt. Rainier, Scenic I, Scenic II)" aria-label="Glass background: Abstract">BG: Abstract</button>
-      <button id="quick-fw" class="hidden sm:inline-flex font-mono text-footnote" type="button" title="Switch copy framework (HTML, React TSX, Vue, Svelte)" aria-label="Copy framework: HTML">HTML</button>
+      <button id="glass-trigger" class="inline-flex text-footnote" type="button" popovertarget="glass-popover" aria-expanded="false" aria-controls="glass-popover" aria-pressed="true" title="Open Glass settings (Light, Refraction, Depth, Dispersion, Frost, Splay)">Glass ▾</button>
+      <button id="quick-glass-bg" class="inline-flex text-footnote" type="button" title="Switch Glass background (Abstract, Mt. Rainier, Scenic I, Scenic II)" aria-label="Glass background: Abstract">BG: Abstract</button>
+      <button id="quick-fw" class="inline-flex font-mono text-footnote" type="button" title="Switch copy framework (HTML, React TSX, Vue, Svelte)" aria-label="Copy framework: HTML">HTML</button>
     </div>
     <span role="separator" aria-orientation="vertical"></span>
     <div role="group" aria-label="Quick controls">
@@ -3433,7 +3537,13 @@ document.addEventListener('DOMContentLoaded', () => {
     'kanban-pulse': '@keyframes sc-kanban-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-2px)}}[data-sc="kanban-pulse"]:hover .sc-kanban-item{animation:sc-kanban-float 1.8s ease-in-out var(--kb-d,0s) infinite}',
     'traffic-globe': '@keyframes sc-arc-dash{to{stroke-dashoffset:-36}}.sc-arc-flow{stroke-dasharray:6 6}[data-sc="traffic-globe"]:hover .sc-arc-flow{animation:sc-arc-dash 1.2s linear infinite}',
     'build-bundle': '@keyframes sc-bar-sheen{0%,100%{filter:brightness(1)}50%{filter:brightness(1.22)}}[data-sc="build-bundle"]:hover .sc-bundle-seg{animation:sc-bar-sheen 1.8s ease-in-out var(--b-d,0s) infinite}',
-    'webhook-retry': '@keyframes sc-retry-sweep{0%{transform:translateX(-100%)}100%{transform:translateX(220%)}}[data-sc="webhook-retry"]:hover .sc-retry-beam{opacity:1;animation:sc-retry-sweep 1.8s ease-in-out infinite}'
+    'webhook-retry': '@keyframes sc-retry-sweep{0%{transform:translateX(-100%)}100%{transform:translateX(220%)}}[data-sc="webhook-retry"]:hover .sc-retry-beam{opacity:1;animation:sc-retry-sweep 1.8s ease-in-out infinite}',
+    'thermostat-dial': '@keyframes sc-dial-spin{to{transform:rotate(360deg)}}[data-sc="thermostat-dial"]:hover .sc-dial-ring{animation:sc-dial-spin 4s linear infinite;opacity:1}',
+    '3d-viewport': '@keyframes sc-cube-float{0%,100%{transform:perspective(360px) rotateX(12deg) rotateY(-14deg) translateY(0)}50%{transform:perspective(360px) rotateX(-8deg) rotateY(16deg) translateY(-5px)}}[data-sc="3d-viewport"]:hover .sc-3d-stage{animation:sc-cube-float 3.4s ease-in-out infinite}',
+    'order-tracker': '@keyframes sc-route-glide{0%{left:6%}100%{left:90%}}[data-sc="order-tracker"]:hover .sc-route-dot{animation:sc-route-glide 2.6s ease-in-out infinite alternate}',
+    'live-cursors': '@keyframes sc-cursor-a{0%,100%{transform:translate(0,0)}50%{transform:translate(58px,16px)}}@keyframes sc-cursor-b{0%,100%{transform:translate(0,0)}50%{transform:translate(-48px,-14px)}}[data-sc="live-cursors"]:hover .sc-cur-a{animation:sc-cursor-a 2.8s ease-in-out infinite}[data-sc="live-cursors"]:hover .sc-cur-b{animation:sc-cursor-b 3.1s ease-in-out infinite}',
+    'boarding-pass': '@keyframes sc-scan-line{0%,100%{top:10%}50%{top:86%}}[data-sc="boarding-pass"]:hover .sc-laser{opacity:1;animation:sc-scan-line 1.6s ease-in-out infinite}',
+    'sql-profiler': '@keyframes sc-sql-flow{0%{transform:translateX(-100%);opacity:0}20%,80%{opacity:1}100%{transform:translateX(260%);opacity:0}}[data-sc="sql-profiler"]:hover .sc-sql-pulse{animation:sc-sql-flow 1.5s cubic-bezier(.4,0,.2,1) infinite}'
   };
 
   const toReactJsx = html => {
@@ -4083,7 +4193,13 @@ document.addEventListener('DOMContentLoaded', () => {
     kbShipped: 4,
     cdnReg: 'Americas',
     bndGzip: true,
-    whRetried: false
+    whRetried: false,
+    thTemp: 22, thMode: 'Eco',
+    spCam: 'Iso', spLayers: { mesh: true, rim: true, fog: true },
+    ordStep: 2,
+    curFollow: true,
+    bpAlt: false,
+    sqlQ: 'users'
   };
   const sct = (k, v) => $$(`[data-sc-bind="${k}"]`, loop).forEach(el => { if (el.textContent !== v) el.textContent = v; });
   const toHexColor = (val, fallback) => {
@@ -4486,6 +4602,48 @@ document.addEventListener('DOMContentLoaded', () => {
     sct('wh-btn', SC.whRetried ? 'Simulate 429' : 'Replay Failed');
   };
   renderScBatch3();
+  const renderScBatch4 = () => {
+    sct('th-temp', `${SC.thTemp}°C`);
+    sct('th-mode', SC.thMode);
+
+    const lyOn = Object.values(SC.spLayers).filter(Boolean).length;
+    sct('sp-sub', `${SC.spCam} Camera · ${lyOn} layers active · Hover to orbit`);
+    $$('[data-sc-act="sp-cam"]', loop).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.cam === SC.spCam)));
+    ['mesh', 'rim', 'fog'].forEach(k => {
+      const on = SC.spLayers[k];
+      sct(`sp-ly-${k}`, on ? 'On' : 'Off');
+      $$(`[data-sc-act="sp-layer"][data-ly="${k}"]`, loop).forEach(b => b.setAttribute('aria-pressed', String(on)));
+    });
+
+    const ordSubs = ['Order packed · Preparing pickup', 'In transit · Regional hub', 'Out for delivery · ETA 14 mins', 'Delivered · Signed at porch'];
+    const ordWidths = ['18%', '46%', '68%', '100%'];
+    sct('ord-sub', ordSubs[SC.ordStep] || ordSubs[2]);
+    $$('[data-sc-bind="ord-bar"]', loop).forEach(el => { el.style.width = ordWidths[SC.ordStep] || '68%'; });
+    [0, 1, 2, 3].forEach(i => {
+      $$(`[data-sc-bind="ord-s${i}"]`, loop).forEach(el => {
+        el.style.color = i === SC.ordStep ? 'var(--accent-text)' : '';
+        el.classList.toggle('sec', i > SC.ordStep);
+      });
+    });
+
+    sct('cur-btn', SC.curFollow ? 'Following' : 'Free Pan');
+    sct('cur-sub', SC.curFollow ? '3 collaborators editing · Synced' : '3 collaborators editing');
+    $$('[data-sc-act="cur-follow"]', loop).forEach(b => b.setAttribute('aria-pressed', String(SC.curFollow)));
+
+    sct('bp-sub', SC.bpAlt ? 'Boarding Zone 2 · Seat 14A' : 'Gate B12 · Seat 14A');
+    sct('bp-pill', SC.bpAlt ? 'Boarding' : 'On Time');
+
+    const SQLS = {
+      users: ['1.4ms · B-Tree Index Scan · 128 rows', 'SELECT id, email, plan FROM users WHERE active = true LIMIT 50;'],
+      orders: ['4.8ms · Hash Join · 1,024 rows', 'SELECT o.id, o.total FROM orders o JOIN users u ON u.id = o.user_id;'],
+      metrics: ['2.1ms · Materialized Rollup · 30 rows', 'SELECT day, SUM(clicks) FROM seo_metrics GROUP BY day ORDER BY day DESC;']
+    };
+    const [sSub, sCode] = SQLS[SC.sqlQ] || SQLS.users;
+    sct('sql-sub', sSub);
+    sct('sql-code', sCode);
+    $$('[data-sc-act="sql-q"]', loop).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.q === SC.sqlQ)));
+  };
+  renderScBatch4();
   $$('button[aria-label]:not([title])', loop).forEach(b => { b.title = b.getAttribute('aria-label'); });
   loop.addEventListener('click', e => {
     const el = e.target.closest('[data-sc-act]'); if (!el) return;
@@ -4660,6 +4818,48 @@ document.addEventListener('DOMContentLoaded', () => {
     sct('wh-btn', SC.whRetried ? 'Simulate 429' : 'Replay Failed');
   };
   renderScBatch3();
+  const renderScBatch4 = () => {
+    sct('th-temp', `${SC.thTemp}°C`);
+    sct('th-mode', SC.thMode);
+
+    const lyOn = Object.values(SC.spLayers).filter(Boolean).length;
+    sct('sp-sub', `${SC.spCam} Camera · ${lyOn} layers active · Hover to orbit`);
+    $$('[data-sc-act="sp-cam"]', loop).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.cam === SC.spCam)));
+    ['mesh', 'rim', 'fog'].forEach(k => {
+      const on = SC.spLayers[k];
+      sct(`sp-ly-${k}`, on ? 'On' : 'Off');
+      $$(`[data-sc-act="sp-layer"][data-ly="${k}"]`, loop).forEach(b => b.setAttribute('aria-pressed', String(on)));
+    });
+
+    const ordSubs = ['Order packed · Preparing pickup', 'In transit · Regional hub', 'Out for delivery · ETA 14 mins', 'Delivered · Signed at porch'];
+    const ordWidths = ['18%', '46%', '68%', '100%'];
+    sct('ord-sub', ordSubs[SC.ordStep] || ordSubs[2]);
+    $$('[data-sc-bind="ord-bar"]', loop).forEach(el => { el.style.width = ordWidths[SC.ordStep] || '68%'; });
+    [0, 1, 2, 3].forEach(i => {
+      $$(`[data-sc-bind="ord-s${i}"]`, loop).forEach(el => {
+        el.style.color = i === SC.ordStep ? 'var(--accent-text)' : '';
+        el.classList.toggle('sec', i > SC.ordStep);
+      });
+    });
+
+    sct('cur-btn', SC.curFollow ? 'Following' : 'Free Pan');
+    sct('cur-sub', SC.curFollow ? '3 collaborators editing · Synced' : '3 collaborators editing');
+    $$('[data-sc-act="cur-follow"]', loop).forEach(b => b.setAttribute('aria-pressed', String(SC.curFollow)));
+
+    sct('bp-sub', SC.bpAlt ? 'Boarding Zone 2 · Seat 14A' : 'Gate B12 · Seat 14A');
+    sct('bp-pill', SC.bpAlt ? 'Boarding' : 'On Time');
+
+    const SQLS = {
+      users: ['1.4ms · B-Tree Index Scan · 128 rows', 'SELECT id, email, plan FROM users WHERE active = true LIMIT 50;'],
+      orders: ['4.8ms · Hash Join · 1,024 rows', 'SELECT o.id, o.total FROM orders o JOIN users u ON u.id = o.user_id;'],
+      metrics: ['2.1ms · Materialized Rollup · 30 rows', 'SELECT day, SUM(clicks) FROM seo_metrics GROUP BY day ORDER BY day DESC;']
+    };
+    const [sSub, sCode] = SQLS[SC.sqlQ] || SQLS.users;
+    sct('sql-sub', sSub);
+    sct('sql-code', sCode);
+    $$('[data-sc-act="sql-q"]', loop).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.q === SC.sqlQ)));
+  };
+  renderScBatch4();
     }
     else if (a === 'radar-mode') { SC.radarMode = el.dataset.rm || 'deep'; renderScHoverLoops(); }
     else if (a === 'orb-pick') { SC.orbApp = el.dataset.app || 'GitHub'; renderScHoverLoops(); }
@@ -4740,6 +4940,48 @@ document.addEventListener('DOMContentLoaded', () => {
     sct('wh-btn', SC.whRetried ? 'Simulate 429' : 'Replay Failed');
   };
   renderScBatch3();
+  const renderScBatch4 = () => {
+    sct('th-temp', `${SC.thTemp}°C`);
+    sct('th-mode', SC.thMode);
+
+    const lyOn = Object.values(SC.spLayers).filter(Boolean).length;
+    sct('sp-sub', `${SC.spCam} Camera · ${lyOn} layers active · Hover to orbit`);
+    $$('[data-sc-act="sp-cam"]', loop).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.cam === SC.spCam)));
+    ['mesh', 'rim', 'fog'].forEach(k => {
+      const on = SC.spLayers[k];
+      sct(`sp-ly-${k}`, on ? 'On' : 'Off');
+      $$(`[data-sc-act="sp-layer"][data-ly="${k}"]`, loop).forEach(b => b.setAttribute('aria-pressed', String(on)));
+    });
+
+    const ordSubs = ['Order packed · Preparing pickup', 'In transit · Regional hub', 'Out for delivery · ETA 14 mins', 'Delivered · Signed at porch'];
+    const ordWidths = ['18%', '46%', '68%', '100%'];
+    sct('ord-sub', ordSubs[SC.ordStep] || ordSubs[2]);
+    $$('[data-sc-bind="ord-bar"]', loop).forEach(el => { el.style.width = ordWidths[SC.ordStep] || '68%'; });
+    [0, 1, 2, 3].forEach(i => {
+      $$(`[data-sc-bind="ord-s${i}"]`, loop).forEach(el => {
+        el.style.color = i === SC.ordStep ? 'var(--accent-text)' : '';
+        el.classList.toggle('sec', i > SC.ordStep);
+      });
+    });
+
+    sct('cur-btn', SC.curFollow ? 'Following' : 'Free Pan');
+    sct('cur-sub', SC.curFollow ? '3 collaborators editing · Synced' : '3 collaborators editing');
+    $$('[data-sc-act="cur-follow"]', loop).forEach(b => b.setAttribute('aria-pressed', String(SC.curFollow)));
+
+    sct('bp-sub', SC.bpAlt ? 'Boarding Zone 2 · Seat 14A' : 'Gate B12 · Seat 14A');
+    sct('bp-pill', SC.bpAlt ? 'Boarding' : 'On Time');
+
+    const SQLS = {
+      users: ['1.4ms · B-Tree Index Scan · 128 rows', 'SELECT id, email, plan FROM users WHERE active = true LIMIT 50;'],
+      orders: ['4.8ms · Hash Join · 1,024 rows', 'SELECT o.id, o.total FROM orders o JOIN users u ON u.id = o.user_id;'],
+      metrics: ['2.1ms · Materialized Rollup · 30 rows', 'SELECT day, SUM(clicks) FROM seo_metrics GROUP BY day ORDER BY day DESC;']
+    };
+    const [sSub, sCode] = SQLS[SC.sqlQ] || SQLS.users;
+    sct('sql-sub', sSub);
+    sct('sql-code', sCode);
+    $$('[data-sc-act="sql-q"]', loop).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.q === SC.sqlQ)));
+  };
+  renderScBatch4();
     }
     else if (a === 'shim-mode') { SC.shimMode = el.dataset.sm || 'AI Stream'; renderScHoverLoops(); }
     else if (a === 'sync-now') { SC.syncPct = SC.syncPct >= 95 ? 71 : SC.syncPct + 8; renderScBatch2(); }
@@ -4765,6 +5007,14 @@ document.addEventListener('DOMContentLoaded', () => {
     else if (a === 'cdn-reg') { SC.cdnReg = el.dataset.reg || 'Americas'; renderScBatch3(); }
     else if (a === 'bnd-mode') { SC.bndGzip = !SC.bndGzip; renderScBatch3(); }
     else if (a === 'wh-retry') { SC.whRetried = !SC.whRetried; renderScBatch3(); }
+    else if (a === 'th-step') { SC.thTemp = Math.min(28, Math.max(16, SC.thTemp + (Number(el.dataset.dir) || 0))); renderScBatch4(); }
+    else if (a === 'th-mode') { const ms = ['Eco', 'Heat', 'Cool']; SC.thMode = ms[(ms.indexOf(SC.thMode) + 1) % ms.length]; renderScBatch4(); }
+    else if (a === 'sp-cam') { SC.spCam = el.dataset.cam || 'Iso'; renderScBatch4(); }
+    else if (a === 'sp-layer') { const k = el.dataset.ly; if (k && k in SC.spLayers) { SC.spLayers[k] = !SC.spLayers[k]; renderScBatch4(); } }
+    else if (a === 'ord-next') { SC.ordStep = (SC.ordStep + 1) % 4; renderScBatch4(); }
+    else if (a === 'cur-follow') { SC.curFollow = !SC.curFollow; renderScBatch4(); }
+    else if (a === 'bp-gate') { SC.bpAlt = !SC.bpAlt; renderScBatch4(); }
+    else if (a === 'sql-q') { SC.sqlQ = el.dataset.q || 'users'; renderScBatch4(); }
     else if (a === 'copy-tokens') {
       const cs = getComputedStyle(root);
       const cssVars = `:root {\n  --accent: ${cs.getPropertyValue('--accent').trim()};\n  --surface: ${cs.getPropertyValue('--surface').trim()};\n  --card-pad: ${cs.getPropertyValue('--card-pad').trim()};\n  --font-display: ${cs.getPropertyValue('--font-display').trim()};\n}`;
