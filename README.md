@@ -2,7 +2,7 @@
 
 # Infinite Bento (`UIzBENTO`)
 
-**188 interactive, responsive Bento UI cards with live theme customization, shareable theme URLs, `⌘K` command palette, one-click card/CSS export, and GSAP choreography.**
+**196 interactive, responsive Bento UI cards with live theme customization, shareable theme URLs, `⌘K` command palette, one-click card/CSS export, and GSAP choreography.**
 
 [![Live Demo](https://img.shields.io/badge/Live_Demo-uizbento.vercel.app-65a30d?style=for-the-badge&logo=vercel&logoColor=white)](https://uizbento.vercel.app/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.4-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
@@ -24,7 +24,7 @@ Most UI showcases are static screenshots. `UIzBENTO` is a **zero-runtime, copy-r
 
 | Capability | What It Does |
 | :--- | :--- |
-| **188 Interactive Cards** | Every card is responsive, keyboard-accessible, and interactive out of the box, including hover-loop animations. |
+| **196 Interactive Cards** | Every card is responsive, keyboard-accessible, and interactive out of the box, including hover-loop animations. |
 | **One-Click Multi-Framework Copy** | Switch between **HTML**, **React (TSX)**, **Vue**, and **Svelte** in the dock or studio — hover any card and click **Copy** to grab Tailwind-styled component code with its hover animation CSS preserved. |
 | **Appearance Studio (`Theme & Fonts`)** | Switch between 6 color presets (`Olive`, `Cobalt`, `Indigo`, `Ember`, `Rose`, `Mono`), `Light / Dark / Auto`, **Classic / Liquid Glass** surface materials, 5 font pairings, and `Comfortable / Compact` density — persisted in `localStorage`. |
 | **Shareable Theme URLs** | Syncs active theme state to URL query params (e.g. `?theme=cobalt&scheme=dark&font=syne`) with a one-click **Share URL** button. |
@@ -48,7 +48,8 @@ Organized across four modular sections (`Dashboard`, `Widgets`, `SEO Analytics`,
 | **Showcase & Commerce** | Pricing toggles, live CSS token exporter, community invites, interactive forms, login & onboarding states |
 | **Designers, DevTools & AI** | WCAG contrast checker, typography scale, radius/elevation previewer, CLI snippet, API key manager, 2FA OTP, 30-day uptime, PR/CI checks, feature flags, AI token/cost estimator, and 26 hover-loop cards |
 | **Smart Home, Spatial, Commerce, Collab, Travel & DB** | Climate dial, 3D spatial layer inspector, live order delivery tracker, multiplayer canvas cursors, digital boarding pass, and SQL query & index profiler |
-| **macOS, Windows & Linux OS Utilities** | Activity Monitor CPU cores, Spotlight quick launcher, display True Tone hub, tiling window manager, AirDrop/local share radar, `htop` shell monitor, Wi-Fi 7 throughput, and cross-OS clipboard history |
+| **macOS, Windows & Linux OS Utilities** | Activity Monitor CPU cores, Spotlight quick launcher, display True Tone hub, tiling window manager, AirDrop/local share radar, `htop` shell monitor, Wi-Fi 7 throughput, cross-OS clipboard history, sound output, firewall/privacy, power/fan curve, and keyboard/trackpad settings |
+| **Gaming UI** | Live FPS & GPU telemetry HUD (`sc-12`), DualSense controller battery & haptics, ranked match queue lobby, and achievement/XP progression bar |
 
 ---
 

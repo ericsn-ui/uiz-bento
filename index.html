@@ -7,20 +7,20 @@
 <meta name="theme-color" content="#f2f2f7" media="(prefers-color-scheme: light)" />
 <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)" />
 <title>Infinite Bento: Dashboard &amp; Widgets</title>
-<meta name="description" content="An infinite, full-viewport bento grid of 188 interactive dashboard cards, widgets, and SEO components." />
+<meta name="description" content="An infinite, full-viewport bento grid of 196 interactive dashboard cards, widgets, and SEO components." />
 <meta name="referrer" content="strict-origin-when-cross-origin" />
 <link rel="canonical" href="https://uizbento.vercel.app/" />
 <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://uizbento.vercel.app/" />
 <meta property="og:title" content="Infinite Bento: Dashboard &amp; Widgets" />
-<meta property="og:description" content="An infinite, full-viewport bento grid of 188 interactive dashboard cards, widgets, and SEO analytics components." />
+<meta property="og:description" content="An infinite, full-viewport bento grid of 196 interactive dashboard cards, widgets, and SEO analytics components." />
 <meta property="og:image" content="https://uizbento.vercel.app/og-image.png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Infinite Bento: Dashboard &amp; Widgets" />
-<meta name="twitter:description" content="An infinite, full-viewport bento grid of 188 interactive dashboard cards, widgets, and SEO analytics components." />
+<meta name="twitter:description" content="An infinite, full-viewport bento grid of 196 interactive dashboard cards, widgets, and SEO analytics components." />
 <meta name="twitter:image" content="https://uizbento.vercel.app/og-image.png" />
 <script type="application/ld+json">
 {
@@ -30,7 +30,7 @@
   "applicationCategory": "DesignApplication",
   "operatingSystem": "Web",
   "url": "https://uizbento.vercel.app/",
-  "description": "188 interactive responsive bento dashboard cards, widgets, SEO analytics panels, and live Appearance Studio tokens."
+  "description": "196 interactive responsive bento dashboard cards, widgets, SEO analytics panels, and live Appearance Studio tokens."
 }
 </script>
 
@@ -43,9 +43,9 @@
 <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
 <link rel="preconnect" href="https://images.unsplash.com" crossorigin />
 <link rel="preconnect" href="https://images.pexels.com" crossorigin />
-<link rel="preload" as="style" href="./styles.css?v=19" />
+<link rel="preload" as="style" href="./styles.css?v=20" />
 <link rel="preload" as="image" href="./glass-bg.svg" fetchpriority="high" />
-<link rel="stylesheet" href="./styles.css?v=19" />
+<link rel="stylesheet" href="./styles.css?v=20" />
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
@@ -2329,7 +2329,7 @@
             <span class="sec text-subhead">/ mo per seat</span>
           </div>
           <ul class="grid gap-1.5 text-subhead">
-            <li class="flex items-center gap-2.5"><svg class="ic sm shrink-0" style="color:var(--accent-text)" aria-hidden="true"><use href="#i-check"/></svg><span>188 responsive dashboard &amp; widget cards</span></li>
+            <li class="flex items-center gap-2.5"><svg class="ic sm shrink-0" style="color:var(--accent-text)" aria-hidden="true"><use href="#i-check"/></svg><span>196 responsive dashboard &amp; widget cards</span></li>
             <li class="flex items-center gap-2.5"><svg class="ic sm shrink-0" style="color:var(--accent-text)" aria-hidden="true"><use href="#i-check"/></svg><span>Live Appearance Studio themes &amp; ⌘K jump</span></li>
             <li class="flex items-center gap-2.5"><svg class="ic sm shrink-0" style="color:var(--accent-text)" aria-hidden="true"><use href="#i-check"/></svg><span>Pre-compiled CSS &amp; static Vercel bundle</span></li>
           </ul>
@@ -3312,6 +3312,138 @@
           </div>
         </article>
 
+        <!-- SC-81 Gaming UI: Live FPS, Frame-Time & GPU Telemetry HUD (sc-12 Large x2 #1) -->
+        <article class="card sc-12 justify-between gap-4" data-sc="gaming-fps" aria-label="Gaming FPS and GPU Telemetry HUD">
+          <div class="flex flex-wrap items-center justify-between gap-2">
+            <div><h2 class="text-title2">Gaming Telemetry HUD</h2><p class="sec font-mono text-footnote tnum" data-sc-bind="fps-sub">240Hz Competitive · 4.2 ms frame time · 61°C GPU</p></div>
+            <div class="flex gap-1 rounded-full bg-fill p-1" role="group" aria-label="Graphics preset">
+              <button class="btn tog !min-h-[2rem] px-3 text-footnote" type="button" aria-pressed="true" data-sc-act="fps-mode" data-fm="240hz">240Hz Comp</button>
+              <button class="btn tog !min-h-[2rem] px-3 text-footnote" type="button" aria-pressed="false" data-sc-act="fps-mode" data-fm="dlss">DLSS Quality</button>
+              <button class="btn tog !min-h-[2rem] px-3 text-footnote" type="button" aria-pressed="false" data-sc-act="fps-mode" data-fm="ultra">1440p Ultra</button>
+            </div>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-12 gap-3 items-center">
+            <div class="md:col-span-4 grid grid-cols-2 gap-2">
+              <div class="soft !p-3"><span class="sec text-footnote">Avg FPS</span><b class="block text-title1 tnum" data-sc-bind="fps-val">238</b></div>
+              <div class="soft !p-3"><span class="sec text-footnote">1% Low</span><b class="block text-title1 tnum" data-sc-bind="fps-low">196</b></div>
+            </div>
+            <div class="soft md:col-span-8 flex h-20 items-end gap-1.5 !p-3" aria-hidden="true">
+              <span class="sc-fps-bar" style="--f-h:.72;--f-d:.00s"></span>
+              <span class="sc-fps-bar" style="--f-h:.88;--f-d:.06s"></span>
+              <span class="sc-fps-bar" style="--f-h:.64;--f-d:.12s"></span>
+              <span class="sc-fps-bar" style="--f-h:.94;--f-d:.18s"></span>
+              <span class="sc-fps-bar" style="--f-h:.82;--f-d:.24s"></span>
+              <span class="sc-fps-bar" style="--f-h:.76;--f-d:.30s"></span>
+              <span class="sc-fps-bar" style="--f-h:.96;--f-d:.36s"></span>
+              <span class="sc-fps-bar" style="--f-h:.85;--f-d:.42s"></span>
+              <span class="sc-fps-bar" style="--f-h:.68;--f-d:.48s"></span>
+              <span class="sc-fps-bar" style="--f-h:.90;--f-d:.54s"></span>
+              <span class="sc-fps-bar" style="--f-h:.79;--f-d:.60s"></span>
+              <span class="sc-fps-bar" style="--f-h:.92;--f-d:.66s"></span>
+            </div>
+          </div>
+        </article>
+
+        <!-- SC-82 OS Settings: Sound Output Switcher (sc-2 Small #1) -->
+        <article class="card sc-2 items-center justify-between gap-2 text-center" data-sc="os-sound" aria-label="OS Sound Output Switcher">
+          <span class="sec text-footnote font-semibold">Audio Out</span>
+          <div class="sc-spk-ring grid h-12 w-12 place-items-center rounded-full bg-tile border border-sep">
+            <svg class="ic sm" style="color:var(--accent-text)" aria-hidden="true"><use href="#i-mic"/></svg>
+          </div>
+          <button class="btn btn-secondary w-full !min-h-[2rem] px-2 text-footnote truncate" type="button" data-sc-act="snd-out" data-sc-bind="snd-lbl">Studio Buds</button>
+        </article>
+
+        <!-- SC-83 Gaming UI: Controller Battery & Haptics (sc-2 Small #2) -->
+        <article class="card sc-2 items-center justify-between gap-2 text-center" data-sc="pad-battery" aria-label="Gaming Controller Battery">
+          <span class="sec text-footnote font-semibold">DualSense</span>
+          <div class="sc-pad-ic grid h-12 w-12 place-items-center rounded-full bg-tile border border-sep">
+            <b class="font-mono text-subhead tnum" style="color:var(--accent-text)">86%</b>
+          </div>
+          <button class="btn tog w-full !min-h-[2rem] px-2 text-footnote" type="button" aria-pressed="true" data-sc-act="pad-haptic" data-sc-bind="pad-lbl">Haptic: Hi</button>
+        </article>
+
+        <!-- SC-84 OS Settings: Privacy, Firewall & Gatekeeper Shield (sc-8 Large #2) -->
+        <article class="card sc-8 justify-between gap-3" data-sc="os-firewall" aria-label="OS Privacy and Firewall Settings">
+          <div class="flex flex-wrap items-center justify-between gap-2">
+            <div><h2 class="text-title2">Firewall &amp; Privacy</h2><p class="sec text-footnote" data-sc-bind="fw-os-sub">macOS PF + Gatekeeper · 3/3 rules active</p></div>
+            <div class="flex gap-1 rounded-full bg-fill p-1" role="group" aria-label="OS firewall engine">
+              <button class="btn tog !min-h-[2rem] px-2.5 text-footnote" type="button" aria-pressed="true" data-sc-act="fw-os" data-os="mac">macOS</button>
+              <button class="btn tog !min-h-[2rem] px-2.5 text-footnote" type="button" aria-pressed="false" data-sc-act="fw-os" data-os="win">Win 11</button>
+              <button class="btn tog !min-h-[2rem] px-2.5 text-footnote" type="button" aria-pressed="false" data-sc-act="fw-os" data-os="linux">Linux ufw</button>
+            </div>
+          </div>
+          <div class="soft relative overflow-hidden grid grid-cols-1 sm:grid-cols-3 gap-2 !p-3 text-footnote">
+            <div class="sc-fw-beam" aria-hidden="true"></div>
+            <button class="soft !py-2 !px-3 flex items-center justify-between" type="button" role="switch" aria-checked="true" data-sc-act="fw-rule" data-r="stealth"><span class="font-semibold">Stealth Mode</span><span class="pill accent" data-sc-bind="fw-r-stealth">On</span></button>
+            <button class="soft !py-2 !px-3 flex items-center justify-between" type="button" role="switch" aria-checked="true" data-sc-act="fw-rule" data-r="block"><span class="font-semibold">Block Inbound</span><span class="pill accent" data-sc-bind="fw-r-block">On</span></button>
+            <button class="soft !py-2 !px-3 flex items-center justify-between" type="button" role="switch" aria-checked="true" data-sc-act="fw-rule" data-r="doh"><span class="font-semibold">DNS-over-HTTPS</span><span class="pill accent" data-sc-bind="fw-r-doh">On</span></button>
+          </div>
+        </article>
+
+        <!-- SC-85 OS Settings: Power Mode & Thermal Fan Curve (sc-5) -->
+        <article class="card sc-5 justify-between gap-3" data-sc="os-power" aria-label="OS Power Mode and Thermal Fan">
+          <div class="flex items-center justify-between gap-2">
+            <div><h2 class="text-title2">Power &amp; Thermal</h2><p class="sec font-mono text-footnote tnum" data-sc-bind="pwr-sub">Auto · 2,400 RPM · Whisper</p></div>
+            <div class="grid h-10 w-10 place-items-center rounded-full bg-tile border border-sep">
+              <svg class="ic sm sc-fan-ic" style="color:var(--accent-text)" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="2.2" fill="currentColor"/><path d="M12 3a4 4 0 0 1 3 6.5M21 12a4 4 0 0 1-6.5 3M12 21a4 4 0 0 1-3-6.5M3 12a4 4 0 0 1 6.5-3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" fill="none"/></svg>
+            </div>
+          </div>
+          <div class="flex gap-1 rounded-full bg-fill p-1" role="group" aria-label="Power profile">
+            <button class="btn tog !min-h-[2rem] flex-1 px-2 text-footnote" type="button" aria-pressed="false" data-sc-act="pwr-mode" data-pm="low">Low</button>
+            <button class="btn tog !min-h-[2rem] flex-1 px-2 text-footnote" type="button" aria-pressed="true" data-sc-act="pwr-mode" data-pm="auto">Auto</button>
+            <button class="btn tog !min-h-[2rem] flex-1 px-2 text-footnote" type="button" aria-pressed="false" data-sc-act="pwr-mode" data-pm="turbo">Turbo</button>
+          </div>
+        </article>
+
+        <!-- SC-86 Gaming UI: Esports Match Queue & Party Lobby (sc-7) -->
+        <article class="card sc-7 justify-between gap-3" data-sc="game-lobby" aria-label="Gaming Match Queue and Lobby">
+          <div class="flex flex-wrap items-center justify-between gap-2">
+            <div class="flex items-center gap-2.5">
+              <span class="sc-q-dot h-3 w-3 rounded-full bg-accent" aria-hidden="true"></span>
+              <div><h2 class="text-title2">Ranked Queue</h2><p class="sec font-mono text-footnote tnum" data-sc-bind="lob-sub">Searching Tokyo (14ms) · 00:18</p></div>
+            </div>
+            <button class="btn btn-primary !min-h-[2rem] px-3 text-footnote" type="button" aria-pressed="true" data-sc-act="lob-toggle" data-sc-bind="lob-btn">In Queue</button>
+          </div>
+          <div class="flex flex-wrap items-center justify-between gap-2">
+            <div class="flex gap-1 rounded-full bg-fill p-1" role="group" aria-label="Server region">
+              <button class="btn tog !min-h-[2rem] px-2.5 text-footnote" type="button" aria-pressed="true" data-sc-act="lob-reg" data-lr="Tokyo (14ms)">Tokyo</button>
+              <button class="btn tog !min-h-[2rem] px-2.5 text-footnote" type="button" aria-pressed="false" data-sc-act="lob-reg" data-lr="NA-West (22ms)">NA-West</button>
+              <button class="btn tog !min-h-[2rem] px-2.5 text-footnote" type="button" aria-pressed="false" data-sc-act="lob-reg" data-lr="EU (29ms)">EU</button>
+            </div>
+            <span class="pill font-mono text-footnote">3/5 Party Ready</span>
+          </div>
+        </article>
+
+        <!-- SC-87 OS Settings: Keyboard & Trackpad Preferences (sc-6) -->
+        <article class="card sc-6 justify-between gap-3" data-sc="os-input" aria-label="OS Keyboard and Trackpad Settings">
+          <div class="flex items-center justify-between gap-2">
+            <div><h2 class="text-title2">Input &amp; Keys</h2><p class="sec text-footnote" data-sc-bind="in-sub">2 tweaks enabled · Cross-OS</p></div>
+            <span class="pill font-mono text-footnote">Caps → Ctrl</span>
+          </div>
+          <div class="grid gap-1.5 text-footnote">
+            <button class="soft sc-in-row !py-2 !px-3 flex items-center justify-between" style="--in-d:0s" type="button" role="switch" aria-checked="true" data-sc-act="in-tgl" data-k="caps"><span class="font-semibold">Swap Caps Lock &amp; Ctrl</span><span class="pill accent" data-sc-bind="in-k-caps">On</span></button>
+            <button class="soft sc-in-row !py-2 !px-3 flex items-center justify-between" style="--in-d:.4s" type="button" role="switch" aria-checked="true" data-sc-act="in-tgl" data-k="tap"><span class="font-semibold">Tap to Click Trackpad</span><span class="pill accent" data-sc-bind="in-k-tap">On</span></button>
+          </div>
+        </article>
+
+        <!-- SC-88 Gaming UI: Achievement Unlocked & XP Bar (sc-6) -->
+        <article class="card sc-6 justify-between gap-3" data-sc="game-xp" aria-label="Gaming Achievement and XP Progression">
+          <div class="flex items-center justify-between gap-2">
+            <div><h2 class="text-title2">Level <span class="tnum" data-sc-bind="xp-lvl">42</span> · Mythic</h2><p class="sec font-mono text-footnote tnum" data-sc-bind="xp-sub">2,750 / 3,000 XP · Achievement Ready</p></div>
+            <button class="btn btn-primary !min-h-[2rem] px-3 text-footnote" type="button" data-sc-act="xp-claim">Claim +250 XP</button>
+          </div>
+          <div class="soft !p-3 grid gap-2">
+            <div class="relative h-2.5 overflow-hidden rounded-full bg-fill" aria-hidden="true">
+              <div class="h-full rounded-full" data-sc-bind="xp-bar" style="width:92%;background:var(--accent)"></div>
+              <div class="sc-xp-shine"></div>
+            </div>
+            <div class="flex items-center justify-between text-footnote sec font-mono">
+              <span>Quest: Zero-Drop 10x</span>
+              <span style="color:var(--accent-text)">+250 XP</span>
+            </div>
+          </div>
+        </article>
+
       </div>
       </div>
     </div>
@@ -3335,7 +3467,7 @@
     <h2 id="cmd-title" class="sr-only">Command palette</h2>
     <div class="flex items-center gap-3 border-b border-sep px-4 py-3">
       <svg class="ic sec" aria-hidden="true"><use href="#i-search"/></svg>
-      <input id="cmd-input" class="w-full bg-transparent text-body text-label placeholder:text-secondary focus:outline-none" type="search" autofocus placeholder="Search 188 bento cards or run an action…" aria-label="Search cards and actions" />
+      <input id="cmd-input" class="w-full bg-transparent text-body text-label placeholder:text-secondary focus:outline-none" type="search" autofocus placeholder="Search 196 bento cards or run an action…" aria-label="Search cards and actions" />
       <kbd class="cmd-kbd hidden sm:inline-flex">Esc</kbd>
       <button id="closeCmd" class="btn btn-secondary btn-icon !min-h-[2.25rem] !w-9" type="button" aria-label="Close command palette"><svg class="ic" style="width:1.125rem;height:1.125rem" aria-hidden="true"><use href="#i-plus" style="transform:rotate(45deg);transform-origin:center"/></svg></button>
     </div>
@@ -3694,7 +3826,15 @@ document.addEventListener('DOMContentLoaded', () => {
     'airdrop-radar': '@keyframes sc-air-wave{0%{transform:scale(.68);opacity:.8}100%{transform:scale(1.52);opacity:0}}[data-sc="airdrop-radar"]:hover .sc-air-ring{animation:sc-air-wave 1.9s cubic-bezier(.16,1,.3,1) var(--a-d,0s) infinite}',
     'linux-htop': '@keyframes sc-term-blink{0%,49%{opacity:1}50%,100%{opacity:0}}[data-sc="linux-htop"]:hover .sc-term-cur{animation:sc-term-blink .9s steps(1) infinite}',
     'wifi-meter': '@keyframes sc-wifi-arc{0%,100%{opacity:.3;transform:scale(.94)}50%{opacity:1;transform:scale(1.04)}}[data-sc="wifi-meter"]:hover .sc-wf-arc{animation:sc-wifi-arc 1.4s ease-in-out var(--w-d,0s) infinite}',
-    'clip-history': '@keyframes sc-clip-glide{0%,100%{border-color:var(--sep)}50%{border-color:var(--accent)}}[data-sc="clip-history"]:hover .sc-clip-row{animation:sc-clip-glide 2s ease-in-out var(--cl-d,0s) infinite}'
+    'clip-history': '@keyframes sc-clip-glide{0%,100%{border-color:var(--sep)}50%{border-color:var(--accent)}}[data-sc="clip-history"]:hover .sc-clip-row{animation:sc-clip-glide 2s ease-in-out var(--cl-d,0s) infinite}',
+    'gaming-fps': '@keyframes sc-fps-wave{0%,100%{transform:scaleY(.55);opacity:.75}50%{transform:scaleY(1);opacity:1}}[data-sc="gaming-fps"]:hover .sc-fps-bar{animation:sc-fps-wave .9s ease-in-out var(--f-d,0s) infinite}',
+    'os-sound': '@keyframes sc-spk-wave{0%,100%{opacity:.35;transform:scale(.92)}50%{opacity:1;transform:scale(1.08)}}[data-sc="os-sound"]:hover .sc-spk-ring{animation:sc-spk-wave 1.3s ease-in-out infinite}',
+    'pad-battery': '@keyframes sc-pad-pulse{0%,100%{transform:rotate(0) scale(1)}25%{transform:rotate(-4deg) scale(1.04)}75%{transform:rotate(4deg) scale(1.04)}}[data-sc="pad-battery"]:hover .sc-pad-ic{animation:sc-pad-pulse 1.1s ease-in-out infinite}',
+    'os-firewall': '@keyframes sc-fw-sweep{0%{transform:translateX(-100%);opacity:0}20%,80%{opacity:1}100%{transform:translateX(260%);opacity:0}}[data-sc="os-firewall"]:hover .sc-fw-beam{animation:sc-fw-sweep 1.8s ease-in-out infinite}',
+    'os-power': '@keyframes sc-fan-spin{to{transform:rotate(360deg)}}[data-sc="os-power"]:hover .sc-fan-ic{animation:sc-fan-spin 1.4s linear infinite}',
+    'game-lobby': '@keyframes sc-queue-pulse{0%,100%{box-shadow:0 0 0 0 color-mix(in srgb,var(--accent) 45%,transparent)}70%,100%{box-shadow:0 0 0 10px transparent}}[data-sc="game-lobby"]:hover .sc-q-dot{animation:sc-queue-pulse 1.3s ease-out infinite}',
+    'os-input': '@keyframes sc-in-sheen{0%,100%{border-color:var(--sep)}50%{border-color:var(--accent)}}[data-sc="os-input"]:hover .sc-in-row{animation:sc-in-sheen 1.9s ease-in-out var(--in-d,0s) infinite}',
+    'game-xp': '@keyframes sc-xp-glint{0%{transform:translateX(-100%)}100%{transform:translateX(240%)}}[data-sc="game-xp"]:hover .sc-xp-shine{animation:sc-xp-glint 1.5s ease-in-out infinite}'
   };
 
   const toReactJsx = html => {
@@ -4358,7 +4498,15 @@ document.addEventListener('DOMContentLoaded', () => {
     airVis: 'Contacts', airDev: 'MacBook Pro',
     htSh: 'zsh',
     wfMode: 0,
-    clLast: ''
+    clLast: '',
+    fpsMode: '240hz',
+    sndOut: 0,
+    padHap: 0,
+    fwOs: 'mac', fwRules: { stealth: true, block: true, doh: true },
+    pwrMode: 'auto',
+    lobOn: true, lobReg: 'Tokyo (14ms)',
+    inKeys: { caps: true, tap: true },
+    xpLvl: 42, xpVal: 2750
   };
   const sct = (k, v) => $$(`[data-sc-bind="${k}"]`, loop).forEach(el => { if (el.textContent !== v) el.textContent = v; });
   const toHexColor = (val, fallback) => {
@@ -4856,6 +5004,57 @@ document.addEventListener('DOMContentLoaded', () => {
     sct('cl-sub', SC.clLast ? `Copied: ${SC.clLast.slice(0, 26)}…` : 'Click any entry to copy & pin');
   };
   renderScBatch5();
+  const renderScBatch6 = () => {
+    const FPS = {
+      '240hz': ['240Hz Competitive · 4.2 ms frame time · 61°C GPU', '238', '196'],
+      dlss: ['DLSS Quality · 6.9 ms frame time · 66°C GPU', '144', '118'],
+      ultra: ['1440p Ultra RT · 9.6 ms frame time · 71°C GPU', '104', '86']
+    };
+    const [fSub, fVal, fLow] = FPS[SC.fpsMode] || FPS['240hz'];
+    sct('fps-sub', fSub); sct('fps-val', fVal); sct('fps-low', fLow);
+    $$('[data-sc-act="fps-mode"]', loop).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.fm === SC.fpsMode)));
+
+    const SNDS = ['Studio Buds', 'HDMI Audio', 'Mac Speakers'];
+    sct('snd-lbl', SNDS[SC.sndOut % SNDS.length]);
+
+    const HAPS = [['Haptic: Hi', true], ['Haptic: Lo', true], ['Haptic: Off', false]];
+    const [hLbl, hPr] = HAPS[SC.padHap % HAPS.length];
+    sct('pad-lbl', hLbl);
+    $$('[data-sc-act="pad-haptic"]', loop).forEach(b => b.setAttribute('aria-pressed', String(hPr)));
+
+    const FW_OS = { mac: 'macOS PF + Gatekeeper', win: 'Windows Defender Firewall', linux: 'Linux ufw + nftables' };
+    const fwCnt = Object.values(SC.fwRules).filter(Boolean).length;
+    sct('fw-os-sub', `${FW_OS[SC.fwOs] || FW_OS.mac} · ${fwCnt}/3 rules active`);
+    $$('[data-sc-act="fw-os"]', loop).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.os === SC.fwOs)));
+    ['stealth', 'block', 'doh'].forEach(r => {
+      const on = SC.fwRules[r];
+      sct(`fw-r-${r}`, on ? 'On' : 'Off');
+      $$(`[data-sc-act="fw-rule"][data-r="${r}"]`, loop).forEach(b => b.setAttribute('aria-checked', String(on)));
+    });
+
+    const PWRS = { low: 'Low Power · 1,400 RPM · Silent', auto: 'Auto · 2,400 RPM · Whisper', turbo: 'Turbo · 4,200 RPM · Max Cooling' };
+    sct('pwr-sub', PWRS[SC.pwrMode] || PWRS.auto);
+    $$('[data-sc-act="pwr-mode"]', loop).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.pm === SC.pwrMode)));
+
+    sct('lob-sub', SC.lobOn ? `Searching ${SC.lobReg} · 00:18` : `Ready · ${SC.lobReg}`);
+    sct('lob-btn', SC.lobOn ? 'In Queue' : 'Find Match');
+    $$('[data-sc-act="lob-toggle"]', loop).forEach(b => b.setAttribute('aria-pressed', String(SC.lobOn)));
+    $$('[data-sc-act="lob-reg"]', loop).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.lr === SC.lobReg)));
+
+    const inCnt = Object.values(SC.inKeys).filter(Boolean).length;
+    sct('in-sub', `${inCnt} tweaks enabled · Cross-OS`);
+    ['caps', 'tap'].forEach(k => {
+      const on = SC.inKeys[k];
+      sct(`in-k-${k}`, on ? 'On' : 'Off');
+      $$(`[data-sc-act="in-tgl"][data-k="${k}"]`, loop).forEach(b => b.setAttribute('aria-checked', String(on)));
+    });
+
+    const pct = Math.min(100, Math.round((SC.xpVal / 3000) * 100));
+    sct('xp-lvl', String(SC.xpLvl));
+    sct('xp-sub', `${SC.xpVal.toLocaleString()} / 3,000 XP · Achievement Ready`);
+    $$('[data-sc-bind="xp-bar"]', loop).forEach(el => { el.style.width = `${pct}%`; });
+  };
+  renderScBatch6();
   $$('button[aria-label]:not([title])', loop).forEach(b => { b.title = b.getAttribute('aria-label'); });
   loop.addEventListener('click', e => {
     const el = e.target.closest('[data-sc-act]'); if (!el) return;
@@ -5125,6 +5324,57 @@ document.addEventListener('DOMContentLoaded', () => {
     sct('cl-sub', SC.clLast ? `Copied: ${SC.clLast.slice(0, 26)}…` : 'Click any entry to copy & pin');
   };
   renderScBatch5();
+  const renderScBatch6 = () => {
+    const FPS = {
+      '240hz': ['240Hz Competitive · 4.2 ms frame time · 61°C GPU', '238', '196'],
+      dlss: ['DLSS Quality · 6.9 ms frame time · 66°C GPU', '144', '118'],
+      ultra: ['1440p Ultra RT · 9.6 ms frame time · 71°C GPU', '104', '86']
+    };
+    const [fSub, fVal, fLow] = FPS[SC.fpsMode] || FPS['240hz'];
+    sct('fps-sub', fSub); sct('fps-val', fVal); sct('fps-low', fLow);
+    $$('[data-sc-act="fps-mode"]', loop).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.fm === SC.fpsMode)));
+
+    const SNDS = ['Studio Buds', 'HDMI Audio', 'Mac Speakers'];
+    sct('snd-lbl', SNDS[SC.sndOut % SNDS.length]);
+
+    const HAPS = [['Haptic: Hi', true], ['Haptic: Lo', true], ['Haptic: Off', false]];
+    const [hLbl, hPr] = HAPS[SC.padHap % HAPS.length];
+    sct('pad-lbl', hLbl);
+    $$('[data-sc-act="pad-haptic"]', loop).forEach(b => b.setAttribute('aria-pressed', String(hPr)));
+
+    const FW_OS = { mac: 'macOS PF + Gatekeeper', win: 'Windows Defender Firewall', linux: 'Linux ufw + nftables' };
+    const fwCnt = Object.values(SC.fwRules).filter(Boolean).length;
+    sct('fw-os-sub', `${FW_OS[SC.fwOs] || FW_OS.mac} · ${fwCnt}/3 rules active`);
+    $$('[data-sc-act="fw-os"]', loop).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.os === SC.fwOs)));
+    ['stealth', 'block', 'doh'].forEach(r => {
+      const on = SC.fwRules[r];
+      sct(`fw-r-${r}`, on ? 'On' : 'Off');
+      $$(`[data-sc-act="fw-rule"][data-r="${r}"]`, loop).forEach(b => b.setAttribute('aria-checked', String(on)));
+    });
+
+    const PWRS = { low: 'Low Power · 1,400 RPM · Silent', auto: 'Auto · 2,400 RPM · Whisper', turbo: 'Turbo · 4,200 RPM · Max Cooling' };
+    sct('pwr-sub', PWRS[SC.pwrMode] || PWRS.auto);
+    $$('[data-sc-act="pwr-mode"]', loop).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.pm === SC.pwrMode)));
+
+    sct('lob-sub', SC.lobOn ? `Searching ${SC.lobReg} · 00:18` : `Ready · ${SC.lobReg}`);
+    sct('lob-btn', SC.lobOn ? 'In Queue' : 'Find Match');
+    $$('[data-sc-act="lob-toggle"]', loop).forEach(b => b.setAttribute('aria-pressed', String(SC.lobOn)));
+    $$('[data-sc-act="lob-reg"]', loop).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.lr === SC.lobReg)));
+
+    const inCnt = Object.values(SC.inKeys).filter(Boolean).length;
+    sct('in-sub', `${inCnt} tweaks enabled · Cross-OS`);
+    ['caps', 'tap'].forEach(k => {
+      const on = SC.inKeys[k];
+      sct(`in-k-${k}`, on ? 'On' : 'Off');
+      $$(`[data-sc-act="in-tgl"][data-k="${k}"]`, loop).forEach(b => b.setAttribute('aria-checked', String(on)));
+    });
+
+    const pct = Math.min(100, Math.round((SC.xpVal / 3000) * 100));
+    sct('xp-lvl', String(SC.xpLvl));
+    sct('xp-sub', `${SC.xpVal.toLocaleString()} / 3,000 XP · Achievement Ready`);
+    $$('[data-sc-bind="xp-bar"]', loop).forEach(el => { el.style.width = `${pct}%`; });
+  };
+  renderScBatch6();
     }
     else if (a === 'radar-mode') { SC.radarMode = el.dataset.rm || 'deep'; renderScHoverLoops(); }
     else if (a === 'orb-pick') { SC.orbApp = el.dataset.app || 'GitHub'; renderScHoverLoops(); }
@@ -5300,6 +5550,57 @@ document.addEventListener('DOMContentLoaded', () => {
     sct('cl-sub', SC.clLast ? `Copied: ${SC.clLast.slice(0, 26)}…` : 'Click any entry to copy & pin');
   };
   renderScBatch5();
+  const renderScBatch6 = () => {
+    const FPS = {
+      '240hz': ['240Hz Competitive · 4.2 ms frame time · 61°C GPU', '238', '196'],
+      dlss: ['DLSS Quality · 6.9 ms frame time · 66°C GPU', '144', '118'],
+      ultra: ['1440p Ultra RT · 9.6 ms frame time · 71°C GPU', '104', '86']
+    };
+    const [fSub, fVal, fLow] = FPS[SC.fpsMode] || FPS['240hz'];
+    sct('fps-sub', fSub); sct('fps-val', fVal); sct('fps-low', fLow);
+    $$('[data-sc-act="fps-mode"]', loop).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.fm === SC.fpsMode)));
+
+    const SNDS = ['Studio Buds', 'HDMI Audio', 'Mac Speakers'];
+    sct('snd-lbl', SNDS[SC.sndOut % SNDS.length]);
+
+    const HAPS = [['Haptic: Hi', true], ['Haptic: Lo', true], ['Haptic: Off', false]];
+    const [hLbl, hPr] = HAPS[SC.padHap % HAPS.length];
+    sct('pad-lbl', hLbl);
+    $$('[data-sc-act="pad-haptic"]', loop).forEach(b => b.setAttribute('aria-pressed', String(hPr)));
+
+    const FW_OS = { mac: 'macOS PF + Gatekeeper', win: 'Windows Defender Firewall', linux: 'Linux ufw + nftables' };
+    const fwCnt = Object.values(SC.fwRules).filter(Boolean).length;
+    sct('fw-os-sub', `${FW_OS[SC.fwOs] || FW_OS.mac} · ${fwCnt}/3 rules active`);
+    $$('[data-sc-act="fw-os"]', loop).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.os === SC.fwOs)));
+    ['stealth', 'block', 'doh'].forEach(r => {
+      const on = SC.fwRules[r];
+      sct(`fw-r-${r}`, on ? 'On' : 'Off');
+      $$(`[data-sc-act="fw-rule"][data-r="${r}"]`, loop).forEach(b => b.setAttribute('aria-checked', String(on)));
+    });
+
+    const PWRS = { low: 'Low Power · 1,400 RPM · Silent', auto: 'Auto · 2,400 RPM · Whisper', turbo: 'Turbo · 4,200 RPM · Max Cooling' };
+    sct('pwr-sub', PWRS[SC.pwrMode] || PWRS.auto);
+    $$('[data-sc-act="pwr-mode"]', loop).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.pm === SC.pwrMode)));
+
+    sct('lob-sub', SC.lobOn ? `Searching ${SC.lobReg} · 00:18` : `Ready · ${SC.lobReg}`);
+    sct('lob-btn', SC.lobOn ? 'In Queue' : 'Find Match');
+    $$('[data-sc-act="lob-toggle"]', loop).forEach(b => b.setAttribute('aria-pressed', String(SC.lobOn)));
+    $$('[data-sc-act="lob-reg"]', loop).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.lr === SC.lobReg)));
+
+    const inCnt = Object.values(SC.inKeys).filter(Boolean).length;
+    sct('in-sub', `${inCnt} tweaks enabled · Cross-OS`);
+    ['caps', 'tap'].forEach(k => {
+      const on = SC.inKeys[k];
+      sct(`in-k-${k}`, on ? 'On' : 'Off');
+      $$(`[data-sc-act="in-tgl"][data-k="${k}"]`, loop).forEach(b => b.setAttribute('aria-checked', String(on)));
+    });
+
+    const pct = Math.min(100, Math.round((SC.xpVal / 3000) * 100));
+    sct('xp-lvl', String(SC.xpLvl));
+    sct('xp-sub', `${SC.xpVal.toLocaleString()} / 3,000 XP · Achievement Ready`);
+    $$('[data-sc-bind="xp-bar"]', loop).forEach(el => { el.style.width = `${pct}%`; });
+  };
+  renderScBatch6();
     }
     else if (a === 'shim-mode') { SC.shimMode = el.dataset.sm || 'AI Stream'; renderScHoverLoops(); }
     else if (a === 'sync-now') { SC.syncPct = SC.syncPct >= 95 ? 71 : SC.syncPct + 8; renderScBatch2(); }
@@ -5342,6 +5643,16 @@ document.addEventListener('DOMContentLoaded', () => {
     else if (a === 'ht-sh') { SC.htSh = el.dataset.sh || 'zsh'; renderScBatch5(); }
     else if (a === 'wf-net') { SC.wfMode = (SC.wfMode + 1) % 3; renderScBatch5(); }
     else if (a === 'cl-copy') { const txt = el.dataset.cl || ''; writeClip(txt); SC.clLast = txt; renderScBatch5(); }
+    else if (a === 'fps-mode') { SC.fpsMode = el.dataset.fm || '240hz'; renderScBatch6(); }
+    else if (a === 'snd-out') { SC.sndOut++; renderScBatch6(); }
+    else if (a === 'pad-haptic') { SC.padHap++; renderScBatch6(); }
+    else if (a === 'fw-os') { SC.fwOs = el.dataset.os || 'mac'; renderScBatch6(); }
+    else if (a === 'fw-rule') { const r = el.dataset.r; if (r && r in SC.fwRules) { SC.fwRules[r] = !SC.fwRules[r]; renderScBatch6(); } }
+    else if (a === 'pwr-mode') { SC.pwrMode = el.dataset.pm || 'auto'; renderScBatch6(); }
+    else if (a === 'lob-toggle') { SC.lobOn = !SC.lobOn; renderScBatch6(); }
+    else if (a === 'lob-reg') { SC.lobReg = el.dataset.lr || 'Tokyo (14ms)'; renderScBatch6(); }
+    else if (a === 'in-tgl') { const k = el.dataset.k; if (k && k in SC.inKeys) { SC.inKeys[k] = !SC.inKeys[k]; renderScBatch6(); } }
+    else if (a === 'xp-claim') { SC.xpVal += 250; if (SC.xpVal >= 3000) { SC.xpVal -= 3000; SC.xpLvl++; } renderScBatch6(); }
     else if (a === 'copy-tokens') {
       const cs = getComputedStyle(root);
       const cssVars = `:root {\n  --accent: ${cs.getPropertyValue('--accent').trim()};\n  --surface: ${cs.getPropertyValue('--surface').trim()};\n  --card-pad: ${cs.getPropertyValue('--card-pad').trim()};\n  --font-display: ${cs.getPropertyValue('--font-display').trim()};\n}`;
