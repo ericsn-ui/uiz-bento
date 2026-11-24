@@ -942,7 +942,7 @@
     50% { transform:translate3d(2%, -2%, 0) scale(1.05); }
   }
   html[data-material="glass"] {
-    --glass-bg:url("./glass-bg.svg");
+    --glass-bg:url("https://images.pexels.com/photos/21764845/pexels-photo-21764845.jpeg?auto=compress&cs=tinysrgb&w=1920");
     --glass-angle:-45deg;
     --glass-light:.80;
     --glass-refract:1.85;
@@ -995,9 +995,11 @@
       --secondary:rgba(255,255,255,.78);
     }
   }
+  html[data-material="glass"][data-glass-bg="p2"] { --glass-bg:url("https://images.pexels.com/photos/16276584/pexels-photo-16276584.jpeg?auto=compress&cs=tinysrgb&w=1920"); }
+  html[data-material="glass"][data-glass-bg="p3"] { --glass-bg:url("https://images.pexels.com/photos/4938314/pexels-photo-4938314.jpeg?auto=compress&cs=tinysrgb&w=1920"); }
+  html[data-material="glass"][data-glass-bg="p4"] { --glass-bg:url("https://images.pexels.com/photos/6984996/pexels-photo-6984996.jpeg?auto=compress&cs=tinysrgb&w=1920"); }
+  html[data-material="glass"][data-glass-bg="p5"] { --glass-bg:url("https://images.pexels.com/photos/41179469/pexels-photo-41179469.jpeg?auto=compress&cs=tinysrgb&w=1920"); }
   html[data-material="glass"][data-glass-bg="rainier"] { --glass-bg:url("https://images.unsplash.com/photo-1794942367964-36710f065129?auto=format&fit=crop&w=1920&q=85"); }
-  html[data-material="glass"][data-glass-bg="pexels1"] { --glass-bg:url("https://images.pexels.com/photos/16777744/pexels-photo-16777744.jpeg?auto=compress&cs=tinysrgb&w=1920"); }
-  html[data-material="glass"][data-glass-bg="pexels2"] { --glass-bg:url("https://images.pexels.com/photos/38440476/pexels-photo-38440476.jpeg?auto=compress&cs=tinysrgb&w=1920"); }
   html[data-material="glass"] body::before {
     content:""; position:fixed; inset:-4%; width:108vw; height:108dvh; z-index:-1; pointer-events:none;
     background-image:var(--glass-bg); background-position:center; background-size:cover; background-repeat:no-repeat;
@@ -1422,24 +1424,18 @@
     .sc-fps-bar, .sc-spk-ring, .sc-pad-ic, .sc-fw-beam, .sc-fan-ic, .sc-q-dot, .sc-in-row, .sc-xp-shine { animation:none !important; }
   }
 
-  /* ================= GTA V UI & GAME STORE SEO BENTO (SC-89..SC-95: 3-col Asymmetric Grid) ================= */
-  .gta-bento { display:grid; gap:var(--gap); grid-template-columns:repeat(2,minmax(0,1fr)); grid-auto-rows:auto; }
-  .gta-bento > [data-w] { grid-column:span 2; }
-  .gta-bento > [data-w="2"] { grid-column:span 1; }
+  /* ================= GTA V UI & GAME STORE SEO BENTO (SC-89..SC-95: Compact 3-col Bento) ================= */
+  .gta-bento { display:grid; gap:var(--gap); grid-template-columns:minmax(0,1fr); align-items:stretch; }
+  .gta-col { display:flex; flex-direction:column; gap:var(--gap); min-width:0; }
+  .gta-split { display:grid; gap:var(--gap); grid-template-columns:repeat(2,minmax(0,1fr)); }
+  @media (max-width:420px) { .gta-split { grid-template-columns:minmax(0,1fr); } }
   @media (min-width:640px) and (max-width:1099.98px) {
-    .gta-bento { grid-template-columns:repeat(6,minmax(0,1fr)); }
-    .gta-bento > [data-w], .gta-bento > [data-w="2"] { grid-column:span 3; }
-    .gta-bento > [data-card="gta-store"] { grid-column:span 6; }
+    .gta-bento { grid-template-columns:repeat(2,minmax(0,1fr)); }
+    .gta-bento > .gta-col:last-child { grid-column:span 2; }
   }
   @media (min-width:1100px) {
-    .gta-bento { grid-template-columns:repeat(12,minmax(0,1fr)); grid-auto-rows:minmax(var(--u),auto); }
-    .gta-bento [data-card="gta-hero"]   { grid-area:1 / 1 / span 5 / span 4; }
-    .gta-bento [data-card="gta-mrr"]    { grid-area:6 / 1 / span 6 / span 4; }
-    .gta-bento [data-card="gta-wallet"] { grid-area:1 / 5 / span 2 / span 4; }
-    .gta-bento [data-card="gta-chart"]  { grid-area:3 / 5 / span 5 / span 4; }
-    .gta-bento [data-card="gta-wanted"] { grid-area:8 / 5 / span 4 / span 2; }
-    .gta-bento [data-card="gta-key"]    { grid-area:8 / 7 / span 4 / span 2; }
-    .gta-bento [data-card="gta-store"]  { grid-area:1 / 9 / span 11 / span 4; }
+    .gta-bento { grid-template-columns:repeat(3,minmax(0,1fr)); }
+    .gta-bento > .gta-col > .card:last-child { flex:1; }
   }
 
   /* Hover Interactive Animation Loops (SC-89..SC-95) */

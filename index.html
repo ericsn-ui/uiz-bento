@@ -43,9 +43,9 @@
 <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
 <link rel="preconnect" href="https://images.unsplash.com" crossorigin />
 <link rel="preconnect" href="https://images.pexels.com" crossorigin />
-<link rel="preload" as="style" href="./styles.css?v=22" />
-<link rel="preload" as="image" href="./glass-bg.svg" fetchpriority="high" />
-<link rel="stylesheet" href="./styles.css?v=22" />
+<link rel="preload" as="style" href="./styles.css?v=23" />
+<link rel="preload" as="image" href="https://images.pexels.com/photos/21764845/pexels-photo-21764845.jpeg?auto=compress&cs=tinysrgb&w=1920" fetchpriority="high" />
+<link rel="stylesheet" href="./styles.css?v=23" />
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
@@ -98,7 +98,7 @@
       const validF = new Set(['system', 'editorial', 'geometric', 'humanist', 'swiss']);
       const validFw = new Set(['html', 'react', 'vue', 'svelte']);
       const m = q.get('material') === 'glass' || q.get('material') === 'classic' ? q.get('material') : (localStorage.getItem('uiz-material') || 'glass');
-      const validGb = new Set(['abstract', 'rainier', 'pexels1', 'pexels2']);
+      const validGb = new Set(['p1', 'p2', 'p3', 'p4', 'p5', 'rainier']);
       const gb = validGb.has(q.get('glassBg')) ? q.get('glassBg') : localStorage.getItem('uiz-glass-bg');
       const a = validA.has(qTheme) ? qTheme : (localStorage.getItem('uiz-accent') || (m !== 'classic' ? 'mono' : 'lime'));
       const s = validS.has(q.get('scheme')) ? q.get('scheme') : localStorage.getItem('uiz-scheme');
@@ -113,7 +113,7 @@
       if (l === 'paused') r.dataset.loop = l;
       if (fw && fw !== 'html') r.dataset.fw = fw;
       if (m !== 'classic') r.dataset.material = 'glass';
-      if (gb && gb !== 'abstract') r.dataset.glassBg = gb;
+      if (gb && validGb.has(gb) && gb !== 'p1') r.dataset.glassBg = gb;
     } catch {}
     document.addEventListener('visibilitychange', () => {
       if (document.visibilityState === 'hidden') r.dataset.tabHidden = '1';
@@ -3449,184 +3449,225 @@
       <!-- ================= GTA V UI & GAME STORE SEO BENTO (3-col Asymmetric Grid) ================= -->
       <div class="gta-bento" aria-label="GTA V UI and Game Store SEO Bento">
 
-        <!-- SC-89 GTA V Storefront Featured Hero (2x Tall) -->
-        <article class="card hero justify-between gap-4 relative overflow-hidden" data-card="gta-hero" data-sc="gta-hero" data-w="4" aria-label="GTA V Storefront Featured 2x">
-          <div class="sc-gta-sweep" aria-hidden="true"></div>
-          <div class="flex items-start justify-between gap-3">
-            <div>
-              <span class="text-display font-black leading-none tnum" data-sc-bind="gh-mult">2×</span>
-              <span class="block text-footnote sec font-mono mt-1">GTA$ &amp; RP Bonus</span>
-            </div>
-            <span class="pill accent font-semibold text-footnote tnum"><svg class="ic sm solid" aria-hidden="true"><use href="#i-star"/></svg>4.9 · #1 Rank</span>
-          </div>
-          <div class="grid gap-2.5">
-            <div class="flex gap-1 rounded-full bg-fill p-1 w-max" role="group" aria-label="GTA edition">
-              <button class="btn tog !min-h-[1.875rem] px-2.5 text-footnote" type="button" aria-pressed="true" data-sc-act="gh-ed" data-ed="std">Standard</button>
-              <button class="btn tog !min-h-[1.875rem] px-2.5 text-footnote" type="button" aria-pressed="false" data-sc-act="gh-ed" data-ed="prem">Premium</button>
-              <button class="btn tog !min-h-[1.875rem] px-2.5 text-footnote" type="button" aria-pressed="false" data-sc-act="gh-ed" data-ed="mega">Shark Pack</button>
-            </div>
-            <h2 class="text-title1">GTA V: Los Santos</h2>
-            <p class="sec text-subhead leading-snug" data-sc-bind="gh-sub">Double GTA$ &amp; RP Storefront SEO Spotlight · Criminal Enterprise Ready</p>
-          </div>
-          <div class="grid grid-cols-3 gap-2 border-t border-sep pt-3 text-footnote">
-            <div><span class="sec block">Edition</span><b class="tnum">Enhanced</b></div>
-            <div><span class="sec block">Store Rank</span><b class="tnum">#1 Action</b></div>
-            <div><span class="sec block">Reviews</span><b class="tnum">97% Pos</b></div>
-          </div>
-        </article>
-
-        <!-- SC-90 Game Store SEO Revenue & Organic Downloads -->
-        <article class="card justify-between gap-4" data-card="gta-mrr" data-sc="gta-mrr" data-w="4" aria-label="Game Store SEO Revenue">
-          <div class="hd">
-            <span class="hd-ic" aria-hidden="true"><svg class="ic sm"><use href="#i-bag"/></svg></span>
-            <div>
-              <h2 class="text-subhead font-semibold leading-tight">Game Store SEO Revenue</h2>
-              <p class="sec text-footnote" data-sc-bind="gm-sub">Steam organic search sales +18% MoM</p>
-            </div>
-            <span class="hd-r tnum" data-sc-bind="gm-avg">Avg +14.8%</span>
-          </div>
-          <div class="flex flex-wrap items-center justify-between gap-2">
-            <div class="flex items-baseline gap-2.5">
-              <b class="text-bignum tnum" data-sc-bind="gm-rev">$87,410</b>
-              <span class="pill accent font-mono text-footnote tnum" data-sc-bind="gm-ctr">↑ 14.8% CTR</span>
-            </div>
-            <div class="flex gap-1 rounded-full bg-fill p-1" role="group" aria-label="Game storefront">
-              <button class="btn tog !min-h-[1.75rem] px-2.5 text-footnote" type="button" aria-pressed="true" data-sc-act="gm-store" data-st="steam">Steam</button>
-              <button class="btn tog !min-h-[1.75rem] px-2.5 text-footnote" type="button" aria-pressed="false" data-sc-act="gm-store" data-st="epic">Epic</button>
-              <button class="btn tog !min-h-[1.75rem] px-2.5 text-footnote" type="button" aria-pressed="false" data-sc-act="gm-store" data-st="rgl">Rockstar</button>
-            </div>
-          </div>
-          <div class="grid gap-1.5">
-            <div class="flex items-center justify-between text-footnote"><span class="sec">DLC Target Progress</span><b class="tnum" data-sc-bind="gm-prog">$2,450 of $4,000</b></div>
-            <div class="relative h-2.5 overflow-hidden rounded-full bg-fill" aria-hidden="true">
-              <div class="h-full rounded-full" style="width:62%;background:var(--accent)"></div>
-              <div class="sc-gta-glint"></div>
-            </div>
-            <div class="flex justify-between font-mono text-footnote sec tnum" aria-hidden="true"><span>0</span><span>1,000</span><span>2,000</span><span>3,000</span><span>4,000</span></div>
-          </div>
-          <div class="grid grid-cols-3 gap-3 border-t border-sep pt-3 text-footnote">
-            <div><span class="sec block">Bundles</span><b class="text-subhead tnum">$12,430</b></div>
-            <div><span class="sec block">Shark Cards</span><b class="text-subhead tnum">$4,210</b></div>
-            <div><span class="sec block">Refund Rate</span><b class="text-subhead tnum">1.8%</b></div>
-          </div>
-        </article>
-
-        <!-- SC-91 Maze Bank / Game Wallet Promo (Horizontal Banner) -->
-        <article class="card flex-row items-center gap-4" data-card="gta-wallet" data-sc="gta-wallet" data-w="4" aria-label="Maze Bank Game Wallet">
-          <button class="sc-bank-badge grid h-14 w-14 shrink-0 place-items-center rounded-2xl bg-tile border border-sep font-bold text-footnote" type="button" data-sc-act="gw-toggle" data-sc-bind="gw-badge" style="color:var(--accent-text)">MAZE</button>
-          <div class="min-w-0 flex-1">
-            <div class="flex items-center justify-between gap-2">
-              <p class="sec text-footnote font-semibold" data-sc-bind="gw-status">Maze Bank · Quick Pay On</p>
-              <span class="pill accent text-footnote">0% Fee</span>
-            </div>
-            <h2 class="text-subhead font-semibold leading-snug mt-0.5">Instant Shark Card &amp; DLC checkout across stores.</h2>
-          </div>
-        </article>
-
-        <!-- SC-92 GTA V Organic Search & Player Peak Curve -->
-        <article class="card justify-between gap-3" data-card="gta-chart" data-sc="gta-chart" data-w="4" aria-label="GTA V Player Peak and Organic Search">
-          <div class="hd">
-            <span class="hd-ic" aria-hidden="true"><svg class="ic sm"><use href="#i-trend"/></svg></span>
-            <div>
-              <h2 class="text-subhead font-semibold leading-tight">Concurrent Players &amp; SEO</h2>
-              <p class="sec text-footnote">Los Santos Online + Storefront reach</p>
-            </div>
-            <div class="ml-auto flex gap-1 rounded-full bg-fill p-1" role="group" aria-label="Chart range">
-              <button class="btn tog !min-h-[1.75rem] px-2 text-footnote" type="button" aria-pressed="true" data-sc-act="gc-range" data-rg="7d">7d</button>
-              <button class="btn tog !min-h-[1.75rem] px-2 text-footnote" type="button" aria-pressed="false" data-sc-act="gc-range" data-rg="30d">30d</button>
-            </div>
-          </div>
-          <div class="flex items-baseline justify-between gap-2">
-            <div class="flex items-baseline gap-2.5">
-              <b class="text-title1 tnum" data-sc-bind="gc-val">315,400</b>
-              <span class="pill accent font-mono text-footnote tnum" data-sc-bind="gc-up">↑ 12.4%</span>
-            </div>
-            <span class="sec font-mono text-footnote tnum">Peak: 400K</span>
-          </div>
-          <div class="relative">
-            <svg class="sc-curve-line h-24 w-full overflow-visible" viewBox="0 0 280 76" aria-hidden="true">
-              <line x1="0" y1="64" x2="280" y2="64" stroke="var(--sep)" stroke-dasharray="3 3"/>
-              <path d="M 4 60 Q 76 50 142 36 T 274 14" fill="none" stroke="var(--accent)" stroke-width="3" stroke-linecap="round"/>
-              <circle cx="196" cy="25" r="5" fill="var(--accent)"/>
-            </svg>
-            <div class="flex justify-between font-mono text-footnote sec mt-1" aria-hidden="true"><span>Nov 1</span><span>Nov 12</span><span>Nov 24</span></div>
-          </div>
-        </article>
-
-        <!-- SC-93 GTA Wanted Level & Heist Stealth (Small Split Left) -->
-        <article class="card ink justify-between gap-3" data-card="gta-wanted" data-sc="gta-wanted" data-w="2" aria-label="GTA Wanted Level and Stealth">
-          <div class="flex items-start justify-between gap-2">
-            <span class="grid h-8 w-8 place-items-center rounded-xl bg-tile border border-sep font-mono text-footnote font-bold" style="color:var(--accent-text)">LS</span>
-            <div class="text-right font-mono text-footnote">
-              <b class="block tnum">W26LS05</b>
-              <span class="sec">Up 2.8%</span>
-            </div>
-          </div>
-          <div class="grid gap-1.5">
-            <div class="flex items-center justify-between gap-1">
-              <span class="sc-wanted-stars font-mono text-subhead tracking-wider" data-sc-bind="gwn-stars">★★★☆☆</span>
-              <button class="pill text-footnote" type="button" data-sc-act="gwn-step">+1★</button>
-            </div>
-            <p class="sec text-footnote">Heist Stealth Rating</p>
-            <b class="text-title2 tnum" data-sc-bind="gwn-pct">98%</b>
-          </div>
-        </article>
-
-        <!-- SC-94 Game Key & DLC Activation (Small Split Right) -->
-        <article class="card items-center justify-between gap-2.5 text-center" data-card="gta-key" data-sc="gta-key" data-w="2" aria-label="Game Store Key Activation">
-          <div class="grid gap-1 pt-1">
-            <span class="mx-auto grid h-9 w-9 place-items-center rounded-full bg-tile border border-sep" aria-hidden="true"><svg class="ic sm" style="color:var(--accent-text)"><use href="#i-key"/></svg></span>
-            <h2 class="text-subhead font-semibold">Key Activation</h2>
-            <p class="sec font-mono text-footnote" data-sc-bind="gk-code">GTAV-LS26</p>
-          </div>
-          <div class="w-full grid gap-1.5">
-            <button class="btn btn-primary sc-key-btn w-full !min-h-[2.25rem] text-footnote" type="button" aria-pressed="false" data-sc-act="gk-redeem" data-sc-bind="gk-btn">Redeem Key</button>
-            <span class="sec text-footnote" data-sc-bind="gk-sub">Steam / Rockstar Sync</span>
-          </div>
-        </article>
-
-        <!-- SC-95 Game Storefront SEO & Top Keywords Panel (Tall Right Column) -->
-        <article class="card justify-between gap-4" data-card="gta-store" data-sc="gta-store" data-w="4" aria-label="Game Storefront SEO and Top Keywords">
-          <div class="flex items-center justify-between gap-2">
-            <div><h2 class="text-title2">Game Store &amp; SEO</h2><p class="sec text-footnote" data-sc-bind="gs-sub">All · Top ranked GTA V store pages</p></div>
-            <button class="btn btn-secondary !min-h-[2rem] px-3 text-footnote" type="button" aria-pressed="false" data-sc-act="gs-wish" data-sc-bind="gs-wish">Wishlist</button>
-          </div>
-          <div class="flex gap-1 rounded-full bg-fill p-1" role="group" aria-label="Platform filter">
-            <button class="btn tog !min-h-[2rem] flex-1 px-2 text-footnote" type="button" aria-pressed="true" data-sc-act="gs-plat" data-pl="All">All</button>
-            <button class="btn tog !min-h-[2rem] flex-1 px-2 text-footnote" type="button" aria-pressed="false" data-sc-act="gs-plat" data-pl="PC">PC</button>
-            <button class="btn tog !min-h-[2rem] flex-1 px-2 text-footnote" type="button" aria-pressed="false" data-sc-act="gs-plat" data-pl="Console">Console</button>
-          </div>
-          <div class="soft !p-3 grid gap-2 text-footnote">
-            <div class="grid grid-cols-12 sec font-semibold pb-1 border-b border-sep">
-              <span class="col-span-6">Keyword / Pack</span><span class="col-span-3 text-center">Rank</span><span class="col-span-3 text-right">Price</span>
-            </div>
-            <div class="grid grid-cols-12 items-center py-0.5"><span class="col-span-6 font-semibold truncate">GTA V Shark Card</span><span class="col-span-3 text-center font-mono" style="color:var(--accent-text)">#1</span><span class="col-span-3 text-right font-mono tnum">$19.99</span></div>
-            <div class="grid grid-cols-12 items-center py-0.5"><span class="col-span-6 font-semibold truncate">Criminal Enterprise</span><span class="col-span-3 text-center font-mono">#2</span><span class="col-span-3 text-right font-mono tnum">$29.99</span></div>
-            <div class="grid grid-cols-12 items-center py-0.5"><span class="col-span-6 font-semibold truncate">Los Santos Tuners</span><span class="col-span-3 text-center font-mono">#3</span><span class="col-span-3 text-right font-mono tnum">Free</span></div>
-          </div>
-          <div class="soft grid gap-3 !p-3">
-            <div class="flex items-center justify-between gap-3">
+        <!-- Column 1: Featured Hero + SEO Revenue -->
+        <div class="gta-col">
+          <!-- SC-89 GTA V Storefront Featured Hero -->
+          <article class="card hero justify-between gap-3.5 relative overflow-hidden" data-card="gta-hero" data-sc="gta-hero" data-w="4" aria-label="GTA V Storefront Featured 2x">
+            <div class="sc-gta-sweep" aria-hidden="true"></div>
+            <div class="flex items-start justify-between gap-3 pr-9">
               <div>
-                <span class="sec text-footnote block">Store SEO Score</span>
-                <div class="flex items-baseline gap-2"><b class="text-title1 tnum" data-sc-bind="gs-score">97%</b><span class="pill accent font-mono text-footnote tnum">↑ 4.02%</span></div>
-                <span class="sec text-footnote font-mono">Organic Reach +814% ↑</span>
+                <span class="text-display font-black leading-none tnum" data-sc-bind="gh-mult">2×</span>
+                <span class="block text-subhead sec font-mono font-semibold mt-1">GTA$ &amp; RP Bonus</span>
               </div>
-              <div class="flex h-16 w-28 items-end gap-1.5" aria-hidden="true">
-                <span class="sc-store-bar" style="--sb-h:.45;--sb-d:0s"></span>
-                <span class="sc-store-bar" style="--sb-h:.72;--sb-d:.1s"></span>
-                <span class="sc-store-bar" style="--sb-h:.96;--sb-d:.2s"></span>
-                <span class="sc-store-bar" style="--sb-h:.68;--sb-d:.3s"></span>
-                <span class="sc-store-bar" style="--sb-h:.88;--sb-d:.4s"></span>
-                <span class="sc-store-bar" style="--sb-h:.62;--sb-d:.5s"></span>
+              <span class="pill accent font-bold text-footnote tnum shrink-0"><svg class="ic sm solid" aria-hidden="true"><use href="#i-star"/></svg>4.9 · #1</span>
+            </div>
+            <div class="grid gap-2.5">
+              <div class="flex flex-wrap gap-1 rounded-full bg-fill p-1 w-max max-w-full" role="group" aria-label="GTA edition">
+                <button class="btn tog !min-h-[1.875rem] px-2.5 text-footnote font-semibold" type="button" aria-pressed="true" data-sc-act="gh-ed" data-ed="std">Standard</button>
+                <button class="btn tog !min-h-[1.875rem] px-2.5 text-footnote font-semibold" type="button" aria-pressed="false" data-sc-act="gh-ed" data-ed="prem">Premium</button>
+                <button class="btn tog !min-h-[1.875rem] px-2.5 text-footnote font-semibold" type="button" aria-pressed="false" data-sc-act="gh-ed" data-ed="mega">Shark Pack</button>
               </div>
+              <h2 class="text-title1 font-bold tracking-tight">GTA V: Los Santos</h2>
+              <p class="sec text-subhead leading-snug" data-sc-bind="gh-sub">Double GTA$ &amp; RP Storefront SEO Spotlight · #1 Open-World Rank</p>
+              <div class="flex flex-wrap gap-1.5 pt-0.5">
+                <span class="pill text-footnote font-medium">SERP Top-3</span>
+                <span class="pill text-footnote font-medium">Rich Schema</span>
+                <span class="pill text-footnote font-medium">DLC Fast-Load</span>
+              </div>
+            </div>
+            <div class="grid grid-cols-3 gap-2 border-t border-sep pt-3 text-footnote">
+              <div><span class="sec block">Edition</span><b class="text-subhead font-bold tnum">Enhanced</b></div>
+              <div><span class="sec block">Store Rank</span><b class="text-subhead font-bold tnum">#1 Action</b></div>
+              <div><span class="sec block">Reviews</span><b class="text-subhead font-bold tnum">97% Pos</b></div>
+            </div>
+          </article>
+
+          <!-- SC-90 Game Store SEO Revenue & Organic Downloads -->
+          <article class="card justify-between gap-3.5" data-card="gta-mrr" data-sc="gta-mrr" data-w="4" aria-label="Game Store SEO Revenue">
+            <div class="hd pr-9">
+              <span class="hd-ic" aria-hidden="true"><svg class="ic sm"><use href="#i-bag"/></svg></span>
+              <div class="min-w-0">
+                <h2 class="text-subhead font-bold leading-tight">Game Store SEO Revenue</h2>
+                <p class="sec text-footnote truncate" data-sc-bind="gm-sub">Steam organic search sales +18% MoM</p>
+              </div>
+              <span class="hd-r tnum font-semibold shrink-0" data-sc-bind="gm-avg">Avg +14.8%</span>
+            </div>
+            <div class="flex flex-wrap items-center justify-between gap-2">
+              <div class="flex flex-wrap items-baseline gap-2">
+                <b class="text-bignum font-extrabold tnum" data-sc-bind="gm-rev">$87,410</b>
+                <span class="pill accent font-mono font-bold text-footnote tnum" data-sc-bind="gm-ctr">↑ 14.8% CTR</span>
+              </div>
+              <div class="flex gap-1 rounded-full bg-fill p-1" role="group" aria-label="Game storefront">
+                <button class="btn tog !min-h-[1.75rem] px-2.5 text-footnote font-semibold" type="button" aria-pressed="true" data-sc-act="gm-store" data-st="steam">Steam</button>
+                <button class="btn tog !min-h-[1.75rem] px-2.5 text-footnote font-semibold" type="button" aria-pressed="false" data-sc-act="gm-store" data-st="epic">Epic</button>
+                <button class="btn tog !min-h-[1.75rem] px-2.5 text-footnote font-semibold" type="button" aria-pressed="false" data-sc-act="gm-store" data-st="rgl">Rockstar</button>
+              </div>
+            </div>
+            <div class="grid gap-1.5">
+              <div class="flex items-center justify-between text-footnote"><span class="sec font-medium">DLC Target Progress</span><b class="font-bold tnum" data-sc-bind="gm-prog">$2,450 / $4,000</b></div>
+              <div class="relative h-2.5 overflow-hidden rounded-full bg-fill" aria-hidden="true">
+                <div class="h-full rounded-full" style="width:62%;background:var(--accent)"></div>
+                <div class="sc-gta-glint"></div>
+              </div>
+              <div class="flex justify-between font-mono text-footnote sec tnum" aria-hidden="true"><span>0</span><span>1,000</span><span>2,000</span><span>3,000</span><span>4,000</span></div>
+            </div>
+            <div class="grid grid-cols-3 gap-2 border-t border-sep pt-3 text-footnote">
+              <div><span class="sec block">Bundles</span><b class="text-subhead font-bold tnum">$12,430</b></div>
+              <div><span class="sec block">Shark Cards</span><b class="text-subhead font-bold tnum">$4,210</b></div>
+              <div><span class="sec block">Refund Rate</span><b class="text-subhead font-bold tnum">1.8%</b></div>
+            </div>
+          </article>
+        </div>
+
+        <!-- Column 2: Wallet Banner + Concurrent Curve + Wanted & Key Split -->
+        <div class="gta-col">
+          <!-- SC-91 Maze Bank / Game Wallet Promo -->
+          <article class="card flex-row items-center gap-3.5" data-card="gta-wallet" data-sc="gta-wallet" data-w="4" aria-label="Maze Bank Game Wallet">
+            <button class="sc-bank-badge grid h-14 w-14 shrink-0 place-items-center rounded-2xl bg-tile border border-sep font-extrabold text-subhead tracking-tight" type="button" data-sc-act="gw-toggle" data-sc-bind="gw-badge" style="color:var(--accent-text)">MAZE</button>
+            <div class="min-w-0 flex-1 pr-9">
+              <div class="flex flex-wrap items-center justify-between gap-2">
+                <p class="sec text-footnote font-bold truncate" data-sc-bind="gw-status">Maze Bank · Quick Pay On</p>
+                <span class="pill accent font-semibold text-footnote shrink-0">0% Fee</span>
+              </div>
+              <h2 class="text-headline font-bold leading-snug mt-0.5">Instant Shark Card &amp; DLC checkout across stores.</h2>
+            </div>
+          </article>
+
+          <!-- SC-92 GTA V Organic Search & Player Peak Curve -->
+          <article class="card justify-between gap-3" data-card="gta-chart" data-sc="gta-chart" data-w="4" aria-label="GTA V Player Peak and Organic Search">
+            <div class="hd pr-9">
+              <span class="hd-ic" aria-hidden="true"><svg class="ic sm"><use href="#i-trend"/></svg></span>
+              <div class="min-w-0">
+                <h2 class="text-subhead font-bold leading-tight">Concurrent Players &amp; SEO</h2>
+                <p class="sec text-footnote truncate">Los Santos Online + Storefront reach</p>
+              </div>
+              <div class="ml-auto flex gap-1 rounded-full bg-fill p-1 shrink-0" role="group" aria-label="Chart range">
+                <button class="btn tog !min-h-[1.75rem] px-2 text-footnote font-semibold" type="button" aria-pressed="true" data-sc-act="gc-range" data-rg="7d">7d</button>
+                <button class="btn tog !min-h-[1.75rem] px-2 text-footnote font-semibold" type="button" aria-pressed="false" data-sc-act="gc-range" data-rg="30d">30d</button>
+              </div>
+            </div>
+            <div class="flex flex-wrap items-baseline justify-between gap-2">
+              <div class="flex items-baseline gap-2.5">
+                <b class="text-bignum font-extrabold tnum" data-sc-bind="gc-val">315,400</b>
+                <span class="pill accent font-mono font-bold text-footnote tnum" data-sc-bind="gc-up">↑ 12.4%</span>
+              </div>
+              <span class="sec font-mono font-semibold text-footnote tnum">Peak: 400K</span>
+            </div>
+            <div class="relative">
+              <svg class="sc-curve-line h-28 w-full overflow-visible" viewBox="0 0 280 84" preserveAspectRatio="none" aria-hidden="true">
+                <line x1="0" y1="22" x2="280" y2="22" stroke="var(--sep)" stroke-dasharray="3 3"/>
+                <line x1="0" y1="48" x2="280" y2="48" stroke="var(--sep)" stroke-dasharray="3 3"/>
+                <line x1="0" y1="74" x2="280" y2="74" stroke="var(--sep)"/>
+                <path d="M 4 64 C 48 60, 72 48, 108 42 C 148 35, 174 28, 212 20 C 238 15, 256 11, 276 8 L 276 74 L 4 74 Z" fill="var(--accent)" fill-opacity=".14"/>
+                <path d="M 4 64 C 48 60, 72 48, 108 42 C 148 35, 174 28, 212 20 C 238 15, 256 11, 276 8" fill="none" stroke="var(--accent)" stroke-width="3" stroke-linecap="round"/>
+                <circle cx="108" cy="42" r="3.5" fill="var(--surface)" stroke="var(--accent)" stroke-width="2"/>
+                <circle cx="212" cy="20" r="5" fill="var(--accent)"/>
+              </svg>
+              <div class="flex justify-between font-mono text-footnote sec mt-1" aria-hidden="true"><span>Nov 1</span><span>Nov 12</span><span>Nov 24</span></div>
             </div>
             <div class="grid grid-cols-3 gap-2 border-t border-sep pt-2.5 text-footnote">
-              <div><span class="sec block">Peak Hour</span><b class="tnum">8:00 PM</b></div>
-              <div><span class="sec block">Quality</span><b>Excellent</b></div>
-              <div><span class="sec block">Bounce</span><b class="tnum">13%</b></div>
+              <div><span class="sec block">Avg Session</span><b class="font-bold tnum">1h 42m</b></div>
+              <div><span class="sec block">SEO Traffic</span><b class="font-bold tnum">+38.4%</b></div>
+              <div><span class="sec block">Uptime</span><b class="font-bold tnum">99.98%</b></div>
             </div>
+          </article>
+
+          <!-- Small 2-up Split Row -->
+          <div class="gta-split">
+            <!-- SC-93 GTA Wanted Level & Heist Stealth -->
+            <article class="card ink justify-between gap-3" data-card="gta-wanted" data-sc="gta-wanted" data-w="2" aria-label="GTA Wanted Level and Stealth">
+              <div class="flex items-start justify-between gap-2 pr-9">
+                <span class="grid h-8 w-8 shrink-0 place-items-center rounded-xl bg-tile border border-sep font-mono text-footnote font-bold" style="color:var(--accent-text)">LS</span>
+                <div class="text-right font-mono text-footnote leading-tight">
+                  <b class="block font-bold tnum">W26LS05</b>
+                  <span class="sec">Up 2.8%</span>
+                </div>
+              </div>
+              <div class="grid gap-1.5">
+                <div class="flex items-center justify-between gap-1">
+                  <span class="sc-wanted-stars font-mono text-headline font-bold tracking-wider" data-sc-bind="gwn-stars">★★★☆☆</span>
+                  <button class="pill font-semibold text-footnote shrink-0" type="button" data-sc-act="gwn-step">+1★</button>
+                </div>
+                <p class="sec text-footnote font-medium">Heist Stealth Rating</p>
+                <div class="flex items-baseline justify-between gap-2">
+                  <b class="text-title1 font-extrabold tnum" data-sc-bind="gwn-pct">84%</b>
+                  <span class="sec font-mono text-footnote">Noise -14dB</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- SC-94 Game Key & DLC Activation -->
+            <article class="card items-center justify-between gap-3 text-center" data-card="gta-key" data-sc="gta-key" data-w="2" aria-label="Game Store Key Activation">
+              <div class="grid gap-1.5 pt-2 w-full">
+                <span class="mx-auto grid h-10 w-10 place-items-center rounded-full bg-tile border border-sep" aria-hidden="true"><svg class="ic sm" style="color:var(--accent-text)"><use href="#i-key"/></svg></span>
+                <h2 class="text-headline font-bold">Key Activation</h2>
+                <div class="flex items-center justify-center gap-1.5 flex-wrap">
+                  <span class="sec font-mono font-semibold text-footnote" data-sc-bind="gk-code">GTAV-LS26</span>
+                  <span class="pill accent text-footnote font-semibold">Global</span>
+                </div>
+              </div>
+              <div class="w-full grid gap-1.5">
+                <button class="btn btn-primary sc-key-btn w-full !min-h-[2.375rem] text-footnote font-bold" type="button" aria-pressed="false" data-sc-act="gk-redeem" data-sc-bind="gk-btn">Redeem Key</button>
+                <span class="sec text-footnote font-medium" data-sc-bind="gk-sub">Steam / Rockstar Sync</span>
+              </div>
+            </article>
           </div>
-        </article>
+        </div>
+
+        <!-- Column 3: Game Storefront SEO & Top Keywords Panel -->
+        <div class="gta-col">
+          <!-- SC-95 Game Storefront SEO & Top Keywords Panel -->
+          <article class="card justify-between gap-3.5" data-card="gta-store" data-sc="gta-store" data-w="4" aria-label="Game Storefront SEO and Top Keywords">
+            <div class="flex items-start justify-between gap-2 pr-9">
+              <div class="min-w-0">
+                <h2 class="text-title2 font-bold">Game Store &amp; SEO</h2>
+                <p class="sec text-footnote truncate" data-sc-bind="gs-sub">All · Top ranked GTA V store pages</p>
+              </div>
+              <button class="btn btn-secondary !min-h-[2rem] px-3 text-footnote font-semibold shrink-0" type="button" aria-pressed="false" data-sc-act="gs-wish" data-sc-bind="gs-wish">Wishlist</button>
+            </div>
+            <div class="flex gap-1 rounded-full bg-fill p-1" role="group" aria-label="Platform filter">
+              <button class="btn tog !min-h-[2rem] flex-1 px-2 text-footnote font-semibold" type="button" aria-pressed="true" data-sc-act="gs-plat" data-pl="All">All</button>
+              <button class="btn tog !min-h-[2rem] flex-1 px-2 text-footnote font-semibold" type="button" aria-pressed="false" data-sc-act="gs-plat" data-pl="PC">PC</button>
+              <button class="btn tog !min-h-[2rem] flex-1 px-2 text-footnote font-semibold" type="button" aria-pressed="false" data-sc-act="gs-plat" data-pl="Console">Console</button>
+            </div>
+            <div class="soft !p-3 grid gap-2 text-footnote">
+              <div class="grid grid-cols-12 sec font-bold pb-1.5 border-b border-sep">
+                <span class="col-span-6">Keyword / Pack</span><span class="col-span-3 text-center">Rank</span><span class="col-span-3 text-right">Price</span>
+              </div>
+              <div class="grid grid-cols-12 items-center py-0.5"><span class="col-span-6 font-bold truncate">GTA V Shark Card</span><span class="col-span-3 text-center font-mono font-bold" style="color:var(--accent-text)">#1</span><span class="col-span-3 text-right font-mono font-semibold tnum">$19.99</span></div>
+              <div class="grid grid-cols-12 items-center py-0.5"><span class="col-span-6 font-bold truncate">Criminal Enterprise</span><span class="col-span-3 text-center font-mono font-semibold">#2</span><span class="col-span-3 text-right font-mono font-semibold tnum">$29.99</span></div>
+              <div class="grid grid-cols-12 items-center py-0.5"><span class="col-span-6 font-bold truncate">Los Santos Tuners</span><span class="col-span-3 text-center font-mono font-semibold">#3</span><span class="col-span-3 text-right font-mono font-semibold tnum">Free</span></div>
+              <div class="grid grid-cols-12 items-center py-0.5"><span class="col-span-6 font-bold truncate">Megalodon Bundle</span><span class="col-span-3 text-center font-mono font-semibold">#4</span><span class="col-span-3 text-right font-mono font-semibold tnum">$99.99</span></div>
+            </div>
+            <div class="flex flex-wrap items-center justify-between gap-1.5 text-footnote">
+              <span class="pill font-semibold">Crawl: 99.4%</span>
+              <span class="pill font-semibold">CTR: 14.8%</span>
+              <span class="pill accent font-semibold">Core Vitals: Good</span>
+            </div>
+            <div class="soft grid gap-3 !p-3">
+              <div class="flex items-center justify-between gap-3">
+                <div>
+                  <span class="sec text-footnote font-medium block">Store SEO Score</span>
+                  <div class="flex items-baseline gap-2"><b class="text-bignum font-extrabold tnum" data-sc-bind="gs-score">97%</b><span class="pill accent font-mono font-bold text-footnote tnum">↑ 4.02%</span></div>
+                  <span class="sec text-footnote font-mono font-semibold">Organic Reach +814% ↑</span>
+                </div>
+                <div class="flex h-16 w-28 items-end gap-1.5 shrink-0" aria-hidden="true">
+                  <span class="sc-store-bar" style="--sb-h:.45;--sb-d:0s"></span>
+                  <span class="sc-store-bar" style="--sb-h:.72;--sb-d:.1s"></span>
+                  <span class="sc-store-bar" style="--sb-h:.96;--sb-d:.2s"></span>
+                  <span class="sc-store-bar" style="--sb-h:.68;--sb-d:.3s"></span>
+                  <span class="sc-store-bar" style="--sb-h:.88;--sb-d:.4s"></span>
+                  <span class="sc-store-bar" style="--sb-h:.62;--sb-d:.5s"></span>
+                </div>
+              </div>
+              <div class="grid grid-cols-3 gap-2 border-t border-sep pt-2.5 text-footnote">
+                <div><span class="sec block">Peak Hour</span><b class="text-subhead font-bold tnum">8:00 PM</b></div>
+                <div><span class="sec block">Quality</span><b class="text-subhead font-bold">Excellent</b></div>
+                <div><span class="sec block">Bounce</span><b class="text-subhead font-bold tnum">13%</b></div>
+              </div>
+            </div>
+          </article>
+        </div>
 
       </div>
       </div>
@@ -3685,7 +3726,7 @@
         <span>Theme<span class="hidden md:inline"> &amp; Fonts</span></span>
       </button>
       <button id="glass-trigger" class="inline-flex text-footnote" type="button" popovertarget="glass-popover" aria-expanded="false" aria-controls="glass-popover" aria-pressed="true" title="Open Glass settings (Light, Refraction, Depth, Dispersion, Frost, Splay)">Glass ▾</button>
-      <button id="quick-glass-bg" class="inline-flex text-footnote" type="button" title="Switch Glass background (Abstract, Mt. Rainier, Scenic I, Scenic II)" aria-label="Glass background: Abstract">BG: Abstract</button>
+      <button id="quick-glass-bg" class="inline-flex text-footnote" type="button" title="Switch Glass background (Vista I–V, Mt. Rainier)" aria-label="Glass background: Vista I">BG: Vista I</button>
       <button id="quick-fw" class="inline-flex font-mono text-footnote" type="button" title="Switch copy framework (HTML, React TSX, Vue, Svelte)" aria-label="Copy framework: HTML">HTML</button>
     </div>
     <span role="separator" aria-orientation="vertical"></span>
@@ -3745,10 +3786,12 @@
         <button class="btn tog !min-h-[2.375rem] text-footnote" type="button" data-set-material="glass" aria-pressed="true">Liquid Glass</button>
       </div>
       <div class="grid grid-cols-2 gap-2 pt-1" role="group" aria-label="Glass background image">
-        <button class="swatch-btn" type="button" data-set-glass-bg="abstract" aria-pressed="true"><span class="h-4 w-4 rounded-md shrink-0 border border-sep bg-cover bg-center" style="background-image:url('./glass-bg.svg')"></span>Abstract</button>
+        <button class="swatch-btn" type="button" data-set-glass-bg="p1" aria-pressed="true"><span class="h-4 w-4 rounded-md shrink-0 border border-sep bg-cover bg-center" style="background-image:url('https://images.pexels.com/photos/21764845/pexels-photo-21764845.jpeg?auto=compress&cs=tinysrgb&w=120')"></span>Vista I</button>
+        <button class="swatch-btn" type="button" data-set-glass-bg="p2" aria-pressed="false"><span class="h-4 w-4 rounded-md shrink-0 border border-sep bg-cover bg-center" style="background-image:url('https://images.pexels.com/photos/16276584/pexels-photo-16276584.jpeg?auto=compress&cs=tinysrgb&w=120')"></span>Vista II</button>
+        <button class="swatch-btn" type="button" data-set-glass-bg="p3" aria-pressed="false"><span class="h-4 w-4 rounded-md shrink-0 border border-sep bg-cover bg-center" style="background-image:url('https://images.pexels.com/photos/4938314/pexels-photo-4938314.jpeg?auto=compress&cs=tinysrgb&w=120')"></span>Vista III</button>
+        <button class="swatch-btn" type="button" data-set-glass-bg="p4" aria-pressed="false"><span class="h-4 w-4 rounded-md shrink-0 border border-sep bg-cover bg-center" style="background-image:url('https://images.pexels.com/photos/6984996/pexels-photo-6984996.jpeg?auto=compress&cs=tinysrgb&w=120')"></span>Vista IV</button>
+        <button class="swatch-btn" type="button" data-set-glass-bg="p5" aria-pressed="false"><span class="h-4 w-4 rounded-md shrink-0 border border-sep bg-cover bg-center" style="background-image:url('https://images.pexels.com/photos/41179469/pexels-photo-41179469.jpeg?auto=compress&cs=tinysrgb&w=120')"></span>Vista V</button>
         <button class="swatch-btn" type="button" data-set-glass-bg="rainier" aria-pressed="false"><span class="h-4 w-4 rounded-md shrink-0 border border-sep bg-cover bg-center" style="background-image:url('https://images.unsplash.com/photo-1794942367964-36710f065129?auto=format&fit=crop&w=120&q=70')"></span>Mt. Rainier</button>
-        <button class="swatch-btn" type="button" data-set-glass-bg="pexels1" aria-pressed="false"><span class="h-4 w-4 rounded-md shrink-0 border border-sep bg-cover bg-center" style="background-image:url('https://images.pexels.com/photos/16777744/pexels-photo-16777744.jpeg?auto=compress&cs=tinysrgb&w=120')"></span>Scenic I</button>
-        <button class="swatch-btn" type="button" data-set-glass-bg="pexels2" aria-pressed="false"><span class="h-4 w-4 rounded-md shrink-0 border border-sep bg-cover bg-center" style="background-image:url('https://images.pexels.com/photos/38440476/pexels-photo-38440476.jpeg?auto=compress&cs=tinysrgb&w=120')"></span>Scenic II</button>
       </div>
     </div>
 
@@ -3844,10 +3887,12 @@
     <div class="grid gap-2 border-t border-sep pt-3">
       <p class="sec text-footnote font-semibold uppercase tracking-wide">Backdrop</p>
       <div class="grid grid-cols-2 gap-2" role="group" aria-label="Glass backdrop image">
-        <button class="swatch-btn" type="button" data-set-glass-bg="abstract" aria-pressed="true"><span class="h-4 w-4 rounded-md shrink-0 border border-sep bg-cover bg-center" style="background-image:url('./glass-bg.svg')"></span>Abstract</button>
+        <button class="swatch-btn" type="button" data-set-glass-bg="p1" aria-pressed="true"><span class="h-4 w-4 rounded-md shrink-0 border border-sep bg-cover bg-center" style="background-image:url('https://images.pexels.com/photos/21764845/pexels-photo-21764845.jpeg?auto=compress&cs=tinysrgb&w=120')"></span>Vista I</button>
+        <button class="swatch-btn" type="button" data-set-glass-bg="p2" aria-pressed="false"><span class="h-4 w-4 rounded-md shrink-0 border border-sep bg-cover bg-center" style="background-image:url('https://images.pexels.com/photos/16276584/pexels-photo-16276584.jpeg?auto=compress&cs=tinysrgb&w=120')"></span>Vista II</button>
+        <button class="swatch-btn" type="button" data-set-glass-bg="p3" aria-pressed="false"><span class="h-4 w-4 rounded-md shrink-0 border border-sep bg-cover bg-center" style="background-image:url('https://images.pexels.com/photos/4938314/pexels-photo-4938314.jpeg?auto=compress&cs=tinysrgb&w=120')"></span>Vista III</button>
+        <button class="swatch-btn" type="button" data-set-glass-bg="p4" aria-pressed="false"><span class="h-4 w-4 rounded-md shrink-0 border border-sep bg-cover bg-center" style="background-image:url('https://images.pexels.com/photos/6984996/pexels-photo-6984996.jpeg?auto=compress&cs=tinysrgb&w=120')"></span>Vista IV</button>
+        <button class="swatch-btn" type="button" data-set-glass-bg="p5" aria-pressed="false"><span class="h-4 w-4 rounded-md shrink-0 border border-sep bg-cover bg-center" style="background-image:url('https://images.pexels.com/photos/41179469/pexels-photo-41179469.jpeg?auto=compress&cs=tinysrgb&w=120')"></span>Vista V</button>
         <button class="swatch-btn" type="button" data-set-glass-bg="rainier" aria-pressed="false"><span class="h-4 w-4 rounded-md shrink-0 border border-sep bg-cover bg-center" style="background-image:url('https://images.unsplash.com/photo-1794942367964-36710f065129?auto=format&fit=crop&w=120&q=70')"></span>Mt. Rainier</button>
-        <button class="swatch-btn" type="button" data-set-glass-bg="pexels1" aria-pressed="false"><span class="h-4 w-4 rounded-md shrink-0 border border-sep bg-cover bg-center" style="background-image:url('https://images.pexels.com/photos/16777744/pexels-photo-16777744.jpeg?auto=compress&cs=tinysrgb&w=120')"></span>Scenic I</button>
-        <button class="swatch-btn" type="button" data-set-glass-bg="pexels2" aria-pressed="false"><span class="h-4 w-4 rounded-md shrink-0 border border-sep bg-cover bg-center" style="background-image:url('https://images.pexels.com/photos/38440476/pexels-photo-38440476.jpeg?auto=compress&cs=tinysrgb&w=120')"></span>Scenic II</button>
       </div>
     </div>
   </div>
@@ -5392,267 +5437,6 @@ document.addEventListener('DOMContentLoaded', () => {
       SC.pipeStage = stages[(stages.indexOf(SC.pipeStage) + 1) % stages.length];
       SC.pipeRun++;
       renderScHoverLoops();
-  const renderScBatch2 = () => {
-    sct('sync-pct', `${SC.syncPct}%`);
-    sct('sync-sub', `${(SC.syncPct * 0.2).toFixed(1)} GB / 20 GB · Synced`);
-    sct('sync-auto', SC.syncAuto ? 'On' : 'Off');
-    $$('[data-sc-act="sync-auto"]', loop).forEach(b => b.setAttribute('aria-pressed', String(SC.syncAuto)));
-
-    $$('[data-sc="live-logs"]', loop).forEach(c => c.setAttribute('data-paused', SC.logPaused ? '1' : '0'));
-    sct('log-state', SC.logPaused ? 'Paused' : 'Live');
-    sct('log-pause-btn', SC.logPaused ? 'Resume' : 'Pause');
-    $$('[data-sc-act="log-pause"]', loop).forEach(b => b.setAttribute('aria-pressed', String(SC.logPaused)));
-    $$('[data-sc-act="log-filter"]', loop).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.lf === SC.logFilter)));
-
-    sct('bio-pill', SC.bioUnlocked ? 'Verified ✓' : 'Locked');
-    sct('bio-btn', SC.bioUnlocked ? 'Lock Passkey' : 'Verify Passkey');
-    $$('[data-sc-act="bio-toggle"]', loop).forEach(b => b.setAttribute('aria-pressed', String(SC.bioUnlocked)));
-
-    const MESH = {
-      Aurora: ['var(--accent)', '#38bdf8', '#a855f7'],
-      Sunset: ['#fb7185', '#f59e0b', '#f43f5e'],
-      Cyber: ['#22d3ee', '#818cf8', '#e879f9']
-    };
-    const [c1, c2, c3] = MESH[SC.meshPreset] || MESH.Aurora;
-    $$('[data-sc-bind="mesh-orb1"]', loop).forEach(el => { el.style.background = c1; });
-    $$('[data-sc-bind="mesh-orb2"]', loop).forEach(el => { el.style.background = c2; });
-    $$('[data-sc-bind="mesh-orb3"]', loop).forEach(el => { el.style.background = c3; });
-    sct('mesh-sub', `${SC.meshPreset} · Hover to drift orbs`);
-    $$('[data-sc-act="mesh-preset"]', loop).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.mp === SC.meshPreset)));
-
-    const AI_STATES = ['Thinking', 'Drafting', 'Done ✓'];
-    sct('ai-dot-pill', AI_STATES[SC.aiDotStep % AI_STATES.length]);
-
-    sct('tl-sub', `${SC.tlTrack} Track · ${SC.tlSpeed} · Hover to scrub`);
-    $$('[data-sc-act="tl-speed"]', loop).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.sp === SC.tlSpeed)));
-    $$('[data-sc-act="tl-track"]', loop).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.tr === SC.tlTrack)));
-
-    sct('al-count', `${SC.alUnread} unread`);
-    sct('al-btn', SC.alUnread ? 'Mark All Read' : 'Reset Alerts');
-    sct('kb-sub', SC.kbPicked);
-    $$('[data-sc-act="kb-pick"]', loop).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.kb === SC.kbPicked)));
-  };
-  renderScBatch2();
-  const renderScBatch3 = () => {
-    sct('split-sub', `${SC.splitPos}% split · Hover to sweep`);
-    $$('[data-sc-bind="split-bar"]', loop).forEach(el => { el.style.left = `${SC.splitPos}%`; });
-    $$('[data-sc-act="split-pos"]', loop).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.sp === SC.splitPos)));
-
-    sct('vo-pill', SC.voState);
-    sct('vo-sub', `${SC.voState} · Hover for acoustic halo`);
-    $$('[data-sc-act="vo-state"]', loop).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.vs === SC.voState)));
-
-    const totalTasks = 6, pct = Math.round((SC.kbShipped / totalTasks) * 100);
-    sct('kb-lane-sub', `${totalTasks - SC.kbShipped} in review · ${SC.kbShipped} shipped`);
-    sct('kb-lane-pct', `${pct}%`);
-    sct('kb-ship-btn', SC.kbShipped >= totalTasks ? 'Reset Sprint' : 'Ship Next Task');
-
-    const CDN = {
-      Americas: 'Americas · 14.2k req/s · 12ms p95',
-      Europe: 'Europe · 11.8k req/s · 16ms p95',
-      'Asia-Pacific': 'Asia-Pacific · 16.4k req/s · 11ms p95'
-    };
-    sct('cdn-sub', CDN[SC.cdnReg] || CDN.Americas);
-    $$('[data-sc-act="cdn-reg"]', loop).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.reg === SC.cdnReg)));
-
-    sct('bnd-sub', SC.bndGzip ? 'Gzipped · Zero runtime' : 'Raw minified · Zero runtime');
-    sct('bnd-pill', SC.bndGzip ? '28.4 KB' : '82.0 KB');
-    $$('[data-sc-act="bnd-mode"]', loop).forEach(b => b.setAttribute('aria-pressed', String(SC.bndGzip)));
-
-    sct('wh-sub', SC.whRetried ? 'All events delivered' : '1 event queued for retry');
-    sct('wh-status', SC.whRetried ? '200 OK' : '429 Retry');
-    sct('wh-btn', SC.whRetried ? 'Simulate 429' : 'Replay Failed');
-  };
-  renderScBatch3();
-  const renderScBatch4 = () => {
-    sct('th-temp', `${SC.thTemp}°C`);
-    sct('th-mode', SC.thMode);
-
-    const lyOn = Object.values(SC.spLayers).filter(Boolean).length;
-    sct('sp-sub', `${SC.spCam} Camera · ${lyOn} layers active · Hover to orbit`);
-    $$('[data-sc-act="sp-cam"]', loop).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.cam === SC.spCam)));
-    ['mesh', 'rim', 'fog'].forEach(k => {
-      const on = SC.spLayers[k];
-      sct(`sp-ly-${k}`, on ? 'On' : 'Off');
-      $$(`[data-sc-act="sp-layer"][data-ly="${k}"]`, loop).forEach(b => b.setAttribute('aria-pressed', String(on)));
-    });
-
-    const ordSubs = ['Order packed · Preparing pickup', 'In transit · Regional hub', 'Out for delivery · ETA 14 mins', 'Delivered · Signed at porch'];
-    const ordWidths = ['18%', '46%', '68%', '100%'];
-    sct('ord-sub', ordSubs[SC.ordStep] || ordSubs[2]);
-    $$('[data-sc-bind="ord-bar"]', loop).forEach(el => { el.style.width = ordWidths[SC.ordStep] || '68%'; });
-    [0, 1, 2, 3].forEach(i => {
-      $$(`[data-sc-bind="ord-s${i}"]`, loop).forEach(el => {
-        el.style.color = i === SC.ordStep ? 'var(--accent-text)' : '';
-        el.classList.toggle('sec', i > SC.ordStep);
-      });
-    });
-
-    sct('cur-btn', SC.curFollow ? 'Following' : 'Free Pan');
-    sct('cur-sub', SC.curFollow ? '3 collaborators editing · Synced' : '3 collaborators editing');
-    $$('[data-sc-act="cur-follow"]', loop).forEach(b => b.setAttribute('aria-pressed', String(SC.curFollow)));
-
-    sct('bp-sub', SC.bpAlt ? 'Boarding Zone 2 · Seat 14A' : 'Gate B12 · Seat 14A');
-    sct('bp-pill', SC.bpAlt ? 'Boarding' : 'On Time');
-
-    const SQLS = {
-      users: ['1.4ms · B-Tree Index Scan · 128 rows', 'SELECT id, email, plan FROM users WHERE active = true LIMIT 50;'],
-      orders: ['4.8ms · Hash Join · 1,024 rows', 'SELECT o.id, o.total FROM orders o JOIN users u ON u.id = o.user_id;'],
-      metrics: ['2.1ms · Materialized Rollup · 30 rows', 'SELECT day, SUM(clicks) FROM seo_metrics GROUP BY day ORDER BY day DESC;']
-    };
-    const [sSub, sCode] = SQLS[SC.sqlQ] || SQLS.users;
-    sct('sql-sub', sSub);
-    sct('sql-code', sCode);
-    $$('[data-sc-act="sql-q"]', loop).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.q === SC.sqlQ)));
-  };
-  renderScBatch4();
-  const renderScBatch5 = () => {
-    const CPUS = {
-      mac: ['macOS M4 Pro · 34% CPU · 48°C · 18.4 GB RAM', '38%', '142 tasks · Nominal'],
-      win: ['Windows 11 24H2 · 41% CPU · 54°C · 14.2 GB RAM', '46%', '186 procs · Balanced'],
-      linux: ['Linux 6.11 Kernel · 19% CPU · 41°C · 6.8 GB RAM', '22%', '98 tasks · zram active']
-    };
-    const [cSub, cMem, cProc] = CPUS[SC.cpuOs] || CPUS.mac;
-    sct('cpu-sub', cSub); sct('cpu-mem', cMem); sct('cpu-proc', cProc);
-    $$('[data-sc-act="cpu-os"]', loop).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.os === SC.cpuOs)));
-
-    sct('spot-app', SC.spotApp);
-    $$('[data-sc-act="spot-pick"]', loop).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.app === SC.spotApp)));
-
-    const DISPS = [['82%', 'True Tone: On'], ['65%', 'Night Shift: Warm'], ['100%', 'HDR XDR: Peak']];
-    const [dPct, dBtn] = DISPS[SC.dispMode % DISPS.length];
-    sct('disp-pct', dPct); sct('disp-btn', dBtn);
-
-    const WMS = {
-      split: ['Split 50/50 · macOS Stage / Win Snap / Hyprland', 'col-span-6', 'col-span-6'],
-      grid: ['Grid 2×2 · Quad Workspace Tile', 'col-span-6', 'col-span-6'],
-      master: ['Master 67% + Stack 33% · i3 / yabai', 'col-span-8', 'col-span-4'],
-      focus: ['Focus 75% · Centered Zen Window', 'col-span-9', 'col-span-3']
-    };
-    const [wSub, wC1, wC2] = WMS[SC.wmLay] || WMS.split;
-    sct('wm-sub', wSub);
-    $$('[data-sc-act="wm-layout"]', loop).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.lay === SC.wmLay)));
-    $$('[data-sc-bind="wm-p1"]', loop).forEach(el => { el.className = `sc-tile-pane ${wC1} p-2 flex flex-col justify-between`; });
-    $$('[data-sc-bind="wm-p2"]', loop).forEach(el => { el.className = `sc-tile-pane ${wC2} p-2 flex flex-col justify-between`; });
-
-    sct('air-vis', SC.airVis);
-    sct('air-sub', `${SC.airVis} · ${SC.airDev} selected`);
-    $$('[data-sc-act="air-dev"]', loop).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.dev === SC.airDev)));
-
-    const HTS = {
-      zsh: ['ericsn@macbook ~ %', 'htop --sort-key=PERCENT_CPU'],
-      bash: ['ericsn@ubuntu:~$', 'btop --utf-force'],
-      pwsh: ['PS C:\\Users\\ericsn>', 'Get-Process | Sort CPU -Desc']
-    };
-    const [hP, hC] = HTS[SC.htSh] || HTS.zsh;
-    sct('ht-prompt', hP); sct('ht-cmd', hC);
-    $$('[data-sc-act="ht-sh"]', loop).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.sh === SC.htSh)));
-
-    const WFS = [
-      ['Wi-Fi 7 (6 GHz) · ↓ 1.84 Gbps · ↑ 920 Mbps', 'Wi-Fi 7', '4 ms'],
-      ['10GbE Thunderbolt · ↓ 9.40 Gbps · ↑ 8.95 Gbps', '10GbE', '1 ms'],
-      ['Tailscale Mesh VPN · ↓ 680 Mbps · ↑ 640 Mbps', 'Tailscale', '18 ms']
-    ];
-    const [wfSub, wfBtn, wfPing] = WFS[SC.wfMode % WFS.length];
-    sct('wf-sub', wfSub); sct('wf-btn', wfBtn); sct('wf-ping', wfPing);
-
-    sct('cl-sub', SC.clLast ? `Copied: ${SC.clLast.slice(0, 26)}…` : 'Click any entry to copy & pin');
-  };
-  renderScBatch5();
-  const renderScBatch6 = () => {
-    const FPS = {
-      '240hz': ['240Hz Competitive · 4.2 ms frame time · 61°C GPU', '238', '196'],
-      dlss: ['DLSS Quality · 6.9 ms frame time · 66°C GPU', '144', '118'],
-      ultra: ['1440p Ultra RT · 9.6 ms frame time · 71°C GPU', '104', '86']
-    };
-    const [fSub, fVal, fLow] = FPS[SC.fpsMode] || FPS['240hz'];
-    sct('fps-sub', fSub); sct('fps-val', fVal); sct('fps-low', fLow);
-    $$('[data-sc-act="fps-mode"]', loop).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.fm === SC.fpsMode)));
-
-    const SNDS = ['Studio Buds', 'HDMI Audio', 'Mac Speakers'];
-    sct('snd-lbl', SNDS[SC.sndOut % SNDS.length]);
-
-    const HAPS = [['Haptic: Hi', true], ['Haptic: Lo', true], ['Haptic: Off', false]];
-    const [hLbl, hPr] = HAPS[SC.padHap % HAPS.length];
-    sct('pad-lbl', hLbl);
-    $$('[data-sc-act="pad-haptic"]', loop).forEach(b => b.setAttribute('aria-pressed', String(hPr)));
-
-    const FW_OS = { mac: 'macOS PF + Gatekeeper', win: 'Windows Defender Firewall', linux: 'Linux ufw + nftables' };
-    const fwCnt = Object.values(SC.fwRules).filter(Boolean).length;
-    sct('fw-os-sub', `${FW_OS[SC.fwOs] || FW_OS.mac} · ${fwCnt}/3 rules active`);
-    $$('[data-sc-act="fw-os"]', loop).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.os === SC.fwOs)));
-    ['stealth', 'block', 'doh'].forEach(r => {
-      const on = SC.fwRules[r];
-      sct(`fw-r-${r}`, on ? 'On' : 'Off');
-      $$(`[data-sc-act="fw-rule"][data-r="${r}"]`, loop).forEach(b => b.setAttribute('aria-checked', String(on)));
-    });
-
-    const PWRS = { low: 'Low Power · 1,400 RPM · Silent', auto: 'Auto · 2,400 RPM · Whisper', turbo: 'Turbo · 4,200 RPM · Max Cooling' };
-    sct('pwr-sub', PWRS[SC.pwrMode] || PWRS.auto);
-    $$('[data-sc-act="pwr-mode"]', loop).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.pm === SC.pwrMode)));
-
-    sct('lob-sub', SC.lobOn ? `Searching ${SC.lobReg} · 00:18` : `Ready · ${SC.lobReg}`);
-    sct('lob-btn', SC.lobOn ? 'In Queue' : 'Find Match');
-    $$('[data-sc-act="lob-toggle"]', loop).forEach(b => b.setAttribute('aria-pressed', String(SC.lobOn)));
-    $$('[data-sc-act="lob-reg"]', loop).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.lr === SC.lobReg)));
-
-    const inCnt = Object.values(SC.inKeys).filter(Boolean).length;
-    sct('in-sub', `${inCnt} tweaks enabled · Cross-OS`);
-    ['caps', 'tap'].forEach(k => {
-      const on = SC.inKeys[k];
-      sct(`in-k-${k}`, on ? 'On' : 'Off');
-      $$(`[data-sc-act="in-tgl"][data-k="${k}"]`, loop).forEach(b => b.setAttribute('aria-checked', String(on)));
-    });
-
-    const pct = Math.min(100, Math.round((SC.xpVal / 3000) * 100));
-    sct('xp-lvl', String(SC.xpLvl));
-    sct('xp-sub', `${SC.xpVal.toLocaleString()} / 3,000 XP · Achievement Ready`);
-    $$('[data-sc-bind="xp-bar"]', loop).forEach(el => { el.style.width = `${pct}%`; });
-  };
-  renderScBatch6();
-  const renderScGta = () => {
-    const GH = {
-      std: ['2×', 'Double GTA$ & RP Storefront SEO Spotlight · #1 Open-World Rank'],
-      prem: ['3×', 'Criminal Enterprise Pack + $1M Bonus · Top Converting SEO Landing'],
-      mega: ['4×', 'Megalodon Shark Bundle · Featured Game Store Banner']
-    };
-    const [m, sub] = GH[SC.ghEd] || GH.std;
-    sct('gh-mult', m); sct('gh-sub', sub);
-    $$('[data-sc-act="gh-ed"]', loop).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.ed === SC.ghEd)));
-
-    const GM = {
-      steam: ['$87,410', '↑ 14.8% CTR', 'Steam organic search sales +18% MoM', '$2,450 / $4,000'],
-      epic: ['$54,920', '↑ 11.2% CTR', 'Epic Games Storefront discovery +12% MoM', '$3,120 / $4,000'],
-      rgl: ['$62,180', '↑ 19.4% CTR', 'Rockstar Launcher direct SEO +24% MoM', '$3,680 / $4,000']
-    };
-    const [rev, ctr, gsub, prog] = GM[SC.gmStore] || GM.steam;
-    sct('gm-rev', rev); sct('gm-ctr', ctr); sct('gm-sub', gsub); sct('gm-prog', prog);
-    sct('gm-avg', `Avg ${ctr.replace('↑ ', '+').replace(' CTR', '')}`);
-    $$('[data-sc-act="gm-store"]', loop).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.st === SC.gmStore)));
-
-    sct('gw-status', SC.gwQuick ? 'Maze Bank · Quick Pay On' : 'Maze Bank · Standard Checkout');
-    sct('gw-badge', SC.gwQuick ? 'MAZE' : 'BANK');
-
-    sct('gc-val', SC.gcRange === '7d' ? '315,400' : '428,900');
-    sct('gc-up', SC.gcRange === '7d' ? '↑ 12.4%' : '↑ 21.8%');
-    $$('[data-sc-act="gc-range"]', loop).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.rg === SC.gcRange)));
-
-    sct('gwn-stars', '★'.repeat(SC.gwnStars) + '☆'.repeat(5 - SC.gwnStars));
-    sct('gwn-pct', `${100 - (SC.gwnStars - 1) * 8}%`);
-
-    sct('gk-btn', SC.gkDone ? 'Activated ✓' : 'Redeem Key');
-    sct('gk-code', SC.gkDone ? 'UNLOCKED' : 'GTAV-LS26');
-    sct('gk-sub', SC.gkDone ? 'Synced to Account' : 'Steam / Rockstar Sync');
-    $$('[data-sc-act="gk-redeem"]', loop).forEach(b => b.setAttribute('aria-pressed', String(SC.gkDone)));
-
-    sct('gs-wish', SC.gsWish ? 'Wishlisted ✓' : 'Wishlist');
-    $$('[data-sc-act="gs-wish"]', loop).forEach(b => b.setAttribute('aria-pressed', String(SC.gsWish)));
-    $$('[data-sc-act="gs-plat"]', loop).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.pl === SC.gsPlat)));
-    const scores = { All: '97%', PC: '99%', Console: '95%' };
-    sct('gs-score', scores[SC.gsPlat] || '97%');
-    sct('gs-sub', `${SC.gsPlat} · Top ranked GTA V store pages`);
-  };
-  renderScGta();
     }
     else if (a === 'radar-mode') { SC.radarMode = el.dataset.rm || 'deep'; renderScHoverLoops(); }
     else if (a === 'orb-pick') { SC.orbApp = el.dataset.app || 'GitHub'; renderScHoverLoops(); }
@@ -5661,267 +5445,6 @@ document.addEventListener('DOMContentLoaded', () => {
       const nodes = ['SIN · 11ms', 'SFO · 14ms', 'NRT · 19ms', 'LHR · 22ms', 'FRA · 24ms'];
       SC.edgePicked = nodes[(nodes.indexOf(SC.edgePicked) + 1) % nodes.length];
       renderScHoverLoops();
-  const renderScBatch2 = () => {
-    sct('sync-pct', `${SC.syncPct}%`);
-    sct('sync-sub', `${(SC.syncPct * 0.2).toFixed(1)} GB / 20 GB · Synced`);
-    sct('sync-auto', SC.syncAuto ? 'On' : 'Off');
-    $$('[data-sc-act="sync-auto"]', loop).forEach(b => b.setAttribute('aria-pressed', String(SC.syncAuto)));
-
-    $$('[data-sc="live-logs"]', loop).forEach(c => c.setAttribute('data-paused', SC.logPaused ? '1' : '0'));
-    sct('log-state', SC.logPaused ? 'Paused' : 'Live');
-    sct('log-pause-btn', SC.logPaused ? 'Resume' : 'Pause');
-    $$('[data-sc-act="log-pause"]', loop).forEach(b => b.setAttribute('aria-pressed', String(SC.logPaused)));
-    $$('[data-sc-act="log-filter"]', loop).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.lf === SC.logFilter)));
-
-    sct('bio-pill', SC.bioUnlocked ? 'Verified ✓' : 'Locked');
-    sct('bio-btn', SC.bioUnlocked ? 'Lock Passkey' : 'Verify Passkey');
-    $$('[data-sc-act="bio-toggle"]', loop).forEach(b => b.setAttribute('aria-pressed', String(SC.bioUnlocked)));
-
-    const MESH = {
-      Aurora: ['var(--accent)', '#38bdf8', '#a855f7'],
-      Sunset: ['#fb7185', '#f59e0b', '#f43f5e'],
-      Cyber: ['#22d3ee', '#818cf8', '#e879f9']
-    };
-    const [c1, c2, c3] = MESH[SC.meshPreset] || MESH.Aurora;
-    $$('[data-sc-bind="mesh-orb1"]', loop).forEach(el => { el.style.background = c1; });
-    $$('[data-sc-bind="mesh-orb2"]', loop).forEach(el => { el.style.background = c2; });
-    $$('[data-sc-bind="mesh-orb3"]', loop).forEach(el => { el.style.background = c3; });
-    sct('mesh-sub', `${SC.meshPreset} · Hover to drift orbs`);
-    $$('[data-sc-act="mesh-preset"]', loop).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.mp === SC.meshPreset)));
-
-    const AI_STATES = ['Thinking', 'Drafting', 'Done ✓'];
-    sct('ai-dot-pill', AI_STATES[SC.aiDotStep % AI_STATES.length]);
-
-    sct('tl-sub', `${SC.tlTrack} Track · ${SC.tlSpeed} · Hover to scrub`);
-    $$('[data-sc-act="tl-speed"]', loop).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.sp === SC.tlSpeed)));
-    $$('[data-sc-act="tl-track"]', loop).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.tr === SC.tlTrack)));
-
-    sct('al-count', `${SC.alUnread} unread`);
-    sct('al-btn', SC.alUnread ? 'Mark All Read' : 'Reset Alerts');
-    sct('kb-sub', SC.kbPicked);
-    $$('[data-sc-act="kb-pick"]', loop).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.kb === SC.kbPicked)));
-  };
-  renderScBatch2();
-  const renderScBatch3 = () => {
-    sct('split-sub', `${SC.splitPos}% split · Hover to sweep`);
-    $$('[data-sc-bind="split-bar"]', loop).forEach(el => { el.style.left = `${SC.splitPos}%`; });
-    $$('[data-sc-act="split-pos"]', loop).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.sp === SC.splitPos)));
-
-    sct('vo-pill', SC.voState);
-    sct('vo-sub', `${SC.voState} · Hover for acoustic halo`);
-    $$('[data-sc-act="vo-state"]', loop).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.vs === SC.voState)));
-
-    const totalTasks = 6, pct = Math.round((SC.kbShipped / totalTasks) * 100);
-    sct('kb-lane-sub', `${totalTasks - SC.kbShipped} in review · ${SC.kbShipped} shipped`);
-    sct('kb-lane-pct', `${pct}%`);
-    sct('kb-ship-btn', SC.kbShipped >= totalTasks ? 'Reset Sprint' : 'Ship Next Task');
-
-    const CDN = {
-      Americas: 'Americas · 14.2k req/s · 12ms p95',
-      Europe: 'Europe · 11.8k req/s · 16ms p95',
-      'Asia-Pacific': 'Asia-Pacific · 16.4k req/s · 11ms p95'
-    };
-    sct('cdn-sub', CDN[SC.cdnReg] || CDN.Americas);
-    $$('[data-sc-act="cdn-reg"]', loop).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.reg === SC.cdnReg)));
-
-    sct('bnd-sub', SC.bndGzip ? 'Gzipped · Zero runtime' : 'Raw minified · Zero runtime');
-    sct('bnd-pill', SC.bndGzip ? '28.4 KB' : '82.0 KB');
-    $$('[data-sc-act="bnd-mode"]', loop).forEach(b => b.setAttribute('aria-pressed', String(SC.bndGzip)));
-
-    sct('wh-sub', SC.whRetried ? 'All events delivered' : '1 event queued for retry');
-    sct('wh-status', SC.whRetried ? '200 OK' : '429 Retry');
-    sct('wh-btn', SC.whRetried ? 'Simulate 429' : 'Replay Failed');
-  };
-  renderScBatch3();
-  const renderScBatch4 = () => {
-    sct('th-temp', `${SC.thTemp}°C`);
-    sct('th-mode', SC.thMode);
-
-    const lyOn = Object.values(SC.spLayers).filter(Boolean).length;
-    sct('sp-sub', `${SC.spCam} Camera · ${lyOn} layers active · Hover to orbit`);
-    $$('[data-sc-act="sp-cam"]', loop).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.cam === SC.spCam)));
-    ['mesh', 'rim', 'fog'].forEach(k => {
-      const on = SC.spLayers[k];
-      sct(`sp-ly-${k}`, on ? 'On' : 'Off');
-      $$(`[data-sc-act="sp-layer"][data-ly="${k}"]`, loop).forEach(b => b.setAttribute('aria-pressed', String(on)));
-    });
-
-    const ordSubs = ['Order packed · Preparing pickup', 'In transit · Regional hub', 'Out for delivery · ETA 14 mins', 'Delivered · Signed at porch'];
-    const ordWidths = ['18%', '46%', '68%', '100%'];
-    sct('ord-sub', ordSubs[SC.ordStep] || ordSubs[2]);
-    $$('[data-sc-bind="ord-bar"]', loop).forEach(el => { el.style.width = ordWidths[SC.ordStep] || '68%'; });
-    [0, 1, 2, 3].forEach(i => {
-      $$(`[data-sc-bind="ord-s${i}"]`, loop).forEach(el => {
-        el.style.color = i === SC.ordStep ? 'var(--accent-text)' : '';
-        el.classList.toggle('sec', i > SC.ordStep);
-      });
-    });
-
-    sct('cur-btn', SC.curFollow ? 'Following' : 'Free Pan');
-    sct('cur-sub', SC.curFollow ? '3 collaborators editing · Synced' : '3 collaborators editing');
-    $$('[data-sc-act="cur-follow"]', loop).forEach(b => b.setAttribute('aria-pressed', String(SC.curFollow)));
-
-    sct('bp-sub', SC.bpAlt ? 'Boarding Zone 2 · Seat 14A' : 'Gate B12 · Seat 14A');
-    sct('bp-pill', SC.bpAlt ? 'Boarding' : 'On Time');
-
-    const SQLS = {
-      users: ['1.4ms · B-Tree Index Scan · 128 rows', 'SELECT id, email, plan FROM users WHERE active = true LIMIT 50;'],
-      orders: ['4.8ms · Hash Join · 1,024 rows', 'SELECT o.id, o.total FROM orders o JOIN users u ON u.id = o.user_id;'],
-      metrics: ['2.1ms · Materialized Rollup · 30 rows', 'SELECT day, SUM(clicks) FROM seo_metrics GROUP BY day ORDER BY day DESC;']
-    };
-    const [sSub, sCode] = SQLS[SC.sqlQ] || SQLS.users;
-    sct('sql-sub', sSub);
-    sct('sql-code', sCode);
-    $$('[data-sc-act="sql-q"]', loop).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.q === SC.sqlQ)));
-  };
-  renderScBatch4();
-  const renderScBatch5 = () => {
-    const CPUS = {
-      mac: ['macOS M4 Pro · 34% CPU · 48°C · 18.4 GB RAM', '38%', '142 tasks · Nominal'],
-      win: ['Windows 11 24H2 · 41% CPU · 54°C · 14.2 GB RAM', '46%', '186 procs · Balanced'],
-      linux: ['Linux 6.11 Kernel · 19% CPU · 41°C · 6.8 GB RAM', '22%', '98 tasks · zram active']
-    };
-    const [cSub, cMem, cProc] = CPUS[SC.cpuOs] || CPUS.mac;
-    sct('cpu-sub', cSub); sct('cpu-mem', cMem); sct('cpu-proc', cProc);
-    $$('[data-sc-act="cpu-os"]', loop).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.os === SC.cpuOs)));
-
-    sct('spot-app', SC.spotApp);
-    $$('[data-sc-act="spot-pick"]', loop).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.app === SC.spotApp)));
-
-    const DISPS = [['82%', 'True Tone: On'], ['65%', 'Night Shift: Warm'], ['100%', 'HDR XDR: Peak']];
-    const [dPct, dBtn] = DISPS[SC.dispMode % DISPS.length];
-    sct('disp-pct', dPct); sct('disp-btn', dBtn);
-
-    const WMS = {
-      split: ['Split 50/50 · macOS Stage / Win Snap / Hyprland', 'col-span-6', 'col-span-6'],
-      grid: ['Grid 2×2 · Quad Workspace Tile', 'col-span-6', 'col-span-6'],
-      master: ['Master 67% + Stack 33% · i3 / yabai', 'col-span-8', 'col-span-4'],
-      focus: ['Focus 75% · Centered Zen Window', 'col-span-9', 'col-span-3']
-    };
-    const [wSub, wC1, wC2] = WMS[SC.wmLay] || WMS.split;
-    sct('wm-sub', wSub);
-    $$('[data-sc-act="wm-layout"]', loop).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.lay === SC.wmLay)));
-    $$('[data-sc-bind="wm-p1"]', loop).forEach(el => { el.className = `sc-tile-pane ${wC1} p-2 flex flex-col justify-between`; });
-    $$('[data-sc-bind="wm-p2"]', loop).forEach(el => { el.className = `sc-tile-pane ${wC2} p-2 flex flex-col justify-between`; });
-
-    sct('air-vis', SC.airVis);
-    sct('air-sub', `${SC.airVis} · ${SC.airDev} selected`);
-    $$('[data-sc-act="air-dev"]', loop).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.dev === SC.airDev)));
-
-    const HTS = {
-      zsh: ['ericsn@macbook ~ %', 'htop --sort-key=PERCENT_CPU'],
-      bash: ['ericsn@ubuntu:~$', 'btop --utf-force'],
-      pwsh: ['PS C:\\Users\\ericsn>', 'Get-Process | Sort CPU -Desc']
-    };
-    const [hP, hC] = HTS[SC.htSh] || HTS.zsh;
-    sct('ht-prompt', hP); sct('ht-cmd', hC);
-    $$('[data-sc-act="ht-sh"]', loop).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.sh === SC.htSh)));
-
-    const WFS = [
-      ['Wi-Fi 7 (6 GHz) · ↓ 1.84 Gbps · ↑ 920 Mbps', 'Wi-Fi 7', '4 ms'],
-      ['10GbE Thunderbolt · ↓ 9.40 Gbps · ↑ 8.95 Gbps', '10GbE', '1 ms'],
-      ['Tailscale Mesh VPN · ↓ 680 Mbps · ↑ 640 Mbps', 'Tailscale', '18 ms']
-    ];
-    const [wfSub, wfBtn, wfPing] = WFS[SC.wfMode % WFS.length];
-    sct('wf-sub', wfSub); sct('wf-btn', wfBtn); sct('wf-ping', wfPing);
-
-    sct('cl-sub', SC.clLast ? `Copied: ${SC.clLast.slice(0, 26)}…` : 'Click any entry to copy & pin');
-  };
-  renderScBatch5();
-  const renderScBatch6 = () => {
-    const FPS = {
-      '240hz': ['240Hz Competitive · 4.2 ms frame time · 61°C GPU', '238', '196'],
-      dlss: ['DLSS Quality · 6.9 ms frame time · 66°C GPU', '144', '118'],
-      ultra: ['1440p Ultra RT · 9.6 ms frame time · 71°C GPU', '104', '86']
-    };
-    const [fSub, fVal, fLow] = FPS[SC.fpsMode] || FPS['240hz'];
-    sct('fps-sub', fSub); sct('fps-val', fVal); sct('fps-low', fLow);
-    $$('[data-sc-act="fps-mode"]', loop).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.fm === SC.fpsMode)));
-
-    const SNDS = ['Studio Buds', 'HDMI Audio', 'Mac Speakers'];
-    sct('snd-lbl', SNDS[SC.sndOut % SNDS.length]);
-
-    const HAPS = [['Haptic: Hi', true], ['Haptic: Lo', true], ['Haptic: Off', false]];
-    const [hLbl, hPr] = HAPS[SC.padHap % HAPS.length];
-    sct('pad-lbl', hLbl);
-    $$('[data-sc-act="pad-haptic"]', loop).forEach(b => b.setAttribute('aria-pressed', String(hPr)));
-
-    const FW_OS = { mac: 'macOS PF + Gatekeeper', win: 'Windows Defender Firewall', linux: 'Linux ufw + nftables' };
-    const fwCnt = Object.values(SC.fwRules).filter(Boolean).length;
-    sct('fw-os-sub', `${FW_OS[SC.fwOs] || FW_OS.mac} · ${fwCnt}/3 rules active`);
-    $$('[data-sc-act="fw-os"]', loop).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.os === SC.fwOs)));
-    ['stealth', 'block', 'doh'].forEach(r => {
-      const on = SC.fwRules[r];
-      sct(`fw-r-${r}`, on ? 'On' : 'Off');
-      $$(`[data-sc-act="fw-rule"][data-r="${r}"]`, loop).forEach(b => b.setAttribute('aria-checked', String(on)));
-    });
-
-    const PWRS = { low: 'Low Power · 1,400 RPM · Silent', auto: 'Auto · 2,400 RPM · Whisper', turbo: 'Turbo · 4,200 RPM · Max Cooling' };
-    sct('pwr-sub', PWRS[SC.pwrMode] || PWRS.auto);
-    $$('[data-sc-act="pwr-mode"]', loop).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.pm === SC.pwrMode)));
-
-    sct('lob-sub', SC.lobOn ? `Searching ${SC.lobReg} · 00:18` : `Ready · ${SC.lobReg}`);
-    sct('lob-btn', SC.lobOn ? 'In Queue' : 'Find Match');
-    $$('[data-sc-act="lob-toggle"]', loop).forEach(b => b.setAttribute('aria-pressed', String(SC.lobOn)));
-    $$('[data-sc-act="lob-reg"]', loop).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.lr === SC.lobReg)));
-
-    const inCnt = Object.values(SC.inKeys).filter(Boolean).length;
-    sct('in-sub', `${inCnt} tweaks enabled · Cross-OS`);
-    ['caps', 'tap'].forEach(k => {
-      const on = SC.inKeys[k];
-      sct(`in-k-${k}`, on ? 'On' : 'Off');
-      $$(`[data-sc-act="in-tgl"][data-k="${k}"]`, loop).forEach(b => b.setAttribute('aria-checked', String(on)));
-    });
-
-    const pct = Math.min(100, Math.round((SC.xpVal / 3000) * 100));
-    sct('xp-lvl', String(SC.xpLvl));
-    sct('xp-sub', `${SC.xpVal.toLocaleString()} / 3,000 XP · Achievement Ready`);
-    $$('[data-sc-bind="xp-bar"]', loop).forEach(el => { el.style.width = `${pct}%`; });
-  };
-  renderScBatch6();
-  const renderScGta = () => {
-    const GH = {
-      std: ['2×', 'Double GTA$ & RP Storefront SEO Spotlight · #1 Open-World Rank'],
-      prem: ['3×', 'Criminal Enterprise Pack + $1M Bonus · Top Converting SEO Landing'],
-      mega: ['4×', 'Megalodon Shark Bundle · Featured Game Store Banner']
-    };
-    const [m, sub] = GH[SC.ghEd] || GH.std;
-    sct('gh-mult', m); sct('gh-sub', sub);
-    $$('[data-sc-act="gh-ed"]', loop).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.ed === SC.ghEd)));
-
-    const GM = {
-      steam: ['$87,410', '↑ 14.8% CTR', 'Steam organic search sales +18% MoM', '$2,450 / $4,000'],
-      epic: ['$54,920', '↑ 11.2% CTR', 'Epic Games Storefront discovery +12% MoM', '$3,120 / $4,000'],
-      rgl: ['$62,180', '↑ 19.4% CTR', 'Rockstar Launcher direct SEO +24% MoM', '$3,680 / $4,000']
-    };
-    const [rev, ctr, gsub, prog] = GM[SC.gmStore] || GM.steam;
-    sct('gm-rev', rev); sct('gm-ctr', ctr); sct('gm-sub', gsub); sct('gm-prog', prog);
-    sct('gm-avg', `Avg ${ctr.replace('↑ ', '+').replace(' CTR', '')}`);
-    $$('[data-sc-act="gm-store"]', loop).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.st === SC.gmStore)));
-
-    sct('gw-status', SC.gwQuick ? 'Maze Bank · Quick Pay On' : 'Maze Bank · Standard Checkout');
-    sct('gw-badge', SC.gwQuick ? 'MAZE' : 'BANK');
-
-    sct('gc-val', SC.gcRange === '7d' ? '315,400' : '428,900');
-    sct('gc-up', SC.gcRange === '7d' ? '↑ 12.4%' : '↑ 21.8%');
-    $$('[data-sc-act="gc-range"]', loop).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.rg === SC.gcRange)));
-
-    sct('gwn-stars', '★'.repeat(SC.gwnStars) + '☆'.repeat(5 - SC.gwnStars));
-    sct('gwn-pct', `${100 - (SC.gwnStars - 1) * 8}%`);
-
-    sct('gk-btn', SC.gkDone ? 'Activated ✓' : 'Redeem Key');
-    sct('gk-code', SC.gkDone ? 'UNLOCKED' : 'GTAV-LS26');
-    sct('gk-sub', SC.gkDone ? 'Synced to Account' : 'Steam / Rockstar Sync');
-    $$('[data-sc-act="gk-redeem"]', loop).forEach(b => b.setAttribute('aria-pressed', String(SC.gkDone)));
-
-    sct('gs-wish', SC.gsWish ? 'Wishlisted ✓' : 'Wishlist');
-    $$('[data-sc-act="gs-wish"]', loop).forEach(b => b.setAttribute('aria-pressed', String(SC.gsWish)));
-    $$('[data-sc-act="gs-plat"]', loop).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.pl === SC.gsPlat)));
-    const scores = { All: '97%', PC: '99%', Console: '95%' };
-    sct('gs-score', scores[SC.gsPlat] || '97%');
-    sct('gs-sub', `${SC.gsPlat} · Top ranked GTA V store pages`);
-  };
-  renderScGta();
     }
     else if (a === 'shim-mode') { SC.shimMode = el.dataset.sm || 'AI Stream'; renderScHoverLoops(); }
     else if (a === 'sync-now') { SC.syncPct = SC.syncPct >= 95 ? 71 : SC.syncPct + 8; renderScBatch2(); }
@@ -6220,7 +5743,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const THEME_LABELS = { lime: 'Olive', blue: 'Cobalt', indigo: 'Indigo', ember: 'Ember', rose: 'Rose', mono: 'Monochrome' };
   const FONT_LABELS = { system: 'Apple Native', editorial: 'Editorial Serif', geometric: 'Geometric Studio', humanist: 'Humanist Literary', swiss: 'Swiss Avant' };
   const FW_LABELS = { html: 'HTML', react: 'TSX', vue: 'Vue', svelte: 'Svelte' };
-  const GB_LABELS = { abstract: 'Abstract', rainier: 'Rainier', pexels1: 'Scenic I', pexels2: 'Scenic II' };
+  const GB_LABELS = { p1: 'Vista I', p2: 'Vista II', p3: 'Vista III', p4: 'Vista IV', p5: 'Vista V', rainier: 'Rainier' };
   const studioState = {
     accent: root.dataset.accent || 'lime',
     scheme: root.dataset.scheme || 'auto',
@@ -6229,7 +5752,7 @@ document.addEventListener('DOMContentLoaded', () => {
     loopPaused: root.dataset.loop === 'paused',
     fw: root.dataset.fw || 'html',
     material: root.dataset.material === 'glass' ? 'glass' : 'classic',
-    glassBg: root.dataset.glassBg || 'abstract'
+    glassBg: root.dataset.glassBg || 'p1'
   };
   const syncStudioUI = () => {
     const resolvedDark = studioState.scheme === 'dark' || (studioState.scheme === 'auto' && schemeMql.matches);
@@ -6245,7 +5768,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (glassTrigger) glassTrigger.setAttribute('aria-pressed', String(isGlass));
     if (glassActiveSwitch) glassActiveSwitch.setAttribute('aria-checked', String(isGlass));
     if (quickGlassBgBtn) {
-      const gbLbl = GB_LABELS[studioState.glassBg] || 'Abstract';
+      const gbLbl = GB_LABELS[studioState.glassBg] || 'Vista I';
       quickGlassBgBtn.hidden = !isGlass;
       quickGlassBgBtn.textContent = `BG: ${gbLbl}`;
       quickGlassBgBtn.setAttribute('aria-label', `Glass background: ${gbLbl}`);
@@ -6273,7 +5796,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!studioState.loopPaused) delete root.dataset.loop; else root.dataset.loop = 'paused';
     if (studioState.fw === 'html') delete root.dataset.fw; else root.dataset.fw = studioState.fw;
     if (studioState.material === 'classic') delete root.dataset.material; else root.dataset.material = 'glass';
-    if (studioState.glassBg === 'abstract') delete root.dataset.glassBg; else root.dataset.glassBg = studioState.glassBg;
+    if (studioState.glassBg === 'p1' || !GB_LABELS[studioState.glassBg]) delete root.dataset.glassBg; else root.dataset.glassBg = studioState.glassBg;
     try {
       localStorage.setItem('uiz-accent', studioState.accent);
       localStorage.setItem('uiz-scheme', studioState.scheme);
@@ -6292,7 +5815,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (studioState.loopPaused) u.searchParams.set('loop', 'paused'); else u.searchParams.delete('loop');
       if (studioState.fw !== 'html') u.searchParams.set('fw', studioState.fw); else u.searchParams.delete('fw');
       if (studioState.material === 'classic') u.searchParams.set('material', 'classic'); else u.searchParams.delete('material');
-      if (studioState.glassBg !== 'abstract') u.searchParams.set('glassBg', studioState.glassBg); else u.searchParams.delete('glassBg');
+      if (studioState.glassBg !== 'p1') u.searchParams.set('glassBg', studioState.glassBg); else u.searchParams.delete('glassBg');
       history.replaceState(null, '', u);
     } catch {}
     if (prevLoop !== studioState.loopPaused) applyLoopMode(studioState.loopPaused, false);
@@ -6381,13 +5904,13 @@ document.addEventListener('DOMContentLoaded', () => {
       glassResetBtn.addEventListener('click', () => {
         glassCfg = { ...GLASS_DEF };
         applyGlassCfg(true);
-        applyStudio({ material: 'glass', accent: 'mono', glassBg: 'abstract' }, 'Glass optics reset to White / Mono default');
+        applyStudio({ material: 'glass', accent: 'mono', glassBg: 'p1' }, 'Glass optics reset to White / Mono default');
       });
     }
   }
   if (quickGlassBgBtn) {
     quickGlassBgBtn.addEventListener('click', () => {
-      const order = ['abstract', 'rainier', 'pexels1', 'pexels2'];
+      const order = ['p1', 'p2', 'p3', 'p4', 'p5', 'rainier'];
       const next = order[(order.indexOf(studioState.glassBg) + 1) % order.length];
       applyStudio({ material: 'glass', glassBg: next }, `Glass background set to ${GB_LABELS[next]}`);
     });
@@ -6406,7 +5929,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
   if (resetStudioBtn) {
-    resetStudioBtn.addEventListener('click', () => applyStudio({ accent: 'mono', scheme: 'auto', font: 'system', density: 'comfortable', loopPaused: false, fw: 'html', material: 'glass', glassBg: 'abstract' }, 'Studio preferences reset to White / Mono Liquid Glass'));
+    resetStudioBtn.addEventListener('click', () => applyStudio({ accent: 'mono', scheme: 'auto', font: 'system', density: 'comfortable', loopPaused: false, fw: 'html', material: 'glass', glassBg: 'p1' }, 'Studio preferences reset to White / Mono Liquid Glass'));
   }
   const exportCssBtn = $('#studio-export-css');
   if (exportCssBtn) {
